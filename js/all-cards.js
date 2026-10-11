@@ -259,10 +259,11 @@ function renderOverlap(list) {
 // Highlight the hovered cell's column as well as its row
 $("overlapGrid").addEventListener("mouseover", e => {
   const cell = e.target.closest("td, th"), col = cell ? cell.cellIndex : -1;
-  $("overlapGrid").querySelectorAll(".colhl").forEach(c => c.classList.remove("colhl"));
+  $("overlapGrid").querySelectorAll(".colhl, .rowhl").forEach(c => c.classList.remove("colhl", "rowhl"));
   if (col > 0) $("overlapGrid").querySelectorAll("tr").forEach(tr => tr.cells[col]?.classList.add("colhl"));
+  if (cell?.tagName === "TD") cell.parentElement.querySelector("th.rowh")?.classList.add("rowhl");
 });
-$("overlapGrid").addEventListener("mouseleave", () => $("overlapGrid").querySelectorAll(".colhl").forEach(c => c.classList.remove("colhl")));
+$("overlapGrid").addEventListener("mouseleave", () => $("overlapGrid").querySelectorAll(".colhl, .rowhl").forEach(c => c.classList.remove("colhl", "rowhl")));
 $("overlapGrid").addEventListener("click", e => {
   const b = e.target.closest("button[data-a]"); if (!b) return;
   ix.skip = new Set(currentDeckIds().filter(id => id !== b.dataset.a && id !== b.dataset.b)); ix.match = "every";

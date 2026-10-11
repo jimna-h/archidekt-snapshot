@@ -278,7 +278,7 @@ const thumbHtml = id => {
 function showView(v) {
   view = v;
   for (const id of ["pricesView", "indexView", "cardsView"]) $(id === "pricesView" ? "app" : id).hidden = v !== id;
-  document.documentElement.dataset.view = v;   // print styles only apply on the Deck cards tab
+  document.documentElement.dataset.view = v;   // print styles only apply on the Business cards tab
   if (v === "cardsView" && $("cardSheet").children.length) fitGameChangers();   // can only measure while visible
   $("tabs").querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", b.dataset.view === v));
   syncUrl();

@@ -19,10 +19,12 @@ function setHipsterLink() {
 // ---------- shareable links ----------
 // The address holds the tab plus that tab's deck and filters, e.g.
 //   #decks?deck=4279849&price=ck&on=2026-09-11&show=proxied&q=sol
-//   #search?q=elf&colors=W,G,-R&types=Creature,-Land&skip=4279849&sets=SLD,-LTR&cmd=only&proxied=only&stores=tcg,ck,cm&layout=grid
+//   #cards?q=elf&colors=W,G,-R&types=Creature,-Land&skip=4279849&sets=SLD,-LTR&cmd=only&proxied=only&stores=tcg,ck,cm&layout=grid
 // (#proxies links from before the Proxies tab was merged into Cards still open, as Proxies only.)
 // Switching tab or deck adds a history entry (so Back works); filter tweaks replace it.
-const VIEW_SLUG = { pricesView: "decks", indexView: "search", cardsView: "cards" };
+const VIEW_SLUG = { pricesView: "decks", indexView: "cards", cardsView: "business" };
+// older addresses: #search was the Cards tab, #proxies its proxies-only view
+const OLD_SLUGS = { search: "indexView", proxies: "indexView" };
 const SLUG_VIEW = Object.fromEntries(Object.entries(VIEW_SLUG).map(([k, v]) => [v, k]));
 const PRICE_SLUG = { price_tcgplayer: "tcg", price_cardkingdom: "ck", price_cardmarket: "cm" };
 const SLUG_PRICE = Object.fromEntries(Object.entries(PRICE_SLUG).map(([k, v]) => [v, k]));
@@ -73,7 +75,7 @@ function syncUrl() {
 function readUrl() {
   const [slug, qs = ""] = location.hash.replace(/^#/, "").split("?");
   const q = new URLSearchParams(qs);
-  view = slug === "proxies" ? "indexView" : SLUG_VIEW[slug] || "pricesView";
+  view = SLUG_VIEW[slug] || OLD_SLUGS[slug] || "pricesView";
   source = SLUG_PRICE[q.get("price")] || "price_tcgplayer";
   $("source").value = source;
   // reset everything, then apply what the link specifies

@@ -1,6 +1,6 @@
-// Deck cards tab: printable business cards, print and PNG download.
+// Business cards tab: a printable card per deck, print and PNG download.
 
-// ---------- deck cards ----------
+// ---------- business cards ----------
 // One Magic-card-sized (2.5 × 3.5 in) card per deck: color-identity frame, art, the deck's
 // Archidekt bracket and the cards behind it, and a QR code to the deck. Laid out like a
 // Magic card: name + color "mana cost", art, type line (commanders), text box, and the
@@ -173,7 +173,7 @@ $("pngCards").addEventListener("click", async () => {
       files.push({ name, blob, bytes: new Uint8Array(await blob.arrayBuffer()) });
     }
     if (files.length === 1) saveBlob(files[0].blob, files[0].name);
-    else saveBlob(makeZip(files), `Deck cards ${latestDate}.zip`);
+    else saveBlob(makeZip(files), `Business cards ${latestDate}.zip`);
     btn.textContent = files.length === 1 ? "Downloaded" : `Zipped ${files.length}`;
   } catch (err) {
     console.error(err); btn.textContent = "Couldn't make the images";
