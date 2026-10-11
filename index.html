@@ -258,6 +258,15 @@
   td.sets-col { max-width: 160px; }
 
   /* ---------- new pieces ---------- */
+  .px-layout { margin-left: auto; }
+  .px-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px 14px; margin-top: 16px; }
+  .px-tile { margin: 0; }
+  .px-img { position: relative; aspect-ratio: 488 / 680; border-radius: 4.75% / 3.5%; overflow: hidden; background: var(--grid); }
+  .px-img img { position: relative; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .px-img .ph { position: absolute; inset: 0; display: grid; place-items: center; padding: 10px; text-align: center; font-size: 13px; color: var(--text-secondary); }
+  .px-qty { position: absolute; z-index: 1; top: 8%; right: 6%; background: rgba(0,0,0,0.78); color: #fff; font-size: 13px; font-weight: 600; padding: 1px 7px; border-radius: 999px; }
+  .px-tile figcaption { display: flex; justify-content: space-between; gap: 6px; margin-top: 6px; font-size: 13px; }
+  .px-tile figcaption .muted { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .seg { display: inline-flex; gap: 2px; padding: 3px; background: var(--grid); border-radius: 8px; }
   .seg button { font: inherit; font-size: 14px; color: var(--text-secondary); background: none; border: 0; border-radius: 6px; padding: 3px 10px; cursor: pointer; }
   .seg button[aria-pressed="true"] { background: var(--surface); color: var(--text-primary); box-shadow: 0 1px 2px rgba(0,0,0,0.12); }
@@ -438,9 +447,19 @@
         <label class="check"><input type="checkbox" class="px-store" value="tcg" checked> TCGplayer</label>
         <label class="check"><input type="checkbox" class="px-store" value="ck" checked> Card Kingdom</label>
         <label class="check" title="European store; prices may not be in dollars"><input type="checkbox" class="px-store" value="cm"> Cardmarket</label>
+        <select id="pxGridSort" aria-label="Sort" hidden>
+          <option value="best">Cheapest first</option>
+          <option value="-best">Priciest first</option>
+          <option value="name">Name</option>
+        </select>
+        <div class="seg px-layout" id="pxLayout" role="group" aria-label="Layout">
+          <button data-l="table" aria-pressed="true">Table</button>
+          <button data-l="grid" aria-pressed="false">Grid</button>
+        </div>
       </div>
     </div>
-    <div class="ix-table">
+    <div class="px-grid" id="pxGrid" hidden></div>
+    <div class="ix-table" id="pxTableBox">
       <div class="table-wrap">
         <table id="proxyTable">
           <thead><tr>
@@ -1181,7 +1200,7 @@
   $("asOf").addEventListener("change", e => { asOf = e.target.value; renderCards(decks.get(selected)); });
 
   // ---------- proxies tab ----------
-  const px = { decks: new Set(), stores: new Set(["tcg", "ck"]) };
+  const px = { decks: new Set(), stores: new Set(["tcg", "ck"]), layout: "table" };
   let pxSort = { k: "best", dir: 1 };   // cheapest first
   function renderProxies() {
     const list = new Map();
@@ -1189,7 +1208,7 @@
       if (isStale(d) || (px.decks.size && !px.decks.has(d.id))) continue;
       for (const r of d.rows) if (isProxy(r)) {
         const k = printKey(r);
-        const e = list.get(k) || { name: r.card_name, set: r.set_code, finish: r.finish, qty: 0, decks: new Map(),
+        const e = list.get(k) || { name: r.card_name, set: r.set_code, finish: r.finish, id: r.scryfall_id, qty: 0, decks: new Map(),
           tcg: num(r.price_tcgplayer), ck: num(r.price_cardkingdom), cm: num(r.price_cardmarket) };
         e.qty += r.qty; e.decks.set(d.id, (e.decks.get(d.id) || 0) + r.qty); list.set(k, e);
       }
@@ -1220,10 +1239,37 @@
         <td class="num muted">${money(running)}</td>
       </tr>`;
     }).join("") || `<tr><td colspan="8" class="muted">Nothing to show.</td></tr>`;
+    $("pxGrid").innerHTML = rows.map(r => {
+      const decksTip = sortBy([...r.decks].map(([id, q]) => ({ name: deckName(id), q })), { k: "name", dir: 1 })
+        .map(x => x.name + (x.q > 1 ? " ×" + x.q : "")).join("\n");
+      const each = r.bestStore ? r[r.bestStore] : null;
+      return `<figure class="px-tile" title="${esc(r.name)} (${esc(r.set.toUpperCase())})\n${esc(decksTip)}">
+        <div class="px-img"><div class="ph">${esc(r.name)}</div>${cardImg(r)}${r.qty > 1 ? `<span class="px-qty">×${r.qty}</span>` : ""}</div>
+        <figcaption><b class="num">${money(each)}</b><span class="muted">${r.bestStore ? STORE_NAMES[r.bestStore] : "No price"}</span></figcaption>
+      </figure>`;
+    }).join("") || `<div class="muted">Nothing to show.</div>`;
+    const grid = px.layout === "grid";
+    $("pxGrid").hidden = !grid; $("pxTableBox").hidden = grid; $("pxGridSort").hidden = !grid;
+    $("pxGridSort").value = ["best", "-best", "name"].includes(sortStr(pxSort)) ? sortStr(pxSort) : "best";
+    $("pxLayout").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === px.layout)));
     markSort($("proxyTable"), pxSort);
     fillDeckDropdown($("pxDeckDD"), px.decks);
     syncUrl();
   }
+  // Card image for an exact printing: Scryfall's image server when we have the printing id,
+  // otherwise look it up by name and set (older snapshots don't carry the id).
+  function cardImg(r) {
+    const id = (r.id || "").toLowerCase();
+    const byName = `https://api.scryfall.com/cards/named?exact=${encodeURIComponent(r.name)}&set=${encodeURIComponent(r.set)}&format=image&version=normal`;
+    const src = /^[0-9a-f-]{36}$/.test(id) ? `https://cards.scryfall.io/normal/front/${id[0]}/${id[1]}/${id}.jpg` : byName;
+    return `<img src="${esc(src)}" alt="${esc(r.name)}" loading="lazy" decoding="async"
+      onerror="if(this.src!=='${esc(byName)}')this.src='${esc(byName)}';else this.remove()">`;
+  }
+  $("pxLayout").addEventListener("click", e => {
+    const b = e.target.closest("button[data-l]"); if (!b) return;
+    px.layout = b.dataset.l; renderProxies();
+  });
+  $("pxGridSort").addEventListener("change", e => { readSort(e.target.value, pxSort); renderProxies(); });
   document.querySelectorAll(".px-store").forEach(c => c.addEventListener("change", () => {
     c.checked ? px.stores.add(c.value) : px.stores.delete(c.value);
     if (!px.stores.size) { px.stores.add(c.value); c.checked = true; }
@@ -1688,6 +1734,7 @@
       if (px.decks.size) q.set("decks", [...px.decks].join(","));
       if ([...px.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...px.stores].join(","));
       if (sortStr(pxSort) !== "best") q.set("sort", sortStr(pxSort));
+      if (px.layout === "grid") q.set("layout", "grid");
     } else if (view === "indexView") {
       const modes = map => [...map].map(([k, m]) => (m === "out" ? "-" : "") + k).join(",");
       if (ix.search) q.set("q", ix.search);
@@ -1741,6 +1788,7 @@
       const st = csvList(q.get("stores")).filter(x => STORE_NAMES[x]);
       if (st.length) px.stores = new Set(st);
       readSort(q.get("sort"), pxSort);
+      px.layout = q.get("layout") === "grid" ? "grid" : "table";
     } else if (view === "indexView") {
       // "W,-R" style lists ("-" = excluded); older links used "WG" for colors
       const readModes = (str, ok = () => true) => new Map(csvList(str).map(x => x.startsWith("-") ? [x.slice(1), "out"] : [x, "in"]).filter(([k]) => ok(k)));

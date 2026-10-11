@@ -67,6 +67,7 @@ FIELDNAMES = [
     "finish",
     *PRICE_SOURCES.values(),
     "proxied",
+    "scryfall_id",   # the exact printing, so the page can show the card image
 ]
 
 DECK_FIELDNAMES = ["deck_id", "deck_name", "commanders", "commander_ids", "first_seen", "last_seen",
@@ -318,6 +319,7 @@ def fetch_deck(deck_id, today):
             "set_code": (card.get("edition") or {}).get("editioncode", ""),
             "finish": entry.get("modifier") or "Normal",
             "proxied": "true" if is_proxied(entry.get("label")) else "false",
+            "scryfall_id": card.get("uid") or "",
         }
         for key, column in PRICE_SOURCES.items():
             row[column] = price(prices, key, foil)

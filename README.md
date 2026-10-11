@@ -4,7 +4,7 @@ A GitHub Action that, once a day, snapshots every deck in one [Archidekt](https:
 
 `index.html` (Archidekt Snapshot) has four tabs:
 - **Decks**: each deck's value over time (total, paper and proxies), biggest price movers, card swaps, mana curve and card types, and the decklist on any past date. Includes a whole-collection view and an average-deck view.
-- **Proxies**: every proxied card, its price at TCGplayer, Card Kingdom and Cardmarket, the cheapest option, and a running total of what it would cost to replace them.
+- **Proxies**: every proxied card, its price at TCGplayer, Card Kingdom and Cardmarket, the cheapest option, and a running total of what it would cost to replace them, as a table or a grid of card images.
 - **Deck cards**: a Magic-card-sized card for each deck (color-identity frame, commander art, bracket, Game Changers and a QR code to the deck), laid out to print nine to a letter page and sleeve with the deck, or download as a zip of 300 dpi PNGs, one per card.
 - **Search all decks**: find any card across every deck and see which decks run it, plus a grid of how many cards each pair of decks shares. (This replaces the old [edh-ledger](https://github.com/jimna-h/edh-ledger) project.)
 
@@ -31,7 +31,7 @@ Decks are always identified by their Archidekt deck id. The files are laid out s
 
 | File | What's in it | Size over time |
 |---|---|---|
-| `data/latest.csv` | Today's cards in every deck: `deck_id`, `card_name`, `quantity`, `set_code`, `finish`, the three prices, `proxied` | Rewritten daily, stays ~60 KB |
+| `data/latest.csv` | Today's cards in every deck: `deck_id`, `card_name`, `quantity`, `set_code`, `finish`, the three prices, `proxied`, `scryfall_id` (the exact printing, for card images) | Rewritten daily, stays ~60 KB |
 | `data/totals.csv` | One row per deck per day: card count, and total / paper / proxy value at each store (`tcg_*`, `ck_*`, `cm_*`) | ~1 KB a day |
 | `data/decklists.csv` | Change log of deck contents. A deck's full list on its first day, then only entries whose quantity changed (`0` = removed). Swaps and decklist history are rebuilt from this | Grows only when you change decks |
 | `data/card_prices/YYYY-MM.csv` | One row per printing per day with the three prices, shared across decks | ~1.3 MB a month; the page loads the last two months |
