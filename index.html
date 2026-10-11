@@ -332,6 +332,7 @@
   button.primary:hover { filter: brightness(1.08); }
   .cards-bar { display: flex; gap: 12px 24px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
   .cards-bar .note { max-width: 70ch; }
+  .cards-bar .result-line { margin-top: 0; }
   .print-controls { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
   .print-pick { font-size: 13px; color: var(--text-secondary); display: flex; gap: 6px; align-items: center; }
   button.primary:disabled, button.secondary:disabled { opacity: 0.45; cursor: default; filter: none; }
@@ -407,6 +408,46 @@
     .tagrow .bar { grid-column: 1 / -1; grid-row: 2; }
     .ix-bar, .ix-table { padding-left: 12px; padding-right: 12px; }
   }
+  /* Phones: the search and proxy tables turn into stacked rows (sorting moves to the Sort menu) */
+  @media (max-width: 600px) {
+    #indexTable, #proxyTable, #cardTable { min-width: 0; width: 100%; }
+    #indexTable thead, #proxyTable thead, #cardTable thead, #indexTable colgroup { display: none; }
+    #indexTable tbody, #proxyTable tbody, #cardTable tbody { display: block; }
+    #cardTable tr { display: grid; grid-template-columns: auto 1fr auto auto; grid-template-areas: "card card card total" "qty price ind chg"; align-items: center; column-gap: 8px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid); }
+    #cardTable td { display: block; padding: 0; border: 0; min-width: 0; }
+    #cardTable td[colspan] { grid-column: 1 / -1; }
+    #cardTable td:nth-child(1) { grid-area: card; } #cardTable td:nth-child(2) { grid-area: ind; }
+    #cardTable td:nth-child(3) { grid-area: qty; font-size: 13px; color: var(--text-secondary); }
+    #cardTable td:nth-child(3)::after { content: " ×"; }
+    #cardTable td:nth-child(4) { grid-area: price; text-align: left; font-size: 13px; color: var(--text-secondary); }
+    #cardTable td:nth-child(5) { grid-area: total; font-weight: 600; }
+    #cardTable td:nth-child(6) { grid-area: chg; font-size: 13px; }
+    #indexTable tr, #proxyTable tr { display: grid; column-gap: 10px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid); }
+    #indexTable td, #proxyTable td { display: block; padding: 0; border: 0; min-width: 0; }
+    #indexTable td[colspan], #proxyTable td[colspan] { grid-column: 1 / -1; }
+    #indexTable tr { grid-template-columns: 22px auto 1fr auto; grid-template-areas: "n name name price" ". color type price" ". sets sets sets" ". where where where"; }
+    #indexTable td:nth-child(1) { grid-area: n; }
+    #indexTable td:nth-child(2) { grid-area: name; }
+    #indexTable td:nth-child(3) { grid-area: type; font-size: 13px; color: var(--text-secondary); }
+    #indexTable td:nth-child(4), #indexTable td:nth-child(6), #indexTable td:nth-child(7) { display: none; }
+    #indexTable td:nth-child(5) { grid-area: color; }
+    #indexTable td:nth-child(8) { grid-area: price; }
+    #indexTable td:nth-child(9) { grid-area: sets; font-size: 13px; }
+    #indexTable td:nth-child(10) { grid-area: where; }
+    #proxyTable tr { grid-template-columns: repeat(3, 1fr) auto; grid-template-areas: "card card card best" "decks decks decks qty" "tcg ck cm ."; }
+    #proxyTable td:nth-child(1) { grid-area: card; }
+    #proxyTable td:nth-child(2) { grid-area: decks; }
+    #proxyTable td:nth-child(3) { grid-area: qty; color: var(--text-secondary); }
+    #proxyTable td:nth-child(3)::before { content: "×"; }
+    #proxyTable td.one { visibility: hidden; }
+    #proxyTable td:nth-child(4) { grid-area: tcg; } #proxyTable td:nth-child(5) { grid-area: ck; } #proxyTable td:nth-child(6) { grid-area: cm; }
+    #proxyTable td:nth-child(4), #proxyTable td:nth-child(5), #proxyTable td:nth-child(6) { text-align: left; font-size: 13px; }
+    #proxyTable td:nth-child(4)::before { content: "TCG "; color: var(--text-muted); font-weight: 400; }
+    #proxyTable td:nth-child(5)::before { content: "CK "; color: var(--text-muted); font-weight: 400; }
+    #proxyTable td:nth-child(6)::before { content: "CM "; color: var(--text-muted); font-weight: 400; }
+    #proxyTable td:nth-child(7) { grid-area: best; font-weight: 600; }
+    #proxyTable td:nth-child(8) { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -479,12 +520,12 @@
         <table id="proxyTable">
           <thead><tr>
             <th data-k="name">Card</th>
-            <th>Decks</th>
+            <th>In decks</th>
             <th data-k="qty" class="num">Qty</th>
             <th data-k="tcg" class="num" title="Per copy; cheapest store in bold">TCGplayer</th>
             <th data-k="ck" class="num" title="Per copy; cheapest store in bold">Card Kingdom</th>
             <th data-k="cm" class="num" title="Per copy; cheapest store in bold">Cardmarket</th>
-            <th data-k="best" class="num">Cheapest total</th>
+            <th data-k="best" class="num" title="Per copy, at the cheapest compared store">Cheapest</th>
             <th class="num" title="Adds up the rows in the order shown">Running total</th>
           </tr></thead>
           <tbody></tbody>
@@ -496,15 +537,12 @@
   <section id="cardsView" hidden>
     <div class="ix-bar cards-bar">
       <div>
-        <h3>Deck cards</h3>
+        <div class="result-line print-pick"><span id="printCount"></span> <button class="ghost" id="printAll" hidden>Include all</button></div>
         <div class="note">Magic-card size, nine to a page. Click a card to skip it.</div>
       </div>
-      <div class="print-controls">
-        <div class="print-buttons">
-          <button class="primary" id="printCards" title="In the print dialog, turn on background graphics and print at 100% scale">Print cards</button>
-          <button class="secondary" id="pngCards" title="A zip with one 300 dpi PNG per card">Download PNGs</button>
-        </div>
-        <div class="print-pick"><span id="printCount"></span> <button class="ghost" id="printAll" hidden>Include all</button></div>
+      <div class="print-buttons">
+        <button class="primary" id="printCards" title="In the print dialog, turn on background graphics and print at 100% scale">Print cards</button>
+        <button class="secondary" id="pngCards" title="A zip with one 300 dpi PNG per card">Download PNGs</button>
       </div>
     </div>
     <div class="card-sheet" id="cardSheet"></div>
@@ -533,6 +571,15 @@
           <option value="only">Proxied somewhere</option>
           <option value="none">Never proxied</option>
         </select>
+        <select id="ixSortSel" aria-label="Sort">
+          <option value="-decks">Most decks</option>
+          <option value="-qty">Most copies</option>
+          <option value="price">Cheapest first</option>
+          <option value="-price">Priciest first</option>
+          <option value="mv">Mana value</option>
+          <option value="name">Name</option>
+          <option value="" disabled hidden>Sorted by column</option>
+        </select>
         <button class="ghost" id="ixClear">Clear filters</button>
       </div>
       <div class="result-line" id="ixResult"></div>
@@ -559,7 +606,7 @@
             <th data-k="qty" class="num">Copies</th>
             <th data-k="price" class="num" title="Per copy, cheapest printing you play">Price</th>
             <th data-k="setList">Sets</th>
-            <th title="Bold: commander. Dashed: proxy.">Where</th>
+            <th title="Bold: commander. Dashed: proxy.">In decks</th>
           </tr></thead>
           <tbody></tbody>
         </table>
@@ -636,6 +683,15 @@
             <h3 id="cardsTitle">Cards</h3>
             <div class="filters">
               <label class="ctl small">Decklist on <select id="asOf"></select></label>
+              <select id="cardSortSel" aria-label="Sort">
+                <option value="-total">Highest total</option>
+                <option value="-price">Priciest first</option>
+                <option value="price">Cheapest first</option>
+                <option value="-d30">Biggest gains</option>
+                <option value="d30">Biggest drops</option>
+                <option value="name">Name</option>
+                <option value="" disabled hidden>Sorted by column</option>
+              </select>
               <input type="search" id="search" placeholder="Filter cards" aria-label="Filter cards">
             </div>
           </div>
@@ -1211,8 +1267,12 @@
         ${past ? "" : deltaCell(c.d30)}
       </tr>`).join("") || `<tr><td colspan="6" class="muted">No cards match.</td></tr>`;
     markSort($("cardTable"), cardSort);
+    const cs = sortStr(cardSort), sel = $("cardSortSel");
+    [...sel.options].forEach(o => { if (/d30/.test(o.value)) o.hidden = o.disabled = past; });
+    sel.value = [...sel.options].some(o => o.value && !o.disabled && o.value === cs) ? cs : "";
     syncUrl();
   }
+  $("cardSortSel").addEventListener("change", e => { readSort(e.target.value, cardSort); renderCards(decks.get(selected)); });
   $("asOf").addEventListener("change", e => { asOf = e.target.value; renderCards(decks.get(selected)); });
 
   // ---------- proxies tab ----------
@@ -1232,10 +1292,10 @@
     const rows = [...list.values()].map(e => {
       const options = [...px.stores].map(s => [s, e[s]]).filter(([, p]) => p != null);
       const [bestStore, bestPrice] = options.sort((a, b) => a[1] - b[1])[0] || [null, null];
-      return { ...e, bestStore, best: bestPrice == null ? null : bestPrice * e.qty };
+      return { ...e, bestStore, best: bestPrice, cost: bestPrice == null ? null : bestPrice * e.qty };   // best is per copy, cost covers every copy
     });
     sortBy(rows, pxSort);
-    const copies = rows.reduce((s, r) => s + r.qty, 0), total = rows.reduce((s, r) => s + (r.best ?? 0), 0);
+    const copies = rows.reduce((s, r) => s + r.qty, 0), total = rows.reduce((s, r) => s + (r.cost ?? 0), 0);
     const storeTotal = s => rows.reduce((t, r) => t + (r[s] ?? 0) * r.qty, 0);
     const deckCount = new Set(rows.flatMap(r => [...r.decks.keys()])).size;
     $("pxSummary").innerHTML = `
@@ -1244,16 +1304,16 @@
         ${Object.keys(STORE_NAMES).map(s => `<div class="${px.stores.has(s) ? "" : "off"}">${STORE_NAMES[s]} only: ${money(storeTotal(s))}</div>`).join("")}</div>`;
     let running = 0;
     $("proxyTable").tBodies[0].innerHTML = rows.map(r => {
-      running += r.best ?? 0;
+      running += r.cost ?? 0;
       const cell = s => `<td class="num ${r.bestStore === s ? "best" : ""} ${px.stores.has(s) ? "" : "muted"}">${money(r[s])}</td>`;
       return `<tr>
         <td><span class="card-name">${esc(r.name)}</span><span class="printing">${esc(r.set.toUpperCase())}${r.finish !== "Normal" ? ", " + esc(r.finish.toLowerCase()) : ""}</span></td>
         <td><div class="where">${sortBy([...r.decks].map(([id, q]) => ({ name: deckName(id), q })), { k: "name", dir: 1 }).map(x => `<span class="dchip">${esc(x.name)}${x.q > 1 ? " ×" + x.q : ""}</span>`).join("")}</div></td>
-        <td class="num">${r.qty}</td>${cell("tcg")}${cell("ck")}${cell("cm")}
+        <td class="num ${r.qty === 1 ? "one" : ""}">${r.qty}</td>${cell("tcg")}${cell("ck")}${cell("cm")}
         <td class="num">${money(r.best)}</td>
         <td class="num muted">${money(running)}</td>
       </tr>`;
-    }).join("") || `<tr><td colspan="8" class="muted">Nothing to show.</td></tr>`;
+    }).join("") || `<tr><td colspan="8" class="muted">No cards match.</td></tr>`;
     $("pxGrid").innerHTML = rows.map(r => {
       const decksTip = sortBy([...r.decks].map(([id, q]) => ({ name: deckName(id), q })), { k: "name", dir: 1 })
         .map(x => x.name + (x.q > 1 ? " ×" + x.q : "")).join("\n");
@@ -1262,7 +1322,7 @@
         <div class="px-img"><div class="ph">${esc(r.name)}</div>${cardImg(r)}${r.qty > 1 ? `<span class="px-qty">×${r.qty}</span>` : ""}</div>
         <figcaption><b class="num">${money(each)}</b><span class="muted">${r.bestStore ? STORE_NAMES[r.bestStore] : "No price"}</span></figcaption>
       </figure>`;
-    }).join("") || `<div class="muted">Nothing to show.</div>`;
+    }).join("") || `<div class="muted">No cards match.</div>`;
     const grid = px.layout === "grid";
     $("pxGrid").hidden = !grid; $("pxTableBox").hidden = grid;
     $("pxGridSort").value = ["best", "-best", "name"].includes(sortStr(pxSort)) ? sortStr(pxSort) : "";
@@ -1480,8 +1540,9 @@
         <td><div class="where">${sortBy([...c.perDeck].map(([id, e]) => ({ e, name: deckName(id) })), { k: "name", dir: 1 })
           .map(({ name, e }) => `<span class="dchip ${e.cmd ? "cmd" : ""} ${e.proxy ? "proxy" : ""}">${esc(name)}${e.qty > 1 ? " ×" + e.qty : ""}</span>`).join("")}</div></td>
       </tr>`).join("") + (list.length > MAX ? `<tr><td colspan="10" class="muted">First ${MAX} shown. Narrow the filters for more.</td></tr>` : "")
-      || `<tr><td colspan="10" class="muted">No cards match these filters.</td></tr>`;
+      || `<tr><td colspan="10" class="muted">No cards match.</td></tr>`;
     markSort($("indexTable"), ixSort);
+    const ixs = sortStr(ixSort); $("ixSortSel").value = [...$("ixSortSel").options].some(o => o.value && o.value === ixs) ? ixs : "";
     renderOverlap();
     syncUrl();
   }
@@ -1523,6 +1584,7 @@
     });
   const parseSets = text => text.toUpperCase().split(/[\s,;]+/).map(x => x.replace(/[^A-Z0-9!-]/g, "")).filter(Boolean);
   $("ixSets").addEventListener("input", e => { ix.sets = parseSets(e.target.value); renderIndex(); });
+  $("ixSortSel").addEventListener("change", e => { readSort(e.target.value, ixSort); renderIndex(); });
   $("ixClear").addEventListener("click", () => {
     Object.assign(ix, { search: "", subtype: "", sets: [], commanders: "", proxies: "", match: "any" });
     ix.colors.clear(); ix.types.clear(); ix.decks.clear();
@@ -1605,7 +1667,7 @@
   const skipPrint = new Set();
   function updatePrintCount() {
     const all = $("cardSheet").querySelectorAll(".mcard").length, n = all - skipPrint.size;
-    $("printCount").textContent = skipPrint.size ? `Printing ${n} of ${all}` : `All ${all} will print`;
+    $("printCount").textContent = `${n} of ${all} cards selected`;
     $("printAll").hidden = !skipPrint.size; $("printCards").disabled = $("pngCards").disabled = !n;
   }
   $("cardSheet").addEventListener("click", e => {
