@@ -304,10 +304,12 @@ details.overlap[open] summary { margin-bottom: 14px; }
 .overlap-grid th.rowh { text-align: right; padding-right: 10px; white-space: nowrap; font-weight: 500; color: var(--text-secondary); max-width: 240px; overflow: hidden; text-overflow: ellipsis; }
 /* column names sit on the diagonal, just above their column, starting at its left edge */
 .overlap-grid th.colh { position: relative; padding: 0; width: 44px; height: 26px; }
-.overlap-grid th.colh span { position: absolute; left: 4px; bottom: 4px; white-space: nowrap; text-align: left; color: var(--text-muted); font-weight: 500; font-size: 13px;
-  border-left: 2px solid var(--axis); padding-left: 6px; line-height: 1.2; }
+.overlap-grid th.colh span { position: absolute; left: 2px; bottom: 6px; white-space: nowrap; text-align: left; color: var(--text-muted); font-weight: 500; font-size: 13px; line-height: 1.2; }
+/* a line across the top of the column, under its name */
+.overlap-grid th.colh::after { content: ""; position: absolute; left: 2px; right: 2px; bottom: 2px; height: 2px; border-radius: 1px; background: var(--axis); }
 .overlap-grid th.colh.colhl { background: none; }
-.overlap-grid th.colh.colhl span { color: var(--text-primary); border-left-color: var(--series-1); }
+.overlap-grid th.colh.colhl span { color: var(--text-primary); }
+.overlap-grid th.colh.colhl::after { background: var(--series-1); }
 .overlap-grid { margin-right: 220px; }
 .overlap-grid .colhl { background: var(--hover); }
 @media (max-width: 600px) { .overlap-grid th.rowh { white-space: normal; max-width: 120px; min-width: 90px; font-size: 13px; line-height: 1.25; } }
