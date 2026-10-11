@@ -215,7 +215,7 @@
   .ctoggles button:hover { opacity: 0.8; }
   details.dd { position: relative; }
   .toggle { font: inherit; font-size: 15px; color: var(--text-primary); cursor: pointer; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; min-height: 36px; background: var(--surface); }
-  .toggle[aria-pressed="true"] { border-color: var(--series-1); background: var(--series-1-wash); color: var(--series-1); font-weight: 600; }
+  .toggle[aria-pressed="true"] { border-color: var(--series-1); background: var(--series-1-wash); color: var(--series-1); }
   details.dd .panel label.all { border-bottom: 1px solid var(--border); border-radius: 6px 6px 0 0; margin-bottom: 4px; font-weight: 600; }
   details.dd summary { list-style: none; cursor: pointer; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; min-height: 36px; display: flex; align-items: center; gap: 6px; background: var(--surface); font-size: 15px; }
   details.dd summary::after { content: "▾"; color: var(--text-muted); font-size: 12px; }
@@ -292,7 +292,13 @@
   .types .t .num { color: var(--text-secondary); }
   label.ctl.small { font-size: 14px; }
   label.ctl.small select { min-height: 32px; font-size: 14px; }
-  .proxy-summary { display: flex; flex-wrap: wrap; gap: 8px 36px; align-items: baseline; }
+  .proxy-summary { display: grid; grid-template-columns: auto 1fr; gap: 8px 36px; align-items: start; }
+  .proxy-summary .alt div.off { opacity: 0.45; }
+  .px-controls { margin-top: 14px; }
+  .px-stores { margin-top: 10px; }
+  .px-stores .filter-label { margin-left: 0; }
+  #pxDeckDD .count-badge { box-sizing: content-box; min-width: 3.4em; text-align: center; font-variant-numeric: tabular-nums; }
+  @media (max-width: 600px) { .proxy-summary { grid-template-columns: 1fr; } }
   .proxy-summary .big { font-family: var(--serif); font-weight: 700; font-size: 36px; line-height: 1.05; }
   .proxy-summary .lbl { font-size: 14px; color: var(--text-secondary); }
   .proxy-summary .alt { font-size: 15px; color: var(--text-secondary); }
@@ -445,22 +451,25 @@
   <section id="proxyView" hidden>
     <div class="ix-bar">
       <div class="proxy-summary" id="pxSummary"></div>
-      <div class="filters" style="margin-top:12px">
-        <details class="dd" id="pxDeckDD"><summary>Decks <span class="count-badge" hidden></span></summary><div class="panel"></div></details>
+      <div class="filters px-controls">
+        <details class="dd" id="pxDeckDD"><summary>Decks <span class="count-badge"></span></summary><div class="panel"></div></details>
         <button class="toggle" id="pxLands" aria-pressed="false">Exclude lands</button>
-        <span class="filter-label">Compare stores</span>
-        <label class="check"><input type="checkbox" class="px-store" value="tcg" checked> TCGplayer</label>
-        <label class="check"><input type="checkbox" class="px-store" value="ck" checked> Card Kingdom</label>
-        <label class="check" title="European store; prices may not be in dollars"><input type="checkbox" class="px-store" value="cm"> Cardmarket</label>
-        <select id="pxGridSort" aria-label="Sort" hidden>
+        <select id="pxGridSort" aria-label="Sort">
           <option value="best">Cheapest first</option>
           <option value="-best">Priciest first</option>
           <option value="name">Name</option>
+          <option value="" disabled hidden>Sorted by column</option>
         </select>
         <div class="seg px-layout" id="pxLayout" role="group" aria-label="Layout">
           <button data-l="table" aria-pressed="true">Table</button>
           <button data-l="grid" aria-pressed="false">Grid</button>
         </div>
+      </div>
+      <div class="filters px-stores">
+        <span class="filter-label">Compare stores</span>
+        <label class="check"><input type="checkbox" class="px-store" value="tcg" checked> TCGplayer</label>
+        <label class="check"><input type="checkbox" class="px-store" value="ck" checked> Card Kingdom</label>
+        <label class="check" title="European store; prices may not be in dollars"><input type="checkbox" class="px-store" value="cm"> Cardmarket</label>
       </div>
     </div>
     <div class="px-grid" id="pxGrid" hidden></div>
@@ -1227,11 +1236,10 @@
     const copies = rows.reduce((s, r) => s + r.qty, 0), total = rows.reduce((s, r) => s + (r.best ?? 0), 0);
     const storeTotal = s => rows.reduce((t, r) => t + (r[s] ?? 0) * r.qty, 0);
     const deckCount = new Set(rows.flatMap(r => [...r.decks.keys()])).size;
-    $("pxSummary").innerHTML = rows.length ? `
+    $("pxSummary").innerHTML = `
       <div><div class="lbl" title="Buying each card where it's cheapest">Cost to replace every proxy</div><div class="big num" style="text-align:left">${money(total)}</div></div>
-      <div class="alt">${copies} ${copies === 1 ? "copy" : "copies"} · ${deckCount} deck${deckCount === 1 ? "" : "s"}<br>
-        ${[...px.stores].map(s => `${STORE_NAMES[s]} only: ${money(storeTotal(s))}`).join("<br>")}</div>`
-      : `<div class="alt">${px.skip.size || px.noLands ? "No proxies match." : `No proxies. Tag cards "Proxied" on Archidekt.`}</div>`;
+      <div class="alt"><div>${copies} ${copies === 1 ? "copy" : "copies"} · ${deckCount} deck${deckCount === 1 ? "" : "s"}</div>
+        ${Object.keys(STORE_NAMES).map(s => `<div class="${px.stores.has(s) ? "" : "off"}">${STORE_NAMES[s]} only: ${money(storeTotal(s))}</div>`).join("")}</div>`;
     let running = 0;
     $("proxyTable").tBodies[0].innerHTML = rows.map(r => {
       running += r.best ?? 0;
@@ -1254,8 +1262,8 @@
       </figure>`;
     }).join("") || `<div class="muted">Nothing to show.</div>`;
     const grid = px.layout === "grid";
-    $("pxGrid").hidden = !grid; $("pxTableBox").hidden = grid; $("pxGridSort").hidden = !grid;
-    $("pxGridSort").value = ["best", "-best", "name"].includes(sortStr(pxSort)) ? sortStr(pxSort) : "best";
+    $("pxGrid").hidden = !grid; $("pxTableBox").hidden = grid;
+    $("pxGridSort").value = ["best", "-best", "name"].includes(sortStr(pxSort)) ? sortStr(pxSort) : "";
     $("pxLayout").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === px.layout)));
     markSort($("proxyTable"), pxSort);
     fillDeckDropdown($("pxDeckDD"), px.skip);
@@ -1298,7 +1306,7 @@
       `<label class="all"><input type="checkbox" value="*" ${left === items.length ? "checked" : ""}> All decks</label>` +
       items.map(x => `<label><input type="checkbox" value="${esc(x.id)}" ${skip.has(x.id) ? "" : "checked"}> ${esc(x.name)}</label>`).join("");
     const all = dd.querySelector('input[value="*"]'); all.indeterminate = left > 0 && left < items.length;
-    const badge = dd.querySelector(".count-badge"); badge.hidden = left === items.length; badge.textContent = `${left}/${items.length}`;
+    const badge = dd.querySelector(".count-badge"); badge.textContent = `${left}/${items.length}`;
   }
 
   // ---------- search all decks ----------
