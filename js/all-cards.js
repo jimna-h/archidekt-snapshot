@@ -244,11 +244,22 @@ function renderOverlap(list) {
   const shared = (a, b) => { let n = 0; for (const c of a.cards) if (b.cards.has(c)) n++; return n; };
   let max = 1; const m = ds.map(a => ds.map(b => { const n = a === b ? null : shared(a, b); if (n > max) max = n; return n; }));
   const shade = n => `color-mix(in oklab, var(--series-1) ${Math.round(8 + n / max * 62)}%, var(--surface))`;
-  $("overlapGrid").innerHTML = `<thead><tr><th></th>${ds.map((d, j) => `<th class="colh" title="${esc(d.name)}">${j + 1}</th>`).join("")}</tr></thead><tbody>` +
-    ds.map((a, i) => `<tr><th class="rowh" title="${esc(a.name)}">${i + 1}. ${esc(a.name.replace(/^\d+\.\s*/, ""))}</th>${ds.map((b, j) =>
-      m[i][j] == null ? `<td><div class="self"></div></td>` : m[i][j] === 0 ? `<td><div class="zero">0</div></td>` :
-      `<td><button data-a="${esc(a.id)}" data-b="${esc(b.id)}" style="background:${shade(m[i][j])};${m[i][j] / max > 0.6 ? "color:#fff" : ""}" title="${esc(a.name)} and ${esc(b.name)} share ${m[i][j]} cards">${m[i][j]}</button></td>`).join("")}</tr>`).join("") + `</tbody>`;
+  // Each pair appears once: below the diagonal, so rows start at the second deck and columns
+  // stop at the second-to-last.
+  const cols = ds.slice(0, -1);
+  $("overlapGrid").innerHTML = ds.length < 2 ? "" :
+    `<thead><tr><th></th>${cols.map(d => `<th class="colh" title="${esc(d.name)}"><span>${esc(d.name)}</span></th>`).join("")}</tr></thead><tbody>` +
+    ds.slice(1).map((a, r) => { const i = r + 1; return `<tr><th class="rowh" title="${esc(a.name)}">${esc(a.name)}</th>${cols.map((b, j) =>
+      j >= i ? `<td></td>` : m[i][j] === 0 ? `<td><div class="zero">0</div></td>` :
+      `<td><button data-a="${esc(a.id)}" data-b="${esc(b.id)}" style="background:${shade(m[i][j])};${m[i][j] / max > 0.6 ? "color:#fff" : ""}" title="${esc(a.name)} and ${esc(b.name)} share ${m[i][j]} cards">${m[i][j]}</button></td>`).join("")}</tr>`; }).join("") + `</tbody>`;
 }
+// Highlight the hovered cell's column as well as its row
+$("overlapGrid").addEventListener("mouseover", e => {
+  const cell = e.target.closest("td, th"), col = cell ? cell.cellIndex : -1;
+  $("overlapGrid").querySelectorAll(".colhl").forEach(c => c.classList.remove("colhl"));
+  if (col > 0) $("overlapGrid").querySelectorAll("tr").forEach(tr => tr.cells[col]?.classList.add("colhl"));
+});
+$("overlapGrid").addEventListener("mouseleave", () => $("overlapGrid").querySelectorAll(".colhl").forEach(c => c.classList.remove("colhl")));
 $("overlapGrid").addEventListener("click", e => {
   const b = e.target.closest("button[data-a]"); if (!b) return;
   ix.skip = new Set(currentDeckIds().filter(id => id !== b.dataset.a && id !== b.dataset.b)); ix.match = "every";

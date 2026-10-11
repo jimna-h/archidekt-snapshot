@@ -302,7 +302,12 @@ details.overlap[open] summary { margin-bottom: 14px; }
 .overlap-grid { width: auto; font-size: 14px; }
 .overlap-grid th, .overlap-grid td { border: 0; padding: 2px; position: static; cursor: default; }
 .overlap-grid th.rowh { text-align: right; padding-right: 10px; white-space: nowrap; font-weight: 500; color: var(--text-secondary); max-width: 240px; overflow: hidden; text-overflow: ellipsis; }
-.overlap-grid th.colh { text-align: center; color: var(--text-muted); font-weight: 500; }
+.overlap-grid th.colh { vertical-align: bottom; text-align: left; color: var(--text-secondary); font-weight: 500; padding-bottom: 6px; }
+.overlap-grid th.colh span { display: inline-block; writing-mode: vertical-rl; transform: rotate(180deg); max-height: 170px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0 auto; }
+.overlap-grid th.colh { text-align: center; }
+.overlap-grid .colhl { background: var(--hover); }
+@media (max-width: 600px) { .overlap-grid th.rowh { white-space: normal; max-width: 120px; min-width: 90px; font-size: 13px; line-height: 1.25; } .overlap-grid th.colh span { max-height: 130px; font-size: 13px; } }
+.overlap-grid thead tr:hover { background: none; }
 .overlap-grid button { width: 40px; height: 32px; border: 0; border-radius: 6px; font: inherit; font-size: 13px; font-variant-numeric: lining-nums tabular-nums; cursor: pointer; color: var(--text-primary); }
 .overlap-grid button:hover { outline: 2px solid var(--series-1); }
 .overlap-grid .zero { width: 40px; height: 32px; display: grid; place-items: center; color: var(--text-muted); font-size: 13px; }
