@@ -31,7 +31,7 @@
   <div class="tabbar">
   <nav class="tabs" id="tabs" role="tablist" hidden>
     <button role="tab" data-view="pricesView" aria-selected="true">Decks</button>
-    <button role="tab" data-view="indexView" aria-selected="false">All cards</button>
+    <button role="tab" data-view="indexView" aria-selected="false">Cards</button>
     <button role="tab" data-view="cardsView" aria-selected="false">Deck cards</button>
   </nav>
   <div class="tablinks">
@@ -79,12 +79,12 @@
           <option value="none">Not commanders</option>
         </select>
         <button class="toggle" id="ixLands" aria-pressed="false">Exclude lands</button>
-        <button class="ghost" id="ixClear">Clear filters</button>
+        <button class="toggle" id="ixClear">Reset filters</button>
       </div>
       <div class="filters ix-filters">
         <select id="ixSortSel" aria-label="Sort">
-          <option value="-decks">Most decks</option>
           <option value="-qty">Most copies</option>
+          <option value="-decks">Most decks</option>
           <option value="best">Cheapest first</option>
           <option value="-best">Priciest first</option>
           <option value="mv">Mana value</option>
@@ -103,7 +103,7 @@
       <div class="result-line" id="ixResult" hidden></div>
     </div>
     <details class="ix-bar overlap" id="overlapBox">
-      <summary><h3>Deck overlap</h3><span class="muted">Cards each pair of decks shares</span></summary>
+      <summary><h3>Deck overlap</h3><span class="muted">Cards each pair of decks shares, within these filters</span></summary>
       <div class="table-wrap"><table class="overlap-grid" id="overlapGrid"></table></div>
     </details>
     <div class="px-grid" id="ixGrid" hidden></div>

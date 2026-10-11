@@ -20,7 +20,7 @@ function setHipsterLink() {
 // The address holds the tab plus that tab's deck and filters, e.g.
 //   #decks?deck=4279849&price=ck&on=2026-09-11&show=proxied&q=sol
 //   #search?q=elf&colors=W,G,-R&types=Creature,-Land&skip=4279849&sets=SLD,-LTR&cmd=only&proxied=only&stores=tcg,ck,cm&layout=grid
-// (#proxies links from before the Proxies tab was merged into All cards still open, as Proxies only.)
+// (#proxies links from before the Proxies tab was merged into Cards still open, as Proxies only.)
 // Switching tab or deck adds a history entry (so Back works); filter tweaks replace it.
 const VIEW_SLUG = { pricesView: "decks", indexView: "search", cardsView: "cards" };
 const SLUG_VIEW = Object.fromEntries(Object.entries(VIEW_SLUG).map(([k, v]) => [v, k]));
@@ -55,7 +55,7 @@ function buildUrl() {
     if (ix.proxies) q.set("proxied", ix.proxies);
     if ([...ix.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...ix.stores].join(","));
     if (ix.layout === "grid") q.set("layout", "grid");
-    if (sortStr(ixSort) !== "-decks") q.set("sort", sortStr(ixSort));
+    if (sortStr(ixSort) !== "-qty") q.set("sort", sortStr(ixSort));
   }
   const qs = q.toString().replace(/%2C/g, ",");
   return "#" + VIEW_SLUG[view] + (qs ? "?" + qs : "");
@@ -80,7 +80,7 @@ function readUrl() {
   selected = ALL; asOf = null; tagFilter = null; moverWindow = 30; $("search").value = "";
   Object.assign(deckSort, { k: "name", dir: 1 }); Object.assign(cardSort, { k: "total", dir: -1 });
   Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", proxies: "", layout: "table" });
-  ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg", "ck"]); Object.assign(ixSort, { k: "decks", dir: -1 });
+  ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg", "ck"]); Object.assign(ixSort, { k: "qty", dir: -1 });
   const known = id => decks.has(id) && !decks.get(id).virtual;
 
   if (view === "pricesView") {

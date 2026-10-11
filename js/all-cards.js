@@ -1,4 +1,4 @@
-// All cards tab: every card across the current decks, with filters, store prices, a
+// Cards tab: every card across the current decks, with filters, store prices, a
 // replacement-cost summary (e.g. for proxies), a table or image grid, and the deck overlap grid.
 
 // ---------- all cards ----------
@@ -15,7 +15,7 @@
 // prices and totals always describe exactly the copies shown.
 const ix = { search: "", colors: new Map(), types: new Map(), subtype: "", sets: [], skip: new Set(), match: "any",
   commanders: "", proxies: "", stores: new Set(["tcg", "ck"]), layout: "table" };
-let ixSort = { k: "decks", dir: -1 };
+let ixSort = { k: "qty", dir: -1 };   // most copies first
 const STORE_KEYS = { tcg: "price_tcgplayer", ck: "price_cardkingdom", cm: "price_cardmarket" };
 const currentDeckIds = () => realDecks().filter(d => !isStale(d)).map(d => d.id);
 const checkedDecks = () => currentDeckIds().filter(id => !ix.skip.has(id));
@@ -230,14 +230,17 @@ function renderIndex() {
   $("ixLayout").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === ix.layout)));
   markSort($("indexTable"), ixSort);
   const ixs = sortStr(ixSort); $("ixSortSel").value = [...$("ixSortSel").options].some(o => o.value && o.value === ixs) ? ixs : "";
-  renderOverlap();
+  renderOverlap(list);
+  $("ixClear").disabled = !filtersActive();
   syncUrl();
 }
 
-// Deck overlap: unique non-basic card names shared by each pair of current decks.
-function renderOverlap() {
-  const ds = sortBy(realDecks().filter(d => !isStale(d)).map(d => ({ id: d.id, name: d.name,
-    cards: new Set(d.rows.map(r => r.card_name).filter(n => !isBasic(n))) })), { k: "name", dir: 1 });
+// Deck overlap: how many of the cards shown (basic lands aside) each pair of checked decks shares,
+// so it follows every filter above.
+function renderOverlap(list) {
+  const checked = new Set(checkedDecks()), byDeck = new Map([...checked].map(id => [id, new Set()]));
+  for (const c of list) if (!isBasic(c.name)) for (const id of c.perDeck.keys()) byDeck.get(id)?.add(c.name);
+  const ds = sortBy(realDecks().filter(d => checked.has(d.id)).map(d => ({ id: d.id, name: d.name, cards: byDeck.get(d.id) })), { k: "name", dir: 1 });
   const shared = (a, b) => { let n = 0; for (const c of a.cards) if (b.cards.has(c)) n++; return n; };
   let max = 1; const m = ds.map(a => ds.map(b => { const n = a === b ? null : shared(a, b); if (n > max) max = n; return n; }));
   const shade = n => `color-mix(in oklab, var(--series-1) ${Math.round(8 + n / max * 62)}%, var(--surface))`;
@@ -285,6 +288,9 @@ for (const [dd, map] of [["ixTypeDD", () => ix.types]])
 const parseSets = text => text.toUpperCase().split(/[\s,;]+/).map(x => x.replace(/[^A-Z0-9!-]/g, "")).filter(Boolean);
 $("ixSets").addEventListener("input", e => { ix.sets = parseSets(e.target.value); renderIndex(); });
 $("ixSortSel").addEventListener("change", e => { readSort(e.target.value, ixSort); renderIndex(); });
+// Anything narrowing the list (sort, stores and layout aren't filters)
+const filtersActive = () => !!(ix.search || ix.subtype || ix.sets.length || ix.commanders || ix.proxies || ix.match !== "any" ||
+  ix.colors.size || ix.types.size || ix.skip.size);
 $("ixClear").addEventListener("click", () => {
   Object.assign(ix, { search: "", subtype: "", sets: [], commanders: "", proxies: "", match: "any" });
   ix.colors.clear(); ix.types.clear(); ix.skip.clear();

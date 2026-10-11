@@ -205,6 +205,7 @@ th.ind, td.ind { width: 1%; padding-left: 0; padding-right: 0; cursor: default; 
 .ctoggles button:hover { opacity: 0.8; }
 details.dd { position: relative; }
 .toggle { font: inherit; font-size: 15px; color: var(--text-primary); cursor: pointer; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; min-height: 36px; background: var(--surface); }
+.toggle:disabled { opacity: 0.45; cursor: default; }
 .toggle[aria-pressed="true"] { border-color: var(--series-1); background: var(--series-1-wash); color: var(--series-1); }
 details.dd .panel label.all { border-bottom: 1px solid var(--border); border-radius: 6px 6px 0 0; margin-bottom: 4px; font-weight: 600; }
 details.dd summary { list-style: none; cursor: pointer; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; min-height: 36px; display: flex; align-items: center; gap: 6px; background: var(--surface); font-size: 15px; }
@@ -394,7 +395,7 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   .tagrow .bar { grid-column: 1 / -1; grid-row: 2; }
   .ix-bar, .ix-table { padding-left: 12px; padding-right: 12px; }
 }
-/* Phones: the All cards and deck card tables turn into stacked rows (sorting moves to the Sort menu) */
+/* Phones: the Cards and deck card tables turn into stacked rows (sorting moves to the Sort menu) */
 @media (max-width: 600px) {
   #indexTable, #cardTable { min-width: 0; width: 100%; }
   #indexTable thead, #cardTable thead, #indexTable colgroup { display: none; }
