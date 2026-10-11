@@ -14,6 +14,8 @@ Turn on GitHub Pages (Settings → Pages → Deploy from a branch → `main`, `/
 
 Builds on the Archidekt API approach from [LandBase](https://github.com/jimna-h/LandBase).
 
+The page is plain static files, no build step: `index.html` (structure), `css/style.css`, and `js/` with `core.js` (data loading, shared helpers, tab switching), one file per tab, and `app.js` (links, shareable URLs, startup). The scripts are ordinary scripts loaded in order and share top-level names.
+
 ## Setup
 
 1. Find your folder's id — it's the number in the folder URL, e.g. `https://archidekt.com/folders/781767` → `781767`. The folder and its decks must be **public**.
