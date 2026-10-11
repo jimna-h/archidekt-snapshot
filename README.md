@@ -13,7 +13,7 @@ Turn on GitHub Pages (Settings → Pages → Deploy from a branch → `main`, `/
 
 Builds on the Archidekt API approach from [LandBase](https://github.com/jimna-h/LandBase).
 
-The page is plain static files, no build step: `index.html` (structure), `css/style.css`, and `js/` with `core.js` (data loading, shared helpers, tab switching), `decks.js`, `all-cards.js` and `deck-cards.js` for the tabs, and `app.js` (links, shareable URLs, startup). The scripts are ordinary scripts loaded in order and share top-level names.
+The page is plain static files, no build step: `index.html` (structure), `css/style.css`, and `js/` with `core.js` (data loading, shared helpers, tab switching), `decks.js`, `all-cards.js` and `deck-cards.js` for the tabs, and `app.js` (links, shareable URLs, startup). The scripts are ordinary scripts loaded in order and share top-level names. After editing anything in `css/`, `js/` or `vendor/`, run `python tools/stamp_assets.py` so visitors' browsers pick up the new files instead of cached copies.
 
 ## Setup
 
