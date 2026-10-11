@@ -244,14 +244,17 @@ function renderOverlap(list) {
   const shared = (a, b) => { let n = 0; for (const c of a.cards) if (b.cards.has(c)) n++; return n; };
   let max = 1; const m = ds.map(a => ds.map(b => { const n = a === b ? null : shared(a, b); if (n > max) max = n; return n; }));
   const shade = n => `color-mix(in oklab, var(--series-1) ${Math.round(8 + n / max * 62)}%, var(--surface))`;
-  // Each pair appears once: below the diagonal, so rows start at the second deck and columns
-  // stop at the second-to-last.
-  const cols = ds.slice(0, -1);
-  $("overlapGrid").innerHTML = ds.length < 2 ? "" :
-    `<thead><tr><th></th>${cols.map(d => `<th class="colh" title="${esc(d.name)}"><span>${esc(d.name)}</span></th>`).join("")}</tr></thead><tbody>` +
-    ds.slice(1).map((a, r) => { const i = r + 1; return `<tr><th class="rowh" title="${esc(a.name)}">${esc(a.name)}</th>${cols.map((b, j) =>
-      j >= i ? `<td></td>` : m[i][j] === 0 ? `<td><div class="zero">0</div></td>` :
-      `<td><button data-a="${esc(a.id)}" data-b="${esc(b.id)}" style="background:${shade(m[i][j])};${m[i][j] / max > 0.6 ? "color:#fff" : ""}" title="${esc(a.name)} and ${esc(b.name)} share ${m[i][j]} cards">${m[i][j]}</button></td>`).join("")}</tr>`; }).join("") + `</tbody>`;
+  // Each pair appears once, below the diagonal, as a staircase: row i holds deck i's counts
+  // with the decks before it, then deck i's own name (in the diagonal cell, running right)
+  // heads the column of counts directly beneath it.
+  const n = ds.length, cols = n - 1;
+  const cell = (a, b, v) => v === 0 ? `<td><div class="zero">0</div></td>` :
+    `<td><button data-a="${esc(a.id)}" data-b="${esc(b.id)}" style="background:${shade(v)};${v / max > 0.6 ? "color:#fff" : ""}" title="${esc(a.name)} and ${esc(b.name)} share ${v} cards">${v}</button></td>`;
+  $("overlapGrid").innerHTML = n < 2 ? "" : `<tbody>` + ds.map((a, i) => `<tr>
+      <th class="rowh" title="${esc(a.name)}">${i ? esc(a.name) : ""}</th>
+      ${ds.slice(0, i).map((b, j) => cell(a, b, m[i][j])).join("")}
+      ${i < cols ? `<th class="colh" title="${esc(a.name)}"><span>${esc(a.name)}</span></th>` : ""}
+    </tr>`).join("") + `</tbody>`;
 }
 // Highlight the hovered cell's column as well as its row
 $("overlapGrid").addEventListener("mouseover", e => {
