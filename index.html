@@ -214,6 +214,9 @@
   .ctoggles button { padding: 3px; border-radius: 50%; border: 0; background: none; cursor: pointer; opacity: 0.45; filter: saturate(0.6); }
   .ctoggles button:hover { opacity: 0.8; }
   details.dd { position: relative; }
+  .toggle { font: inherit; font-size: 15px; color: var(--text-primary); cursor: pointer; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; min-height: 36px; background: var(--surface); }
+  .toggle[aria-pressed="true"] { border-color: var(--series-1); background: var(--series-1-wash); color: var(--series-1); font-weight: 600; }
+  details.dd .panel label.all { border-bottom: 1px solid var(--border); border-radius: 6px 6px 0 0; margin-bottom: 4px; font-weight: 600; }
   details.dd summary { list-style: none; cursor: pointer; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; min-height: 36px; display: flex; align-items: center; gap: 6px; background: var(--surface); font-size: 15px; }
   details.dd summary::after { content: "▾"; color: var(--text-muted); font-size: 12px; }
   details.dd summary::-webkit-details-marker { display: none; }
@@ -444,6 +447,7 @@
       <div class="proxy-summary" id="pxSummary"></div>
       <div class="filters" style="margin-top:12px">
         <details class="dd" id="pxDeckDD"><summary>Decks <span class="count-badge" hidden></span></summary><div class="panel"></div></details>
+        <button class="toggle" id="pxLands" aria-pressed="false">Exclude lands</button>
         <span class="filter-label">Compare stores</span>
         <label class="check"><input type="checkbox" class="px-store" value="tcg" checked> TCGplayer</label>
         <label class="check"><input type="checkbox" class="px-store" value="ck" checked> Card Kingdom</label>
@@ -1201,13 +1205,13 @@
   $("asOf").addEventListener("change", e => { asOf = e.target.value; renderCards(decks.get(selected)); });
 
   // ---------- proxies tab ----------
-  const px = { decks: new Set(), stores: new Set(["tcg", "ck"]), layout: "table" };
+  const px = { skip: new Set(), noLands: false, stores: new Set(["tcg", "ck"]), layout: "table" };   // skip: decks left out
   let pxSort = { k: "best", dir: 1 };   // cheapest first
   function renderProxies() {
     const list = new Map();
     for (const d of realDecks()) {
-      if (isStale(d) || (px.decks.size && !px.decks.has(d.id))) continue;
-      for (const r of d.rows) if (isProxy(r)) {
+      if (isStale(d) || px.skip.has(d.id)) continue;
+      for (const r of d.rows) if (isProxy(r) && !(px.noLands && isLand(r.card_name))) {
         const k = printKey(r);
         const e = list.get(k) || { name: r.card_name, set: r.set_code, finish: r.finish, id: r.scryfall_id, qty: 0, decks: new Map(),
           tcg: num(r.price_tcgplayer), ck: num(r.price_cardkingdom), cm: num(r.price_cardmarket) };
@@ -1227,7 +1231,7 @@
       <div><div class="lbl" title="Buying each card where it's cheapest">Cost to replace every proxy</div><div class="big num" style="text-align:left">${money(total)}</div></div>
       <div class="alt">${copies} ${copies === 1 ? "copy" : "copies"} · ${deckCount} deck${deckCount === 1 ? "" : "s"}<br>
         ${[...px.stores].map(s => `${STORE_NAMES[s]} only: ${money(storeTotal(s))}`).join("<br>")}</div>`
-      : `<div class="alt">No proxies${px.decks.size ? " in the selected decks" : ""}. Tag cards "Proxied" on Archidekt.</div>`;
+      : `<div class="alt">${px.skip.size || px.noLands ? "No proxies match." : `No proxies. Tag cards "Proxied" on Archidekt.`}</div>`;
     let running = 0;
     $("proxyTable").tBodies[0].innerHTML = rows.map(r => {
       running += r.best ?? 0;
@@ -1254,7 +1258,8 @@
     $("pxGridSort").value = ["best", "-best", "name"].includes(sortStr(pxSort)) ? sortStr(pxSort) : "best";
     $("pxLayout").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === px.layout)));
     markSort($("proxyTable"), pxSort);
-    fillDeckDropdown($("pxDeckDD"), px.decks);
+    fillDeckDropdown($("pxDeckDD"), px.skip);
+    $("pxLands").setAttribute("aria-pressed", String(px.noLands));
     syncUrl();
   }
   // Card image for the exact printing, straight from Scryfall's image server by its id
@@ -1274,13 +1279,26 @@
     if (!px.stores.size) { px.stores.add(c.value); c.checked = true; }
     renderProxies();
   }));
-  $("pxDeckDD").addEventListener("change", e => { const v = e.target.value; e.target.checked ? px.decks.add(v) : px.decks.delete(v); renderProxies(); });
+  const currentDeckIds = () => realDecks().filter(d => !isStale(d)).map(d => d.id);
+  $("pxDeckDD").addEventListener("change", e => {
+    const v = e.target.value;
+    if (v === "*") px.skip = e.target.checked ? new Set() : new Set(currentDeckIds());
+    else e.target.checked ? px.skip.delete(v) : px.skip.add(v);
+    renderProxies();
+  });
+  $("pxLands").addEventListener("click", () => { px.noLands = !px.noLands; renderProxies(); });
+  // Front face only, so a spell // land card (e.g. a modal double-faced card) still counts as a spell
+  const isLand = name => /\bLand\b/.test((cardInfo.get(name)?.type_line || "").split(" // ")[0].split(" — ")[0]);
 
-  function fillDeckDropdown(dd, set) {
+  // Every deck starts checked; unchecking one leaves it out (skip holds the unchecked ones).
+  function fillDeckDropdown(dd, skip) {
     const items = sortBy(realDecks().filter(d => !isStale(d)).map(d => ({ id: d.id, name: d.name })), { k: "name", dir: 1 });
-    dd.querySelector(".panel").innerHTML = items.map(x =>
-      `<label><input type="checkbox" value="${esc(x.id)}" ${set.has(x.id) ? "checked" : ""}> ${esc(x.name)}</label>`).join("");
-    const badge = dd.querySelector(".count-badge"); badge.hidden = !set.size; badge.textContent = set.size;
+    const left = items.filter(x => !skip.has(x.id)).length;
+    dd.querySelector(".panel").innerHTML =
+      `<label class="all"><input type="checkbox" value="*" ${left === items.length ? "checked" : ""}> All decks</label>` +
+      items.map(x => `<label><input type="checkbox" value="${esc(x.id)}" ${skip.has(x.id) ? "" : "checked"}> ${esc(x.name)}</label>`).join("");
+    const all = dd.querySelector('input[value="*"]'); all.indeterminate = left > 0 && left < items.length;
+    const badge = dd.querySelector(".count-badge"); badge.hidden = left === items.length; badge.textContent = `${left}/${items.length}`;
   }
 
   // ---------- search all decks ----------
@@ -1706,7 +1724,7 @@
   // ---------- shareable links ----------
   // The address holds the tab plus that tab's deck and filters, e.g.
   //   #decks?deck=4279849&price=ck&on=2026-09-11&show=proxied&q=sol
-  //   #proxies?decks=4279849,5005670&stores=tcg,ck,cm&sort=-best
+  //   #proxies?skip=4279849,5005670&lands=no&stores=tcg,ck,cm&sort=-best
   //   #search?q=elf&colors=W,G,-R&types=Creature,-Land&decks=1,-2&sets=SLD,-LTR&cmd=only&proxied=none
   // Switching tab or deck adds a history entry (so Back works); filter tweaks replace it.
   const VIEW_SLUG = { pricesView: "decks", proxyView: "proxies", indexView: "search", cardsView: "cards" };
@@ -1730,7 +1748,8 @@
       if (sortStr(deckSort) !== "name") q.set("sort", sortStr(deckSort));
       if (sortStr(cardSort) !== "-total") q.set("cards", sortStr(cardSort));
     } else if (view === "proxyView") {
-      if (px.decks.size) q.set("decks", [...px.decks].join(","));
+      if (px.skip.size) q.set("skip", [...px.skip].join(","));
+      if (px.noLands) q.set("lands", "no");
       if ([...px.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...px.stores].join(","));
       if (sortStr(pxSort) !== "best") q.set("sort", sortStr(pxSort));
       if (px.layout === "grid") q.set("layout", "grid");
@@ -1769,7 +1788,7 @@
     // reset everything, then apply what the link specifies
     selected = ALL; asOf = null; tagFilter = null; moverWindow = 30; $("search").value = "";
     Object.assign(deckSort, { k: "name", dir: 1 }); Object.assign(cardSort, { k: "total", dir: -1 });
-    px.decks = new Set(); px.stores = new Set(["tcg", "ck"]); Object.assign(pxSort, { k: "best", dir: 1 });
+    px.skip = new Set(); px.noLands = false; px.stores = new Set(["tcg", "ck"]); Object.assign(pxSort, { k: "best", dir: 1 });
     Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", proxies: "" });
     ix.colors = new Map(); ix.types = new Map(); ix.decks = new Map(); Object.assign(ixSort, { k: "decks", dir: -1 });
     const known = id => decks.has(id) && !decks.get(id).virtual;
@@ -1783,7 +1802,10 @@
       if (q.get("movers") === "7") moverWindow = 7;
       readSort(q.get("sort"), deckSort); readSort(q.get("cards"), cardSort);
     } else if (view === "proxyView") {
-      px.decks = new Set(csvList(q.get("decks")).filter(known));
+      px.skip = new Set(csvList(q.get("skip")).filter(known));
+      const only = csvList(q.get("decks")).filter(known);   // older links listed the decks to include
+      if (only.length) px.skip = new Set(currentDeckIds().filter(id => !only.includes(id)));
+      px.noLands = q.get("lands") === "no";
       const st = csvList(q.get("stores")).filter(x => STORE_NAMES[x]);
       if (st.length) px.stores = new Set(st);
       readSort(q.get("sort"), pxSort);

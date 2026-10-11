@@ -4,7 +4,7 @@ A GitHub Action that, once a day, snapshots every deck in one [Archidekt](https:
 
 `index.html` (Archidekt Snapshot) has four tabs:
 - **Decks**: each deck's value over time (total, paper and proxies), biggest price movers, card swaps, mana curve and card types, and the decklist on any past date. Includes a whole-collection view and an average-deck view.
-- **Proxies**: every proxied card, its price at TCGplayer, Card Kingdom and Cardmarket, the cheapest option, and a running total of what it would cost to replace them, as a table or a grid of card images.
+- **Proxies**: every proxied card, its price at TCGplayer, Card Kingdom and Cardmarket, the cheapest option, and a running total of what it would cost to replace them, as a table or a grid of card images. Every deck is included until you untick it, and lands can be left out with one click.
 - **Deck cards**: a Magic-card-sized card for each deck (color-identity frame, commander art, bracket, Game Changers and a QR code to the deck), laid out to print nine to a letter page and sleeve with the deck, or download as a zip of 300 dpi PNGs, one per card.
 - **Search all decks**: find any card across every deck and see which decks run it, plus a grid of how many cards each pair of decks shares. (This replaces the old [edh-ledger](https://github.com/jimna-h/edh-ledger) project.)
 
