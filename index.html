@@ -82,6 +82,7 @@
   .mark { width: 46px; height: 46px; flex: none; color: var(--text-primary); }
   .brand h1 { font-size: 32px; line-height: 1; letter-spacing: -0.015em; }
   .brand .sub { color: var(--text-secondary); font-size: 15px; margin-top: 4px; }
+  label.ctl.unused { visibility: hidden; }
   label.ctl { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 15px; }
   select, input[type=search], input[type=text] {
     font: inherit; font-size: 15px; color: var(--text-primary); background: var(--surface);
@@ -938,7 +939,8 @@
   function showView(v) {
     view = v;
     for (const id of ["pricesView", "proxyView", "indexView", "cardsView"]) $(id === "pricesView" ? "app" : id).hidden = v !== id;
-    $("source").closest("label").hidden = v === "proxyView" || v === "cardsView";
+    // hidden but still taking its space, so the tabs below never shift when switching views
+    $("source").closest("label").classList.toggle("unused", v === "proxyView" || v === "cardsView");
     document.documentElement.dataset.view = v;   // print styles only apply on the Deck cards tab
     if (v === "cardsView" && $("cardSheet").children.length) fitGameChangers();   // can only measure while visible
     $("tabs").querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", b.dataset.view === v));
