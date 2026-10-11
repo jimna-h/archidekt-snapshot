@@ -1256,14 +1256,12 @@
     fillDeckDropdown($("pxDeckDD"), px.decks);
     syncUrl();
   }
-  // Card image for an exact printing: Scryfall's image server when we have the printing id,
-  // otherwise look it up by name and set (older snapshots don't carry the id).
+  // Card image for the exact printing, straight from Scryfall's image server by its id
   function cardImg(r) {
     const id = (r.id || "").toLowerCase();
-    const byName = `https://api.scryfall.com/cards/named?exact=${encodeURIComponent(r.name)}&set=${encodeURIComponent(r.set)}&format=image&version=normal`;
-    const src = /^[0-9a-f-]{36}$/.test(id) ? `https://cards.scryfall.io/normal/front/${id[0]}/${id[1]}/${id}.jpg` : byName;
-    return `<img src="${esc(src)}" alt="${esc(r.name)}" loading="lazy" decoding="async"
-      onerror="if(this.src!=='${esc(byName)}')this.src='${esc(byName)}';else this.remove()">`;
+    return /^[0-9a-f-]{36}$/.test(id)
+      ? `<img src="https://cards.scryfall.io/normal/front/${id[0]}/${id[1]}/${id}.jpg" alt="${esc(r.name)}" loading="lazy" decoding="async" onerror="this.remove()">`
+      : "";
   }
   $("pxLayout").addEventListener("click", e => {
     const b = e.target.closest("button[data-l]"); if (!b) return;
