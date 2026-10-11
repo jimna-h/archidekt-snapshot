@@ -1,13 +1,24 @@
-// Search all decks tab, including the deck overlap grid.
+// All cards tab: every card across the current decks, with filters, store prices, a
+// replacement-cost summary (e.g. for proxies), a table or image grid, and the deck overlap grid.
 
-// ---------- search all decks ----------
-// Every filter can say "not":
-//   colors / types / decks  Map(value -> "in" | "out"); clicking cycles off -> in -> out -> off
-//   name search             a leading "-" excludes names containing the rest
-//   subtype / sets          space- or comma-separated terms; a leading "-" excludes that term
-//   commanders / proxies    "" (either), "only", or "none"
-const ix = { search: "", colors: new Map(), types: new Map(), subtype: "", sets: [], decks: new Map(), match: "any", commanders: "", proxies: "" };
+// ---------- all cards ----------
+// Filters:
+//   colors / types        Map(value -> "in" | "out"); clicking cycles off -> in -> out -> off
+//                         ("Exclude lands" is a shortcut for Land -> out)
+//   name search           a leading "-" excludes names containing the rest
+//   subtype / sets        space- or comma-separated terms; a leading "-" excludes that term
+//   skip                  decks left out (every deck starts checked); only checked decks' copies count
+//   match                 "every": with two or more checked decks, only cards in all of them
+//   commanders            "" (either), "only", or "none"
+//   proxies               "" (all copies), "only" (proxy copies only), "none" (paper copies only)
+// Like the set and deck filters, the proxy filter limits which copies count, so copies,
+// prices and totals always describe exactly the copies shown.
+const ix = { search: "", colors: new Map(), types: new Map(), subtype: "", sets: [], skip: new Set(), match: "any",
+  commanders: "", proxies: "", stores: new Set(["tcg", "ck"]), layout: "table" };
 let ixSort = { k: "decks", dir: -1 };
+const STORE_KEYS = { tcg: "price_tcgplayer", ck: "price_cardkingdom", cm: "price_cardmarket" };
+const currentDeckIds = () => realDecks().filter(d => !isStale(d)).map(d => d.id);
+const checkedDecks = () => currentDeckIds().filter(id => !ix.skip.has(id));
 const MAIN_TYPES = ["Creature", "Instant", "Sorcery", "Artifact", "Enchantment", "Planeswalker", "Battle", "Land", "Legendary", "Tribal", "Kindred"];
 const COLOR_NAMES = { W: "White", U: "Blue", B: "Black", R: "Red", G: "Green", C: "Colorless" };
 const isBasic = name => (cardInfo.get(name)?.type_line || "").startsWith("Basic ");
@@ -22,23 +33,21 @@ const splitTerms = text => {
   return { yes, no };
 };
 
-// Card names in each current deck, for "not in deck X".
-let deckNamesCache = null;
-const namesInDeck = id => {
-  if (!deckNamesCache) deckNamesCache = new Map(realDecks().map(d => [d.id, new Set(d.rows.map(r => r.card_name))]));
-  return deckNamesCache.get(id) || new Set();
-};
+// Front face only, so a spell // land card (e.g. a modal double-faced card) still counts as a spell
+const isLand = name => /\bLand\b/.test((cardInfo.get(name)?.type_line || "").split(" // ")[0].split(" — ")[0]);
 
 function indexCards() {
-  const byName = new Map(), inDecks = keysWith(ix.decks, "in");
+  const byName = new Map();
   for (const d of realDecks()) {
-    if (isStale(d) || (inDecks.length && !inDecks.includes(d.id))) continue;
+    if (isStale(d) || ix.skip.has(d.id)) continue;
     const cmds = commandersOf.get(d.id) || new Set();
     for (const r of d.rows) {
-      // a set filter limits which copies count
+      // the set and proxy filters limit which copies count
       const set = r.set_code.toUpperCase();
       if (setFilter.yes && !setFilter.yes.has(set)) continue;
       if (setFilter.no.has(set)) continue;
+      if (ix.proxies === "only" && !isProxy(r)) continue;
+      if (ix.proxies === "none" && isProxy(r)) continue;
       let c = byName.get(r.card_name);
       if (!c) {
         const info = cardInfo.get(r.card_name) || {};
@@ -46,21 +55,31 @@ function indexCards() {
         byName.set(r.card_name, c = { name: r.card_name, type: info.type_line || "", types: types.split(" ").filter(Boolean), subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
-          price: null, printings: new Set(), sets: new Map() });
+          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, mix: 0, id: "", printings: new Set(), sets: new Map() });
       }
       c.qty += r.qty;
-      // price = the cheapest printing among the ones you play
       c.printings.add(printKey(r));
       c.sets.set(set, (c.sets.get(set) || 0) + r.qty);
-      const p = priceIn(r); if (p != null && (c.price == null || p < c.price)) c.price = p;
+      if (!c.id && r.scryfall_id) c.id = r.scryfall_id;   // a printing you play, for the card image
+      // per store: the cheapest printing you play (per copy), and what all these copies cost there
+      for (const [s, col] of Object.entries(STORE_KEYS)) {
+        const p = priceIn(r, col);
+        if (p != null && (c[s] == null || p < c[s])) c[s] = p;
+        c.tot[s] += (p ?? 0) * r.qty;
+      }
+      // each copy bought wherever it's cheapest among the compared stores
+      const opts = [...ix.stores].map(s => priceIn(r, STORE_KEYS[s])).filter(p => p != null);
+      if (opts.length) c.mix += Math.min(...opts) * r.qty;
       const e = c.perDeck.get(d.id) || { qty: 0, cmd: false, proxy: false };
       e.qty += r.qty; e.cmd ||= cmds.has(r.card_name); e.proxy ||= isProxy(r);
       c.perDeck.set(d.id, e);
       c.commander ||= e.cmd; c.proxied ||= e.proxy;
     }
   }
-  return [...byName.values()].map(c => ({ ...c, decks: c.perDeck.size,
-    setList: [...c.sets.keys()].sort().join(", ") }));
+  return [...byName.values()].map(c => {
+    const [bestStore, best] = [...ix.stores].map(s => [s, c[s]]).filter(([, p]) => p != null).sort((a, b) => a[1] - b[1])[0] || [null, null];
+    return { ...c, decks: c.perDeck.size, bestStore, best, price: best, setList: [...c.sets.keys()].sort().join(", ") };
+  });
 }
 
 // Typed set terms -> set codes. An exact code matches itself; otherwise it matches every
@@ -108,13 +127,10 @@ function ixMatches(c) {
   const typesIn = keysWith(ix.types, "in"), typesOut = keysWith(ix.types, "out");
   if (typesIn.length && !c.types.some(t => typesIn.includes(t))) return false;
   if (typesOut.some(t => c.types.includes(t))) return false;
-  if (keysWith(ix.decks, "out").some(id => namesInDeck(id).has(c.name))) return false;
-  const inDecks = keysWith(ix.decks, "in");
-  if (ix.match === "every" && inDecks.length > 1 && c.perDeck.size < inDecks.length) return false;
+  const n = checkedDecks().length;
+  if (ix.match === "every" && n > 1 && c.perDeck.size < n) return false;
   if (ix.commanders === "only" && !c.commander) return false;
   if (ix.commanders === "none" && c.commander) return false;
-  if (ix.proxies === "only" && !c.proxied) return false;
-  if (ix.proxies === "none" && c.proxied) return false;
   return true;
 }
 const pipsHtml = id => id == null ? `<span class="muted">?</span>` :
@@ -134,26 +150,62 @@ function triDropdown(dd, items, map) {
   badge.classList.toggle("not", !nIn && nOut > 0);
 }
 
+// Every deck starts checked; unchecking one leaves its copies out.
+function fillDeckDropdown() {
+  const items = sortBy(realDecks().filter(d => !isStale(d)).map(d => ({ id: d.id, name: d.name })), { k: "name", dir: 1 });
+  const left = items.filter(x => !ix.skip.has(x.id)).length;
+  $("ixDeckDD").querySelector(".panel").innerHTML =
+    `<select id="ixMatch" aria-label="Which checked decks" ${left > 1 ? "" : "disabled"}>
+       <option value="any" ${ix.match === "any" ? "selected" : ""}>Cards in any checked deck</option>
+       <option value="every" ${ix.match === "every" ? "selected" : ""}>Only cards in every checked deck</option>
+     </select>` +
+    `<label class="all"><input type="checkbox" value="*" ${left === items.length ? "checked" : ""}> All decks</label>` +
+    items.map(x => `<label><input type="checkbox" value="${esc(x.id)}" ${ix.skip.has(x.id) ? "" : "checked"}> ${esc(x.name)}</label>`).join("");
+  $("ixDeckDD").querySelector('input[value="*"]').indeterminate = left > 0 && left < items.length;
+  $("ixDeckDD").querySelector(".count-badge").textContent = `${left}/${items.length}`;
+}
+
+// Card image for a printing you play, straight from Scryfall's image server by its id
+function cardImg(c) {
+  const id = (c.id || "").toLowerCase();
+  return /^[0-9a-f-]{36}$/.test(id)
+    ? `<img src="https://cards.scryfall.io/normal/front/${id[0]}/${id[1]}/${id}.jpg" alt="${esc(c.name)}" loading="lazy" decoding="async" onerror="this.remove()">`
+    : "";
+}
+const deckChips = c => sortBy([...c.perDeck].map(([id, e]) => ({ e, name: deckName(id) })), { k: "name", dir: 1 });
+
 function renderIndex() {
   const typesPresent = new Set([...cardInfo.values()].flatMap(c => (c.type_line || "").split(" — ")[0].split(" ")));
   triDropdown($("ixTypeDD"), MAIN_TYPES.filter(t => typesPresent.has(t)).map(t => [t, t]), ix.types);
-  triDropdown($("ixDeckDD"), sortBy(realDecks().filter(d => !isStale(d)).map(d => ({ id: d.id, name: d.name })), { k: "name", dir: 1 }).map(d => [d.id, d.name]), ix.decks);
+  fillDeckDropdown();
+  $("ixLands").setAttribute("aria-pressed", String(ix.types.get("Land") === "out"));
   const sets = resolveSets();
-  $("ixMatch").hidden = keysWith(ix.decks, "in").length < 2; $("ixMatch").value = ix.match;
   $("ixColors").innerHTML = "WUBRGC".split("").map(k => {
     const st = ix.colors.get(k) || "";
     return `<button data-c="${k}" data-state="${st}" aria-pressed="${st === "in"}"
       title="${COLOR_NAMES[k]}${st === "in" ? " (included)" : st === "out" ? " (excluded)" : ""}. Click to include, again to exclude."><span class="pip ${k}">${k}</span></button>`;
   }).join("");
 
-  const all = indexCards(), list = sortBy(all.filter(ixMatches), ixSort);
-  const copies = list.reduce((s, c) => s + c.qty, 0);
-  $("ixResult").textContent = `${list.length} of ${all.length} cards · ${copies} copies` +
-    (sets.matched.length ? ` from ${sets.matched.join(", ")}` : setFilter.yes ? ` from no set you play` : "") +
-    (sets.excluded.length ? `, not from ${sets.excluded.join(", ")}` : "") +
-    (sets.unknown.length ? ` (no cards match ${sets.unknown.join(", ")})` : "") +
-    (cardInfo.size ? "" : " · types arrive with the next run");
+  const list = sortBy(indexCards().filter(ixMatches), ixSort);
+  const copies = list.reduce((s, c) => s + c.qty, 0), mix = list.reduce((s, c) => s + c.mix, 0);
+  const deckCount = new Set(list.flatMap(c => [...c.perDeck.keys()])).size;
+  const storeTotal = s => list.reduce((t, c) => t + c.tot[s], 0);
+  $("ixSummary").innerHTML = `
+    <div><div class="lbl" title="Each copy at whichever compared store is cheapest">${ix.proxies === "only" ? "Cost to replace these proxies" : "Value at the cheapest store"}</div>
+      <div class="big num" style="text-align:left">${money(mix)}</div></div>
+    <div class="alt"><div>${list.length} card${list.length === 1 ? "" : "s"} · ${copies} ${copies === 1 ? "copy" : "copies"} · ${deckCount} deck${deckCount === 1 ? "" : "s"}</div>
+      ${Object.keys(STORE_NAMES).map(s => `<div class="${ix.stores.has(s) ? "" : "off"}">${STORE_NAMES[s]} only: ${money(storeTotal(s))}</div>`).join("")}</div>`;
+  const notes = [
+    sets.matched.length ? `From ${sets.matched.join(", ")}` : setFilter.yes ? "From no set you play" : "",
+    sets.excluded.length ? `Not from ${sets.excluded.join(", ")}` : "",
+    sets.unknown.length ? `No cards match ${sets.unknown.join(", ")}` : "",
+    cardInfo.size ? "" : "Types arrive with the next run",
+  ].filter(Boolean);
+  $("ixResult").textContent = notes.join(" · "); $("ixResult").hidden = !notes.length;
+
   const MAX = 400;
+  const priceCell = (c, s) => `<td class="num ${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}"
+      ${c.printings.size > 1 && c[s] != null ? `title="Cheapest of the ${c.printings.size} printings you play"` : ""}>${money(c[s])}</td>`;
   $("indexTable").tBodies[0].innerHTML = list.slice(0, MAX).map((c, i) => `
     <tr>
       <td class="rownum">${i + 1}</td>
@@ -161,15 +213,21 @@ function renderIndex() {
       <td class="type-col">${esc(c.type || "–")}</td>
       <td class="num">${c.mv ?? "–"}</td>
       <td>${pipsHtml(c.color)}</td>
-      <td class="num">${c.decks}</td>
       <td class="num">${c.qty}</td>
-      <td class="num" ${c.printings.size > 1 ? `title="Cheapest of the ${c.printings.size} printings you play"` : ""}>${money(c.price)}${c.printings.size > 1 ? `<div class="printings-note">cheapest of ${c.printings.size}</div>` : ""}</td>
+      ${priceCell(c, "tcg")}${priceCell(c, "ck")}${priceCell(c, "cm")}
       <td class="sets-col">${[...c.sets].sort((a, b) => a[0].localeCompare(b[0])).map(([set, n]) =>
         `<span class="set-code" title="${n} ${n === 1 ? "copy" : "copies"} from ${esc(set)}">${esc(set)}${c.sets.size > 1 && n > 1 ? `<span class="muted"> ×${n}</span>` : ""}</span>`).join(" ")}</td>
-      <td><div class="where">${sortBy([...c.perDeck].map(([id, e]) => ({ e, name: deckName(id) })), { k: "name", dir: 1 })
-        .map(({ name, e }) => `<span class="dchip ${e.cmd ? "cmd" : ""} ${e.proxy ? "proxy" : ""}">${esc(name)}${e.qty > 1 ? " ×" + e.qty : ""}</span>`).join("")}</div></td>
-    </tr>`).join("") + (list.length > MAX ? `<tr><td colspan="10" class="muted">First ${MAX} shown. Narrow the filters for more.</td></tr>` : "")
-    || `<tr><td colspan="10" class="muted">No cards match.</td></tr>`;
+      <td><div class="where">${deckChips(c).map(({ name, e }) => `<span class="dchip ${e.cmd ? "cmd" : ""} ${e.proxy ? "proxy" : ""}">${esc(name)}${e.qty > 1 ? " ×" + e.qty : ""}</span>`).join("")}</div></td>
+    </tr>`).join("") + (list.length > MAX ? `<tr><td colspan="11" class="muted">First ${MAX} shown. Narrow the filters for more.</td></tr>` : "")
+    || `<tr><td colspan="11" class="muted">No cards match.</td></tr>`;
+  $("ixGrid").innerHTML = list.slice(0, MAX).map(c => `
+    <figure class="px-tile" title="${esc(c.name)}\n${esc(deckChips(c).map(({ name, e }) => name + (e.qty > 1 ? " ×" + e.qty : "")).join("\n"))}">
+      <div class="px-img"><div class="ph">${esc(c.name)}</div>${cardImg(c)}${c.qty > 1 ? `<span class="px-qty">×${c.qty}</span>` : ""}</div>
+      <figcaption><b class="num">${money(c.best)}</b><span class="muted">${c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></figcaption>
+    </figure>`).join("") || `<div class="muted">No cards match.</div>`;
+  const grid = ix.layout === "grid";
+  $("ixGrid").hidden = !grid; $("ixTableBox").hidden = grid;
+  $("ixLayout").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === ix.layout)));
   markSort($("indexTable"), ixSort);
   const ixs = sortStr(ixSort); $("ixSortSel").value = [...$("ixSortSel").options].some(o => o.value && o.value === ixs) ? ixs : "";
   renderOverlap();
@@ -190,7 +248,7 @@ function renderOverlap() {
 }
 $("overlapGrid").addEventListener("click", e => {
   const b = e.target.closest("button[data-a]"); if (!b) return;
-  ix.decks = new Map([[b.dataset.a, "in"], [b.dataset.b, "in"]]); ix.match = "every";
+  ix.skip = new Set(currentDeckIds().filter(id => id !== b.dataset.a && id !== b.dataset.b)); ix.match = "every";
   renderIndex();
   $("indexTable").scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
 });
@@ -199,13 +257,26 @@ $("ixSearch").addEventListener("input", e => { ix.search = e.target.value.trim()
 $("ixSubtype").addEventListener("input", e => { ix.subtype = e.target.value.trim().toLowerCase(); renderIndex(); });
 $("ixCommanders").addEventListener("change", e => { ix.commanders = e.target.value; renderIndex(); });
 $("ixProxies").addEventListener("change", e => { ix.proxies = e.target.value; renderIndex(); });
-$("ixMatch").addEventListener("change", e => { ix.match = e.target.value; renderIndex(); });
+$("ixDeckDD").addEventListener("change", e => {
+  const v = e.target.value;
+  if (e.target.id === "ixMatch") ix.match = v;
+  else if (v === "*") ix.skip = e.target.checked ? new Set() : new Set(currentDeckIds());
+  else e.target.checked ? ix.skip.delete(v) : ix.skip.add(v);
+  renderIndex();
+});
+$("ixLands").addEventListener("click", () => { ix.types.get("Land") === "out" ? ix.types.delete("Land") : ix.types.set("Land", "out"); renderIndex(); });
+$("ixLayout").addEventListener("click", e => { const b = e.target.closest("button[data-l]"); if (b) { ix.layout = b.dataset.l; renderIndex(); } });
+document.querySelectorAll(".ix-store").forEach(c => c.addEventListener("change", () => {
+  c.checked ? ix.stores.add(c.value) : ix.stores.delete(c.value);
+  if (!ix.stores.size) { ix.stores.add(c.value); c.checked = true; }
+  renderIndex();
+}));
 $("ixColors").addEventListener("click", e => {
   const b = e.target.closest("button[data-c]"); if (!b) return;
   cycle(ix.colors, b.dataset.c); renderIndex();
 });
 // keep the dropdown open (and focus on the same row) while clicking through states
-for (const [dd, map] of [["ixTypeDD", () => ix.types], ["ixDeckDD", () => ix.decks]])
+for (const [dd, map] of [["ixTypeDD", () => ix.types]])
   $(dd).addEventListener("click", e => {
     const b = e.target.closest("button.tri"); if (!b) return;
     cycle(map(), b.dataset.v); renderIndex();
@@ -216,7 +287,7 @@ $("ixSets").addEventListener("input", e => { ix.sets = parseSets(e.target.value)
 $("ixSortSel").addEventListener("change", e => { readSort(e.target.value, ixSort); renderIndex(); });
 $("ixClear").addEventListener("click", () => {
   Object.assign(ix, { search: "", subtype: "", sets: [], commanders: "", proxies: "", match: "any" });
-  ix.colors.clear(); ix.types.clear(); ix.decks.clear();
+  ix.colors.clear(); ix.types.clear(); ix.skip.clear();
   $("ixSearch").value = $("ixSubtype").value = $("ixSets").value = ""; $("ixCommanders").value = $("ixProxies").value = ""; renderIndex();
 });
 // close open dropdowns on outside clicks; composedPath() still knows where the click

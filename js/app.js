@@ -19,10 +19,10 @@ function setHipsterLink() {
 // ---------- shareable links ----------
 // The address holds the tab plus that tab's deck and filters, e.g.
 //   #decks?deck=4279849&price=ck&on=2026-09-11&show=proxied&q=sol
-//   #proxies?skip=4279849,5005670&lands=no&stores=tcg,ck,cm&sort=-best
-//   #search?q=elf&colors=W,G,-R&types=Creature,-Land&decks=1,-2&sets=SLD,-LTR&cmd=only&proxied=none
+//   #search?q=elf&colors=W,G,-R&types=Creature,-Land&skip=4279849&sets=SLD,-LTR&cmd=only&proxied=only&stores=tcg,ck,cm&layout=grid
+// (#proxies links from before the Proxies tab was merged into All cards still open, as Proxies only.)
 // Switching tab or deck adds a history entry (so Back works); filter tweaks replace it.
-const VIEW_SLUG = { pricesView: "decks", proxyView: "proxies", indexView: "search", cardsView: "cards" };
+const VIEW_SLUG = { pricesView: "decks", indexView: "search", cardsView: "cards" };
 const SLUG_VIEW = Object.fromEntries(Object.entries(VIEW_SLUG).map(([k, v]) => [v, k]));
 const PRICE_SLUG = { price_tcgplayer: "tcg", price_cardkingdom: "ck", price_cardmarket: "cm" };
 const SLUG_PRICE = Object.fromEntries(Object.entries(PRICE_SLUG).map(([k, v]) => [v, k]));
@@ -33,7 +33,7 @@ let urlReady = false, lastNav = "";
 
 function buildUrl() {
   const q = new URLSearchParams();
-  if (source !== "price_tcgplayer" && view !== "proxyView") q.set("price", PRICE_SLUG[source]);
+  if (source !== "price_tcgplayer" && view === "pricesView") q.set("price", PRICE_SLUG[source]);
   if (view === "pricesView") {
     if (selected !== ALL) q.set("deck", selected === AVG ? "average" : selected);
     if (asOf && asOf !== latestDate) q.set("on", asOf);
@@ -42,12 +42,6 @@ function buildUrl() {
     if (moverWindow !== 30) q.set("movers", moverWindow);
     if (sortStr(deckSort) !== "name") q.set("sort", sortStr(deckSort));
     if (sortStr(cardSort) !== "-total") q.set("cards", sortStr(cardSort));
-  } else if (view === "proxyView") {
-    if (px.skip.size) q.set("skip", [...px.skip].join(","));
-    if (px.noLands) q.set("lands", "no");
-    if ([...px.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...px.stores].join(","));
-    if (sortStr(pxSort) !== "best") q.set("sort", sortStr(pxSort));
-    if (px.layout === "grid") q.set("layout", "grid");
   } else if (view === "indexView") {
     const modes = map => [...map].map(([k, m]) => (m === "out" ? "-" : "") + k).join(",");
     if (ix.search) q.set("q", ix.search);
@@ -55,10 +49,12 @@ function buildUrl() {
     if (ix.types.size) q.set("types", modes(ix.types));
     if (ix.subtype) q.set("sub", ix.subtype);
     if (ix.sets.length) q.set("sets", ix.sets.join(","));
-    if (ix.decks.size) q.set("decks", modes(ix.decks));
-    if (keysWith(ix.decks, "in").length > 1 && ix.match === "every") q.set("match", "every");
+    if (ix.skip.size) q.set("skip", [...ix.skip].join(","));
+    if (checkedDecks().length > 1 && ix.match === "every") q.set("match", "every");
     if (ix.commanders) q.set("cmd", ix.commanders);
     if (ix.proxies) q.set("proxied", ix.proxies);
+    if ([...ix.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...ix.stores].join(","));
+    if (ix.layout === "grid") q.set("layout", "grid");
     if (sortStr(ixSort) !== "-decks") q.set("sort", sortStr(ixSort));
   }
   const qs = q.toString().replace(/%2C/g, ",");
@@ -77,15 +73,14 @@ function syncUrl() {
 function readUrl() {
   const [slug, qs = ""] = location.hash.replace(/^#/, "").split("?");
   const q = new URLSearchParams(qs);
-  view = SLUG_VIEW[slug] || "pricesView";
+  view = slug === "proxies" ? "indexView" : SLUG_VIEW[slug] || "pricesView";
   source = SLUG_PRICE[q.get("price")] || "price_tcgplayer";
   $("source").value = source;
   // reset everything, then apply what the link specifies
   selected = ALL; asOf = null; tagFilter = null; moverWindow = 30; $("search").value = "";
   Object.assign(deckSort, { k: "name", dir: 1 }); Object.assign(cardSort, { k: "total", dir: -1 });
-  px.skip = new Set(); px.noLands = false; px.stores = new Set(["tcg", "ck"]); Object.assign(pxSort, { k: "best", dir: 1 });
-  Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", proxies: "" });
-  ix.colors = new Map(); ix.types = new Map(); ix.decks = new Map(); Object.assign(ixSort, { k: "decks", dir: -1 });
+  Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", proxies: "", layout: "table" });
+  ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg", "ck"]); Object.assign(ixSort, { k: "decks", dir: -1 });
   const known = id => decks.has(id) && !decks.get(id).virtual;
 
   if (view === "pricesView") {
@@ -96,15 +91,6 @@ function readUrl() {
     $("search").value = q.get("q") || "";
     if (q.get("movers") === "7") moverWindow = 7;
     readSort(q.get("sort"), deckSort); readSort(q.get("cards"), cardSort);
-  } else if (view === "proxyView") {
-    px.skip = new Set(csvList(q.get("skip")).filter(known));
-    const only = csvList(q.get("decks")).filter(known);   // older links listed the decks to include
-    if (only.length) px.skip = new Set(currentDeckIds().filter(id => !only.includes(id)));
-    px.noLands = q.get("lands") === "no";
-    const st = csvList(q.get("stores")).filter(x => STORE_NAMES[x]);
-    if (st.length) px.stores = new Set(st);
-    readSort(q.get("sort"), pxSort);
-    px.layout = q.get("layout") === "grid" ? "grid" : "table";
   } else if (view === "indexView") {
     // "W,-R" style lists ("-" = excluded); older links used "WG" for colors
     const readModes = (str, ok = () => true) => new Map(csvList(str).map(x => x.startsWith("-") ? [x.slice(1), "out"] : [x, "in"]).filter(([k]) => ok(k)));
@@ -114,15 +100,26 @@ function readUrl() {
     ix.types = readModes(q.get("types"));
     ix.subtype = (q.get("sub") || "").toLowerCase();
     ix.sets = csvList(q.get("sets")).map(x => x.toUpperCase());
-    ix.decks = readModes(q.get("decks"), known);
+    ix.skip = new Set(csvList(q.get("skip")).filter(known));
+    // older links listed decks to include ("decks=1,2"; excluded ones had a "-")
+    const only = csvList(q.get("decks")).filter(x => !x.startsWith("-") && known(x));
+    if (only.length) ix.skip = new Set(currentDeckIds().filter(id => !only.includes(id)));
     ix.match = q.get("match") === "every" ? "every" : "any";
     const tri = v => v === "1" || v === "only" ? "only" : v === "none" ? "none" : "";
     ix.commanders = tri(q.get("cmd")); ix.proxies = tri(q.get("proxied"));
-    readSort(q.get("sort"), ixSort);
+    if (slug === "proxies") {   // the old Proxies tab
+      ix.proxies = "only";
+      if (q.get("lands") === "no") ix.types.set("Land", "out");
+      if (!q.get("sort")) Object.assign(ixSort, { k: "best", dir: 1 });
+    }
+    const st = csvList(q.get("stores")).filter(x => STORE_NAMES[x]);
+    if (st.length) ix.stores = new Set(st);
+    ix.layout = q.get("layout") === "grid" ? "grid" : "table";
+    readSort(q.get("sort") === "price" ? "best" : q.get("sort") === "-price" ? "-best" : q.get("sort"), ixSort);
   }
   // put the form controls in step with the state
   $("deckSortSel").value = deckSort.k;
-  document.querySelectorAll(".px-store").forEach(c => c.checked = px.stores.has(c.value));
+  document.querySelectorAll(".ix-store").forEach(c => c.checked = ix.stores.has(c.value));
   $("ixSearch").value = ix.search; $("ixSubtype").value = ix.subtype; $("ixSets").value = ix.sets.join(" ");
   $("ixCommanders").value = ix.commanders; $("ixProxies").value = ix.proxies;
   lastNav = view + "|" + (view === "pricesView" ? selected : "");
@@ -131,7 +128,7 @@ function readUrl() {
 function applyUrl() {
   readUrl();
   showView(view);
-  render(); renderProxies(); renderIndex();
+  render(); renderIndex();
 }
 addEventListener("popstate", () => { urlReady = false; applyUrl(); urlReady = true; });
 
@@ -152,7 +149,6 @@ function sortClick(table, getState, after) {
 }
 sortClick($("indexTable"), () => ixSort, renderIndex);
 sortClick($("cardTable"), () => cardSort, () => renderCards(decks.get(selected)));
-sortClick($("proxyTable"), () => pxSort, renderProxies);
 $("deckSortSel").addEventListener("change", e => { deckSort.k = e.target.value; deckSort.dir = e.target.value === "name" ? 1 : -1; renderDecks(); syncUrl(); });
 $("deckList").addEventListener("click", e => {
   const b = e.target.closest(".deck-item"); if (!b) return;

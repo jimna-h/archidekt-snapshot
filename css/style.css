@@ -71,7 +71,6 @@ code { font-size: 0.9em; }
 .mark { width: 46px; height: 46px; flex: none; color: var(--text-primary); }
 .brand h1 { font-size: 32px; line-height: 1; letter-spacing: -0.015em; }
 .brand .sub { color: var(--text-secondary); font-size: 15px; margin-top: 4px; }
-label.ctl.unused { visibility: hidden; }
 label.ctl { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 15px; }
 select, input[type=search], input[type=text] {
   font: inherit; font-size: 15px; color: var(--text-primary); background: var(--surface);
@@ -92,8 +91,9 @@ a.ghost:hover { color: var(--text-primary); }
 /* ---------- decks view: sidebar + detail ---------- */
 .layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 24px; align-items: start; }
 .sidebar { position: sticky; top: 16px; }
-.sidebar-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 2px 4px 10px; }
-.sidebar-head label { color: var(--text-secondary); font-size: 14px; display: flex; align-items: center; gap: 6px; }
+.sidebar-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin: 2px 4px 10px; }
+.sidebar-head h3 { flex-basis: 100%; }
+.sidebar-head label { color: var(--text-secondary); font-size: 14px; display: grid; grid-template-columns: 46px minmax(0, 220px); align-items: center; gap: 6px; flex-basis: 100%; }
 .sidebar-head select { min-height: 30px; padding: 2px 26px 2px 8px; font-size: 14px; }
 .deck-list { display: grid; gap: 2px; max-height: calc(100vh - 120px); overflow-y: auto; padding: 2px; }
 .deck-item {
@@ -211,7 +211,6 @@ details.dd summary { list-style: none; cursor: pointer; border: 1px solid var(--
 details.dd summary::after { content: "▾"; color: var(--text-muted); font-size: 12px; }
 details.dd summary::-webkit-details-marker { display: none; }
 details.dd .panel { position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 6px; box-shadow: var(--shadow); max-height: 340px; overflow: auto; min-width: 230px; max-width: calc(100vw - 40px); }
-#ixDeckDD .panel { left: auto; right: 0; }
 details.dd .panel label { display: flex; gap: 8px; align-items: center; padding: 5px 8px; border-radius: 6px; white-space: nowrap; cursor: pointer; font-size: 15px; }
 details.dd .panel label:hover { background: var(--hover); }
 .ctoggles button[data-state="in"] { opacity: 1; filter: none; box-shadow: 0 0 0 2px var(--series-1); }
@@ -240,7 +239,7 @@ button.ghost:hover { color: var(--text-primary); }
 .dchip.proxy { border-style: dashed; border-color: var(--series-proxy); }
 #indexTable td { vertical-align: top; }
 /* fixed column widths, so sorting or filtering never reshuffles the layout */
-#indexTable { table-layout: fixed; min-width: 1060px; }
+#indexTable { table-layout: fixed; min-width: 1180px; }
 #indexTable td { overflow-wrap: anywhere; }
 #indexTable td.num, #indexTable th { overflow-wrap: normal; }
 #indexTable .pips { flex-wrap: wrap; }
@@ -252,6 +251,7 @@ td.sets-col { max-width: 160px; }
 
 /* ---------- new pieces ---------- */
 .px-layout { margin-left: auto; }
+#ixMatch { width: 100%; margin: 2px 0 6px; font-size: 14px; }
 .px-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px 14px; margin-top: 16px; }
 .px-tile { margin: 0; }
 @media (max-width: 600px) { .px-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px; } .px-tile figcaption { font-size: 12px; } }
@@ -284,10 +284,8 @@ label.ctl.small { font-size: 14px; }
 label.ctl.small select { min-height: 32px; font-size: 14px; }
 .proxy-summary { display: grid; grid-template-columns: auto 1fr; gap: 8px 36px; align-items: start; }
 .proxy-summary .alt div.off { opacity: 0.45; }
-.px-controls { margin-top: 14px; }
-.px-stores { margin-top: 10px; }
-.px-stores .filter-label { margin-left: 0; }
-#pxDeckDD .count-badge { box-sizing: content-box; min-width: 3.4em; text-align: center; font-variant-numeric: tabular-nums; }
+.ix-filters { margin-top: 12px; }
+#ixDeckDD .count-badge { box-sizing: content-box; min-width: 3.4em; text-align: center; font-variant-numeric: tabular-nums; }
 @media (max-width: 600px) { .proxy-summary { grid-template-columns: 1fr; } }
 .proxy-summary .big { font-family: var(--serif); font-weight: 700; font-size: 36px; line-height: 1.05; }
 .proxy-summary .lbl { font-size: 14px; color: var(--text-secondary); }
@@ -295,7 +293,6 @@ label.ctl.small select { min-height: 32px; font-size: 14px; }
 .filter-label { font-size: 14px; color: var(--text-muted); margin-left: 6px; }
 td.best { font-weight: 700; }
 td.store { white-space: nowrap; font-weight: 500; }
-#proxyTable td { vertical-align: top; }
 details.overlap summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; }
 details.overlap summary::-webkit-details-marker { display: none; }
 details.overlap summary h3::after { content: " ▸"; color: var(--text-muted); font-size: 14px; }
@@ -397,11 +394,11 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   .tagrow .bar { grid-column: 1 / -1; grid-row: 2; }
   .ix-bar, .ix-table { padding-left: 12px; padding-right: 12px; }
 }
-/* Phones: the search and proxy tables turn into stacked rows (sorting moves to the Sort menu) */
+/* Phones: the All cards and deck card tables turn into stacked rows (sorting moves to the Sort menu) */
 @media (max-width: 600px) {
-  #indexTable, #proxyTable, #cardTable { min-width: 0; width: 100%; }
-  #indexTable thead, #proxyTable thead, #cardTable thead, #indexTable colgroup { display: none; }
-  #indexTable tbody, #proxyTable tbody, #cardTable tbody { display: block; }
+  #indexTable, #cardTable { min-width: 0; width: 100%; }
+  #indexTable thead, #cardTable thead, #indexTable colgroup { display: none; }
+  #indexTable tbody, #cardTable tbody { display: block; }
   #cardTable tr { display: grid; grid-template-columns: auto 1fr auto auto; grid-template-areas: "card card card total" "qty price ind chg"; align-items: center; column-gap: 8px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid); }
   #cardTable td { display: block; padding: 0; border: 0; min-width: 0; }
   #cardTable td[colspan] { grid-column: 1 / -1; }
@@ -411,29 +408,19 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   #cardTable td:nth-child(4) { grid-area: price; text-align: left; font-size: 13px; color: var(--text-secondary); }
   #cardTable td:nth-child(5) { grid-area: total; font-weight: 600; }
   #cardTable td:nth-child(6) { grid-area: chg; font-size: 13px; }
-  #indexTable tr, #proxyTable tr { display: grid; column-gap: 10px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid); }
-  #indexTable td, #proxyTable td { display: block; padding: 0; border: 0; min-width: 0; }
-  #indexTable td[colspan], #proxyTable td[colspan] { grid-column: 1 / -1; }
-  #indexTable tr { grid-template-columns: 22px auto 1fr auto; grid-template-areas: "n name name price" ". color type price" ". sets sets sets" ". where where where"; }
+  #indexTable tr { display: grid; column-gap: 10px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid);
+    grid-template-columns: 22px 1fr 1fr 1fr; grid-template-areas: "n name name name" ". type type type" ". tcg ck cm" ". sets sets sets" ". where where where"; }
+  #indexTable td { display: block; padding: 0; border: 0; min-width: 0; }
+  #indexTable td[colspan] { grid-column: 1 / -1; }
   #indexTable td:nth-child(1) { grid-area: n; }
   #indexTable td:nth-child(2) { grid-area: name; }
   #indexTable td:nth-child(3) { grid-area: type; font-size: 13px; color: var(--text-secondary); }
-  #indexTable td:nth-child(4), #indexTable td:nth-child(6), #indexTable td:nth-child(7) { display: none; }
-  #indexTable td:nth-child(5) { grid-area: color; }
-  #indexTable td:nth-child(8) { grid-area: price; }
-  #indexTable td:nth-child(9) { grid-area: sets; font-size: 13px; }
-  #indexTable td:nth-child(10) { grid-area: where; }
-  #proxyTable tr { grid-template-columns: repeat(3, 1fr) auto; grid-template-areas: "card card card best" "decks decks decks qty" "tcg ck cm ."; }
-  #proxyTable td:nth-child(1) { grid-area: card; }
-  #proxyTable td:nth-child(2) { grid-area: decks; }
-  #proxyTable td:nth-child(3) { grid-area: qty; color: var(--text-secondary); }
-  #proxyTable td:nth-child(3)::before { content: "×"; }
-  #proxyTable td.one { visibility: hidden; }
-  #proxyTable td:nth-child(4) { grid-area: tcg; } #proxyTable td:nth-child(5) { grid-area: ck; } #proxyTable td:nth-child(6) { grid-area: cm; }
-  #proxyTable td:nth-child(4), #proxyTable td:nth-child(5), #proxyTable td:nth-child(6) { text-align: left; font-size: 13px; }
-  #proxyTable td:nth-child(4)::before { content: "TCG "; color: var(--text-muted); font-weight: 400; }
-  #proxyTable td:nth-child(5)::before { content: "CK "; color: var(--text-muted); font-weight: 400; }
-  #proxyTable td:nth-child(6)::before { content: "CM "; color: var(--text-muted); font-weight: 400; }
-  #proxyTable td:nth-child(7) { grid-area: best; font-weight: 600; }
-  #proxyTable td:nth-child(8) { display: none; }
+  #indexTable td:nth-child(4), #indexTable td:nth-child(5), #indexTable td:nth-child(6) { display: none; }
+  #indexTable td:nth-child(7) { grid-area: tcg; } #indexTable td:nth-child(8) { grid-area: ck; } #indexTable td:nth-child(9) { grid-area: cm; }
+  #indexTable td:nth-child(7), #indexTable td:nth-child(8), #indexTable td:nth-child(9) { text-align: left; font-size: 13px; }
+  #indexTable td:nth-child(7)::before { content: "TCG "; color: var(--text-muted); font-weight: 400; }
+  #indexTable td:nth-child(8)::before { content: "CK "; color: var(--text-muted); font-weight: 400; }
+  #indexTable td:nth-child(9)::before { content: "CM "; color: var(--text-muted); font-weight: 400; }
+  #indexTable td:nth-child(10) { grid-area: sets; font-size: 13px; }
+  #indexTable td:nth-child(11) { grid-area: where; }
 }

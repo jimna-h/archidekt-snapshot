@@ -20,13 +20,6 @@
         <div class="sub" id="subtitle">Loading your decks…</div>
       </div>
     </div>
-    <label class="ctl">Prices from
-      <select id="source">
-        <option value="price_tcgplayer">TCGplayer</option>
-        <option value="price_cardkingdom">Card Kingdom</option>
-        <option value="price_cardmarket">Cardmarket</option>
-      </select>
-    </label>
   </header>
 
   <div id="loadError" class="empty" hidden>
@@ -38,8 +31,7 @@
   <div class="tabbar">
   <nav class="tabs" id="tabs" role="tablist" hidden>
     <button role="tab" data-view="pricesView" aria-selected="true">Decks</button>
-    <button role="tab" data-view="proxyView" aria-selected="false">Proxies</button>
-    <button role="tab" data-view="indexView" aria-selected="false">Search all decks</button>
+    <button role="tab" data-view="indexView" aria-selected="false">All cards</button>
     <button role="tab" data-view="cardsView" aria-selected="false">Deck cards</button>
   </nav>
   <div class="tablinks">
@@ -49,50 +41,6 @@
     <button class="ghost" id="copyLink" title="Copies a link to exactly what you're looking at, filters included">Copy link</button>
   </div>
   </div>
-
-  <section id="proxyView" hidden>
-    <div class="ix-bar">
-      <div class="proxy-summary" id="pxSummary"></div>
-      <div class="filters px-controls">
-        <details class="dd" id="pxDeckDD"><summary>Decks <span class="count-badge"></span></summary><div class="panel"></div></details>
-        <button class="toggle" id="pxLands" aria-pressed="false">Exclude lands</button>
-        <select id="pxGridSort" aria-label="Sort">
-          <option value="best">Cheapest first</option>
-          <option value="-best">Priciest first</option>
-          <option value="name">Name</option>
-          <option value="" disabled hidden>Sorted by column</option>
-        </select>
-        <div class="seg px-layout" id="pxLayout" role="group" aria-label="Layout">
-          <button data-l="table" aria-pressed="true">Table</button>
-          <button data-l="grid" aria-pressed="false">Grid</button>
-        </div>
-      </div>
-      <div class="filters px-stores">
-        <span class="filter-label">Compare stores</span>
-        <label class="check"><input type="checkbox" class="px-store" value="tcg" checked> TCGplayer</label>
-        <label class="check"><input type="checkbox" class="px-store" value="ck" checked> Card Kingdom</label>
-        <label class="check" title="European store; prices may not be in dollars"><input type="checkbox" class="px-store" value="cm"> Cardmarket</label>
-      </div>
-    </div>
-    <div class="px-grid" id="pxGrid" hidden></div>
-    <div class="ix-table" id="pxTableBox">
-      <div class="table-wrap">
-        <table id="proxyTable">
-          <thead><tr>
-            <th data-k="name">Card</th>
-            <th>In decks</th>
-            <th data-k="qty" class="num">Qty</th>
-            <th data-k="tcg" class="num" title="Per copy; cheapest store in bold">TCGplayer</th>
-            <th data-k="ck" class="num" title="Per copy; cheapest store in bold">Card Kingdom</th>
-            <th data-k="cm" class="num" title="Per copy; cheapest store in bold">Cardmarket</th>
-            <th data-k="best" class="num" title="Per copy, at the cheapest compared store">Cheapest</th>
-            <th class="num" title="Adds up the rows in the order shown">Running total</th>
-          </tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
 
   <section id="cardsView" hidden>
     <div class="ix-bar cards-bar">
@@ -110,50 +58,61 @@
 
   <section id="indexView" hidden>
     <div class="ix-bar">
-      <div class="filters" title="Click a color, type or deck twice, or put a minus before a word, to leave it out">
+      <div class="proxy-summary" id="ixSummary"></div>
+      <div class="filters ix-filters" title="Click a color or type twice, or put a minus before a word, to leave it out">
         <input type="search" id="ixSearch" placeholder="Card name, e.g. bolt -lightning" aria-label="Search all decks by card name">
         <div class="ctoggles" id="ixColors"></div>
         <details class="dd" id="ixTypeDD"><summary>Type <span class="count-badge" hidden></span></summary><div class="panel"></div></details>
         <input type="text" id="ixSubtype" placeholder="Subtypes, e.g. Elf -Druid" aria-label="Subtypes">
         <input type="text" id="ixSets" placeholder="Sets, e.g. MH -SLD" title="Set codes; a prefix like MH matches MH1, MH2 and MH3" aria-label="Set codes" autocomplete="off" spellcheck="false">
-        <details class="dd" id="ixDeckDD"><summary>Decks <span class="count-badge" hidden></span></summary><div class="panel"></div></details>
-        <select id="ixMatch" aria-label="Which selected decks" hidden>
-          <option value="any">In any selected deck</option>
-          <option value="every">In every selected deck</option>
+      </div>
+      <div class="filters ix-filters">
+        <details class="dd" id="ixDeckDD"><summary>Decks <span class="count-badge"></span></summary><div class="panel"></div></details>
+        <select id="ixProxies" aria-label="Proxies">
+          <option value="">Proxies and paper</option>
+          <option value="only">Proxies only</option>
+          <option value="none">Paper only</option>
         </select>
         <select id="ixCommanders" aria-label="Commanders">
           <option value="">Commanders or not</option>
           <option value="only">Commanders only</option>
           <option value="none">Not commanders</option>
         </select>
-        <select id="ixProxies" aria-label="Proxies">
-          <option value="">Proxied or not</option>
-          <option value="only">Proxied somewhere</option>
-          <option value="none">Never proxied</option>
-        </select>
+        <button class="toggle" id="ixLands" aria-pressed="false">Exclude lands</button>
+        <button class="ghost" id="ixClear">Clear filters</button>
+      </div>
+      <div class="filters ix-filters">
         <select id="ixSortSel" aria-label="Sort">
           <option value="-decks">Most decks</option>
           <option value="-qty">Most copies</option>
-          <option value="price">Cheapest first</option>
-          <option value="-price">Priciest first</option>
+          <option value="best">Cheapest first</option>
+          <option value="-best">Priciest first</option>
           <option value="mv">Mana value</option>
           <option value="name">Name</option>
           <option value="" disabled hidden>Sorted by column</option>
         </select>
-        <button class="ghost" id="ixClear">Clear filters</button>
+        <span class="filter-label">Compare stores</span>
+        <label class="check"><input type="checkbox" class="ix-store" value="tcg" checked> TCGplayer</label>
+        <label class="check"><input type="checkbox" class="ix-store" value="ck" checked> Card Kingdom</label>
+        <label class="check" title="European store; prices may not be in dollars"><input type="checkbox" class="ix-store" value="cm"> Cardmarket</label>
+        <div class="seg px-layout" id="ixLayout" role="group" aria-label="Layout">
+          <button data-l="table" aria-pressed="true">Table</button>
+          <button data-l="grid" aria-pressed="false">Grid</button>
+        </div>
       </div>
-      <div class="result-line" id="ixResult"></div>
+      <div class="result-line" id="ixResult" hidden></div>
     </div>
     <details class="ix-bar overlap" id="overlapBox">
       <summary><h3>Deck overlap</h3><span class="muted">Cards each pair of decks shares</span></summary>
       <div class="table-wrap"><table class="overlap-grid" id="overlapGrid"></table></div>
     </details>
-    <div class="ix-table">
+    <div class="px-grid" id="ixGrid" hidden></div>
+    <div class="ix-table" id="ixTableBox">
       <div class="table-wrap">
         <table id="indexTable">
           <colgroup>
-            <col style="width:40px"><col style="width:19%"><col style="width:17%"><col style="width:44px">
-            <col style="width:92px"><col style="width:60px"><col style="width:66px"><col style="width:86px">
+            <col style="width:36px"><col style="width:16%"><col style="width:13%"><col style="width:40px">
+            <col style="width:72px"><col style="width:60px"><col style="width:86px"><col style="width:106px"><col style="width:92px">
             <col style="width:84px"><col>
           </colgroup>
           <thead><tr>
@@ -162,9 +121,10 @@
             <th data-k="type">Type</th>
             <th data-k="mv" class="num">MV</th>
             <th data-k="color">Color</th>
-            <th data-k="decks" class="num">Decks</th>
             <th data-k="qty" class="num">Copies</th>
-            <th data-k="price" class="num" title="Per copy, cheapest printing you play">Price</th>
+            <th data-k="tcg" class="num" title="Per copy, cheapest printing you play; cheapest compared store in bold">TCGplayer</th>
+            <th data-k="ck" class="num" title="Per copy, cheapest printing you play; cheapest compared store in bold">Card Kingdom</th>
+            <th data-k="cm" class="num" title="Per copy, cheapest printing you play; cheapest compared store in bold">Cardmarket</th>
             <th data-k="setList">Sets</th>
             <th title="Bold: commander. Dashed: proxy.">In decks</th>
           </tr></thead>
@@ -185,6 +145,13 @@
               <option value="value">Value</option>
               <option value="dFirst">Change since first</option>
               <option value="lastSwap">Last swap</option>
+            </select>
+          </label>
+          <label>Prices
+            <select id="source">
+              <option value="price_tcgplayer">TCGplayer</option>
+              <option value="price_cardkingdom">Card Kingdom</option>
+              <option value="price_cardmarket">Cardmarket</option>
             </select>
           </label>
         </div>
@@ -278,8 +245,7 @@
 <script src="vendor/html-to-image.js"></script>
 <script src="js/core.js"></script>
 <script src="js/decks.js"></script>
-<script src="js/proxies.js"></script>
-<script src="js/search.js"></script>
+<script src="js/all-cards.js"></script>
 <script src="js/deck-cards.js"></script>
 <script src="js/app.js"></script>
 </body>

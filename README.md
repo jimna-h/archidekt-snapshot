@@ -2,11 +2,10 @@
 
 A GitHub Action that, once a day, snapshots every deck in one [Archidekt](https://archidekt.com) folder: the cards in each deck, their current prices, and whether each card is a proxy. It builds up a price and decklist history over time (see [Data files](#data-files)).
 
-`index.html` (Archidekt Snapshot) has four tabs:
-- **Decks**: each deck's value over time (total, paper and proxies), biggest price movers, card swaps, mana curve and card types, and the decklist on any past date. Includes a whole-collection view and an average-deck view.
-- **Proxies**: every proxied card, its price at TCGplayer, Card Kingdom and Cardmarket, the cheapest option, and a running total of what it would cost to replace them, as a table or a grid of card images. Every deck is included until you untick it, and lands can be left out with one click.
+`index.html` (Archidekt Snapshot) has three tabs:
+- **Decks**: each deck's value over time (total, paper and proxies), biggest price movers, card swaps, mana curve and card types, and the decklist on any past date. Includes a whole-collection view and an average-deck view, and a picker for which store's prices to use.
+- **All cards**: every card across every deck, with filters (name, colors, types, subtypes, sets, decks, proxies or paper, commanders, Exclude lands), each card's price at TCGplayer, Card Kingdom and Cardmarket with the cheapest in bold, and a summary of what the shown copies cost. Choose "Proxies only" to see what it would cost to replace your proxies. Shows as a table or a grid of card images, plus a grid of how many cards each pair of decks shares. (This replaces the old Proxies and Search tabs, and the old [edh-ledger](https://github.com/jimna-h/edh-ledger) project.)
 - **Deck cards**: a Magic-card-sized card for each deck (color-identity frame, commander art, bracket, Game Changers and a QR code to the deck), laid out to print nine to a letter page and sleeve with the deck, or download as a zip of 300 dpi PNGs, one per card.
-- **Search all decks**: find any card across every deck and see which decks run it, plus a grid of how many cards each pair of decks shares. (This replaces the old [edh-ledger](https://github.com/jimna-h/edh-ledger) project.)
 
 The page address always reflects the tab, deck and filters you have open, so you can bookmark or share any view (there's a "Copy link" button too).
 
@@ -14,7 +13,7 @@ Turn on GitHub Pages (Settings → Pages → Deploy from a branch → `main`, `/
 
 Builds on the Archidekt API approach from [LandBase](https://github.com/jimna-h/LandBase).
 
-The page is plain static files, no build step: `index.html` (structure), `css/style.css`, and `js/` with `core.js` (data loading, shared helpers, tab switching), one file per tab, and `app.js` (links, shareable URLs, startup). The scripts are ordinary scripts loaded in order and share top-level names.
+The page is plain static files, no build step: `index.html` (structure), `css/style.css`, and `js/` with `core.js` (data loading, shared helpers, tab switching), `decks.js`, `all-cards.js` and `deck-cards.js` for the tabs, and `app.js` (links, shareable URLs, startup). The scripts are ordinary scripts loaded in order and share top-level names.
 
 ## Setup
 
