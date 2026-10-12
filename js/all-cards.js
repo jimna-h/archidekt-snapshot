@@ -262,13 +262,11 @@ function renderIndex() {
   syncUrl();
 }
 
-// Deck overlap: how many of the cards shown (basic lands aside) each pair of checked decks shares,
-// so it follows every filter above.
-function renderOverlap(list) {
-  const checked = new Set(checkedDecks()), byDeck = new Map([...checked].map(id => [id, new Set()]));
-  for (const c of list) if (!isBasic(c.name)) for (const id of c.perDeck.keys()) byDeck.get(id)?.add(c.name);
-  const ds = sortBy(realDecks().filter(d => checked.has(d.id)).map(d => ({ id: d.id, name: d.name, cards: byDeck.get(d.id) })), { k: "name", dir: 1 });
-  const shared = (a, b) => { let n = 0; for (const c of a.cards) if (b.cards.has(c)) n++; return n; };
+// Deck overlap grid, shared by the Cards and Tokens tabs. sets: [{ id, name, items: Set }] for
+// each checked deck; each cell counts the items a pair of decks has in common.
+function drawOverlap(grid, sets, noun) {
+  const ds = sortBy(sets, { k: "name", dir: 1 });
+  const shared = (a, b) => { let n = 0; for (const c of a.items) if (b.items.has(c)) n++; return n; };
   let max = 1; const m = ds.map(a => ds.map(b => { const n = a === b ? null : shared(a, b); if (n > max) max = n; return n; }));
   const shade = n => `color-mix(in oklab, var(--series-1) ${Math.round(8 + n / max * 62)}%, var(--surface))`;
   // Each pair appears once, below the diagonal, as a staircase: row i holds deck i's counts
@@ -276,26 +274,37 @@ function renderOverlap(list) {
   // heads the column of counts directly beneath it.
   const n = ds.length, cols = n - 1;
   const cell = (a, b, v) => v === 0 ? `<td><div class="zero">0</div></td>` :
-    `<td><button data-a="${esc(a.id)}" data-b="${esc(b.id)}" style="background:${shade(v)};${v / max > 0.6 ? "color:#fff" : ""}" title="${esc(a.name)} and ${esc(b.name)} share ${v} cards">${v}</button></td>`;
-  $("overlapGrid").innerHTML = n < 2 ? "" : `<tbody>` + ds.map((a, i) => `<tr>
+    `<td><button data-a="${esc(a.id)}" data-b="${esc(b.id)}" style="background:${shade(v)};${v / max > 0.6 ? "color:#fff" : ""}" title="${esc(a.name)} and ${esc(b.name)} share ${v} ${v === 1 ? noun.replace(/s$/, "") : noun}">${v}</button></td>`;
+  grid.innerHTML = n < 2 ? "" : `<tbody>` + ds.map((a, i) => `<tr>
       <th class="rowh" title="${esc(a.name)}">${i ? esc(a.name) : ""}</th>
       ${ds.slice(0, i).map((b, j) => cell(a, b, m[i][j])).join("")}
       ${i < cols ? `<th class="colh" title="${esc(a.name)}"><span>${esc(a.name)}</span></th>` : ""}
     </tr>`).join("") + `</tbody>`;
 }
-// Highlight the hovered cell's column as well as its row
-$("overlapGrid").addEventListener("mouseover", e => {
-  const cell = e.target.closest("td, th"), col = cell ? cell.cellIndex : -1;
-  $("overlapGrid").querySelectorAll(".colhl, .rowhl").forEach(c => c.classList.remove("colhl", "rowhl"));
-  if (col > 0) $("overlapGrid").querySelectorAll("tr").forEach(tr => tr.cells[col]?.classList.add("colhl"));
-  if (cell?.tagName === "TD") cell.parentElement.querySelector("th.rowh")?.classList.add("rowhl");
-});
-$("overlapGrid").addEventListener("mouseleave", () => $("overlapGrid").querySelectorAll(".colhl, .rowhl").forEach(c => c.classList.remove("colhl", "rowhl")));
-$("overlapGrid").addEventListener("click", e => {
-  const b = e.target.closest("button[data-a]"); if (!b) return;
-  ix.skip = new Set(currentDeckIds().filter(id => id !== b.dataset.a && id !== b.dataset.b)); ix.match = "every";
-  renderIndex();
-  $("indexTable").scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+// Hover lights up the cell's row and column; clicking a number calls onPick(deckA, deckB).
+function wireOverlap(grid, onPick) {
+  const clear = () => grid.querySelectorAll(".colhl, .rowhl").forEach(c => c.classList.remove("colhl", "rowhl"));
+  grid.addEventListener("mouseover", e => {
+    const cell = e.target.closest("td, th"), col = cell ? cell.cellIndex : -1;
+    clear();
+    if (col > 0) grid.querySelectorAll("tr").forEach(tr => tr.cells[col]?.classList.add("colhl"));
+    if (cell?.tagName === "TD") cell.parentElement.querySelector("th.rowh")?.classList.add("rowhl");
+  });
+  grid.addEventListener("mouseleave", clear);
+  grid.addEventListener("click", e => { const b = e.target.closest("button[data-a]"); if (b) onPick(b.dataset.a, b.dataset.b); });
+}
+const scrollToResults = el => el.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+
+// Cards: how many of the cards shown (basic lands aside) each pair of checked decks shares,
+// so it follows every filter above.
+function renderOverlap(list) {
+  const checked = new Set(checkedDecks()), byDeck = new Map([...checked].map(id => [id, new Set()]));
+  for (const c of list) if (!isBasic(c.name)) for (const id of c.perDeck.keys()) byDeck.get(id)?.add(c.name);
+  drawOverlap($("overlapGrid"), realDecks().filter(d => checked.has(d.id)).map(d => ({ id: d.id, name: d.name, items: byDeck.get(d.id) })), "cards");
+}
+wireOverlap($("overlapGrid"), (a, b) => {
+  ix.skip = new Set(currentDeckIds().filter(id => id !== a && id !== b)); ix.match = "every";
+  renderIndex(); scrollToResults($("indexView").querySelector(".results-bar"));
 });
 
 $("ixSearch").addEventListener("input", e => { ix.search = e.target.value.trim().toLowerCase(); renderIndex(); });

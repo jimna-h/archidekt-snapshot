@@ -50,6 +50,7 @@ function buildUrl() {
     if (tk.colors.size) q.set("colors", modes(tk.colors));
     if (tk.types.size) q.set("types", modes(tk.types));
     if (tk.skip.size) q.set("skip", [...tk.skip].join(","));
+    if (tk.match === "every" && tkCheckedDecks().length > 1) q.set("match", "every");
     if (tk.layout !== "full") q.set("layout", tk.layout);
     if (sortStr(tkSort) !== "-decks") q.set("sort", sortStr(tkSort));
   } else if (view === "indexView") {
@@ -97,7 +98,7 @@ function readUrl() {
   Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", layout: "table" });
   ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg", "ck"]); Object.assign(ixSort, { k: "qty", dir: -1 });
   const known = id => decks.has(id) && !decks.get(id).virtual;
-  Object.assign(tk, { search: "", layout: "full" }); tk.colors = new Map(); tk.types = new Map(); tk.skip = new Set();
+  Object.assign(tk, { search: "", match: "any", layout: "full" }); tk.colors = new Map(); tk.types = new Map(); tk.skip = new Set();
   Object.assign(tkSort, { k: "decks", dir: -1 });
   const readModes = (str, ok = () => true) => new Map(csvList(str).map(x => x.startsWith("-") ? [x.slice(1), "out"] : [x, "in"]).filter(([k]) => ok(k)));
 
@@ -114,6 +115,7 @@ function readUrl() {
     tk.colors = readModes((q.get("colors") || "").toUpperCase(), k => k in COLOR_NAMES);
     tk.types = readModes(q.get("types"));
     tk.skip = new Set(csvList(q.get("skip")).filter(known));
+    tk.match = q.get("match") === "every" ? "every" : "any";
     tk.layout = ["table", "grid"].includes(q.get("layout")) ? q.get("layout") : "full";
     readSort(q.get("sort"), tkSort);
   } else if (view === "indexView") {

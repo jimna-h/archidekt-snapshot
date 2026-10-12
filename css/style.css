@@ -254,7 +254,7 @@ td.sets-col .set-code { display: block; line-height: 1.6; }
 td.sets-col { max-width: 160px; }
 
 /* ---------- new pieces ---------- */
-#ixMatch { width: 100%; margin: 2px 0 6px; font-size: 14px; }
+#ixMatch, #tkMatch { width: 100%; margin: 2px 0 6px; font-size: 14px; }
 .px-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px 14px; margin-top: 16px; }
 .px-tile { margin: 0; }
 @media (max-width: 600px) { .px-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px; } .px-tile figcaption { font-size: 12px; } }

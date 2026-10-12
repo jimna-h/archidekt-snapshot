@@ -3,7 +3,8 @@
 
 // ---------- tokens ----------
 // Filters work like the Cards tab: colors/types cycle off -> in -> out; skip = decks left out.
-const tk = { search: "", colors: new Map(), types: new Map(), skip: new Set(), layout: "full" };
+const tk = { search: "", colors: new Map(), types: new Map(), skip: new Set(), match: "any", layout: "full" };
+const tkCheckedDecks = () => currentDeckIds().filter(id => !tk.skip.has(id));
 let tkSort = { k: "decks", dir: -1 };
 const TOKEN_TYPES = ["Creature", "Artifact", "Enchantment", "Land", "Emblem", "Dungeon"];
 
@@ -51,6 +52,8 @@ function tkMatches(t) {
   const tin = keysWith(tk.types, "in"), tout = keysWith(tk.types, "out");
   if (tin.length && !t.types.some(x => tin.includes(x))) return false;
   if (tout.some(x => t.types.includes(x))) return false;
+  const n = tkCheckedDecks().length;
+  if (tk.match === "every" && n > 1 && t.perDeck.size < n) return false;
   return true;
 }
 
@@ -58,6 +61,10 @@ function fillTokenDecks() {
   const items = sortBy(realDecks().filter(d => !isStale(d)).map(d => ({ id: d.id, name: d.name })), { k: "name", dir: 1 });
   const left = items.filter(x => !tk.skip.has(x.id)).length;
   $("tkDeckDD").querySelector(".panel").innerHTML =
+    `<select id="tkMatch" aria-label="Which checked decks" ${left > 1 ? "" : "disabled"}>
+       <option value="any" ${tk.match === "any" ? "selected" : ""}>Tokens from any checked deck</option>
+       <option value="every" ${tk.match === "every" ? "selected" : ""}>Only tokens every checked deck makes</option>
+     </select>` +
     `<label class="all"><input type="checkbox" value="*" ${left === items.length ? "checked" : ""}> All decks</label>` +
     items.map(x => `<label><input type="checkbox" value="${esc(x.id)}" ${tk.skip.has(x.id) ? "" : "checked"}> ${esc(x.name)}</label>`).join("");
   $("tkDeckDD").querySelector('input[value="*"]').indeterminate = left > 0 && left < items.length;
@@ -122,7 +129,11 @@ function renderTokens() {
   $("tkSortSel").value = sortStr(tkSort);
   if (!$("tkSortSel").value) $("tkSortSel").value = "-decks";
   markSort($("tokenTable"), tkSort);
-  $("tkClear").disabled = !(tk.search || tk.colors.size || tk.types.size || tk.skip.size);
+  $("tkClear").disabled = !(tk.search || tk.colors.size || tk.types.size || tk.skip.size || tk.match !== "any");
+  // Deck overlap: how many of the tokens shown each pair of checked decks both make
+  const checked = new Set(tkCheckedDecks()), byDeck = new Map([...checked].map(id => [id, new Set()]));
+  for (const t of list) for (const id of t.perDeck.keys()) byDeck.get(id)?.add(t.token_id);
+  drawOverlap($("tkOverlapGrid"), realDecks().filter(d => checked.has(d.id)).map(d => ({ id: d.id, name: d.name, items: byDeck.get(d.id) })), "tokens");
   syncUrl();
 }
 
@@ -135,6 +146,7 @@ $("tkTypeDD").addEventListener("click", e => {
 });
 $("tkDeckDD").addEventListener("change", e => {
   const v = e.target.value;
+  if (e.target.id === "tkMatch") { tk.match = v; renderTokens(); return; }
   if (v === "*") tk.skip = e.target.checked ? new Set() : new Set(currentDeckIds());
   else e.target.checked ? tk.skip.delete(v) : tk.skip.add(v);
   renderTokens();
@@ -142,5 +154,9 @@ $("tkDeckDD").addEventListener("change", e => {
 $("tkLayout").addEventListener("click", e => { const b = e.target.closest("button[data-l]"); if (b) { tk.layout = b.dataset.l; renderTokens(); } });
 $("tkSortSel").addEventListener("change", e => { readSort(e.target.value, tkSort); renderTokens(); });
 $("tkClear").addEventListener("click", () => {
-  tk.search = ""; tk.colors.clear(); tk.types.clear(); tk.skip.clear(); $("tkSearch").value = ""; renderTokens();
+  tk.search = ""; tk.match = "any"; tk.colors.clear(); tk.types.clear(); tk.skip.clear(); $("tkSearch").value = ""; renderTokens();
+});
+wireOverlap($("tkOverlapGrid"), (a, b) => {
+  tk.skip = new Set(currentDeckIds().filter(id => id !== a && id !== b)); tk.match = "every";
+  renderTokens(); scrollToResults($("tokensView").querySelector(".results-bar"));
 });
