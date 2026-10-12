@@ -32,14 +32,6 @@ Sarah Jane Smith,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — C
 Transmutation Font,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
 ,5714358,ee740c48-59cd-4fcc-b4a5-fe3dde1361d5,Construct,Token Artifact Creature — Construct,0,0,,This creature gets +1/+1 for each artifact you control.,4ad1fd1a-9c1e-4b01-974e-84f18d325cfc
 "Urza, Lord High Artificer",,ee740c48-59cd-4fcc-b4a5-fe3dde1361d5,Construct,Token Artifact Creature — Construct,0,0,,This creature gets +1/+1 for each artifact you control.,4ad1fd1a-9c1e-4b01-974e-84f18d325cfc
-,5714358,88c78601-87f0-45e7-b2e0-e7ffcfb1cb70,Copy,Token,,,,(This token can be used to represent a token that's a copy of a permanent.),febfca87-fc37-46cc-8236-73bc5c0e5755
-,16293254,88c78601-87f0-45e7-b2e0-e7ffcfb1cb70,Copy,Token,,,,(This token can be used to represent a token that's a copy of a permanent.),febfca87-fc37-46cc-8236-73bc5c0e5755
-,25536840,88c78601-87f0-45e7-b2e0-e7ffcfb1cb70,Copy,Token,,,,(This token can be used to represent a token that's a copy of a permanent.),febfca87-fc37-46cc-8236-73bc5c0e5755
-"Adrix and Nev, Twincasters",,88c78601-87f0-45e7-b2e0-e7ffcfb1cb70,Copy,Token,,,,(This token can be used to represent a token that's a copy of a permanent.),febfca87-fc37-46cc-8236-73bc5c0e5755
-Angel of Indemnity,,88c78601-87f0-45e7-b2e0-e7ffcfb1cb70,Copy,Token,,,,(This token can be used to represent a token that's a copy of a permanent.),febfca87-fc37-46cc-8236-73bc5c0e5755
-Lazotep Quarry,,88c78601-87f0-45e7-b2e0-e7ffcfb1cb70,Copy,Token,,,,(This token can be used to represent a token that's a copy of a permanent.),febfca87-fc37-46cc-8236-73bc5c0e5755
-Mirrorpool,,88c78601-87f0-45e7-b2e0-e7ffcfb1cb70,Copy,Token,,,,(This token can be used to represent a token that's a copy of a permanent.),febfca87-fc37-46cc-8236-73bc5c0e5755
-Springheart Nantuko,,88c78601-87f0-45e7-b2e0-e7ffcfb1cb70,Copy,Token,,,,(This token can be used to represent a token that's a copy of a permanent.),febfca87-fc37-46cc-8236-73bc5c0e5755
 ,17493352,08887c45-02e5-40a3-b13f-5245a80938ff,Darkstar Augur,Token Creature — Bat Warlock,1,1,B,"Flying / At the beginning of your upkeep, reveal the top card of your library and put that card into your hand. You lose life equal to its mana value. / (This token's mana cost is {2}{B}.)",01b55966-0910-484d-9b2b-0a59233c44c4
 Darkstar Augur,,08887c45-02e5-40a3-b13f-5245a80938ff,Darkstar Augur,Token Creature — Bat Warlock,1,1,B,"Flying / At the beginning of your upkeep, reveal the top card of your library and put that card into your hand. You lose life equal to its mana value. / (This token's mana cost is {2}{B}.)",01b55966-0910-484d-9b2b-0a59233c44c4
 ,25536840,41014a6a-0f5b-48ae-8cb8-9a89f0f0180f,Eldrazi,Token Creature — Eldrazi,10,10,,,ce6d2786-ef9c-4772-bb71-697131c3c3a4
