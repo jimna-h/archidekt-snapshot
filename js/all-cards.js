@@ -104,10 +104,16 @@ function indexCards() {
 let setFilter = { yes: null, no: new Set() };
 function resolveSets() {
   const all = setCounts().map(([set]) => set), unknown = [];
+  // Token sets are the main set's code with a T in front (TFRA = FRA's tokens), so a typed code
+  // also covers its token set. Only proxied tokens' sets count as token sets, so "HB" never
+  // reaches Theros Beyond Death (THB).
+  const tokenSets = new Set([...tokenProxies.values()].flat().map(r => r.set_code.toUpperCase()).filter(x => x.startsWith("T")));
+  const base = x => tokenSets.has(x) ? x.slice(1) : x;
   const expand = (terms, label) => {
     const out = new Set();
     for (const t of terms) {
-      const hits = all.includes(t) ? [t] : all.filter(x => x.startsWith(t));
+      const exact = all.filter(x => x === t || (tokenSets.has(x) && base(x) === t));
+      const hits = exact.length ? exact : all.filter(x => x.startsWith(t) || (tokenSets.has(x) && base(x).startsWith(t)));
       hits.length ? hits.forEach(h => out.add(h)) : unknown.push(label + t);
     }
     return out;
