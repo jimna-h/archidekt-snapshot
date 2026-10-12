@@ -442,7 +442,7 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   #cardTable td:nth-child(5) { grid-area: total; font-weight: 600; }
   #cardTable td:nth-child(6) { grid-area: chg; font-size: 13px; }
   #indexTable tr { display: grid; column-gap: 10px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid);
-    grid-template-columns: 22px 1fr 1fr 1fr; grid-template-areas: "n name name name" ". type type type" ". tcg ck cm" ". sets sets sets" ". where where where"; }
+    grid-template-columns: 30px 1fr 1fr 1fr; grid-template-areas: "n name name name" ". type type type" ". tcg ck cm" ". sets sets sets" ". where where where"; }
   #indexTable td { display: block; padding: 0; border: 0; min-width: 0; }
   #indexTable td[colspan] { grid-column: 1 / -1; }
   #indexTable td:nth-child(1) { grid-area: n; }
@@ -466,3 +466,5 @@ button.ghost.share span { text-decoration: underline; text-underline-offset: 3px
 #ixClear { color: var(--down); border-color: color-mix(in oklab, var(--down) 45%, transparent); background: color-mix(in oklab, var(--down) 10%, var(--surface)); }
 #ixClear:hover:not(:disabled) { color: var(--surface); border-color: var(--down); background: var(--down); }
 #ixClear:disabled { color: var(--text-muted); border-color: var(--border); background: var(--surface); }
+/* row numbers never break across lines (up to 400 rows shown) */
+#indexTable td.rownum { white-space: nowrap; overflow-wrap: normal; word-break: keep-all; font-variant-numeric: tabular-nums; }
