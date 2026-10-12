@@ -22,7 +22,14 @@ let ixSort = { k: "qty", dir: -1 };   // most copies first
 const STORE_KEYS = { tcg: "price_tcgplayer", ck: "price_cardkingdom", cm: "price_cardmarket" };
 const currentDeckIds = () => realDecks().filter(d => !isStale(d)).map(d => d.id);
 const checkedDecks = () => currentDeckIds().filter(id => !ix.skip.has(id));
-const MAIN_TYPES = ["Creature", "Instant", "Sorcery", "Artifact", "Enchantment", "Planeswalker", "Battle", "Land", "Legendary", "Tribal", "Kindred"];
+// The Type filter always lists every card type, then the supertypes (older cards say "Tribal",
+// now "Kindred"; both count as Kindred). "Token" joins when proxies are shown alone, since
+// proxied tokens from "Tokens & Extras" only appear then.
+const MAIN_TYPES = ["Creature", "Instant", "Sorcery", "Artifact", "Enchantment", "Planeswalker", "Battle", "Land", "Kindred", "Legendary", "Basic", "Snow"];
+const typeWords = line => {
+  const words = (line || "").split(" — ")[0].split(" ").filter(Boolean).map(w => w === "Tribal" ? "Kindred" : w);
+  return [...new Set(words)];
+};
 const COLOR_NAMES = { W: "White", U: "Blue", B: "Black", R: "Red", G: "Green", C: "Colorless" };
 const isBasic = name => (cardInfo.get(name)?.type_line || "").startsWith("Basic ");
 const keysWith = (map, mode) => [...map].filter(([, m]) => m === mode).map(([k]) => k);
@@ -60,7 +67,9 @@ function indexCards() {
       if (!c) {
         const info = (r.token ? r : cardInfo.get(r.card_name)) || {};
         const [types, subtypes = ""] = (info.type_line || "").split(" — ");
-        byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: types.split(" ").filter(Boolean), subtypes,
+        const typesOf = typeWords(info.type_line);
+        if (r.token && !typesOf.includes("Token")) typesOf.unshift("Token");
+        byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: typesOf, subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
           tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, mix: 0, id: "", printings: new Set(), sets: new Map() });
@@ -188,8 +197,8 @@ function cardImg(c) {
 const deckChips = c => sortBy([...c.perDeck].map(([id, e]) => ({ e, name: deckName(id) })), { k: "name", dir: 1 });
 
 function renderIndex() {
-  const typesPresent = new Set([...cardInfo.values()].flatMap(c => (c.type_line || "").split(" — ")[0].split(" ")));
-  triDropdown($("ixTypeDD"), MAIN_TYPES.filter(t => typesPresent.has(t)).map(t => [t, t]), ix.types);
+  const typeList = ix.proxies === "only" || ix.types.has("Token") ? [...MAIN_TYPES, "Token"] : MAIN_TYPES;
+  triDropdown($("ixTypeDD"), typeList.map(t => [t, t]), ix.types);
   fillDeckDropdown();
   $("ixLands").setAttribute("aria-pressed", String(ix.types.get("Land") === "out"));
   const sets = resolveSets();
