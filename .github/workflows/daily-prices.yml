@@ -45,7 +45,12 @@ jobs:
             echo "Backup run: today's snapshot ($today) already exists, nothing to do."
             exit 0
           fi
-          python track_prices.py
+          # keep the output so a failure shows its error on the run's summary page
+          set -o pipefail
+          if ! python track_prices.py 2>&1 | tee snapshot.log; then
+            echo "::error title=Snapshot failed::$(tail -n 8 snapshot.log | tr '\n' ' ' | cut -c1-900)"
+            exit 1
+          fi
 
       - name: Commit CSV
         env:
