@@ -120,7 +120,8 @@ let setCountsCache = null;
 function setCounts() {
   if (setCountsCache) return setCountsCache;
   const m = new Map();
-  for (const d of realDecks()) if (!isStale(d)) for (const r of d.rows) {
+  // deck cards plus proxied tokens, so token sets (e.g. TFRA) can be typed in the Sets box too
+  for (const d of realDecks()) if (!isStale(d)) for (const r of d.rows.concat(tokenProxies.get(d.id) || [])) {
     const set = r.set_code.toUpperCase(); m.set(set, (m.get(set) || 0) + r.qty);
   }
   return setCountsCache = [...m].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
