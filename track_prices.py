@@ -88,7 +88,7 @@ CARD_PRICE_FIELDNAMES = ["date", "card_name", "set_code", "finish", *PRICE_SOURC
 CARD_FIELDNAMES = ["card_name", "type_line", "mana_value", "color_identity"]
 # token_id groups identical tokens across sets (Scryfall's oracle id); image_id is one printing
 # Rows with a card_name: a card that makes the token. Rows with a deck_id instead: the token is
-# listed in that deck's token category ("Tokens & Extras").
+# listed in that deck's "Tokens & Extras" category.
 TOKEN_FIELDNAMES = ["card_name", "deck_id", "token_id", "token_name", "type_line", "power", "toughness", "colors", "text", "image_id"]
 COLOR_CODES = {"white": "W", "blue": "U", "black": "B", "red": "R", "green": "G"}
 
@@ -288,7 +288,9 @@ def order_by_featured(deck, commanders):
             return
 
 
-# deck id -> Scryfall printing ids listed in that deck's token category (filled by fetch_deck)
+# Archidekt's own category for a deck's tokens (it creates it automatically)
+TOKEN_CATEGORY = "Tokens & Extras"
+# deck id -> Scryfall printing ids listed in that deck's "Tokens & Extras" (filled by fetch_deck)
 deck_extras = {}
 
 
@@ -312,14 +314,13 @@ def fetch_deck(deck_id, today):
     for entry in deck.get("cards", []):
         # A card's primary category is the first one listed; uncategorized cards count.
         categories = entry.get("categories") or []
+        if categories and categories[0] == TOKEN_CATEGORY:
+            # the token printings this deck uses; tokens are never counted as cards in the deck
+            uid = (entry.get("card") or {}).get("uid")
+            if uid:
+                deck_extras.setdefault(deck_id, []).append(uid)
+            continue
         if categories and categories[0] in excluded:
-            # A category kept out of the deck with "token" in its name (e.g. "Tokens & Extras")
-            # lists the token printings this deck uses. Categories that count toward the deck,
-            # like "token generators", are ordinary cards.
-            if "token" in categories[0].lower():
-                uid = (entry.get("card") or {}).get("uid")
-                if uid:
-                    deck_extras.setdefault(deck_id, []).append(uid)
             continue
         included.append(entry)
 
