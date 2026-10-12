@@ -54,7 +54,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 :focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; border-radius: 4px; }
-main { max-width: 1240px; margin: 0 auto; padding: 28px 20px 72px; }
+main { max-width: 1320px; margin: 0 auto; padding: 28px 20px 72px; }
 h1, h2, h3 { font-family: var(--serif); font-weight: 700; letter-spacing: -0.005em; margin: 0; }
 h2 { font-size: 22px; line-height: 1.2; }
 h3 { font-size: 18px; line-height: 1.25; }
