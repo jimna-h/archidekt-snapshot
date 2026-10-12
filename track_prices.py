@@ -27,6 +27,7 @@ Only public folders/decks can be read, since no login is used.
 import csv
 import glob
 import os
+import shutil
 import re
 import sys
 import time
@@ -48,7 +49,8 @@ FOLDER_PATH = os.path.join(DATA_DIR, "folder.csv")
 CARDS_PATH = os.path.join(DATA_DIR, "cards.csv")
 LEGACY_PRICES_PATH = os.path.join(DATA_DIR, "prices.csv")  # old single-file format, migrated on sight
 PRUNE_AFTER_DAYS = 10
-TIMEZONE = ZoneInfo("America/Denver")  # snapshot dates are Mountain time
+# Snapshot dates use this time zone; set a TIMEZONE repository variable (e.g. America/Chicago) to change it
+TIMEZONE = ZoneInfo(os.environ.get("TIMEZONE") or "America/Denver")
 PROXY_TAG = "proxied"  # color tag name (any capitalization) that marks a card as a proxy
 
 # Archidekt's price keys -> CSV column names
@@ -232,7 +234,7 @@ def deck_profile(deck, entries):
     return {
         "bracket": deck.get("edhBracket") or "",
         "owner": (deck.get("owner") or {}).get("username", ""),
-        # when the deck was last edited on Archidekt, as a Mountain-time date
+        # when the deck was last edited on Archidekt, as a local date
         "updated": (datetime.fromisoformat(deck["updatedAt"].replace("Z", "+00:00")).astimezone(TIMEZONE).strftime("%Y-%m-%d")
                     if deck.get("updatedAt") else ""),
         "game_changers": " | ".join(sorted(flagged["gameChanger"])),
@@ -485,6 +487,17 @@ def migrate_legacy_prices():
     print(f"Migrated {len(old)} rows from prices.csv ({len(dates)} day(s))")
 
 
+def start_fresh_if_new_folder(folder_id):
+    """A copy made from the template starts out with the original owner's data. If that
+    data belongs to a different folder, clear it so this folder's history starts clean."""
+    previous = [r["folder_id"] for r in read_csv(FOLDER_PATH)] if os.path.exists(FOLDER_PATH) else []
+    if previous and previous[0] != folder_id:
+        print(f"Data in this repo is for folder {previous[0]}, not {folder_id}: starting fresh.")
+        for name in os.listdir(DATA_DIR):
+            path = os.path.join(DATA_DIR, name)
+            shutil.rmtree(path) if os.path.isdir(path) else os.remove(path)
+
+
 def main():
     folder_id = (sys.argv[1] if len(sys.argv) > 1 else os.environ.get("ARCHIDEKT_FOLDER_ID", "")).strip()
     folder_id = re.sub(r"\D", "", folder_id.rstrip("/").split("/")[-1])  # accept a URL too
@@ -497,6 +510,7 @@ def main():
     if not deck_ids:
         sys.exit("No decks found. Is the folder public, and are the decks directly inside it?")
 
+    start_fresh_if_new_folder(folder_id)
     migrate_legacy_prices()
 
     rows, names, commanders, infos, profiles, failed = [], {}, {}, [], {}, []

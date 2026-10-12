@@ -36,10 +36,11 @@ jobs:
       - name: Snapshot folder
         env:
           ARCHIDEKT_FOLDER_ID: ${{ vars.ARCHIDEKT_FOLDER_ID }}
+          TIMEZONE: ${{ vars.TIMEZONE }}
           EVENT: ${{ github.event_name }}
           CRON: ${{ github.event.schedule }}
         run: |
-          today=$(TZ=America/Denver date +%Y-%m-%d)
+          today=$(TZ=${TIMEZONE:-America/Denver} date +%Y-%m-%d)
           if [ "$EVENT" = "schedule" ] && [ "$CRON" != "17 13 * * *" ] && grep -q "^$today," data/totals.csv 2>/dev/null; then
             echo "Backup run: today's snapshot ($today) already exists, nothing to do."
             exit 0
@@ -47,6 +48,8 @@ jobs:
           python track_prices.py
 
       - name: Commit CSV
+        env:
+          TIMEZONE: ${{ vars.TIMEZONE }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -54,7 +57,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Snapshot $(TZ=America/Denver date +%Y-%m-%d)"
+            git commit -m "Snapshot $(TZ=${TIMEZONE:-America/Denver} date +%Y-%m-%d)"
             # main may have moved while this ran (e.g. a page edit); replay on top and retry
             for attempt in 1 2 3; do
               git pull --rebase origin main && git push && exit 0
