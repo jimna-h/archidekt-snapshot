@@ -15,6 +15,7 @@ identified by their Archidekt deck id. Each run writes:
   data/folder.csv          the Archidekt folder id, so the page can link to it
   data/cards.csv           one row per card name: type line, mana value, color identity
   data/tokens.csv          which tokens (and emblems) each card makes, from Scryfall
+  data/token_proxies.csv   proxied tokens in each deck's "Tokens & Extras", with prices
 
 A deck missing from the folder for PRUNE_AFTER_DAYS days has all of its history deleted.
 
@@ -50,6 +51,7 @@ DECKS_PATH = os.path.join(DATA_DIR, "decks.csv")
 FOLDER_PATH = os.path.join(DATA_DIR, "folder.csv")
 CARDS_PATH = os.path.join(DATA_DIR, "cards.csv")
 TOKENS_PATH = os.path.join(DATA_DIR, "tokens.csv")
+TOKEN_PROXIES_PATH = os.path.join(DATA_DIR, "token_proxies.csv")
 LEGACY_PRICES_PATH = os.path.join(DATA_DIR, "prices.csv")  # old single-file format, migrated on sight
 PRUNE_AFTER_DAYS = 10
 # Snapshot dates use this time zone; set a TIMEZONE repository variable (e.g. America/Chicago) to change it
@@ -292,6 +294,28 @@ def order_by_featured(deck, commanders):
 TOKEN_CATEGORY = "Tokens & Extras"
 # deck id -> Scryfall printing ids listed in that deck's "Tokens & Extras" (filled by fetch_deck)
 deck_extras = {}
+# proxied entries in "Tokens & Extras", as card rows plus type/mana value/colors (filled by fetch_deck)
+token_proxy_rows = []
+
+
+def card_row(entry, deck_id, today):
+    """One deck entry as a data row: printing, quantity, finish, proxy flag and prices."""
+    card = entry.get("card", {})
+    foil = (entry.get("modifier") or "").lower() == "foil"
+    prices = card.get("prices") or {}
+    row = {
+        "date": today,
+        "deck_id": deck_id,
+        "card_name": card.get("oracleCard", {}).get("name", ""),
+        "quantity": entry.get("quantity", 1),
+        "set_code": (card.get("edition") or {}).get("editioncode", ""),
+        "finish": entry.get("modifier") or "Normal",
+        "proxied": "true" if is_proxied(entry.get("label")) else "false",
+        "scryfall_id": card.get("uid") or "",
+    }
+    for key, column in PRICE_SOURCES.items():
+        row[column] = price(prices, key, foil)
+    return row
 
 
 def fetch_deck(deck_id, today):
@@ -319,6 +343,11 @@ def fetch_deck(deck_id, today):
             uid = (entry.get("card") or {}).get("uid")
             if uid:
                 deck_extras.setdefault(deck_id, []).append(uid)
+            if is_proxied(entry.get("label")):
+                # proxied tokens show on the Cards tab's proxies-only view (what it'd cost to buy them)
+                info = card_info((entry.get("card") or {}).get("oracleCard") or {})
+                token_proxy_rows.append({**card_row(entry, deck_id, today), "type_line": info["type_line"],
+                                         "mana_value": info["mana_value"], "color_identity": info["color_identity"]})
             continue
         if categories and categories[0] in excluded:
             continue
@@ -330,21 +359,7 @@ def fetch_deck(deck_id, today):
         if categories and categories[0] in premier:
             # keep the exact printing (its Scryfall id), so the page can show that art
             commanders.append((oracle.get("name", ""), card.get("uid") or ""))
-        foil = (entry.get("modifier") or "").lower() == "foil"
-        prices = card.get("prices") or {}
-        row = {
-            "date": today,
-            "deck_id": deck_id,
-            "card_name": card.get("oracleCard", {}).get("name", ""),
-            "quantity": entry.get("quantity", 1),
-            "set_code": (card.get("edition") or {}).get("editioncode", ""),
-            "finish": entry.get("modifier") or "Normal",
-            "proxied": "true" if is_proxied(entry.get("label")) else "false",
-            "scryfall_id": card.get("uid") or "",
-        }
-        for key, column in PRICE_SOURCES.items():
-            row[column] = price(prices, key, foil)
-        rows.append(row)
+        rows.append(card_row(entry, deck_id, today))
     order_by_featured(deck, commanders)
     return deck.get("name", ""), commanders, rows, infos, deck_profile(deck, included)
 
@@ -376,6 +391,12 @@ def num(value):
 # ---------------------------------------------------------------- writers
 # Every writer first drops anything already written for `today`, so re-running the job on
 # the same day replaces that day's data instead of duplicating it.
+
+def write_token_proxies(failed_ids):
+    """Proxied tokens from each deck's "Tokens & Extras". A deck that failed today keeps its rows."""
+    keep = [r for r in read_csv(TOKEN_PROXIES_PATH) if r["deck_id"] in {str(i) for i in failed_ids}]
+    write_csv(TOKEN_PROXIES_PATH, FIELDNAMES + ["type_line", "mana_value", "color_identity"], keep + token_proxy_rows)
+
 
 def write_latest(rows, failed_ids):
     """Today's rows. A deck that failed to load today keeps its previous rows."""
@@ -662,6 +683,7 @@ def main():
         sys.exit("Every deck failed to load; nothing written.")
 
     write_latest(rows, failed)
+    write_token_proxies(failed)
     write_totals(rows, today)
     changed = write_decklists(rows, today, names.keys())
     write_card_prices(rows, today)

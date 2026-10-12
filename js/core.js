@@ -77,6 +77,8 @@ const ALL = "__all", AVG = "__avg";
 let dates = [], latestDate = null;
 let decks = new Map();              // id -> { id, name, virtual, totals: Map(date -> row), rows: [latest rows], log: [] }
 let tokenRows = [];   // data/tokens.csv: which tokens each card makes
+// data/token_proxies.csv: proxied tokens in each deck's "Tokens & Extras" (deck id -> rows)
+let tokenProxies = new Map();
 let cardInfo = new Map(), commandersOf = new Map(), commanderArt = new Map(), deckMeta = new Map();
 const priceDays = new Map();         // date -> Map(printKey -> row)   (loaded months only)
 const loadedMonths = new Set();
@@ -105,11 +107,15 @@ const monthOf = d => d.slice(0, 7);
 const prevMonth = d => { const t = new Date(d.slice(0, 7) + "-01T00:00:00Z"); t.setUTCMonth(t.getUTCMonth() - 1); return t.toISOString().slice(0, 7); };
 
 async function start() {
-  const [totalsT, latestT, logT, decksT, cardsT, folderT, tokensT] = await Promise.all([
+  const [totalsT, latestT, logT, decksT, cardsT, folderT, tokensT, tokenProxyT] = await Promise.all([
     getText("data/totals.csv"), getText("data/latest.csv"), getText("data/decklists.csv"),
     getText("data/decks.csv", true), getText("data/cards.csv", true), getText("data/folder.csv", true),
-    getText("data/tokens.csv", true)]);
+    getText("data/tokens.csv", true), getText("data/token_proxies.csv", true)]);
   tokenRows = tokensT ? parseCSV(tokensT) : [];
+  for (const r of tokenProxyT ? parseCSV(tokenProxyT) : []) {
+    r.qty = +r.quantity || 0; r.token = true;
+    (tokenProxies.get(r.deck_id) || tokenProxies.set(r.deck_id, []).get(r.deck_id)).push(r);
+  }
   const folderId = folderT ? parseCSV(folderT)[0]?.folder_id : null;
   if (folderId) { $("folderLink").href = `https://archidekt.com/folders/${encodeURIComponent(folderId)}`; $("folderLink").hidden = false; }
   const totals = parseCSV(totalsT), latest = parseCSV(latestT), log = parseCSV(logT);

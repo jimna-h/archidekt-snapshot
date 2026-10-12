@@ -45,18 +45,22 @@ function indexCards() {
   for (const d of realDecks()) {
     if (isStale(d) || ix.skip.has(d.id)) continue;
     const cmds = commandersOf.get(d.id) || new Set();
-    for (const r of d.rows) {
+    // proxied tokens (from "Tokens & Extras") join the list only when showing proxies alone
+    const rows = ix.proxies === "only" ? d.rows.concat(tokenProxies.get(d.id) || []) : d.rows;
+    for (const r of rows) {
       // the set and proxy filters limit which copies count
       const set = r.set_code.toUpperCase();
       if (setFilter.yes && !setFilter.yes.has(set)) continue;
       if (setFilter.no.has(set)) continue;
       if (ix.proxies === "only" && !isProxy(r)) continue;
       if (ix.proxies === "none" && isProxy(r)) continue;
-      let c = byName.get(r.card_name);
+      // tokens are kept apart from a real card of the same name (e.g. Ajani's Pridemate)
+      const key = (r.token ? "token:" : "") + r.card_name;
+      let c = byName.get(key);
       if (!c) {
-        const info = cardInfo.get(r.card_name) || {};
+        const info = (r.token ? r : cardInfo.get(r.card_name)) || {};
         const [types, subtypes = ""] = (info.type_line || "").split(" — ");
-        byName.set(r.card_name, c = { name: r.card_name, type: info.type_line || "", types: types.split(" ").filter(Boolean), subtypes,
+        byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: types.split(" ").filter(Boolean), subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
           tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, mix: 0, id: "", printings: new Set(), sets: new Map() });
@@ -225,7 +229,7 @@ function renderIndex() {
   $("indexTable").tBodies[0].innerHTML = layout !== "table" ? "" : list.map((c, i) => `
     <tr>
       <td class="rownum">${i + 1}</td>
-      <td><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}</td>
+      <td><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}${c.token ? ` <span class="badge">Token</span>` : ""}</td>
       <td class="type-col">${esc(c.type || "–")}</td>
       <td class="num">${c.mv ?? "–"}</td>
       <td>${pipsHtml(c.color)}</td>
@@ -245,7 +249,7 @@ function renderIndex() {
     <article class="fcard">
       <div class="px-img"><div class="ph">${esc(c.name)}</div>${cardImg(c)}</div>
       <div class="fbody">
-        <h4><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}</h4>
+        <h4><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}${c.token ? ` <span class="badge">Token</span>` : ""}</h4>
         <div class="ftype">${esc(c.type || "–")}</div>
         <div class="fmeta">${pipsHtml(c.color)}<span>MV ${c.mv ?? "–"}</span><span>${copyText(c.qty)}</span></div>
         <div class="fprices">${Object.keys(STORE_NAMES).map(s => `<div class="${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}" ${cheapestTip(c, s)}><span>${STORE_NAMES[s]}</span><b class="num">${money(c[s])}</b></div>`).join("")}</div>
@@ -299,7 +303,7 @@ const scrollToResults = el => el.scrollIntoView({ block: "start", behavior: matc
 // so it follows every filter above.
 function renderOverlap(list) {
   const checked = new Set(checkedDecks()), byDeck = new Map([...checked].map(id => [id, new Set()]));
-  for (const c of list) if (!isBasic(c.name)) for (const id of c.perDeck.keys()) byDeck.get(id)?.add(c.name);
+  for (const c of list) if (!isBasic(c.name)) for (const id of c.perDeck.keys()) byDeck.get(id)?.add(c.key);
   drawOverlap($("overlapGrid"), realDecks().filter(d => checked.has(d.id)).map(d => ({ id: d.id, name: d.name, items: byDeck.get(d.id) })), "cards");
 }
 wireOverlap($("overlapGrid"), (a, b) => {
