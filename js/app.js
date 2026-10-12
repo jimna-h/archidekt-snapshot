@@ -69,7 +69,7 @@ function buildUrl() {
     if (ix.mvmin != null) q.set("mvmin", ix.mvmin);
     if (ix.mvmax != null) q.set("mvmax", ix.mvmax);
     if (ix.proxies) q.set("proxied", ix.proxies);
-    if ([...ix.stores].sort().join(",") !== "tcg") q.set("stores", [...ix.stores].join(","));
+    if ([...ix.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...ix.stores].join(","));
     if (ix.layout !== "table") q.set("layout", ix.layout);
     if (sortStr(ixSort) !== "-qty") q.set("sort", sortStr(ixSort));
   }
@@ -96,7 +96,7 @@ function readUrl() {
   selected = ALL; asOf = null; tagFilter = null; moverWindow = 30; $("search").value = "";
   Object.assign(deckSort, { k: "name", dir: 1 }); Object.assign(cardSort, { k: "total", dir: -1 });
   Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", layout: "table" });
-  ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg"]); Object.assign(ixSort, { k: "qty", dir: -1 });
+  ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg", "ck"]); Object.assign(ixSort, { k: "qty", dir: -1 });
   const known = id => decks.has(id) && !decks.get(id).virtual;
   Object.assign(tk, { search: "", match: "any", layout: "full" }); tk.colors = new Map(); tk.types = new Map(); tk.skip = new Set();
   Object.assign(tkSort, { k: "decks", dir: -1 });

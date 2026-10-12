@@ -15,7 +15,7 @@
 // Like the set and deck filters, the proxy filter limits which copies count, so copies,
 // prices and totals always describe exactly the copies shown.
 const ix = { search: "", colors: new Map(), types: new Map(), subtype: "", sets: [], skip: new Set(), match: "any",
-  commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", stores: new Set(["tcg"]), layout: "table" };
+  commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", stores: new Set(["tcg", "ck"]), layout: "table" };
 // Game Changers, from the cards behind each deck's bracket on Archidekt
 const gameChangers = () => new Set([...deckMeta.values()].flatMap(m => (m.game_changers || "").split(" | ").filter(Boolean)));
 let ixSort = { k: "qty", dir: -1 };   // most copies first
