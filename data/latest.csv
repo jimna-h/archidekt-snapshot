@@ -1,4 +1,351 @@
 date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarket,proxied,scryfall_id
+2026-10-12,5005670,Flare of Denial,1,mh3,Normal,3.39,4.99,4.48,false,71a98efb-9b0a-496b-ac21-8d70527ea544
+2026-10-12,5005670,"Grazilaxx, Illithid Scholar",1,clb,Normal,1.68,6.99,1.6,false,3de11222-c2fa-4544-a501-a02b31797259
+2026-10-12,5005670,Inkfathom Infiltrator,1,plst,Normal,0.37,0.39,0.2,false,55ec9dcb-368d-4edd-8a6d-8f2c72a26f35
+2026-10-12,5005670,Lightning Greaves,1,who,Normal,4.86,6.49,3.09,false,59cb10b3-6856-4355-94a7-a14c516887d5
+2026-10-12,5005670,Reconnaissance Mission,1,iko,Normal,0.57,0.99,2.02,false,ae9f7efa-d125-4f83-825e-172ea099a62a
+2026-10-12,5005670,Gudul Lurker,1,dtk,Normal,0.45,1.29,1.26,false,c84d5344-2d15-43da-b536-27e0d308606b
+2026-10-12,5005670,Mist-Cloaked Herald,1,rix,Normal,0.37,0.69,0.02,false,18c1368e-114b-4618-922b-1d824ba0d1d5
+2026-10-12,5005670,The Indomitable,1,lcc,Normal,3.14,3.49,2.52,false,e6456329-b521-474b-bfb5-bfcd7e52b5f8
+2026-10-12,5005670,Dreamroot Cascade,1,who,Normal,1.04,1.99,0.94,false,3a8c7416-c0af-419d-892a-ee989585bf79
+2026-10-12,5005670,Beastmaster Ascension,1,ncc,Normal,7.21,8.49,2.49,false,f404d133-fc1a-4751-ac72-554e6553e486
+2026-10-12,5005670,Ohran Frostfang,1,c19,Normal,7.21,9.99,5.5,false,9eb08e11-c247-404c-9f40-a12cb7087d0c
+2026-10-12,5005670,The Destined Thief,1,fic,Foil,3.07,4.99,3.99,false,de95250d-294d-4a0e-8049-e0a877078e2e
+2026-10-12,5005670,Brazen Borrower // Petty Theft,1,spg,Normal,5.8,7.99,5.0,false,ed39ecb5-6c7c-428d-8ff3-7bd30edf00d5
+2026-10-12,5005670,Shipwreck Marsh,1,mid,Normal,6.98,8.99,5.83,false,7579824a-6e46-442b-95ff-03fea4adbba6
+2026-10-12,5005670,Morphic Pool,1,clb,Normal,29.94,37.99,31.56,false,48e40927-dd87-42ed-b805-0ae8ba81f5fb
+2026-10-12,5005670,Nether Traitor,1,tsp,Normal,9.64,3.99,3.75,false,911d2271-8998-4193-9d1a-1768c5dfaaad
+2026-10-12,5005670,Clearwater Pathway // Murkwater Pathway,1,znr,Normal,4.97,5.99,4.91,false,b0fe4b53-18f6-42eb-b03f-cab3e5a7fba6
+2026-10-12,5005670,Slither Blade,1,znc,Normal,0.41,0.79,0.29,false,06b56909-65b3-479f-8e52-d025641f4a8e
+2026-10-12,5005670,Tormented Soul,1,m12,Normal,0.25,0.39,0.2,false,d2699c42-99bb-4b5a-82ec-9c6424c14ec1
+2026-10-12,5005670,Triton Shorestalker,1,znc,Normal,0.35,0.69,0.2,false,d86d8c25-016b-4607-a3f7-01f7b3158a24
+2026-10-12,5005670,Changeling Outcast,1,h1r,Foil,5.14,6.99,4.99,false,e681338b-9938-4db0-bb95-28c460a98acf
+2026-10-12,5005670,Invisible Stalker,1,znc,Normal,1.21,1.29,0.94,false,14d265aa-c1d8-4faa-b282-5c273ab725fd
+2026-10-12,5005670,Looter il-Kor,1,ncc,Normal,0.33,0.35,0.1,false,9b43cfff-e14d-4792-8a5b-98fca88456e0
+2026-10-12,5005670,"Edric, Spymaster of Trest",1,cns,Normal,2.83,4.99,1.26,false,0029955b-32a5-4dd8-8a8c-5c80cdfd13aa
+2026-10-12,5005670,Bident of Thassa,1,ths,Normal,0.62,0.79,0.81,false,85e45d14-a501-40b9-af0a-720ecd20dad7
+2026-10-12,5005670,Coastal Piracy,1,jmp,Normal,1.45,1.99,0.95,false,0f2c4e43-71b2-4483-ba54-4be1dcffcd5f
+2026-10-12,5005670,Beast Within,1,ncc,Normal,1.03,1.49,0.7,false,2df1045c-0186-45e8-aed2-807528fc1aba
+2026-10-12,5005670,Command Tower,1,brc,Normal,2.49,3.49,1.08,false,84b79453-bb88-4c23-8cdb-82ba57ea3bc5
+2026-10-12,5005670,Exotic Orchard,1,brc,Normal,0.58,0.99,1.0,false,95d63eac-469f-454f-a575-7f19abb554cf
+2026-10-12,5005670,Path of Ancestry,1,brc,Normal,0.42,0.59,0.91,false,95c1557e-68dd-46be-9b1e-0a65e04fe739
+2026-10-12,5005670,Island,7,brc,Normal,0.25,0.49,0.07,false,9d075fae-ecd8-44b2-ac24-087afb26a9fa
+2026-10-12,5005670,Hinterland Harbor,1,ltc,Normal,0.4,0.59,0.41,false,35753c7f-e6d0-4335-a87e-3d3e5abb059b
+2026-10-12,5005670,Drowned Catacomb,1,ltc,Normal,2.42,2.79,1.65,false,1ce5d548-379d-442d-a68d-efbd6525fb86
+2026-10-12,5005670,Enduring Curiosity,1,dsk,Normal,7.89,11.99,8.82,false,ce740fb7-d2d1-451b-bfa0-27364b804161
+2026-10-12,5005670,"Gix, Yawgmoth Praetor",1,pbro,Normal,2.13,2.29,2.07,false,425ae9d7-f198-4ace-9a2c-ebc8845a71ce
+2026-10-12,5005670,Rejuvenating Springs,1,ltc,Normal,4.76,5.49,4.92,false,c68876b6-5a30-4dea-af0a-53d30e6f8029
+2026-10-12,5005670,Wu Light Cavalry,1,ptk,Normal,3.84,1.29,1.1,false,60e55b25-fde2-4b57-b5db-65b75262ff3d
+2026-10-12,5005670,Barkchannel Pathway // Tidechannel Pathway,1,khm,Normal,4.99,7.49,6.13,false,87c33c94-4b56-4a96-9c4c-a376f8d54943
+2026-10-12,5005670,Mockingbird,1,blb,Normal,3.39,4.99,2.72,false,ade32396-8841-4ba4-8852-d11146607f21
+2026-10-12,5005670,Zagoth Triome,1,iko,Normal,21.99,27.99,16.0,false,f809f970-25a7-4c34-b98f-1cb08012080d
+2026-10-12,5005670,Breeding Pool,1,gtc,Normal,9.84,17.99,12.23,false,ece3bcdd-cb33-4923-b919-ba57a327d3cd
+2026-10-12,5005670,Watery Grave,1,grn,Normal,9.64,13.99,9.75,false,7d4595f2-9297-40dc-b2dd-7144bbb401f7
+2026-10-12,5005670,Baleful Strix,1,blc,Normal,15.05,16.99,18.0,false,7204e5b5-fdd1-4831-8dfa-d4d02ccaaf4d
+2026-10-12,5005670,Sink into Stupor // Soporific Springs,1,mh3,Normal,9.21,13.99,7.3,false,5358b87a-1a29-426d-b165-40c97da2c14d
+2026-10-12,5005670,Cephalid Facetaker,1,ncc,Normal,3.95,3.99,3.2,false,a77d91f7-f7c9-47e4-b5c5-46c921335e42
+2026-10-12,5005670,Into the Flood Maw,1,blb,Normal,2.64,4.49,1.77,false,50b9575a-53d9-4df7-b86c-cda021107d3f
+2026-10-12,5005670,Willowrush Verge,1,dft,Normal,4.87,9.49,7.04,false,758d93d5-3f66-4395-a928-000485396c87
+2026-10-12,5005670,Shoreline Looter,1,blb,Foil,1.23,2.99,0.33,false,00cb0b3c-a403-4212-93d3-3340c3f1e9db
+2026-10-12,5005670,Unsubstantiate,1,m21,Normal,0.34,0.69,0.07,false,2dc0bafd-debc-4b62-9fe0-56b4aad02484
+2026-10-12,5005670,Ledger Shredder,1,snc,Normal,9.25,12.99,7.71,false,7ea4b5bc-18a4-45db-a56a-ab3f8bd2fb0d
+2026-10-12,5005670,Gloomlake Verge,1,dsk,Normal,10.02,17.99,10.26,false,83f510b7-4cbd-4883-9c26-c8824bc668ac
+2026-10-12,5005670,Flooded Grove,1,ltc,Normal,0.37,0.49,0.37,false,f10457be-4f02-48c0-bec7-93687c8763ea
+2026-10-12,5005670,Sunken Ruins,1,fic,Normal,1.92,2.99,2.82,false,2dbd21b1-d6cf-4d10-8a31-aa52208c95d7
+2026-10-12,5005670,Departed Deckhand,1,lcc,Normal,0.33,0.35,0.1,false,985cfee6-97b7-4f42-8bfe-5e1e44bb54d6
+2026-10-12,5005670,Notorious Throng,1,znc,Normal,3.28,3.99,2.21,false,c8be7edf-807a-4a7b-ab48-78f309997210
+2026-10-12,5005670,Dauthi Voidwalker,1,sld,Foil,15.27,14.99,12.49,false,bf5e853d-05bd-49b2-b7da-c968e24a2400
+2026-10-12,5005670,Silent Hallcreeper,1,dsk,Normal,1.16,2.29,1.0,false,aac4f0cc-63be-4f08-956e-39839c9735ba
+2026-10-12,5005670,Thieving Skydiver,1,znr,Normal,0.24,0.59,0.2,false,ff84ea71-e477-44f7-a3f8-77fef708efeb
+2026-10-12,5005670,Faerie Mastermind,1,pmom,Normal,11.85,17.99,10.95,false,f32bb990-3bf2-4b9e-baa7-40dd4e921112
+2026-10-12,5005670,Swamp,3,brc,Normal,0.38,0.49,0.35,false,5205f782-e6af-4152-a15f-080935017e4b
+2026-10-12,5005670,Geist of Saint Thalia,1,fra,Normal,8.4,9.49,4.9,true,85082e55-cb7e-4fe2-86d5-f8accd48ba2c
+2026-10-12,5005670,Orochi Soul-Reaver,1,otc,Normal,9.89,9.49,10.4,false,ec8f372a-d8c7-4f5d-a91d-ec7e5eb17104
+2026-10-12,5005670,Grim Hireling,1,afc,Normal,13.69,16.99,13.69,false,08c6872d-4cb5-4a59-b1dd-38c107906660
+2026-10-12,5005670,Vedalken Infiltrator,1,mh2,Normal,0.24,0.35,0.25,false,9ddfc6a8-7880-4810-8c0a-d9ea931138f2
+2026-10-12,5005670,Bitterbloom Bearer,1,ecl,Normal,18.08,24.99,21.45,false,58aa273f-9ec7-4024-b30e-e75fa404de72
+2026-10-12,5005670,Spectral Sailor,1,lcc,Normal,0.31,0.35,0.99,false,0b25b281-ab3b-4821-8144-dcb1f3281f96
+2026-10-12,5005670,"Malcolm, Alluring Scoundrel",1,plci,Normal,3.64,4.99,1.99,false,1619f8d5-395e-465d-b87e-5d688944bbcc
+2026-10-12,5005670,Spyglass Siren,1,lci,Normal,0.31,0.69,0.02,false,41e54343-95e5-4dc4-9f18-e4a415fe5e0a
+2026-10-12,5005670,Waterbender Ascension,1,tla,Normal,0.6,1.29,0.98,false,3f57e0f9-e232-489c-b991-d0d23f75d8dd
+2026-10-12,5005670,Misty Rainforest,1,zne,Normal,54.02,54.99,35.0,false,6d14bd1a-068e-4338-8014-d5271cb2fe4d
+2026-10-12,5005670,Flitterwing Nuisance,1,ecl,Normal,0.65,0.99,0.35,false,7ecc95a7-51c8-45a1-bebf-9dfa053f7403
+2026-10-12,5005670,Siren Stormtamer,1,lcc,Normal,0.38,0.69,0.35,false,073c301e-5bb6-49fa-bf61-2f662030540f
+2026-10-12,5005670,Cloud Pirates,1,por,Normal,1.9,2.49,1.65,false,9f7386c6-d17a-4c7d-884d-2471b87d8b8e
+2026-10-12,5005670,River of Tears,1,fut,Normal,1.78,2.99,2.98,false,8d5b2058-99fc-4d9b-9e3d-056fa3fd1244
+2026-10-12,5005670,"Irma, Part-Time Mutant",1,tmc,Normal,3.92,6.99,4.42,false,c3128529-4ccd-4809-8388-03f7faa0eabe
+2026-10-12,5005670,Scale Up,1,h1r,Foil,1.44,1.79,0.66,false,4da5a18d-b5d2-4c38-ae04-164f3e1adc6b
+2026-10-12,5005670,"Toski, Bearer of Secrets",1,spg,Normal,16.7,22.99,12.56,false,0153d1ad-c8ee-42ff-a059-b763c2cfb7be
+2026-10-12,5005670,Faerie Slumber Party,1,woe,Normal,1.86,2.79,1.1,false,f8e5de58-cc4c-40b2-94c8-4e4d7cebfaf8
+2026-10-12,5005670,Tegwyll's Scouring,1,woc,Normal,1.01,1.99,1.48,false,0d326981-30ee-4d5a-98c6-2e69f706073c
+2026-10-12,5005670,Fell the Profane // Fell Mire,1,mh3,Normal,6.06,8.49,4.27,false,a3cb782d-c459-468d-9779-9b5669abc337
+2026-10-12,5005670,Forest,1,inr,Normal,0.46,0.79,0.05,false,7afdc917-ec37-4e03-853f-36cfe90053d9
+2026-10-12,5005670,Polluted Delta,1,zne,Normal,48.19,49.99,19.9,false,d052d99b-b1ca-44da-8460-c022d041d665
+2026-10-12,5005670,Tezzeret the Seeker,1,sld,Normal,28.95,32.99,18.94,true,b4b3d65d-3485-4d82-ba2e-9e2071f284b5
+2026-10-12,5005670,Underground Sea,1,3ed,Normal,1105.08,1499.99,744.6,true,1f35877c-e66c-4ef0-842a-f68cd233ae4b
+2026-10-12,5005670,Tropical Island,1,3ed,Normal,593.21,699.99,401.33,true,a0f5c6bc-65dc-42a1-a62d-a0b101310a1f
+2026-10-12,5005670,"Otawara, Soaring City",1,neo,Normal,26.54,42.99,23.5,false,486d7edc-d983-41f0-8b78-c99aecd72996
+2026-10-12,5005670,"Wan Shi Tong, Librarian",1,tla,Foil,37.73,54.99,51.38,false,e20da6b5-1057-4a28-9e85-07de714e262f
+2026-10-12,5005670,Skyserpent Seeker,1,dft,Normal,0.32,0.69,0.1,false,b7de8c7e-7270-4a4f-af03-9f088b04c05b
+2026-10-12,5005670,"Bilbo, Luckwearer // Burglar's Plot",1,pw26,Normal,0.51,0.79,0.99,false,09f8b967-96fa-4c2b-b331-85b3704770c0
+2026-10-12,5005670,"Ikra Shidiqi, the Usurper",1,c16,Foil,1.22,1.79,0.8,false,460165df-32db-4773-805e-edd6f18af5d6
+2026-10-12,5005670,Skateboard,1,tmt,Normal,0.39,0.69,0.26,false,deadb6d8-3eea-4261-a07c-8536df89e85c
+2026-10-12,5005670,"Malcolm, Keen-Eyed Navigator",1,spg,Foil,15.2,17.99,18.5,false,cfcb3051-161f-42f8-bfec-db03b349ff00
+2026-10-12,6482039,Bojuka Bog,1,brc,Normal,3.61,6.49,2.82,false,ac21a3cc-f3d7-4ac8-9df0-a126738ab54c
+2026-10-12,6482039,Blood Artist,1,plst,Normal,3.7,4.49,2.2,false,877558c4-f633-4510-97db-f1205a080ecb
+2026-10-12,6482039,"Journey to Eternity // Atzal, Cave of Eternity",1,rix,Normal,4.58,6.49,5.12,false,d81c4b3f-81c2-403b-8a5d-c9415f73a1f9
+2026-10-12,6482039,Dread Return,1,cmm,Normal,0.68,1.29,0.58,false,721aff76-9f80-4ec2-ae29-2dc8494a1a06
+2026-10-12,6482039,Viridian Emissary,1,mbs,Normal,0.26,0.35,0.26,false,129fa334-f561-4fbd-9f51-2fa044b674e1
+2026-10-12,6482039,Woodland Cemetery,1,sld,Foil,18.04,18.99,13.02,false,a5b62c98-8ca3-4768-addf-e255ca98c63c
+2026-10-12,6482039,Thespian's Stage,1,who,Normal,0.45,0.99,0.32,false,50ae3d9d-e269-4a83-9b2d-cfe34f5f0f78
+2026-10-12,6482039,Stitcher's Supplier,1,m19,Normal,0.5,1.29,0.29,false,2b737126-50b5-4678-91bf-197b64086fe4
+2026-10-12,6482039,Noxious Gearhulk,1,moc,Normal,0.73,0.99,0.3,false,36b1e963-9b8c-4103-abbc-580866f144e7
+2026-10-12,6482039,Urza's Cave,1,mh3,Normal,2.3,3.49,1.5,false,926916ed-2f22-4ba9-9427-194886ad6c1e
+2026-10-12,6482039,Command Tower,1,cc1,Normal,4.22,4.99,2.0,false,3beb6fa5-44db-4056-b8ec-42547aa5581f
+2026-10-12,6482039,Necron Deathmark,1,40k,Normal,4.81,5.99,5.89,false,4129cb0d-eefe-4971-9db8-1196201ef353
+2026-10-12,6482039,Satyr Wayfinder,1,znc,Normal,0.22,0.35,0.05,false,84cb8203-88e4-4a3b-9334-91b70c747091
+2026-10-12,6482039,Skullwinder,1,m3c,Normal,0.38,0.35,0.14,false,0d53c93a-3d02-4a89-bf3a-58c19d861f9b
+2026-10-12,6482039,Chthonian Nightmare,1,mh3,Foil,4.56,9.99,6.71,false,59cbd637-30d1-4c3c-95ce-b6c6f9248d15
+2026-10-12,6482039,Rise of the Witch-king,1,ltr,Normal,0.43,0.79,0.22,false,3f440fa1-5387-41d6-a80f-5b19dbb21514
+2026-10-12,6482039,Fabled Passage,1,eoc,Normal,1.22,2.49,2.16,false,6a21ecc8-f6fd-4670-91d8-94b9ce94c2fe
+2026-10-12,6482039,"Vraska, the Cutting Glare",1,fra,Normal,0.36,0.49,0.46,false,5c28b012-5efb-488f-a1c1-09e2dddfd6ee
+2026-10-12,6482039,Clifftop Lookout,1,blb,Normal,0.29,0.39,0.28,false,662d3bcc-65f3-4c69-8ea1-446870a1193d
+2026-10-12,6482039,Ripples of Undeath,1,mh3,Normal,8.43,11.99,7.15,false,a201d1bc-e3fe-4f59-bd48-3683996ac308
+2026-10-12,6482039,Primal Druid,1,emn,Normal,0.21,0.35,0.22,false,e928f694-c53b-46c5-8390-fa24b53f559c
+2026-10-12,6482039,Undergrowth Stadium,1,cmr,Normal,6.76,10.99,7.0,false,df64c9cf-17de-44f3-831d-ba09661f2308
+2026-10-12,6482039,"Takenuma, Abandoned Mire",1,neo,Normal,10.64,18.99,9.09,false,499037cc-a577-41cb-8ca2-5e117945634f
+2026-10-12,6482039,"Yavimaya, Cradle of Growth",1,mh2,Normal,20.59,23.99,14.5,false,b0063a44-6cde-4d7e-81e1-61bae08831ee
+2026-10-12,6482039,Eternal Witness,1,m3c,Normal,2.0,2.49,1.29,false,f13553a6-d565-4c18-a60d-20021bc813e7
+2026-10-12,6482039,Zulaport Cutthroat,1,bfz,Normal,1.55,2.79,0.53,false,5c963d97-c948-45d9-84cc-58e246d35970
+2026-10-12,6482039,"Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel",1,fin,Normal,27.59,42.99,30.88,false,85eaf5e7-77dc-4842-a70c-ce4ac7f724df
+2026-10-12,6482039,Field of the Dead,1,slc,Normal,25.18,32.99,20.9,false,1e1f470f-1194-4a87-ab6e-3574f5731642
+2026-10-12,6482039,Haywire Mite,1,bro,Normal,1.1,1.29,0.98,false,847a175e-ead1-4596-baf3-5f7f57859e0b
+2026-10-12,6482039,Blossoming Tortoise,1,woe,Normal,5.0,6.99,5.25,false,7811a45d-6bfb-4c2a-b5a2-cccbd8cff186
+2026-10-12,6482039,Deathcap Glade,1,vow,Foil,7.41,5.99,4.39,false,d5523659-98a8-4ae2-9ec7-d77e7352c374
+2026-10-12,6482039,Metamorphosis Fanatic,1,dsc,Normal,5.97,8.99,7.88,false,16448d95-ee21-4def-b880-26f6f159c213
+2026-10-12,6482039,Prowling Geistcatcher,1,mic,Normal,0.57,0.99,0.39,false,c157b745-ce45-4d9f-8fc9-2a39030b2741
+2026-10-12,6482039,Wastewood Verge,1,dft,Normal,9.34,14.99,9.97,false,5ceacc7d-d407-4f82-af58-9bdf8426924e
+2026-10-12,6482039,Accursed Marauder,1,mh3,Normal,0.3,0.69,0.31,false,5da14d86-0780-4821-a799-96f64b377df4
+2026-10-12,6482039,Vein Ripper,1,mkm,Foil,7.28,11.99,7.99,false,65121bff-89f0-436d-89a5-b8191dc91891
+2026-10-12,6482039,"Urborg, Tomb of Yawgmoth",1,tsr,Normal,55.89,64.99,30.0,false,9e1a9e38-6ffc-490f-b0be-23ba4e8204c6
+2026-10-12,6482039,Birthing Ritual,1,mh3,Normal,3.81,5.99,7.46,false,4820d223-4ea1-4850-931c-3d2ab5eb003b
+2026-10-12,6482039,"Braids, Arisen Nightmare",1,dmu,Normal,4.09,6.49,3.73,false,4ff97c69-6a6b-401c-b0a1-55fa81045d19
+2026-10-12,6482039,Sakura-Tribe Elder,1,plg24,Foil,3.35,3.99,2.05,false,bf0b01ab-c846-459b-8d6f-7e5cb75a5d26
+2026-10-12,6482039,Wight of the Reliquary,1,mh3,Normal,0.86,1.49,1.1,false,a15570c0-4210-4959-8584-987ec85f8283
+2026-10-12,6482039,Spinner of Souls,1,fdn,Normal,0.86,0.99,0.93,false,3b3f233a-d4df-4836-84cc-9d3e86165926
+2026-10-12,6482039,"Lumra, Bellow of the Woods",1,blb,Normal,28.61,39.99,25.51,false,ae4f3aaf-3960-48cd-b34b-32e4ae5ae088
+2026-10-12,6482039,Incarnation Technique,1,c21,Normal,9.29,18.99,11.99,false,9655deda-f02b-47a0-89a3-2904b11b84aa
+2026-10-12,6482039,Skyfisher Spider,1,bro,Normal,0.24,0.39,0.07,false,87300ac8-8b6f-4c37-8058-beb59eaa66be
+2026-10-12,6482039,Vernal Fen,1,eoc,Normal,2.53,2.29,1.95,false,63a8b029-add2-4f47-8959-8bf1b6cff399
+2026-10-12,6482039,Simulacrum Shaper,1,fra,Normal,1.68,2.99,2.34,true,7c725702-8696-4e5a-8318-62f5e2616d52
+2026-10-12,6482039,Aftermath Analyst,1,mkm,Normal,1.86,1.79,0.9,false,1c1aa6f8-2d34-4f4b-9184-0eab2e4745f7
+2026-10-12,6482039,Reclamation Sage,1,fdn,Normal,0.32,0.59,0.39,false,af3f0764-9d80-4e15-a402-1f93e652bcbb
+2026-10-12,6482039,Umbral Collar Zealot,1,eoe,Foil,1.06,2.49,0.79,false,9b14b659-9b4d-4099-90a0-d2a673b86648
+2026-10-12,6482039,Disciple of Freyalise // Garden of Freyalise,1,mh3,Normal,5.25,7.99,2.72,false,a8e9ea5a-5e10-4b77-baef-0352ff035483
+2026-10-12,6482039,Living Death,1,ltc,Normal,7.45,8.99,3.93,false,b22235ac-5028-4b84-8ec2-0ab46768dee2
+2026-10-12,6482039,Underground Mortuary,1,mkm,Normal,16.09,22.99,15.2,false,f6ca59cd-8779-4a84-a54b-e863b79c61f0
+2026-10-12,6482039,Hedge Shredder,1,dsk,Normal,3.01,3.99,1.9,false,01595caa-7abd-4b47-8015-3754d8eb39cf
+2026-10-12,6482039,Altar of Dementia,1,brr,Normal,24.37,32.99,19.98,false,908c9cc7-608c-43de-a6ea-06bc69a43f2f
+2026-10-12,6482039,Skullclamp,1,brc,Normal,6.89,10.99,6.99,false,3865d44e-7207-4440-9db4-627531979852
+2026-10-12,6482039,Icetill Explorer,1,eoe,Normal,24.2,39.99,27.99,false,f63de2e4-f094-4b10-b754-1285ad64effc
+2026-10-12,6482039,Stinkweed Imp,1,gk1,Normal,2.12,1.49,1.19,false,566be83c-14a8-42ca-b9e5-51b486dc7849
+2026-10-12,6482039,Cauldron of Essence,1,sos,Normal,4.3,5.49,3.68,false,96c53f07-b34c-4cc7-a054-f0bdfa48b975
+2026-10-12,6482039,Dark Matter Manipulator,1,fra,Normal,1.42,3.49,1.44,false,5fd4f195-ee14-4aff-91b0-7ed5b552fd35
+2026-10-12,6482039,Snow-Covered Forest,3,mb2,Normal,2.15,3.49,2.98,false,ce561d66-bdfd-408f-bf5b-49b4a53d3807
+2026-10-12,6482039,Fanatic of Rhonas,1,mh3,Normal,14.91,23.99,15.16,false,1f9fb33a-3b39-4aff-93b8-aedafe0ea694
+2026-10-12,6482039,Llanowar Wastes,1,bro,Normal,4.12,6.49,3.0,false,d8528e41-299d-461e-83c6-04ba3da6b17d
+2026-10-12,6482039,Merchant of Venom,1,soc,Normal,0.31,0.49,0.2,false,d60cf719-d5ce-46c3-bf92-24682b1c53bd
+2026-10-12,6482039,Colossal Grave-Reaver,1,tdc,Normal,10.54,17.99,11.98,false,83073c9a-477b-475c-a9e2-92ef04e565ba
+2026-10-12,6482039,"Armaggon, Future Shark",1,tmt,Foil,2.36,2.49,1.18,false,00436b30-d342-4c1d-81af-8f305bf53c86
+2026-10-12,6482039,Snow-Covered Swamp,3,mb2,Normal,1.94,4.49,1.0,false,632e2c82-0122-4f87-bb83-88064fbb91ab
+2026-10-12,6482039,Nurturing Peatland,1,mh1,Normal,6.66,8.99,5.45,false,2744ac83-a79f-4042-8720-688b5adda382
+2026-10-12,6482039,Phyrexian Tower,1,jmp,Normal,29.21,44.99,30.03,false,05b2cc68-1d20-421f-9800-af0996071554
+2026-10-12,6482039,Verdant Catacombs,1,zne,Normal,50.23,49.99,32.0,false,efd97080-c5c7-47db-b605-8bdd06c2dd5a
+2026-10-12,6482039,Twilight Mire,1,blc,Normal,0.44,0.79,0.81,false,142a605f-ec69-43eb-bdde-dd9e29f9fd22
+2026-10-12,6482039,Golgari Thug,1,rvr,Foil,2.98,4.49,2.07,false,58d17fa5-b5a1-46d1-881a-b21e44b670ba
+2026-10-12,6482039,Shifting Woodland,1,mh3,Normal,7.51,11.99,4.65,false,059164e1-894d-4586-9800-e60d6fbd6eb6
+2026-10-12,6482039,The Meathook Massacre,1,inr,Normal,35.61,49.99,29.99,true,996e6444-66b7-4d92-85f2-4c44d58186fe
+2026-10-12,6482039,Turbulent Fen,1,soc,Normal,8.37,9.99,6.44,true,9737159b-256c-4004-ba5f-0417c35e1b30
+2026-10-12,6482039,Marsh Flats,1,zne,Normal,46.46,74.99,37.0,true,9e1e76a2-ec37-4fd8-8185-f98f675ff0cb
+2026-10-12,6482039,Bayou,1,3ed,Normal,496.92,699.99,300.0,true,56355ff3-2232-4a11-b868-aec9a50b9ee5
+2026-10-12,6482039,"Boseiju, Who Endures",1,neo,Normal,50.57,59.99,37.71,true,2135ac5a-187b-4dc9-8f82-34e8d1603416
+2026-10-12,6482039,"Mole Man, Moloid Master",1,msh,Normal,1.24,2.99,2.82,false,1b406cc5-75c9-430a-83a2-de0f2a8aeae6
+2026-10-12,6482039,Springheart Nantuko,1,mh3,Normal,8.34,11.99,6.45,true,cf723c91-e3ae-4a71-93b2-65d05bfa9b60
+2026-10-12,6482039,Orcish Bowmasters,1,ltr,Normal,49.98,69.99,42.59,true,de2de055-5246-408b-80fe-cd01688c145e
+2026-10-12,6482039,Liliana the Repentant,1,fra,Normal,3.54,6.99,2.65,true,ddefddbc-c769-4e53-a9b3-087578ae8bc0
+2026-10-12,6482039,Bloodghast,1,zen,Normal,4.25,5.99,1.2,false,63870c81-63bf-4a9a-aeb5-74c6eaded9f1
+2026-10-12,6482039,Six,1,mh3,Foil,29.1,44.99,19.0,false,c7ea0c62-a9b3-4e8f-9ede-1f0122149737
+2026-10-12,6482039,Wood Elves,1,s99,Normal,5.42,6.99,1.99,false,f0ca02f6-964a-427c-8978-17abae3322e1
+2026-10-12,6482039,Forest,3,hob,Foil,0.38,0.49,0.8,false,5f533364-0f91-4e49-aaeb-83c4c1f6d316
+2026-10-12,6482039,Swamp,3,hob,Foil,0.36,0.49,0.66,false,c5f590a3-9993-4ac4-a93c-1beb44eda17b
+2026-10-12,6482039,Overgrown Tomb,1,ecl,Normal,8.21,13.99,8.13,false,45b92924-baa1-4c9b-9932-9a5eda8f3446
+2026-10-12,6482039,"Tom, Bert, and William",1,purl,Normal,,,1.85,true,1bc9137e-a1e0-4412-8034-8471ae308bc7
+2026-10-12,6482039,"Winter, Tormented Loner",1,fra,Normal,0.21,0.35,0.08,false,9670f754-f41f-45ac-8e8b-025ad2c0f66b
+2026-10-12,6482039,"Pia, Aether Ascetic",1,fra,Normal,1.05,2.49,0.61,false,ff0bc30f-9d20-458e-808f-bdc2825905a5
+2026-10-12,6482039,Primal Witchstalker,1,fra,Normal,0.24,0.35,0.17,false,04e64af7-cca1-499e-8951-f386e84c8b5b
+2026-10-12,26722467,Abandoned Air Temple,1,tla,Normal,6.93,10.99,8.1,false,9c0433f9-8f1e-4a19-a83f-a41925f1b1a9
+2026-10-12,26722467,"Agent Bishop, Man in Black",1,tmt,Normal,0.3,0.79,0.19,true,9c769202-178c-442a-a9e2-aa08b5ae5c9a
+2026-10-12,26722467,Sakura-Tribe Elder,1,plg24,Foil,3.35,3.99,2.05,false,bf0b01ab-c846-459b-8d6f-7e5cb75a5d26
+2026-10-12,26722467,Birds of Paradise,1,sld,Foil,55.85,64.99,64.99,false,dae8751c-4c72-4034-a192-a1e166f20246
+2026-10-12,26722467,Farseek,1,ltc,Normal,1.69,1.99,1.74,false,d2f89cec-358c-41cd-af02-92d873902f06
+2026-10-12,26722467,Three Visits,1,sld,Foil,53.38,69.99,42.53,false,07e40ddc-0483-4a2e-a776-807b37bada7f
+2026-10-12,26722467,Utopia Sprawl,1,pf26,Foil,4.29,5.49,7.25,false,6cca7aa4-10b8-4618-b0f8-8a13d2c9e3fc
+2026-10-12,26722467,Nature's Lore,1,sld,Foil,12.19,12.99,8.98,false,b5bec40e-d97b-4d13-a77f-128baf4cca14
+2026-10-12,26722467,"Anim Pakal, Thousandth Moon",1,lci,Normal,5.34,6.49,4.11,true,868856b7-8875-43c1-8249-0f8fb2c8319b
+2026-10-12,26722467,Botanical Brawler,1,mom,Normal,0.27,0.35,0.26,false,977c15c9-2aad-4d1d-86a6-1f9d78ad7af6
+2026-10-12,26722467,Commander Liara Portyr,1,clb,Normal,0.23,0.35,0.2,true,9ac8b247-455e-4a3f-9f88-b20918c36cc3
+2026-10-12,26722467,Dusk Legion Duelist,1,mom,Normal,2.8,3.99,1.36,false,7305a8d3-5403-4483-92af-863dc91c6084
+2026-10-12,26722467,"Etali, Primal Conqueror // Etali, Primal Sickness",1,mom,Normal,30.25,34.99,24.87,false,95c14c4d-6c16-4826-8d93-d89ad04aee09
+2026-10-12,26722467,Path to Exile,1,who,Normal,1.66,2.49,1.5,false,d0b5c4d1-4271-4e89-9947-95ca9ff1d63d
+2026-10-12,26722467,Healer's Hawk,1,fdn,Foil,0.3,0.49,0.21,false,cc8e4563-04bb-46b5-835e-64ba11c0e972
+2026-10-12,26722467,"Kutzil, Malamet Exemplar",1,lci,Normal,3.13,3.49,2.38,false,c9f88a40-a6ed-4c1f-a309-011aca1acddd
+2026-10-12,26722467,Peregrin Took,1,ltr,Normal,0.92,0.79,0.25,false,f5baee8d-88e7-4468-94a9-66ca8e2caf15
+2026-10-12,26722467,"Ozolith, the Shattered Spire",1,mom,Foil,8.89,11.99,5.49,false,c9eee658-29e8-4ab5-8a0e-31f2f28a9a92
+2026-10-12,26722467,Kami of Whispered Hopes,1,mom,Normal,6.1,7.49,2.5,false,fd97ba4c-7785-4245-b091-692c8fdb68e9
+2026-10-12,26722467,Rosie Cotton of South Lane,1,ltr,Normal,0.35,0.49,0.03,false,75338f49-1f02-4333-87e4-5779ef14e688
+2026-10-12,26722467,Share the Spoils,1,afc,Normal,3.59,6.49,5.99,true,5e35d719-8766-47dc-8c0d-8e2b37b907a8
+2026-10-12,26722467,Sovereign Okinec Ahau,1,lci,Normal,4.79,3.49,3.93,true,70c75aa7-e2f9-4a69-8086-c982019ca714
+2026-10-12,26722467,Swords to Plowshares,1,brc,Normal,2.0,3.49,2.16,false,0f34ecf6-460c-4451-b26c-a1fced340c92
+2026-10-12,26722467,The Ozolith,1,sld,Foil,70.19,79.99,54.75,false,e0aaee13-bfeb-47fd-93cb-2ccdd5d44e75
+2026-10-12,26722467,Germination Practicum,1,sos,Foil,14.91,17.99,10.5,false,df144bff-cdc8-46df-bbd2-6fdc93f04f04
+2026-10-12,26722467,Improvisation Capstone,1,sos,Normal,12.38,17.99,12.95,true,36985a8e-dcc0-4349-93d7-071370a75615
+2026-10-12,26722467,Patrolling Peacemaker,1,eoc,Normal,2.14,2.79,2.51,false,34429a6d-2d62-4b4d-9b6e-2006a07837a8
+2026-10-12,26722467,Avatar's Wrath,1,tla,Normal,3.73,6.99,3.97,true,4811072d-fac0-40dd-a5cf-9694d51b12cf
+2026-10-12,26722467,Bigger on the Inside,1,who,Normal,0.49,0.59,0.44,true,8d1178ac-35b9-4086-8ad4-6c629d976ce2
+2026-10-12,26722467,Exploration,1,dmr,Normal,30.29,37.99,24.95,true,5b372045-a4a0-44c8-96ec-1e201d61ed26
+2026-10-12,26722467,Generous Pup,1,j25,Normal,8.19,12.99,6.98,false,730f6a8c-7119-4226-bf37-442cf5ec90c4
+2026-10-12,26722467,Esper Sentinel,1,mh2,Normal,60.44,74.99,38.5,true,676758ee-dac8-4c97-8a62-fff25bcbb6df
+2026-10-12,26722467,Kami of Celebration,1,nec,Normal,1.08,0.99,0.75,false,bda67054-bbd8-4979-801a-a5e9ca335f49
+2026-10-12,26722467,Terrasymbiosis,1,eoe,Normal,10.34,12.99,10.78,false,26008c7d-5dbe-4da2-b475-4dd307e7bc68
+2026-10-12,26722467,Rhythm of the Wild,1,sld,Foil,15.27,16.99,10.19,false,a32202c0-2572-42f2-b54c-7654914e5729
+2026-10-12,26722467,"Mikey & Leo, Chaos & Order",1,tmt,Normal,3.8,4.99,3.63,true,53f1ae0b-e3fd-467a-9fc2-a5d6cce47765
+2026-10-12,26722467,Kodama of the West Tree,1,neo,Normal,21.06,24.99,20.0,false,ef1e1dff-b559-441d-8df3-b6a418066aca
+2026-10-12,26722467,"Halana and Alena, Partners",1,fdn,Normal,0.33,0.69,0.69,true,b649f459-c9dc-495d-8703-b685996bb80c
+2026-10-12,26722467,Ouroboroid,1,eoe,Normal,44.16,57.99,32.99,false,9a6eb356-7418-443f-a51b-37ebc3526fce
+2026-10-12,26722467,The Ooze,1,tmt,Normal,5.03,8.49,5.04,true,1f9bd4da-4626-40ba-95f4-14e3de36f989
+2026-10-12,26722467,Agatha's Soul Cauldron,1,woe,Normal,40.62,54.99,30.32,true,019b51b0-e5c6-4208-922b-7736686dddcd
+2026-10-12,26722467,Hardened Scales,1,wot,Normal,4.9,5.99,3.69,false,d2d1bfab-25b4-474b-bdab-ac18215f1920
+2026-10-12,26722467,"Laelia, the Blade Reforged",1,mh3,Normal,2.01,2.79,0.5,true,0ac72836-a656-4bdb-adc8-04cf20b77aba
+2026-10-12,26722467,Champion of Lambholt,1,ncc,Normal,4.13,4.49,2.99,false,d8d3b5c7-6963-4d01-846d-34d6107d1c44
+2026-10-12,26722467,Speaker of the Heavens,1,plst,Normal,0.38,0.59,0.4,false,cd39083e-f67e-4be1-9c1d-29df27e1ff1a
+2026-10-12,26722467,Beast Within,1,cmr,Normal,1.06,1.29,0.35,false,e228bede-5972-4381-969b-9de26e570117
+2026-10-12,26722467,Suspend Aggression,1,sos,Normal,0.24,0.49,0.08,true,135c0696-d86d-4e48-988c-5c218de451fc
+2026-10-12,26722467,Generous Gift,1,blc,Normal,1.89,2.49,1.57,false,ee0e17cb-a729-4be9-9fe3-e71ba45f0a6e
+2026-10-12,26722467,Call Forth the Tempest,1,hoc,Normal,18.74,27.99,17.89,true,4f3d805a-a152-4aa5-85ec-45195cf9e955
+2026-10-12,26722467,Guff Rewrites History,1,cmm,Normal,2.93,4.49,4.99,true,e16c6ab7-cab9-4ee3-9f17-d6817f61efcc
+2026-10-12,26722467,Dispatch,1,eoc,Normal,0.61,1.79,4.5,true,27554761-8d6e-4de4-8ce3-f31b2c03708c
+2026-10-12,26722467,Chaos Warp,1,c20,Normal,0.7,0.79,0.39,false,c144b325-53a3-4590-beb1-2a39cbced47e
+2026-10-12,26722467,"Arwen, Weaver of Hope",1,ltc,Normal,4.95,5.99,4.93,false,4d4f4d41-232d-4377-be69-de590b880edb
+2026-10-12,26722467,Heartwood Crafter // Soul Tether,1,fra,Foil,0.4,0.49,0.21,true,910a1f41-17fd-4ab0-9597-7151e79dc760
+2026-10-12,26722467,Studious First-Year // Rampant Growth,1,sos,Foil,1.07,0.79,0.29,true,24f888dd-785c-4089-a89c-03f9080130ed
+2026-10-12,26722467,Falcon and Redwing,1,msc,Normal,0.69,1.49,0.61,true,e565fb47-acca-4348-87bb-afdadbf55e8a
+2026-10-12,26722467,Shroofus Sproutsire,1,j25,Normal,5.34,8.99,3.89,false,d29839f0-afe0-4caa-9628-655738aecce4
+2026-10-12,26722467,Wild Wasteland,1,pip,Normal,1.1,2.99,1.04,true,ca1024d6-c5f1-48f5-9081-fb90d0c46fdb
+2026-10-12,26722467,Mosswort Bridge,1,c18,Normal,0.42,0.69,0.35,false,b4f80d5f-539b-4abf-909b-be710d95a2a1
+2026-10-12,26722467,Yotian Dissident,1,bro,Normal,0.28,0.35,0.02,true,1eb02f00-c188-4193-a049-d26f7643e5da
+2026-10-12,26722467,Inspiring Statuary,1,brr,Normal,0.76,1.79,0.3,false,ef86ff2d-4a31-4414-8f5f-68f0c562296a
+2026-10-12,26722467,"Rocco, Street Chef",1,mat,Foil,0.67,2.49,0.6,false,421c2ed3-be60-4814-a82c-a0e3fbb97e63
+2026-10-12,26722467,Aerial Responder,1,kld,Normal,0.14,0.35,0.17,false,956adc86-c0d9-4408-837e-b5def19af1ec
+2026-10-12,26722467,Thundering Raiju,1,neo,Foil,0.63,0.79,0.05,false,ec1a2920-6d39-4276-921c-65cc16a45f17
+2026-10-12,26722467,Forest,3,otj,Foil,0.32,0.99,0.3,false,baf8a774-65f3-431e-b084-328ff1000895
+2026-10-12,26722467,Mountain,2,otj,Foil,0.36,0.79,0.26,false,0a7dbfd2-cda7-4fc9-9677-e442fb5f5f6f
+2026-10-12,26722467,Plains,3,otj,Foil,0.4,0.79,0.4,false,cfe51d97-66f6-4ac3-b926-01ab7e4c5686
+2026-10-12,26722467,Command Tower,1,c17,Normal,0.37,0.79,0.45,false,d2b1183f-bfc6-425f-9089-8657f7c8822b
+2026-10-12,26722467,Hushwood Verge,1,dsk,Normal,9.54,13.99,6.75,false,2bc1b38f-11bf-4eb0-b333-4d605290e75b
+2026-10-12,26722467,Jetmir's Garden,1,snc,Normal,15.2,20.99,13.27,true,ca9203fa-12db-4fa0-affd-4db277c871b7
+2026-10-12,26722467,Thornspire Verge,1,dsk,Normal,5.71,8.99,4.71,true,7e1cdc03-6faa-4138-9a52-caafbe34fb59
+2026-10-12,26722467,Exotic Orchard,1,c21,Normal,0.31,0.59,0.21,false,b45cbc0e-3f5c-4f27-9463-3cffb0f63e3c
+2026-10-12,26722467,Sunbillow Verge,1,dft,Normal,11.62,19.99,9.5,true,94ed132f-b818-4dbf-9b4a-e5acb067e0a4
+2026-10-12,26722467,Sacred Foundry,1,rvr,Normal,11.79,17.99,12.23,true,8076a8c3-7c6c-4636-b5d8-9b09ee95f92c
+2026-10-12,26722467,"Yavimaya, Cradle of Growth",1,mh2,Normal,16.65,21.99,14.13,true,4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c
+2026-10-12,26722467,"Boseiju, Who Endures",1,neo,Normal,50.57,59.99,37.71,true,2135ac5a-187b-4dc9-8f82-34e8d1603416
+2026-10-12,26722467,Commercial District,1,mkm,Normal,7.78,11.99,8.29,true,bf220c06-3cce-4bdd-aa58-83940c223e9c
+2026-10-12,26722467,Plateau,1,3ed,Normal,392.07,499.99,266.79,true,c6ae9cff-8646-4069-8761-df734e067beb
+2026-10-12,26722467,Lush Portico,1,mkm,Normal,6.76,9.99,6.81,true,c17816e8-28b1-4295-a637-efb0e5c18873
+2026-10-12,26722467,Rockfall Vale,1,inr,Normal,3.74,4.99,1.25,true,d4ef22f2-7c4f-4198-982b-f0830fd769cc
+2026-10-12,26722467,Wooded Foothills,1,mh3,Normal,18.57,29.99,16.97,true,4e11ea8a-f895-438d-a3b7-f070238e4161
+2026-10-12,26722467,Taiga,1,3ed,Normal,449.66,549.99,272.5,true,54c5c65a-a444-4e0f-ae44-a3722cdd32a1
+2026-10-12,26722467,Stomping Ground,1,rvr,Normal,8.84,9.49,7.0,true,872301b2-b6e7-4972-a479-66a7e304c1d3
+2026-10-12,26722467,Bountiful Promenade,1,clb,Normal,8.68,11.99,10.29,true,5125a8d8-344d-4419-b37a-ddf343493c5f
+2026-10-12,26722467,Clifftop Retreat,1,tdc,Normal,0.34,0.69,0.38,true,c5e81948-a362-4805-9bdf-ca65488a1a09
+2026-10-12,26722467,Rootbound Crag,1,tdc,Normal,0.43,1.29,1.39,true,1a88057c-0997-4b86-bcd5-b1127e4f1f28
+2026-10-12,26722467,Overgrown Farmland,1,inr,Normal,4.3,5.49,2.49,true,66656795-a64d-4656-a9bf-050dd9a7b9bf
+2026-10-12,26722467,Spectator Seating,1,cmm,Normal,11.36,12.99,9.76,true,dcf3140f-d5c8-45ff-8be4-622b1a129b3d
+2026-10-12,26722467,Sundown Pass,1,inr,Normal,3.19,5.99,3.58,true,12ca1b4f-3e98-4ad4-93fe-c4c2de09aa58
+2026-10-12,26722467,Spire Garden,1,clb,Normal,6.87,9.99,7.0,true,72aed540-7833-4442-90a9-aa5468014c65
+2026-10-12,26722467,Temple Garden,1,rvr,Normal,8.6,10.99,11.51,true,18d2e383-d380-4d18-8aad-bd8ea093a16c
+2026-10-12,26722467,Savannah,1,3ed,Normal,412.51,549.99,245.0,true,5ae71290-c133-406c-8b17-9ea22b437806
+2026-10-12,26722467,Arid Mesa,1,mh2,Normal,30.04,39.99,27.95,true,25ac5405-df7b-4097-914a-022cb18e20d4
+2026-10-12,26722467,Sunpetal Grove,1,tdc,Normal,0.5,1.29,0.7,true,565b4aaa-1990-4cb2-b519-2c0b1c9d5d18
+2026-10-12,26722467,Windswept Heath,1,mh3,Normal,11.99,17.99,11.41,true,bd1d13f7-fd38-4f0b-a8e0-1eac78668117
+2026-10-12,24974478,"Elrond, Moon-Reader",1,hob,Normal,1.64,1.99,2.62,false,fbcb310c-be73-46f8-8e65-8632454ccc6e
+2026-10-12,24974478,Glasspool Mimic // Glasspool Shore,1,znr,Normal,6.34,10.99,6.37,false,5adcb500-8c77-4925-8e2c-1243502827d1
+2026-10-12,24974478,Sire of Seven Deaths,1,fdn,Normal,34.06,47.99,39.5,true,1b486b75-4680-4a94-af8c-c1c335c9782b
+2026-10-12,24974478,Exit Specialist,1,mkm,Normal,0.21,0.35,0.05,false,268f142d-9fb1-4673-b804-add1f08dacb9
+2026-10-12,24974478,Dreamstone Hedron,1,cmr,Normal,0.31,0.35,0.05,false,77a0b45f-d044-4d59-81fd-c2683beca401
+2026-10-12,24974478,Stonespeaker Crystal,1,clb,Normal,0.37,1.29,0.55,false,8c99e6e1-3b88-4d2f-bc5d-70439585a063
+2026-10-12,24974478,The Eternity Elevator,1,eoe,Normal,3.35,3.49,0.88,true,1bb90ab9-43b9-4991-806a-0afc4d8caf5f
+2026-10-12,24974478,Waterbender's Restoration,1,tle,Normal,4.15,5.49,4.9,true,fe68e08e-8d84-4f87-b2e9-b552788d78e7
+2026-10-12,24974478,Lord of Change,1,40k,Normal,2.91,3.99,2.49,true,f9099d82-c13a-480d-b4bc-ecf8b810427c
+2026-10-12,24974478,Sol Ring,1,blc,Normal,2.14,2.99,1.57,false,fff440c0-7e6a-46c2-9989-f1b5af20fd44
+2026-10-12,24974478,Illusionist's Bracers,1,rvr,Foil,5.49,6.99,3.8,false,f5a08d47-fe06-4040-89f9-27dccad7c275
+2026-10-12,24974478,Wonder,1,cma,Normal,3.54,2.99,1.3,true,c7c29f93-e7c0-4dd9-88f2-2e4e1a37db56
+2026-10-12,24974478,Cavalier of Gales,1,j25,Normal,1.56,2.99,2.83,false,289cc92d-68e7-4b9c-8779-fa2583f3eef1
+2026-10-12,24974478,Heartstone,1,plst,Normal,1.87,2.49,1.99,false,5139d090-fcf1-419f-8ce7-0d544c8e1217
+2026-10-12,24974478,"Silver Surfer, Cosmic Voyager",1,msc,Normal,0.6,1.29,1.21,false,4f200c66-2356-4aec-978b-6bb509a3d885
+2026-10-12,24974478,Displacer Kitten,1,pclb,Foil,23.18,89.99,34.99,false,2b347ecf-d032-4d6c-9b4b-6e33c08a0722
+2026-10-12,24974478,Training Grounds,1,mat,Normal,10.04,10.99,3.99,true,991c27ed-f53c-48c6-8c12-282f44b8d441
+2026-10-12,24974478,"Grazilaxx, Illithid Scholar",1,sld,Normal,3.03,,2.75,true,4dc6ed00-45d3-4c5c-8d19-57334023879f
+2026-10-12,24974478,Stratus Dancer,1,c19,Normal,0.38,0.49,0.24,false,82fb8b0c-b86e-4915-b72d-9a6b5c1368c7
+2026-10-12,24974478,Y'shtola Rhul,1,fin,Normal,5.1,7.49,5.06,true,aef218fa-13a4-4653-95d6-6b3ef1b33a92
+2026-10-12,24974478,Gilded Lotus,1,msc,Normal,0.61,1.49,0.52,false,28e619e6-ecc1-49c3-8fa9-ce42becdb9ba
+2026-10-12,24974478,Sceptre of Eternal Glory,1,40k,Normal,19.88,23.99,21.08,true,bc7f3009-c852-41e7-8e62-d2ee637b3998
+2026-10-12,24974478,Chromatic Orrery,1,m21,Normal,33.59,49.99,16.99,true,3af78d76-ad5c-44ba-880d-b834bcde5398
+2026-10-12,24974478,Ring of the Lucii,1,fin,Normal,0.29,0.49,0.13,false,75761f1e-9449-4c58-8265-8abac71dafc1
+2026-10-12,24974478,Brass Infiniscope,1,soc,Normal,0.29,0.49,0.4,false,7dbab676-0bc4-47a8-9fd2-1f58c6bd71bd
+2026-10-12,24974478,"Galactus, Devourer of Worlds",1,msc,Normal,3.63,5.99,4.03,true,3a9df9dd-a480-406c-ba28-94895fbfb574
+2026-10-12,24974478,Displace,1,emn,Normal,0.35,0.59,0.52,false,8ab850c5-6f5e-41b7-ab52-094579caca12
+2026-10-12,24974478,Conjurer's Closet,1,inr,Normal,6.97,10.99,3.0,true,83e4e358-d639-4581-8c31-597f6d7fa57f
+2026-10-12,24974478,Baboon Spirit,1,tle,Foil,0.45,0.49,0.35,false,83fdb879-945c-4b33-8c5a-acce7247e8c4
+2026-10-12,24974478,"Ixidor, Reality Sculptor",1,ons,Normal,2.09,4.49,0.68,true,314d5e89-55f7-42b4-af19-d4d0f499a265
+2026-10-12,24974478,Branch of Vitu-Ghazi,1,mkm,Normal,1.0,0.35,0.04,false,73a8169f-b858-47a5-9c76-2e7c50ad4ecd
+2026-10-12,24974478,"Otawara, Soaring City",1,neo,Normal,26.54,42.99,23.5,true,486d7edc-d983-41f0-8b78-c99aecd72996
+2026-10-12,24974478,Dowsing Dagger // Lost Vale,1,xln,Normal,7.65,7.99,5.72,true,514d53be-6ade-4f73-a844-e9ae2dafd6ce
+2026-10-12,24974478,Sword of Hearth and Home,1,tmc,Foil,12.98,14.99,9.01,false,b35b5b3f-3daa-4091-9de4-1e6a7da27a74
+2026-10-12,24974478,Abhorrent Oculus,1,pdsk,Normal,11.34,16.99,12.0,false,4a140142-30bd-428b-82cb-323029090c21
+2026-10-12,24974478,Dour Port-Mage,1,blb,Normal,2.74,4.99,2.75,false,6402133e-eed1-4a46-9667-8b7a310362c1
+2026-10-12,24974478,"Thassa, Deep-Dwelling",1,thb,Foil,34.66,44.99,32.5,false,27b52628-de05-4ec1-9978-e998cf17bb26
+2026-10-12,24974478,Island,34,j25,Normal,0.16,0.35,0.02,false,9b0bfe70-e584-42f2-9a32-984c17ba6d1a
+2026-10-12,24974478,Hide on the Ceiling,1,spm,Normal,0.77,1.79,1.78,false,7977e448-01fa-4fa5-a275-0d6a1357b35c
+2026-10-12,24974478,Relic of Legends,1,dmu,Normal,2.63,2.29,0.85,false,64a2809e-c441-416c-90ff-6fb1e246dff3
+2026-10-12,24974478,"Wan Shi Tong, All-Knowing",1,tle,Foil,3.74,4.49,3.97,false,a071a829-b3dc-4229-9b09-0e96bd7a40dd
+2026-10-12,24974478,Wurmcoil Engine,1,sld,Foil,10.2,11.99,10.0,false,4a7ee95f-5a55-49e1-a0b5-8249a4c79d5e
+2026-10-12,24974478,Essence Flux,1,inr,Normal,1.79,1.99,0.9,false,c94b37df-aaa5-4981-be3b-c934a7971123
+2026-10-12,24974478,Siren Stormtamer,1,cmr,Normal,0.51,0.69,0.55,false,d0e5f191-0b20-4bc4-b41e-36c53a182f85
+2026-10-12,24974478,Glitch Interpreter,1,dsc,Normal,0.33,0.49,0.3,false,453d6565-137a-44b9-987d-e67944f2bebf
+2026-10-12,24974478,Enigma Thief,1,znc,Normal,0.42,0.99,0.21,false,3536a97f-565b-45c6-a54b-96afd2a268ec
+2026-10-12,24974478,Primordial Mist,1,dsc,Normal,0.34,0.49,0.2,false,1f814aa9-f5e7-409c-82b5-45205d2b5f29
+2026-10-12,24974478,"Sash and Waistcoat, Unmen",1,mbc,Normal,,,,true,7ee28c45-01c4-4f15-83d5-ede29f05a256
+2026-10-12,24974478,Ur-Golem's Eye,1,dst,Normal,0.33,0.39,0.13,false,00cd61eb-a526-46db-8675-334663e0d63a
+2026-10-12,24974478,Scourge of Fleets,1,jou,Normal,0.54,1.49,0.64,false,0aaf1de7-1476-4f8d-b8b3-67675891df23
+2026-10-12,24974478,Spellskite,1,sld,Normal,15.52,16.99,17.0,true,d2e8104a-e6db-44bc-95eb-23e78b27a6bd
+2026-10-12,24974478,Sol Talisman,1,mh2,Normal,0.77,1.79,0.79,false,a51fb64d-cc0c-400d-971f-78c28d42043b
+2026-10-12,24974478,Gossip's Talent,1,blb,Foil,0.36,0.49,0.02,false,b299889a-03d6-4659-b0e1-f0830842e40f
+2026-10-12,24974478,Voidwalk,1,gtc,Normal,0.26,0.35,0.14,false,611d0e10-e767-4e66-b1f1-02f1624fab2b
+2026-10-12,24974478,Zoetic Cavern,1,fut,Normal,0.4,0.39,0.15,false,c1db30e1-31df-44b9-930a-02428bd5ce47
+2026-10-12,24974478,Scroll of Fate,1,c19,Normal,0.3,0.49,0.14,false,a25ffab0-1119-4eca-9abe-077a699f19d0
+2026-10-12,24974478,Willbender,1,lgn,Normal,0.25,0.35,0.16,false,fb33b35b-33c9-4d59-9ed6-7ad40ea82cb0
+2026-10-12,24974478,Ghostly Flicker,1,sld,Foil,6.18,14.99,11.95,false,f5adfbfd-11e8-43e0-997e-e83d9fcc674d
+2026-10-12,24974478,Thran Dynamo,1,blc,Normal,4.35,3.49,2.29,false,6455b185-aa5e-45e1-951e-f6eef517daf2
+2026-10-12,24974478,Hedron Archive,1,c21,Normal,0.33,0.59,0.3,false,f8900980-6e0d-4d78-91a7-60a2e8cc92a5
+2026-10-12,24974478,Extraplanar Lens,1,cmm,Normal,13.79,18.99,5.89,true,f050a675-c6a2-4d0d-bac6-1d8c51ecf824
+2026-10-12,24974478,"Fblthp, Impossibly Lost",1,fra,Normal,0.27,0.39,0.14,false,a3a2edbb-d144-4670-acad-17316cea98d2
+2026-10-12,24974478,Ugin's Mastery,1,cmm,Normal,0.37,0.69,0.38,true,42991890-731c-4e6a-b0c5-57d6217029ab
+2026-10-12,24974478,Sculpting Steel,1,sld,Foil,5.53,5.49,3.5,false,9f824b34-f783-48b3-b5d5-579935101148
+2026-10-12,24974478,Hidden Strings,1,dgm,Normal,0.31,0.59,0.46,true,216e8047-6f54-49ce-bf86-27dc8fc8c8f7
+2026-10-12,24974478,Laboratory Maniac,1,slz,Normal,,,,true,f35a6b94-2e1e-4be2-bc1f-5b734f9f7479
+2026-10-12,24974478,Scroll Rack,1,cmr,Normal,32.04,44.99,32.0,true,dfaaa58d-89bb-4cb3-96a6-b480e6f6954e
+2026-10-12,25536840,"Delney, Streetwise Lookout",1,mkm,Normal,35.11,47.99,27.0,false,b6297104-b73c-439c-ac0c-b7fac01d49dc
 2026-10-12,25536840,The Echoverse Fulcrum,1,fra,Normal,3.15,5.99,4.9,true,1b54a4c5-511f-439f-86d0-e84a30275462
 2026-10-12,25536840,Castle Ardenvale,1,peld,Normal,2.78,0.79,0.42,false,14255ada-7b64-497a-b9c4-5e25060ba6f8
 2026-10-12,25536840,Alhammarret's Archive,1,c21,Normal,10.43,12.99,11.39,false,4f4187f1-05bd-4db6-a2e7-d677eff588ee
@@ -23,7 +370,7 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-12,25536840,Lotus Field,1,soc,Normal,2.68,3.49,2.82,false,ee5ac47c-e8b6-400e-b91e-a7cd0f952cf1
 2026-10-12,25536840,Redemption Choir,1,lcc,Normal,0.34,0.69,0.4,true,981dcacb-24a3-43bb-bb64-2b227f31dc3e
 2026-10-12,25536840,Lotus Vale,1,wth,Normal,45.46,57.99,26.83,true,2e5cd12a-2a07-44a8-8eac-de00d26fe9e3
-2026-10-12,25536840,Tataru Taru,1,fic,Normal,5.82,9.49,7.21,true,93176e85-2343-43a8-8578-69699b464b86
+2026-10-12,25536840,Tataru Taru,1,fic,Normal,5.82,9.49,7.21,false,93176e85-2343-43a8-8578-69699b464b86
 2026-10-12,25536840,"Emeria, the Sky Ruin",1,soc,Normal,7.55,8.49,5.2,false,90f148e6-1a5e-46fc-9557-40c5c0038069
 2026-10-12,25536840,War Room,1,soc,Normal,5.14,6.49,3.72,false,0775b4be-881c-4832-8954-d961064315b6
 2026-10-12,25536840,Three Tree City,1,blb,Normal,48.75,69.99,23.0,false,1cb16046-10bf-433a-acaf-7127c0954a1c
@@ -58,7 +405,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-12,25536840,"Emeria's Call // Emeria, Shattered Skyclave",1,znr,Normal,4.43,7.49,3.05,true,c470539a-9cc7-4175-8f7c-c982b6072b6d
 2026-10-12,25536840,Guide of Souls,1,mh3,Foil,4.1,4.99,2.99,false,76c3cad2-1e25-4abe-878d-9194de6fcc27
 2026-10-12,25536840,Loyal Warhound,1,blc,Normal,0.4,1.29,0.58,false,1d01ce54-3f64-465e-835a-27c55753926b
-2026-10-12,25536840,"Delney, Streetwise Lookout",1,mkm,Normal,34.42,47.99,34.25,true,be219928-3d0e-4d00-b124-152ce8a8c13b
 2026-10-12,25536840,Kindly Customer,1,tle,Normal,0.28,0.99,0.36,false,84332812-367a-4ac4-9be5-2adc57562c9d
 2026-10-12,25536840,Cathar Commando,1,mid,Normal,0.24,0.35,0.25,false,98cbc1c2-b76e-4da3-aa43-00e10b2ce532
 2026-10-12,25536840,Mentor of the Meek,1,2x2,Normal,0.56,1.49,0.68,false,9b974f99-28d0-4cd5-87a7-3f9661ddd1b4
@@ -81,6 +427,99 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-12,25536840,Lazotep Quarry,1,m3c,Normal,5.62,7.99,6.99,true,656ddd43-c70c-4927-9a02-fef5732708da
 2026-10-12,25536840,Moonshaker Cavalry,1,soc,Normal,9.47,10.99,8.29,false,ca90d382-7e13-4637-a624-2a1b82abe56c
 2026-10-12,25536840,Kami of False Hope,1,bok,Normal,1.77,0.99,0.33,false,44e4f5e6-935e-429f-89b4-4571376f442e
+2026-10-12,17493352,Battlefield Forge,1,c21,Normal,0.43,0.69,0.6,false,24bf3126-d962-40da-a2bb-84faf7cae05a
+2026-10-12,17493352,"Delney, Streetwise Lookout",1,mkm,Normal,34.42,47.99,34.25,false,be219928-3d0e-4d00-b124-152ce8a8c13b
+2026-10-12,17493352,Path of Ancestry,1,m3c,Normal,0.35,0.35,0.17,false,06869588-eb99-43b4-9521-948ca9f27c3e
+2026-10-12,17493352,The Gaffer,1,ltc,Normal,7.07,10.99,8.44,false,863ed552-dc6d-4910-b188-3cefc3ebf0ed
+2026-10-12,17493352,Genji Glove,1,fin,Normal,8.33,13.99,5.53,false,f724dde1-84b0-4e3b-a9b8-44cd22bb9f79
+2026-10-12,17493352,Descent into Avernus,1,sld,Foil,17.66,27.99,18.9,false,3e1003d5-f585-4194-a829-1bc342b26e0b
+2026-10-12,17493352,Improvisation Capstone,1,sos,Normal,12.38,17.99,12.95,true,36985a8e-dcc0-4349-93d7-071370a75615
+2026-10-12,17493352,Ingris Stingerquill,1,fra,Normal,11.63,13.99,7.87,true,164a17bc-789b-437f-9798-1854b5cd3dda
+2026-10-12,17493352,Tymna the Weaver,1,c16,Foil,31.54,29.99,30.5,false,bc7cbe9b-324e-42b8-94e2-36e91cb32163
+2026-10-12,17493352,"Arabella, Abandoned Doll",1,dsk,Normal,0.85,0.79,0.14,false,f683d5a1-b8bf-446f-9fe3-88a4398bf3cf
+2026-10-12,17493352,"Vito, Thorn of the Dusk Rose",1,pm21,Foil,11.38,15.99,10.69,false,2415707c-2b0a-4d4c-a9a0-2a6dca69589b
+2026-10-12,17493352,Professional Face-Breaker,1,snc,Normal,5.96,9.99,4.81,false,42acbf52-b137-44f0-a815-2817fe8d2da2
+2026-10-12,17493352,Guild Artisan,1,clb,Normal,0.26,0.59,0.17,false,abe5cc84-db39-4f64-b877-599880a8729a
+2026-10-12,17493352,"Elas il-Kor, Sadistic Pilgrim",1,dmu,Normal,0.75,2.29,0.93,false,552fbde6-515d-457e-81c9-d67157eaaf37
+2026-10-12,17493352,Arbaaz Mir,1,acr,Normal,0.29,0.35,0.12,false,c7187506-4af3-47e9-bad0-4ce8c78ccc10
+2026-10-12,17493352,"Prosper, Tome-Bound",1,afc,Foil,7.2,8.49,8.48,false,d743336e-d5c7-4053-a23d-92ec7581f74e
+2026-10-12,17493352,Access Tunnel,1,ltc,Normal,0.41,0.99,1.6,false,8101166d-03e1-4bc9-b50a-05743c02d653
+2026-10-12,17493352,"Shizo, Death's Storehouse",1,dmc,Normal,35.76,34.99,23.64,false,099352e2-38c8-4fb4-a25f-6d928aa20f9e
+2026-10-12,17493352,Arcane Signet,1,nec,Normal,0.73,0.79,0.54,false,7bdf4615-7a08-40fe-9e04-cdbe10a62e06
+2026-10-12,17493352,Talisman of Hierarchy,1,pip,Normal,0.67,1.29,1.35,false,9b55b6cb-820c-4782-9f63-e04fe46e02d2
+2026-10-12,17493352,Boros Signet,1,c15,Normal,0.54,1.49,0.48,false,1c7eb511-cf4f-4dce-a376-d32a5f3141d2
+2026-10-12,17493352,Talisman of Conviction,1,ltc,Normal,0.38,0.99,0.3,false,c542cc26-f61a-416b-866e-8c500ff24783
+2026-10-12,17493352,Talisman of Indulgence,1,40k,Normal,3.62,4.99,2.48,false,2844e7be-32d2-41dd-9a03-eab9fd09bf14
+2026-10-12,17493352,Silver Shroud Costume,1,sld,Foil,10.88,16.99,7.54,false,49c85e36-de89-4fc0-8058-1eb5bf319c2d
+2026-10-12,17493352,Inkshield,1,sld,Foil,10.95,13.99,9.0,false,c442af6a-8f9c-466f-815c-f7890caff0d0
+2026-10-12,17493352,Damn,1,mh2,Normal,1.73,3.49,2.26,false,efeae088-9ac5-4d2f-a15c-d8675a471ac5
+2026-10-12,17493352,Sundering Eruption // Volcanic Fissure,1,mh3,Normal,1.37,3.49,1.68,false,50686ac7-346c-43d1-bdaa-28d46a12ad93
+2026-10-12,17493352,Steelshaper's Gift,1,sld,Foil,13.74,18.99,14.48,false,81d99e5b-4c2a-47bf-b31b-71c50b944b69
+2026-10-12,17493352,Avatar's Wrath,1,tla,Normal,3.73,6.99,3.97,false,4811072d-fac0-40dd-a5cf-9694d51b12cf
+2026-10-12,17493352,Dusk // Dawn,1,blc,Normal,0.3,0.59,0.25,false,00bbcc83-7307-46cc-b164-e1ff502d18a3
+2026-10-12,17493352,Swords to Plowshares,1,dmr,Normal,2.2,2.99,1.66,false,7d839f21-68c7-47db-8407-ff3e2c3e13b4
+2026-10-12,17493352,Duelist's Heritage,1,tle,Normal,2.47,4.99,2.99,false,45834bc6-be8d-4064-930d-efc73cf3c64d
+2026-10-12,17493352,Thieves' Tools,1,clb,Foil,0.31,0.49,0.25,false,c3bf4ee1-b6a8-4a69-adab-6839c1786cc9
+2026-10-12,17493352,Lightning Greaves,1,c19,Normal,4.77,7.49,4.08,false,9e01e0e4-7e2b-41b5-86de-8e022170b3fc
+2026-10-12,17493352,"Daxos, Blessed by the Sun",1,thb,Normal,0.29,0.49,0.49,false,f5770e8a-045d-42bc-b6aa-17b89488c9d4
+2026-10-12,17493352,"Gollum, Obsessed Stalker",1,ltc,Normal,0.33,0.49,0.37,false,e5a43cf0-60b3-4770-945c-41ee3ec54d5a
+2026-10-12,17493352,"Anim Pakal, Thousandth Moon",1,lci,Normal,4.26,5.99,3.5,false,7fc97d16-c54c-4a2b-9691-39e8a41c7777
+2026-10-12,17493352,"Elena, Turk Recruit",1,fic,Normal,0.24,0.49,0.24,false,d16553a3-65c3-4dec-af92-123d1e5dce10
+2026-10-12,17493352,"Subira, Tulzidi Caravanner",1,m21,Normal,0.32,0.49,0.25,false,034b8d6d-95ea-434a-967a-e6675a7ce88a
+2026-10-12,17493352,"Deadpool, Trading Card",1,sld,Foil,14.21,18.99,18.19,false,3a14d6c5-cfd1-4860-834a-5a0dc9df0320
+2026-10-12,17493352,Brash Taunter,1,m21,Normal,3.71,3.99,1.23,false,ebb5e613-a803-42f3-840a-7089ac6b7e3d
+2026-10-12,17493352,Exotic Orchard,1,c19,Normal,0.33,0.59,0.12,false,23de2dc2-348f-4eeb-ae0c-dda422d654b0
+2026-10-12,17493352,Great Hall of the Citadel,1,ltr,Foil,0.42,0.99,0.5,false,219c7b57-b62b-42d1-85d9-4b57624a3f54
+2026-10-12,17493352,Rogue's Passage,1,ltc,Normal,0.75,1.29,0.66,false,86438671-fdb8-4a82-b1e8-ef51fa4078df
+2026-10-12,17493352,"Saradoc, Master of Buckland",1,ltr,Normal,0.35,0.69,0.26,false,a65a1fb5-cc2c-4556-b109-05c3d966ded9
+2026-10-12,17493352,"Mangara, the Diplomat",1,blc,Normal,0.46,0.99,0.65,false,26f0d639-9d7f-4a90-bbfd-f942bd59a89b
+2026-10-12,17493352,Fellwar Stone,1,ncc,Normal,1.49,1.79,0.6,false,68c3d065-0519-4472-ae6e-23f58af5e859
+2026-10-12,17493352,Orzhov Signet,1,brc,Normal,0.61,1.29,0.64,false,b99cac18-281d-437f-ae34-87a10b92c6e9
+2026-10-12,17493352,Deadly Rollick,1,sld,Foil,26.24,37.99,28.48,false,701335fe-657c-408e-9030-85c9d6f4a666
+2026-10-12,17493352,"Mjölnir, Hammer of Thor",1,msh,Normal,16.03,21.99,17.25,true,e0c7f566-5351-44e3-a346-b84b0eb10209
+2026-10-12,17493352,"Shanid, Sleepers' Scourge",1,dmc,Foil,2.87,3.49,2.62,false,1b0fb859-055d-4aa1-814c-0894cd2ccd4a
+2026-10-12,17493352,Falcon and Redwing,1,msc,Normal,0.69,1.49,0.61,true,e565fb47-acca-4348-87bb-afdadbf55e8a
+2026-10-12,17493352,"Black Widow, Agile Avenger",1,msc,Normal,5.52,8.49,6.95,true,8c2bf77c-9acf-4e2c-9cad-e74546f26070
+2026-10-12,17493352,"General Kreat, the Boltbringer",1,j25,Normal,6.97,9.99,7.57,false,226fc101-abcc-4ed4-8c0b-3677dc8d8f0a
+2026-10-12,17493352,Savai Triome,1,iko,Normal,18.3,24.99,14.49,false,d21ef9e6-e2dd-4e0a-a36c-e07034ac4ba3
+2026-10-12,17493352,Darkstar Augur,1,blb,Normal,2.03,2.29,1.5,false,8e9abfd1-59ba-46f4-ad1d-cf0e125dd4b9
+2026-10-12,17493352,Brotherhood Regalia,1,acr,Foil,9.95,17.99,9.5,false,8a6439a6-288d-427e-b14b-a99e8ef8c5cd
+2026-10-12,17493352,"Lotho, Corrupt Shirriff",1,ltr,Normal,11.11,13.99,11.91,false,69d97af0-8af0-4124-b56f-2633d34e5574
+2026-10-12,17493352,Loran of the Third Path,1,bro,Normal,7.76,11.99,5.98,false,f35a0fc1-790e-4f47-b756-a6b4b298e299
+2026-10-12,17493352,"Moseo, Vein's New Dean",1,sos,Foil,0.98,0.99,1.26,false,6877180c-22a1-4c4d-9178-316f4c34661b
+2026-10-12,17493352,Plaza of Heroes,1,dmu,Foil,10.06,13.99,9.0,false,ea9fc6ee-2205-4f77-8e14-313bfbe68c1e
+2026-10-12,17493352,"Minas Morgul, Dark Fortress",1,ltc,Foil,11.24,16.99,12.82,false,50f76652-15e7-4190-842e-db6db6d66e91
+2026-10-12,17493352,Eiganjo Castle,1,chk,Normal,14.88,11.99,8.94,false,219c1d76-40cf-4edf-8145-e6cec8ca39ad
+2026-10-12,17493352,Fabled Passage,1,tmc,Normal,1.21,1.79,1.5,false,7c787c6b-b6c7-47a0-8f8d-761629f5568e
+2026-10-12,17493352,Clifftop Retreat,1,pip,Normal,0.37,0.59,0.25,false,e6454d4c-5820-4cb8-b625-3d9a09778513
+2026-10-12,17493352,Caves of Koilos,1,dmu,Normal,2.98,5.99,2.5,false,7328a565-966d-4053-b32b-25bdce031d9f
+2026-10-12,17493352,Isolated Chapel,1,ltc,Normal,0.45,1.29,0.86,false,62a7fc91-43c0-49be-ae14-d0a8efb3a185
+2026-10-12,17493352,Fetid Heath,1,tdc,Normal,0.53,0.79,0.67,false,16af23b7-db97-4dd0-84c2-c0095f6dbe96
+2026-10-12,17493352,Knuckles the Echidna,1,sld,Foil,23.33,27.99,20.97,false,54b65cca-7844-4d3e-9d7f-ed1f49f94425
+2026-10-12,17493352,Scheming Silvertongue // Sign in Blood,1,sos,Foil,1.51,1.99,1.1,false,fe85a124-0d8b-4a29-8df1-65888a39147f
+2026-10-12,17493352,Villainous Wrath,1,spm,Foil,1.23,1.49,0.29,false,6f7d7311-2248-4841-960a-8c93497e3de1
+2026-10-12,17493352,Swamp,2,mkm,Foil,0.63,1.49,0.47,false,53d0a415-26b8-4ba2-9503-b4ee2b93617c
+2026-10-12,17493352,Mountain,2,mkm,Normal,0.32,0.79,0.12,false,5383b66e-e559-47d2-9967-9c2d5f898653
+2026-10-12,17493352,Plains,6,mkm,Foil,0.37,1.99,0.47,false,598f857d-ee17-4478-bb39-cc3ab77ab8d8
+2026-10-12,17493352,Plateau,1,3ed,Normal,392.07,499.99,266.79,true,c6ae9cff-8646-4069-8761-df734e067beb
+2026-10-12,17493352,Blood Crypt,1,rvr,Normal,10.06,15.99,13.09,true,0994aef4-b341-45f4-8881-523565a5956e
+2026-10-12,17493352,Sacred Foundry,1,rvr,Normal,11.79,17.99,12.23,true,8076a8c3-7c6c-4636-b5d8-9b09ee95f92c
+2026-10-12,17493352,Scrubland,1,3ed,Normal,452.96,549.99,300.0,true,472034a2-0ba9-4876-ab7a-aa7013d603bb
+2026-10-12,17493352,Arid Mesa,1,zne,Normal,46.18,54.99,32.99,true,245e16ae-4514-42fa-b409-2c3ae084436c
+2026-10-12,17493352,Marsh Flats,1,zne,Normal,46.46,74.99,37.0,true,9e1e76a2-ec37-4fd8-8185-f98f675ff0cb
+2026-10-12,17493352,Badlands,1,3ed,Normal,590.77,749.99,318.32,true,56058359-3c0b-49db-a0ce-9ded4c3f4372
+2026-10-12,17493352,Bloodstained Mire,1,zne,Normal,38.63,44.99,40.0,true,ed7bcbf1-9045-4810-93fa-9918c45856ca
+2026-10-12,17493352,Godless Shrine,1,rvr,Normal,9.42,14.99,12.27,true,9e26f6ad-c1b8-4ec6-a179-e86ce09824c1
+2026-10-12,17493352,Witch Enchanter // Witch-Blessed Meadow,1,mh3,Foil,7.66,10.99,6.53,false,62061e7c-cf19-4f03-b8fa-2bdba62d6b0b
+2026-10-12,17493352,Chaos Warp,1,sld,Foil,10.79,12.99,7.2,false,4f694292-3a9d-4d65-8917-d70a9efd3a88
+2026-10-12,17493352,Wayfarer's Bauble,1,sld,Foil,5.15,6.99,1.67,false,8bd05fa7-6e75-43a6-87b8-7c0e5229aa1a
+2026-10-12,17493352,Aggravated Assault,1,sld,Foil,31.61,32.99,16.0,false,a6a8223a-98f9-43b9-aa89-b6a2c6fcaebe
+2026-10-12,17493352,"Kellan, the Fae-Blooded // Birthright Boon",1,woe,Normal,6.28,7.49,4.2,false,ec5e2680-8b42-4571-ab45-4936aec51901
+2026-10-12,17493352,The Reaver Cleaver,1,sld,Normal,26.66,34.99,17.0,true,be11af2c-ced6-4da7-a56c-60cef97b7fbb
+2026-10-12,17493352,Stoneforge Mystic,1,spg,Normal,40.1,39.99,25.97,true,11130547-391b-4fe7-8821-ef9514f6073f
+2026-10-12,17493352,The Queen of Dale,1,hob,Normal,18.91,27.99,22.66,true,7d635dfb-0a48-4965-82d1-d98f943bb28d
+2026-10-12,17493352,"Kediss, Emberclaw Familiar",1,sld,Foil,14.88,14.99,9.83,false,aa1c4ada-a218-4701-a293-ae6cbbe5c4d8
+2026-10-12,17493352,Command Tower,1,pw25,Foil,10.94,12.99,6.5,false,ffcf7acb-23e4-4658-a5fd-0ae585602dca
 2026-10-12,16293254,Great Hall of the Citadel,1,ltr,Normal,0.32,0.99,0.23,false,219c7b57-b62b-42d1-85d9-4b57624a3f54
 2026-10-12,16293254,Plaza of Heroes,1,dmu,Normal,6.57,7.49,6.38,true,a2cfcf67-f83c-43af-9e2d-5513fcdde835
 2026-10-12,16293254,Arid Archway,1,otj,Normal,1.45,1.99,0.73,false,3f8c8fa2-12ab-4f6a-9f7a-2bc69e9ba024
@@ -169,98 +608,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-12,16293254,"Lumra, Bellow of the Woods",1,blb,Foil,116.6,149.99,129.99,true,b43b3c33-aa44-4001-87ff-695bf04f51be
 2026-10-12,16293254,Yavimaya Hollow,1,vma,Normal,,,,true,d9fdbc02-7ab7-4f77-8a89-5a9e01eb32f5
 2026-10-12,16293254,Hall of Echoes,1,fra,Normal,3.07,4.99,2.36,false,4a771010-b397-4849-ac9b-08e4dd5d6a72
-2026-10-12,5005670,Flare of Denial,1,mh3,Normal,3.39,4.99,4.48,false,71a98efb-9b0a-496b-ac21-8d70527ea544
-2026-10-12,5005670,"Grazilaxx, Illithid Scholar",1,clb,Normal,1.68,6.99,1.6,false,3de11222-c2fa-4544-a501-a02b31797259
-2026-10-12,5005670,Inkfathom Infiltrator,1,plst,Normal,0.37,0.39,0.2,false,55ec9dcb-368d-4edd-8a6d-8f2c72a26f35
-2026-10-12,5005670,Lightning Greaves,1,who,Normal,4.86,6.49,3.09,false,59cb10b3-6856-4355-94a7-a14c516887d5
-2026-10-12,5005670,Reconnaissance Mission,1,iko,Normal,0.57,0.99,2.02,false,ae9f7efa-d125-4f83-825e-172ea099a62a
-2026-10-12,5005670,Gudul Lurker,1,dtk,Normal,0.45,1.29,1.26,false,c84d5344-2d15-43da-b536-27e0d308606b
-2026-10-12,5005670,Mist-Cloaked Herald,1,rix,Normal,0.37,0.69,0.02,false,18c1368e-114b-4618-922b-1d824ba0d1d5
-2026-10-12,5005670,The Indomitable,1,lcc,Normal,3.14,3.49,2.52,false,e6456329-b521-474b-bfb5-bfcd7e52b5f8
-2026-10-12,5005670,Dreamroot Cascade,1,who,Normal,1.04,1.99,0.94,false,3a8c7416-c0af-419d-892a-ee989585bf79
-2026-10-12,5005670,Beastmaster Ascension,1,ncc,Normal,7.21,8.49,2.49,false,f404d133-fc1a-4751-ac72-554e6553e486
-2026-10-12,5005670,Ohran Frostfang,1,c19,Normal,7.21,9.99,5.5,false,9eb08e11-c247-404c-9f40-a12cb7087d0c
-2026-10-12,5005670,Brazen Borrower // Petty Theft,1,spg,Normal,5.8,7.99,5.0,false,ed39ecb5-6c7c-428d-8ff3-7bd30edf00d5
-2026-10-12,5005670,Shipwreck Marsh,1,mid,Normal,6.98,8.99,5.83,false,7579824a-6e46-442b-95ff-03fea4adbba6
-2026-10-12,5005670,Morphic Pool,1,clb,Normal,29.94,37.99,31.56,false,48e40927-dd87-42ed-b805-0ae8ba81f5fb
-2026-10-12,5005670,Nether Traitor,1,tsp,Normal,9.64,3.99,3.75,false,911d2271-8998-4193-9d1a-1768c5dfaaad
-2026-10-12,5005670,Clearwater Pathway // Murkwater Pathway,1,znr,Normal,4.97,5.99,4.91,false,b0fe4b53-18f6-42eb-b03f-cab3e5a7fba6
-2026-10-12,5005670,Slither Blade,1,znc,Normal,0.41,0.79,0.29,false,06b56909-65b3-479f-8e52-d025641f4a8e
-2026-10-12,5005670,Tormented Soul,1,m12,Normal,0.25,0.39,0.2,false,d2699c42-99bb-4b5a-82ec-9c6424c14ec1
-2026-10-12,5005670,Triton Shorestalker,1,znc,Normal,0.35,0.69,0.2,false,d86d8c25-016b-4607-a3f7-01f7b3158a24
-2026-10-12,5005670,Changeling Outcast,1,h1r,Foil,5.14,6.99,4.99,false,e681338b-9938-4db0-bb95-28c460a98acf
-2026-10-12,5005670,Invisible Stalker,1,znc,Normal,1.21,1.29,0.94,false,14d265aa-c1d8-4faa-b282-5c273ab725fd
-2026-10-12,5005670,Looter il-Kor,1,ncc,Normal,0.33,0.35,0.1,false,9b43cfff-e14d-4792-8a5b-98fca88456e0
-2026-10-12,5005670,"Edric, Spymaster of Trest",1,cns,Normal,2.83,4.99,1.26,false,0029955b-32a5-4dd8-8a8c-5c80cdfd13aa
-2026-10-12,5005670,Bident of Thassa,1,ths,Normal,0.62,0.79,0.81,false,85e45d14-a501-40b9-af0a-720ecd20dad7
-2026-10-12,5005670,Coastal Piracy,1,jmp,Normal,1.45,1.99,0.95,false,0f2c4e43-71b2-4483-ba54-4be1dcffcd5f
-2026-10-12,5005670,Beast Within,1,ncc,Normal,1.03,1.49,0.7,false,2df1045c-0186-45e8-aed2-807528fc1aba
-2026-10-12,5005670,Command Tower,1,brc,Normal,2.49,3.49,1.08,false,84b79453-bb88-4c23-8cdb-82ba57ea3bc5
-2026-10-12,5005670,Exotic Orchard,1,brc,Normal,0.58,0.99,1.0,false,95d63eac-469f-454f-a575-7f19abb554cf
-2026-10-12,5005670,Path of Ancestry,1,brc,Normal,0.42,0.59,0.91,false,95c1557e-68dd-46be-9b1e-0a65e04fe739
-2026-10-12,5005670,Island,7,brc,Normal,0.25,0.49,0.07,false,9d075fae-ecd8-44b2-ac24-087afb26a9fa
-2026-10-12,5005670,Hinterland Harbor,1,ltc,Normal,0.4,0.59,0.41,false,35753c7f-e6d0-4335-a87e-3d3e5abb059b
-2026-10-12,5005670,Drowned Catacomb,1,ltc,Normal,2.42,2.79,1.65,false,1ce5d548-379d-442d-a68d-efbd6525fb86
-2026-10-12,5005670,Enduring Curiosity,1,dsk,Normal,7.89,11.99,8.82,false,ce740fb7-d2d1-451b-bfa0-27364b804161
-2026-10-12,5005670,"Gix, Yawgmoth Praetor",1,pbro,Normal,2.13,2.29,2.07,false,425ae9d7-f198-4ace-9a2c-ebc8845a71ce
-2026-10-12,5005670,Rejuvenating Springs,1,ltc,Normal,4.76,5.49,4.92,false,c68876b6-5a30-4dea-af0a-53d30e6f8029
-2026-10-12,5005670,Wu Light Cavalry,1,ptk,Normal,3.84,1.29,1.1,false,60e55b25-fde2-4b57-b5db-65b75262ff3d
-2026-10-12,5005670,Barkchannel Pathway // Tidechannel Pathway,1,khm,Normal,4.99,7.49,6.13,false,87c33c94-4b56-4a96-9c4c-a376f8d54943
-2026-10-12,5005670,Mockingbird,1,blb,Normal,3.39,4.99,2.72,false,ade32396-8841-4ba4-8852-d11146607f21
-2026-10-12,5005670,Zagoth Triome,1,iko,Normal,21.99,27.99,16.0,false,f809f970-25a7-4c34-b98f-1cb08012080d
-2026-10-12,5005670,Breeding Pool,1,gtc,Normal,9.84,17.99,12.23,false,ece3bcdd-cb33-4923-b919-ba57a327d3cd
-2026-10-12,5005670,Watery Grave,1,grn,Normal,9.64,13.99,9.75,false,7d4595f2-9297-40dc-b2dd-7144bbb401f7
-2026-10-12,5005670,Baleful Strix,1,blc,Normal,15.05,16.99,18.0,false,7204e5b5-fdd1-4831-8dfa-d4d02ccaaf4d
-2026-10-12,5005670,Sink into Stupor // Soporific Springs,1,mh3,Normal,9.21,13.99,7.3,false,5358b87a-1a29-426d-b165-40c97da2c14d
-2026-10-12,5005670,Cephalid Facetaker,1,ncc,Normal,3.95,3.99,3.2,false,a77d91f7-f7c9-47e4-b5c5-46c921335e42
-2026-10-12,5005670,Into the Flood Maw,1,blb,Normal,2.64,4.49,1.77,false,50b9575a-53d9-4df7-b86c-cda021107d3f
-2026-10-12,5005670,Willowrush Verge,1,dft,Normal,4.87,9.49,7.04,false,758d93d5-3f66-4395-a928-000485396c87
-2026-10-12,5005670,Shoreline Looter,1,blb,Foil,1.23,2.99,0.33,false,00cb0b3c-a403-4212-93d3-3340c3f1e9db
-2026-10-12,5005670,Unsubstantiate,1,m21,Normal,0.34,0.69,0.07,false,2dc0bafd-debc-4b62-9fe0-56b4aad02484
-2026-10-12,5005670,Ledger Shredder,1,snc,Normal,9.25,12.99,7.71,false,7ea4b5bc-18a4-45db-a56a-ab3f8bd2fb0d
-2026-10-12,5005670,Gloomlake Verge,1,dsk,Normal,10.02,17.99,10.26,false,83f510b7-4cbd-4883-9c26-c8824bc668ac
-2026-10-12,5005670,Flooded Grove,1,ltc,Normal,0.37,0.49,0.37,false,f10457be-4f02-48c0-bec7-93687c8763ea
-2026-10-12,5005670,Sunken Ruins,1,fic,Normal,1.92,2.99,2.82,false,2dbd21b1-d6cf-4d10-8a31-aa52208c95d7
-2026-10-12,5005670,Departed Deckhand,1,lcc,Normal,0.33,0.35,0.1,false,985cfee6-97b7-4f42-8bfe-5e1e44bb54d6
-2026-10-12,5005670,Notorious Throng,1,znc,Normal,3.28,3.99,2.21,false,c8be7edf-807a-4a7b-ab48-78f309997210
-2026-10-12,5005670,Dauthi Voidwalker,1,sld,Foil,15.27,14.99,12.49,false,bf5e853d-05bd-49b2-b7da-c968e24a2400
-2026-10-12,5005670,Silent Hallcreeper,1,dsk,Normal,1.16,2.29,1.0,false,aac4f0cc-63be-4f08-956e-39839c9735ba
-2026-10-12,5005670,Thieving Skydiver,1,znr,Normal,0.24,0.59,0.2,false,ff84ea71-e477-44f7-a3f8-77fef708efeb
-2026-10-12,5005670,Faerie Mastermind,1,pmom,Normal,11.85,17.99,10.95,false,f32bb990-3bf2-4b9e-baa7-40dd4e921112
-2026-10-12,5005670,Swamp,3,brc,Normal,0.38,0.49,0.35,false,5205f782-e6af-4152-a15f-080935017e4b
-2026-10-12,5005670,Geist of Saint Thalia,1,fra,Normal,8.4,9.49,4.9,true,85082e55-cb7e-4fe2-86d5-f8accd48ba2c
-2026-10-12,5005670,Orochi Soul-Reaver,1,otc,Normal,9.89,9.49,10.4,false,ec8f372a-d8c7-4f5d-a91d-ec7e5eb17104
-2026-10-12,5005670,Grim Hireling,1,afc,Normal,13.69,16.99,13.69,false,08c6872d-4cb5-4a59-b1dd-38c107906660
-2026-10-12,5005670,Vedalken Infiltrator,1,mh2,Normal,0.24,0.35,0.25,false,9ddfc6a8-7880-4810-8c0a-d9ea931138f2
-2026-10-12,5005670,Bitterbloom Bearer,1,ecl,Normal,18.08,24.99,21.45,false,58aa273f-9ec7-4024-b30e-e75fa404de72
-2026-10-12,5005670,Spectral Sailor,1,lcc,Normal,0.31,0.35,0.99,false,0b25b281-ab3b-4821-8144-dcb1f3281f96
-2026-10-12,5005670,"Malcolm, Alluring Scoundrel",1,plci,Normal,3.64,4.99,1.99,false,1619f8d5-395e-465d-b87e-5d688944bbcc
-2026-10-12,5005670,Spyglass Siren,1,lci,Normal,0.31,0.69,0.02,false,41e54343-95e5-4dc4-9f18-e4a415fe5e0a
-2026-10-12,5005670,Waterbender Ascension,1,tla,Normal,0.6,1.29,0.98,false,3f57e0f9-e232-489c-b991-d0d23f75d8dd
-2026-10-12,5005670,Misty Rainforest,1,zne,Normal,54.02,54.99,35.0,false,6d14bd1a-068e-4338-8014-d5271cb2fe4d
-2026-10-12,5005670,Flitterwing Nuisance,1,ecl,Normal,0.65,0.99,0.35,false,7ecc95a7-51c8-45a1-bebf-9dfa053f7403
-2026-10-12,5005670,Siren Stormtamer,1,lcc,Normal,0.38,0.69,0.35,false,073c301e-5bb6-49fa-bf61-2f662030540f
-2026-10-12,5005670,Cloud Pirates,1,por,Normal,1.9,2.49,1.65,false,9f7386c6-d17a-4c7d-884d-2471b87d8b8e
-2026-10-12,5005670,River of Tears,1,fut,Normal,1.78,2.99,2.98,false,8d5b2058-99fc-4d9b-9e3d-056fa3fd1244
-2026-10-12,5005670,"Irma, Part-Time Mutant",1,tmc,Normal,3.92,6.99,4.42,false,c3128529-4ccd-4809-8388-03f7faa0eabe
-2026-10-12,5005670,Scale Up,1,h1r,Foil,1.44,1.79,0.66,false,4da5a18d-b5d2-4c38-ae04-164f3e1adc6b
-2026-10-12,5005670,"Toski, Bearer of Secrets",1,spg,Normal,16.7,22.99,12.56,false,0153d1ad-c8ee-42ff-a059-b763c2cfb7be
-2026-10-12,5005670,Faerie Slumber Party,1,woe,Normal,1.86,2.79,1.1,false,f8e5de58-cc4c-40b2-94c8-4e4d7cebfaf8
-2026-10-12,5005670,Tegwyll's Scouring,1,woc,Normal,1.01,1.99,1.48,false,0d326981-30ee-4d5a-98c6-2e69f706073c
-2026-10-12,5005670,Fell the Profane // Fell Mire,1,mh3,Normal,6.06,8.49,4.27,false,a3cb782d-c459-468d-9779-9b5669abc337
-2026-10-12,5005670,Forest,1,inr,Normal,0.46,0.79,0.05,false,7afdc917-ec37-4e03-853f-36cfe90053d9
-2026-10-12,5005670,Polluted Delta,1,zne,Normal,48.19,49.99,19.9,false,d052d99b-b1ca-44da-8460-c022d041d665
-2026-10-12,5005670,The Destined Thief,1,fic,Foil,3.07,4.99,3.99,true,de95250d-294d-4a0e-8049-e0a877078e2e
-2026-10-12,5005670,Tezzeret the Seeker,1,sld,Normal,28.95,32.99,18.94,true,b4b3d65d-3485-4d82-ba2e-9e2071f284b5
-2026-10-12,5005670,Underground Sea,1,3ed,Normal,1105.08,1499.99,744.6,true,1f35877c-e66c-4ef0-842a-f68cd233ae4b
-2026-10-12,5005670,Tropical Island,1,3ed,Normal,593.21,699.99,401.33,true,a0f5c6bc-65dc-42a1-a62d-a0b101310a1f
-2026-10-12,5005670,"Otawara, Soaring City",1,neo,Normal,26.54,42.99,23.5,false,486d7edc-d983-41f0-8b78-c99aecd72996
-2026-10-12,5005670,"Wan Shi Tong, Librarian",1,tla,Foil,37.73,54.99,51.38,false,e20da6b5-1057-4a28-9e85-07de714e262f
-2026-10-12,5005670,Skyserpent Seeker,1,dft,Normal,0.32,0.69,0.1,false,b7de8c7e-7270-4a4f-af03-9f088b04c05b
-2026-10-12,5005670,"Bilbo, Luckwearer // Burglar's Plot",1,pw26,Normal,0.51,0.79,0.99,false,09f8b967-96fa-4c2b-b331-85b3704770c0
-2026-10-12,5005670,"Ikra Shidiqi, the Usurper",1,c16,Foil,1.22,1.79,0.8,false,460165df-32db-4773-805e-edd6f18af5d6
-2026-10-12,5005670,Skateboard,1,tmt,Normal,0.39,0.69,0.26,false,deadb6d8-3eea-4261-a07c-8536df89e85c
-2026-10-12,5005670,"Malcolm, Keen-Eyed Navigator",1,spg,Foil,15.2,17.99,18.5,false,cfcb3051-161f-42f8-bfec-db03b349ff00
 2026-10-12,5714358,Arcane Signet,1,p30m,Etched,,,,false,7910ce6c-5cde-436e-8d28-62723f0fd592
 2026-10-12,5714358,Peregrin Took,1,ltr,Normal,0.92,0.79,0.25,false,f5baee8d-88e7-4468-94a9-66ca8e2caf15
 2026-10-12,5714358,"Lonis, Cryptozoologist",1,mh2,Normal,0.32,0.49,0.1,false,5dfd08da-6717-49ee-94ba-2562224f5baa
@@ -452,353 +799,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-12,5969200,Misty Rainforest,1,zne,Normal,54.02,54.99,35.0,true,6d14bd1a-068e-4338-8014-d5271cb2fe4d
 2026-10-12,5969200,Savannah,1,3ed,Normal,412.51,549.99,245.0,true,5ae71290-c133-406c-8b17-9ea22b437806
 2026-10-12,5969200,Bountiful Promenade,1,clb,Normal,8.68,11.99,10.29,true,5125a8d8-344d-4419-b37a-ddf343493c5f
-2026-10-12,6482039,Bojuka Bog,1,brc,Normal,3.61,6.49,2.82,false,ac21a3cc-f3d7-4ac8-9df0-a126738ab54c
-2026-10-12,6482039,Blood Artist,1,plst,Normal,3.7,4.49,2.2,false,877558c4-f633-4510-97db-f1205a080ecb
-2026-10-12,6482039,"Journey to Eternity // Atzal, Cave of Eternity",1,rix,Normal,4.58,6.49,5.12,false,d81c4b3f-81c2-403b-8a5d-c9415f73a1f9
-2026-10-12,6482039,Dread Return,1,cmm,Normal,0.68,1.29,0.58,false,721aff76-9f80-4ec2-ae29-2dc8494a1a06
-2026-10-12,6482039,Viridian Emissary,1,mbs,Normal,0.26,0.35,0.26,false,129fa334-f561-4fbd-9f51-2fa044b674e1
-2026-10-12,6482039,Woodland Cemetery,1,sld,Foil,18.04,18.99,13.02,false,a5b62c98-8ca3-4768-addf-e255ca98c63c
-2026-10-12,6482039,Thespian's Stage,1,who,Normal,0.45,0.99,0.32,false,50ae3d9d-e269-4a83-9b2d-cfe34f5f0f78
-2026-10-12,6482039,Stitcher's Supplier,1,m19,Normal,0.5,1.29,0.29,false,2b737126-50b5-4678-91bf-197b64086fe4
-2026-10-12,6482039,Noxious Gearhulk,1,moc,Normal,0.73,0.99,0.3,false,36b1e963-9b8c-4103-abbc-580866f144e7
-2026-10-12,6482039,Urza's Cave,1,mh3,Normal,2.3,3.49,1.5,false,926916ed-2f22-4ba9-9427-194886ad6c1e
-2026-10-12,6482039,Command Tower,1,cc1,Normal,4.22,4.99,2.0,false,3beb6fa5-44db-4056-b8ec-42547aa5581f
-2026-10-12,6482039,Necron Deathmark,1,40k,Normal,4.81,5.99,5.89,false,4129cb0d-eefe-4971-9db8-1196201ef353
-2026-10-12,6482039,Satyr Wayfinder,1,znc,Normal,0.22,0.35,0.05,false,84cb8203-88e4-4a3b-9334-91b70c747091
-2026-10-12,6482039,Skullwinder,1,m3c,Normal,0.38,0.35,0.14,false,0d53c93a-3d02-4a89-bf3a-58c19d861f9b
-2026-10-12,6482039,Chthonian Nightmare,1,mh3,Foil,4.56,9.99,6.71,false,59cbd637-30d1-4c3c-95ce-b6c6f9248d15
-2026-10-12,6482039,Rise of the Witch-king,1,ltr,Normal,0.43,0.79,0.22,false,3f440fa1-5387-41d6-a80f-5b19dbb21514
-2026-10-12,6482039,Fabled Passage,1,eoc,Normal,1.22,2.49,2.16,false,6a21ecc8-f6fd-4670-91d8-94b9ce94c2fe
-2026-10-12,6482039,Clifftop Lookout,1,blb,Normal,0.29,0.39,0.28,false,662d3bcc-65f3-4c69-8ea1-446870a1193d
-2026-10-12,6482039,Ripples of Undeath,1,mh3,Normal,8.43,11.99,7.15,false,a201d1bc-e3fe-4f59-bd48-3683996ac308
-2026-10-12,6482039,Primal Druid,1,emn,Normal,0.21,0.35,0.22,false,e928f694-c53b-46c5-8390-fa24b53f559c
-2026-10-12,6482039,Undergrowth Stadium,1,cmr,Normal,6.76,10.99,7.0,false,df64c9cf-17de-44f3-831d-ba09661f2308
-2026-10-12,6482039,"Takenuma, Abandoned Mire",1,neo,Normal,10.64,18.99,9.09,false,499037cc-a577-41cb-8ca2-5e117945634f
-2026-10-12,6482039,"Yavimaya, Cradle of Growth",1,mh2,Normal,20.59,23.99,14.5,false,b0063a44-6cde-4d7e-81e1-61bae08831ee
-2026-10-12,6482039,Eternal Witness,1,m3c,Normal,2.0,2.49,1.29,false,f13553a6-d565-4c18-a60d-20021bc813e7
-2026-10-12,6482039,Zulaport Cutthroat,1,bfz,Normal,1.55,2.79,0.53,false,5c963d97-c948-45d9-84cc-58e246d35970
-2026-10-12,6482039,"Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel",1,fin,Normal,27.59,42.99,30.88,false,85eaf5e7-77dc-4842-a70c-ce4ac7f724df
-2026-10-12,6482039,Field of the Dead,1,slc,Normal,25.18,32.99,20.9,false,1e1f470f-1194-4a87-ab6e-3574f5731642
-2026-10-12,6482039,Haywire Mite,1,bro,Normal,1.1,1.29,0.98,false,847a175e-ead1-4596-baf3-5f7f57859e0b
-2026-10-12,6482039,Blossoming Tortoise,1,woe,Normal,5.0,6.99,5.25,false,7811a45d-6bfb-4c2a-b5a2-cccbd8cff186
-2026-10-12,6482039,Deathcap Glade,1,vow,Foil,7.41,5.99,4.39,false,d5523659-98a8-4ae2-9ec7-d77e7352c374
-2026-10-12,6482039,Metamorphosis Fanatic,1,dsc,Normal,5.97,8.99,7.88,false,16448d95-ee21-4def-b880-26f6f159c213
-2026-10-12,6482039,Prowling Geistcatcher,1,mic,Normal,0.57,0.99,0.39,false,c157b745-ce45-4d9f-8fc9-2a39030b2741
-2026-10-12,6482039,Wastewood Verge,1,dft,Normal,9.34,14.99,9.97,false,5ceacc7d-d407-4f82-af58-9bdf8426924e
-2026-10-12,6482039,Accursed Marauder,1,mh3,Normal,0.3,0.69,0.31,false,5da14d86-0780-4821-a799-96f64b377df4
-2026-10-12,6482039,Vein Ripper,1,mkm,Foil,7.28,11.99,7.99,false,65121bff-89f0-436d-89a5-b8191dc91891
-2026-10-12,6482039,"Urborg, Tomb of Yawgmoth",1,tsr,Normal,55.89,64.99,30.0,false,9e1a9e38-6ffc-490f-b0be-23ba4e8204c6
-2026-10-12,6482039,Birthing Ritual,1,mh3,Normal,3.81,5.99,7.46,false,4820d223-4ea1-4850-931c-3d2ab5eb003b
-2026-10-12,6482039,"Braids, Arisen Nightmare",1,dmu,Normal,4.09,6.49,3.73,false,4ff97c69-6a6b-401c-b0a1-55fa81045d19
-2026-10-12,6482039,Sakura-Tribe Elder,1,plg24,Foil,3.35,3.99,2.05,false,bf0b01ab-c846-459b-8d6f-7e5cb75a5d26
-2026-10-12,6482039,Wight of the Reliquary,1,mh3,Normal,0.86,1.49,1.1,false,a15570c0-4210-4959-8584-987ec85f8283
-2026-10-12,6482039,Spinner of Souls,1,fdn,Normal,0.86,0.99,0.93,false,3b3f233a-d4df-4836-84cc-9d3e86165926
-2026-10-12,6482039,"Lumra, Bellow of the Woods",1,blb,Normal,28.61,39.99,25.51,false,ae4f3aaf-3960-48cd-b34b-32e4ae5ae088
-2026-10-12,6482039,Incarnation Technique,1,c21,Normal,9.29,18.99,11.99,false,9655deda-f02b-47a0-89a3-2904b11b84aa
-2026-10-12,6482039,Skyfisher Spider,1,bro,Normal,0.24,0.39,0.07,false,87300ac8-8b6f-4c37-8058-beb59eaa66be
-2026-10-12,6482039,Vernal Fen,1,eoc,Normal,2.53,2.29,1.95,false,63a8b029-add2-4f47-8959-8bf1b6cff399
-2026-10-12,6482039,"Vraska, the Cutting Glare",1,fra,Normal,0.36,0.49,0.46,true,5c28b012-5efb-488f-a1c1-09e2dddfd6ee
-2026-10-12,6482039,Simulacrum Shaper,1,fra,Normal,1.68,2.99,2.34,true,7c725702-8696-4e5a-8318-62f5e2616d52
-2026-10-12,6482039,Aftermath Analyst,1,mkm,Normal,1.86,1.79,0.9,false,1c1aa6f8-2d34-4f4b-9184-0eab2e4745f7
-2026-10-12,6482039,Reclamation Sage,1,fdn,Normal,0.32,0.59,0.39,false,af3f0764-9d80-4e15-a402-1f93e652bcbb
-2026-10-12,6482039,Umbral Collar Zealot,1,eoe,Foil,1.06,2.49,0.79,false,9b14b659-9b4d-4099-90a0-d2a673b86648
-2026-10-12,6482039,Disciple of Freyalise // Garden of Freyalise,1,mh3,Normal,5.25,7.99,2.72,false,a8e9ea5a-5e10-4b77-baef-0352ff035483
-2026-10-12,6482039,Living Death,1,ltc,Normal,7.45,8.99,3.93,false,b22235ac-5028-4b84-8ec2-0ab46768dee2
-2026-10-12,6482039,Underground Mortuary,1,mkm,Normal,16.09,22.99,15.2,false,f6ca59cd-8779-4a84-a54b-e863b79c61f0
-2026-10-12,6482039,Hedge Shredder,1,dsk,Normal,3.01,3.99,1.9,false,01595caa-7abd-4b47-8015-3754d8eb39cf
-2026-10-12,6482039,Altar of Dementia,1,brr,Normal,24.37,32.99,19.98,false,908c9cc7-608c-43de-a6ea-06bc69a43f2f
-2026-10-12,6482039,Skullclamp,1,brc,Normal,6.89,10.99,6.99,false,3865d44e-7207-4440-9db4-627531979852
-2026-10-12,6482039,Icetill Explorer,1,eoe,Normal,24.2,39.99,27.99,false,f63de2e4-f094-4b10-b754-1285ad64effc
-2026-10-12,6482039,Stinkweed Imp,1,gk1,Normal,2.12,1.49,1.19,false,566be83c-14a8-42ca-b9e5-51b486dc7849
-2026-10-12,6482039,Cauldron of Essence,1,sos,Normal,4.3,5.49,3.68,false,96c53f07-b34c-4cc7-a054-f0bdfa48b975
-2026-10-12,6482039,Dark Matter Manipulator,1,fra,Normal,1.42,3.49,1.44,false,5fd4f195-ee14-4aff-91b0-7ed5b552fd35
-2026-10-12,6482039,Snow-Covered Forest,3,mb2,Normal,2.15,3.49,2.98,false,ce561d66-bdfd-408f-bf5b-49b4a53d3807
-2026-10-12,6482039,Fanatic of Rhonas,1,mh3,Normal,14.91,23.99,15.16,false,1f9fb33a-3b39-4aff-93b8-aedafe0ea694
-2026-10-12,6482039,Llanowar Wastes,1,bro,Normal,4.12,6.49,3.0,false,d8528e41-299d-461e-83c6-04ba3da6b17d
-2026-10-12,6482039,Merchant of Venom,1,soc,Normal,0.31,0.49,0.2,false,d60cf719-d5ce-46c3-bf92-24682b1c53bd
-2026-10-12,6482039,Colossal Grave-Reaver,1,tdc,Normal,10.54,17.99,11.98,false,83073c9a-477b-475c-a9e2-92ef04e565ba
-2026-10-12,6482039,"Armaggon, Future Shark",1,tmt,Foil,2.36,2.49,1.18,false,00436b30-d342-4c1d-81af-8f305bf53c86
-2026-10-12,6482039,Snow-Covered Swamp,3,mb2,Normal,1.94,4.49,1.0,false,632e2c82-0122-4f87-bb83-88064fbb91ab
-2026-10-12,6482039,Nurturing Peatland,1,mh1,Normal,6.66,8.99,5.45,false,2744ac83-a79f-4042-8720-688b5adda382
-2026-10-12,6482039,Phyrexian Tower,1,jmp,Normal,29.21,44.99,30.03,false,05b2cc68-1d20-421f-9800-af0996071554
-2026-10-12,6482039,Verdant Catacombs,1,zne,Normal,50.23,49.99,32.0,false,efd97080-c5c7-47db-b605-8bdd06c2dd5a
-2026-10-12,6482039,Twilight Mire,1,blc,Normal,0.44,0.79,0.81,false,142a605f-ec69-43eb-bdde-dd9e29f9fd22
-2026-10-12,6482039,Golgari Thug,1,rvr,Foil,2.98,4.49,2.07,false,58d17fa5-b5a1-46d1-881a-b21e44b670ba
-2026-10-12,6482039,Shifting Woodland,1,mh3,Normal,7.51,11.99,4.65,false,059164e1-894d-4586-9800-e60d6fbd6eb6
-2026-10-12,6482039,The Meathook Massacre,1,inr,Normal,35.61,49.99,29.99,true,996e6444-66b7-4d92-85f2-4c44d58186fe
-2026-10-12,6482039,Turbulent Fen,1,soc,Normal,8.37,9.99,6.44,true,9737159b-256c-4004-ba5f-0417c35e1b30
-2026-10-12,6482039,Marsh Flats,1,zne,Normal,46.46,74.99,37.0,true,9e1e76a2-ec37-4fd8-8185-f98f675ff0cb
-2026-10-12,6482039,Bayou,1,3ed,Normal,496.92,699.99,300.0,true,56355ff3-2232-4a11-b868-aec9a50b9ee5
-2026-10-12,6482039,"Boseiju, Who Endures",1,neo,Normal,50.57,59.99,37.71,true,2135ac5a-187b-4dc9-8f82-34e8d1603416
-2026-10-12,6482039,"Mole Man, Moloid Master",1,msh,Normal,1.24,2.99,2.82,false,1b406cc5-75c9-430a-83a2-de0f2a8aeae6
-2026-10-12,6482039,Springheart Nantuko,1,mh3,Normal,8.34,11.99,6.45,true,cf723c91-e3ae-4a71-93b2-65d05bfa9b60
-2026-10-12,6482039,Orcish Bowmasters,1,ltr,Normal,49.98,69.99,42.59,true,de2de055-5246-408b-80fe-cd01688c145e
-2026-10-12,6482039,Liliana the Repentant,1,fra,Normal,3.54,6.99,2.65,true,ddefddbc-c769-4e53-a9b3-087578ae8bc0
-2026-10-12,6482039,Bloodghast,1,zen,Normal,4.25,5.99,1.2,false,63870c81-63bf-4a9a-aeb5-74c6eaded9f1
-2026-10-12,6482039,Six,1,mh3,Foil,29.1,44.99,19.0,false,c7ea0c62-a9b3-4e8f-9ede-1f0122149737
-2026-10-12,6482039,Wood Elves,1,s99,Normal,5.42,6.99,1.99,false,f0ca02f6-964a-427c-8978-17abae3322e1
-2026-10-12,6482039,Forest,3,hob,Foil,0.38,0.49,0.8,false,5f533364-0f91-4e49-aaeb-83c4c1f6d316
-2026-10-12,6482039,Swamp,3,hob,Foil,0.36,0.49,0.66,false,c5f590a3-9993-4ac4-a93c-1beb44eda17b
-2026-10-12,6482039,Overgrown Tomb,1,ecl,Normal,8.21,13.99,8.13,false,45b92924-baa1-4c9b-9932-9a5eda8f3446
-2026-10-12,6482039,"Tom, Bert, and William",1,purl,Normal,,,1.85,true,1bc9137e-a1e0-4412-8034-8471ae308bc7
-2026-10-12,6482039,"Winter, Tormented Loner",1,fra,Normal,0.21,0.35,0.08,false,9670f754-f41f-45ac-8e8b-025ad2c0f66b
-2026-10-12,6482039,"Pia, Aether Ascetic",1,fra,Normal,1.05,2.49,0.61,false,ff0bc30f-9d20-458e-808f-bdc2825905a5
-2026-10-12,6482039,Primal Witchstalker,1,fra,Normal,0.24,0.35,0.17,false,04e64af7-cca1-499e-8951-f386e84c8b5b
-2026-10-12,24974478,Sire of Seven Deaths,1,fdn,Normal,34.06,47.99,39.5,true,1b486b75-4680-4a94-af8c-c1c335c9782b
-2026-10-12,24974478,"Elrond, Moon-Reader",1,hob,Normal,1.64,1.99,2.62,true,fbcb310c-be73-46f8-8e65-8632454ccc6e
-2026-10-12,24974478,Exit Specialist,1,mkm,Normal,0.21,0.35,0.05,false,268f142d-9fb1-4673-b804-add1f08dacb9
-2026-10-12,24974478,Dreamstone Hedron,1,cmr,Normal,0.31,0.35,0.05,false,77a0b45f-d044-4d59-81fd-c2683beca401
-2026-10-12,24974478,Stonespeaker Crystal,1,clb,Normal,0.37,1.29,0.55,false,8c99e6e1-3b88-4d2f-bc5d-70439585a063
-2026-10-12,24974478,The Eternity Elevator,1,eoe,Normal,3.35,3.49,0.88,true,1bb90ab9-43b9-4991-806a-0afc4d8caf5f
-2026-10-12,24974478,Waterbender's Restoration,1,tle,Normal,4.15,5.49,4.9,true,fe68e08e-8d84-4f87-b2e9-b552788d78e7
-2026-10-12,24974478,Lord of Change,1,40k,Normal,2.91,3.99,2.49,true,f9099d82-c13a-480d-b4bc-ecf8b810427c
-2026-10-12,24974478,Sol Ring,1,blc,Normal,2.14,2.99,1.57,false,fff440c0-7e6a-46c2-9989-f1b5af20fd44
-2026-10-12,24974478,Illusionist's Bracers,1,rvr,Foil,5.49,6.99,3.8,false,f5a08d47-fe06-4040-89f9-27dccad7c275
-2026-10-12,24974478,Wonder,1,cma,Normal,3.54,2.99,1.3,true,c7c29f93-e7c0-4dd9-88f2-2e4e1a37db56
-2026-10-12,24974478,Cavalier of Gales,1,j25,Normal,1.56,2.99,2.83,false,289cc92d-68e7-4b9c-8779-fa2583f3eef1
-2026-10-12,24974478,Glasspool Mimic // Glasspool Shore,1,znr,Normal,6.34,10.99,6.37,true,5adcb500-8c77-4925-8e2c-1243502827d1
-2026-10-12,24974478,Heartstone,1,plst,Normal,1.87,2.49,1.99,false,5139d090-fcf1-419f-8ce7-0d544c8e1217
-2026-10-12,24974478,"Silver Surfer, Cosmic Voyager",1,msc,Normal,0.6,1.29,1.21,false,4f200c66-2356-4aec-978b-6bb509a3d885
-2026-10-12,24974478,Displacer Kitten,1,pclb,Foil,23.18,89.99,34.99,false,2b347ecf-d032-4d6c-9b4b-6e33c08a0722
-2026-10-12,24974478,Training Grounds,1,mat,Normal,10.04,10.99,3.99,true,991c27ed-f53c-48c6-8c12-282f44b8d441
-2026-10-12,24974478,"Grazilaxx, Illithid Scholar",1,sld,Normal,3.03,,2.75,true,4dc6ed00-45d3-4c5c-8d19-57334023879f
-2026-10-12,24974478,Stratus Dancer,1,c19,Normal,0.38,0.49,0.24,false,82fb8b0c-b86e-4915-b72d-9a6b5c1368c7
-2026-10-12,24974478,Y'shtola Rhul,1,fin,Normal,5.1,7.49,5.06,true,aef218fa-13a4-4653-95d6-6b3ef1b33a92
-2026-10-12,24974478,Gilded Lotus,1,msc,Normal,0.61,1.49,0.52,false,28e619e6-ecc1-49c3-8fa9-ce42becdb9ba
-2026-10-12,24974478,Sceptre of Eternal Glory,1,40k,Normal,19.88,23.99,21.08,true,bc7f3009-c852-41e7-8e62-d2ee637b3998
-2026-10-12,24974478,Chromatic Orrery,1,m21,Normal,33.59,49.99,16.99,true,3af78d76-ad5c-44ba-880d-b834bcde5398
-2026-10-12,24974478,Ring of the Lucii,1,fin,Normal,0.29,0.49,0.13,false,75761f1e-9449-4c58-8265-8abac71dafc1
-2026-10-12,24974478,Brass Infiniscope,1,soc,Normal,0.29,0.49,0.4,false,7dbab676-0bc4-47a8-9fd2-1f58c6bd71bd
-2026-10-12,24974478,"Galactus, Devourer of Worlds",1,msc,Normal,3.63,5.99,4.03,true,3a9df9dd-a480-406c-ba28-94895fbfb574
-2026-10-12,24974478,Displace,1,emn,Normal,0.35,0.59,0.52,false,8ab850c5-6f5e-41b7-ab52-094579caca12
-2026-10-12,24974478,Conjurer's Closet,1,inr,Normal,6.97,10.99,3.0,true,83e4e358-d639-4581-8c31-597f6d7fa57f
-2026-10-12,24974478,Baboon Spirit,1,tle,Foil,0.45,0.49,0.35,false,83fdb879-945c-4b33-8c5a-acce7247e8c4
-2026-10-12,24974478,"Ixidor, Reality Sculptor",1,ons,Normal,2.09,4.49,0.68,true,314d5e89-55f7-42b4-af19-d4d0f499a265
-2026-10-12,24974478,Branch of Vitu-Ghazi,1,mkm,Normal,1.0,0.35,0.04,false,73a8169f-b858-47a5-9c76-2e7c50ad4ecd
-2026-10-12,24974478,"Otawara, Soaring City",1,neo,Normal,26.54,42.99,23.5,true,486d7edc-d983-41f0-8b78-c99aecd72996
-2026-10-12,24974478,Dowsing Dagger // Lost Vale,1,xln,Normal,7.65,7.99,5.72,true,514d53be-6ade-4f73-a844-e9ae2dafd6ce
-2026-10-12,24974478,Sword of Hearth and Home,1,tmc,Foil,12.98,14.99,9.01,false,b35b5b3f-3daa-4091-9de4-1e6a7da27a74
-2026-10-12,24974478,Abhorrent Oculus,1,pdsk,Normal,11.34,16.99,12.0,false,4a140142-30bd-428b-82cb-323029090c21
-2026-10-12,24974478,Dour Port-Mage,1,blb,Normal,2.74,4.99,2.75,false,6402133e-eed1-4a46-9667-8b7a310362c1
-2026-10-12,24974478,"Thassa, Deep-Dwelling",1,thb,Foil,34.66,44.99,32.5,false,27b52628-de05-4ec1-9978-e998cf17bb26
-2026-10-12,24974478,Island,34,j25,Normal,0.16,0.35,0.02,false,9b0bfe70-e584-42f2-9a32-984c17ba6d1a
-2026-10-12,24974478,Hide on the Ceiling,1,spm,Normal,0.77,1.79,1.78,false,7977e448-01fa-4fa5-a275-0d6a1357b35c
-2026-10-12,24974478,Relic of Legends,1,dmu,Normal,2.63,2.29,0.85,false,64a2809e-c441-416c-90ff-6fb1e246dff3
-2026-10-12,24974478,"Wan Shi Tong, All-Knowing",1,tle,Foil,3.74,4.49,3.97,false,a071a829-b3dc-4229-9b09-0e96bd7a40dd
-2026-10-12,24974478,Wurmcoil Engine,1,sld,Foil,10.2,11.99,10.0,false,4a7ee95f-5a55-49e1-a0b5-8249a4c79d5e
-2026-10-12,24974478,Essence Flux,1,inr,Normal,1.79,1.99,0.9,false,c94b37df-aaa5-4981-be3b-c934a7971123
-2026-10-12,24974478,Siren Stormtamer,1,cmr,Normal,0.51,0.69,0.55,false,d0e5f191-0b20-4bc4-b41e-36c53a182f85
-2026-10-12,24974478,Glitch Interpreter,1,dsc,Normal,0.33,0.49,0.3,false,453d6565-137a-44b9-987d-e67944f2bebf
-2026-10-12,24974478,Enigma Thief,1,znc,Normal,0.42,0.99,0.21,false,3536a97f-565b-45c6-a54b-96afd2a268ec
-2026-10-12,24974478,Primordial Mist,1,dsc,Normal,0.34,0.49,0.2,false,1f814aa9-f5e7-409c-82b5-45205d2b5f29
-2026-10-12,24974478,"Sash and Waistcoat, Unmen",1,mbc,Normal,,,,true,7ee28c45-01c4-4f15-83d5-ede29f05a256
-2026-10-12,24974478,Ur-Golem's Eye,1,dst,Normal,0.33,0.39,0.13,false,00cd61eb-a526-46db-8675-334663e0d63a
-2026-10-12,24974478,Scourge of Fleets,1,jou,Normal,0.54,1.49,0.64,false,0aaf1de7-1476-4f8d-b8b3-67675891df23
-2026-10-12,24974478,Spellskite,1,sld,Normal,15.52,16.99,17.0,true,d2e8104a-e6db-44bc-95eb-23e78b27a6bd
-2026-10-12,24974478,Sol Talisman,1,mh2,Normal,0.77,1.79,0.79,false,a51fb64d-cc0c-400d-971f-78c28d42043b
-2026-10-12,24974478,Gossip's Talent,1,blb,Foil,0.36,0.49,0.02,false,b299889a-03d6-4659-b0e1-f0830842e40f
-2026-10-12,24974478,Voidwalk,1,gtc,Normal,0.26,0.35,0.14,false,611d0e10-e767-4e66-b1f1-02f1624fab2b
-2026-10-12,24974478,Zoetic Cavern,1,fut,Normal,0.4,0.39,0.15,false,c1db30e1-31df-44b9-930a-02428bd5ce47
-2026-10-12,24974478,Scroll of Fate,1,c19,Normal,0.3,0.49,0.14,false,a25ffab0-1119-4eca-9abe-077a699f19d0
-2026-10-12,24974478,Willbender,1,lgn,Normal,0.25,0.35,0.16,false,fb33b35b-33c9-4d59-9ed6-7ad40ea82cb0
-2026-10-12,24974478,Ghostly Flicker,1,sld,Foil,6.18,14.99,11.95,false,f5adfbfd-11e8-43e0-997e-e83d9fcc674d
-2026-10-12,24974478,Thran Dynamo,1,blc,Normal,4.35,3.49,2.29,false,6455b185-aa5e-45e1-951e-f6eef517daf2
-2026-10-12,24974478,Hedron Archive,1,c21,Normal,0.33,0.59,0.3,false,f8900980-6e0d-4d78-91a7-60a2e8cc92a5
-2026-10-12,24974478,Extraplanar Lens,1,cmm,Normal,13.79,18.99,5.89,true,f050a675-c6a2-4d0d-bac6-1d8c51ecf824
-2026-10-12,24974478,"Fblthp, Impossibly Lost",1,fra,Normal,0.59,0.69,0.48,true,15139452-04fc-4870-8306-c9a6defba76d
-2026-10-12,24974478,Ugin's Mastery,1,cmm,Normal,0.37,0.69,0.38,true,42991890-731c-4e6a-b0c5-57d6217029ab
-2026-10-12,24974478,Sculpting Steel,1,sld,Foil,5.53,5.49,3.5,false,9f824b34-f783-48b3-b5d5-579935101148
-2026-10-12,24974478,Hidden Strings,1,dgm,Normal,0.31,0.59,0.46,true,216e8047-6f54-49ce-bf86-27dc8fc8c8f7
-2026-10-12,24974478,Laboratory Maniac,1,slz,Normal,,,,true,f35a6b94-2e1e-4be2-bc1f-5b734f9f7479
-2026-10-12,24974478,Scroll Rack,1,cmr,Normal,32.04,44.99,32.0,true,dfaaa58d-89bb-4cb3-96a6-b480e6f6954e
-2026-10-12,26722467,Abandoned Air Temple,1,tla,Normal,6.93,10.99,8.1,false,9c0433f9-8f1e-4a19-a83f-a41925f1b1a9
-2026-10-12,26722467,"Agent Bishop, Man in Black",1,tmt,Normal,0.3,0.79,0.19,true,9c769202-178c-442a-a9e2-aa08b5ae5c9a
-2026-10-12,26722467,Sakura-Tribe Elder,1,plg24,Foil,3.35,3.99,2.05,false,bf0b01ab-c846-459b-8d6f-7e5cb75a5d26
-2026-10-12,26722467,Birds of Paradise,1,sld,Foil,55.85,64.99,64.99,false,dae8751c-4c72-4034-a192-a1e166f20246
-2026-10-12,26722467,Farseek,1,ltc,Normal,1.69,1.99,1.74,false,d2f89cec-358c-41cd-af02-92d873902f06
-2026-10-12,26722467,Three Visits,1,sld,Foil,53.38,69.99,42.53,false,07e40ddc-0483-4a2e-a776-807b37bada7f
-2026-10-12,26722467,Utopia Sprawl,1,pf26,Foil,4.29,5.49,7.25,false,6cca7aa4-10b8-4618-b0f8-8a13d2c9e3fc
-2026-10-12,26722467,Nature's Lore,1,sld,Foil,12.19,12.99,8.98,false,b5bec40e-d97b-4d13-a77f-128baf4cca14
-2026-10-12,26722467,"Anim Pakal, Thousandth Moon",1,lci,Normal,5.34,6.49,4.11,true,868856b7-8875-43c1-8249-0f8fb2c8319b
-2026-10-12,26722467,Botanical Brawler,1,mom,Normal,0.27,0.35,0.26,false,977c15c9-2aad-4d1d-86a6-1f9d78ad7af6
-2026-10-12,26722467,Commander Liara Portyr,1,clb,Normal,0.23,0.35,0.2,true,9ac8b247-455e-4a3f-9f88-b20918c36cc3
-2026-10-12,26722467,Dusk Legion Duelist,1,mom,Normal,2.8,3.99,1.36,false,7305a8d3-5403-4483-92af-863dc91c6084
-2026-10-12,26722467,"Etali, Primal Conqueror // Etali, Primal Sickness",1,mom,Normal,30.25,34.99,24.87,false,95c14c4d-6c16-4826-8d93-d89ad04aee09
-2026-10-12,26722467,Path to Exile,1,who,Normal,1.66,2.49,1.5,false,d0b5c4d1-4271-4e89-9947-95ca9ff1d63d
-2026-10-12,26722467,Healer's Hawk,1,fdn,Foil,0.3,0.49,0.21,false,cc8e4563-04bb-46b5-835e-64ba11c0e972
-2026-10-12,26722467,"Kutzil, Malamet Exemplar",1,lci,Normal,3.13,3.49,2.38,false,c9f88a40-a6ed-4c1f-a309-011aca1acddd
-2026-10-12,26722467,Peregrin Took,1,ltr,Normal,0.92,0.79,0.25,false,f5baee8d-88e7-4468-94a9-66ca8e2caf15
-2026-10-12,26722467,"Ozolith, the Shattered Spire",1,mom,Foil,8.89,11.99,5.49,false,c9eee658-29e8-4ab5-8a0e-31f2f28a9a92
-2026-10-12,26722467,Kami of Whispered Hopes,1,mom,Normal,6.1,7.49,2.5,false,fd97ba4c-7785-4245-b091-692c8fdb68e9
-2026-10-12,26722467,Rosie Cotton of South Lane,1,ltr,Normal,0.35,0.49,0.03,false,75338f49-1f02-4333-87e4-5779ef14e688
-2026-10-12,26722467,Share the Spoils,1,afc,Normal,3.59,6.49,5.99,true,5e35d719-8766-47dc-8c0d-8e2b37b907a8
-2026-10-12,26722467,Sovereign Okinec Ahau,1,lci,Normal,4.79,3.49,3.93,true,70c75aa7-e2f9-4a69-8086-c982019ca714
-2026-10-12,26722467,Swords to Plowshares,1,brc,Normal,2.0,3.49,2.16,false,0f34ecf6-460c-4451-b26c-a1fced340c92
-2026-10-12,26722467,The Ozolith,1,sld,Foil,70.19,79.99,54.75,false,e0aaee13-bfeb-47fd-93cb-2ccdd5d44e75
-2026-10-12,26722467,Germination Practicum,1,sos,Normal,12.8,12.99,8.26,true,df144bff-cdc8-46df-bbd2-6fdc93f04f04
-2026-10-12,26722467,Improvisation Capstone,1,sos,Normal,12.38,17.99,12.95,true,36985a8e-dcc0-4349-93d7-071370a75615
-2026-10-12,26722467,Patrolling Peacemaker,1,eoc,Normal,2.14,2.79,2.51,false,34429a6d-2d62-4b4d-9b6e-2006a07837a8
-2026-10-12,26722467,Avatar's Wrath,1,tla,Normal,3.73,6.99,3.97,true,4811072d-fac0-40dd-a5cf-9694d51b12cf
-2026-10-12,26722467,Bigger on the Inside,1,who,Normal,0.49,0.59,0.44,true,8d1178ac-35b9-4086-8ad4-6c629d976ce2
-2026-10-12,26722467,Exploration,1,dmr,Normal,30.29,37.99,24.95,true,5b372045-a4a0-44c8-96ec-1e201d61ed26
-2026-10-12,26722467,Generous Pup,1,j25,Normal,8.19,12.99,6.98,false,730f6a8c-7119-4226-bf37-442cf5ec90c4
-2026-10-12,26722467,Esper Sentinel,1,mh2,Normal,60.44,74.99,38.5,true,676758ee-dac8-4c97-8a62-fff25bcbb6df
-2026-10-12,26722467,Kami of Celebration,1,nec,Normal,1.08,0.99,0.75,false,bda67054-bbd8-4979-801a-a5e9ca335f49
-2026-10-12,26722467,Terrasymbiosis,1,eoe,Normal,10.34,12.99,10.78,false,26008c7d-5dbe-4da2-b475-4dd307e7bc68
-2026-10-12,26722467,Rhythm of the Wild,1,sld,Foil,15.27,16.99,10.19,false,a32202c0-2572-42f2-b54c-7654914e5729
-2026-10-12,26722467,"Mikey & Leo, Chaos & Order",1,tmt,Normal,3.8,4.99,3.63,true,53f1ae0b-e3fd-467a-9fc2-a5d6cce47765
-2026-10-12,26722467,Kodama of the West Tree,1,neo,Normal,21.06,24.99,20.0,false,ef1e1dff-b559-441d-8df3-b6a418066aca
-2026-10-12,26722467,"Halana and Alena, Partners",1,fdn,Normal,0.33,0.69,0.69,true,b649f459-c9dc-495d-8703-b685996bb80c
-2026-10-12,26722467,Ouroboroid,1,eoe,Normal,44.16,57.99,32.99,false,9a6eb356-7418-443f-a51b-37ebc3526fce
-2026-10-12,26722467,The Ooze,1,tmt,Normal,5.03,8.49,5.04,true,1f9bd4da-4626-40ba-95f4-14e3de36f989
-2026-10-12,26722467,Agatha's Soul Cauldron,1,woe,Normal,40.62,54.99,30.32,true,019b51b0-e5c6-4208-922b-7736686dddcd
-2026-10-12,26722467,Hardened Scales,1,wot,Normal,4.9,5.99,3.69,false,d2d1bfab-25b4-474b-bdab-ac18215f1920
-2026-10-12,26722467,"Laelia, the Blade Reforged",1,mh3,Normal,2.01,2.79,0.5,true,0ac72836-a656-4bdb-adc8-04cf20b77aba
-2026-10-12,26722467,Champion of Lambholt,1,ncc,Normal,4.13,4.49,2.99,false,d8d3b5c7-6963-4d01-846d-34d6107d1c44
-2026-10-12,26722467,Speaker of the Heavens,1,plst,Normal,0.38,0.59,0.4,false,cd39083e-f67e-4be1-9c1d-29df27e1ff1a
-2026-10-12,26722467,Beast Within,1,cmr,Normal,1.06,1.29,0.35,false,e228bede-5972-4381-969b-9de26e570117
-2026-10-12,26722467,Suspend Aggression,1,sos,Normal,0.24,0.49,0.08,true,135c0696-d86d-4e48-988c-5c218de451fc
-2026-10-12,26722467,Generous Gift,1,blc,Normal,1.89,2.49,1.57,false,ee0e17cb-a729-4be9-9fe3-e71ba45f0a6e
-2026-10-12,26722467,Call Forth the Tempest,1,hoc,Normal,18.74,27.99,17.89,true,4f3d805a-a152-4aa5-85ec-45195cf9e955
-2026-10-12,26722467,Guff Rewrites History,1,cmm,Normal,2.93,4.49,4.99,true,e16c6ab7-cab9-4ee3-9f17-d6817f61efcc
-2026-10-12,26722467,Dispatch,1,eoc,Normal,0.61,1.79,4.5,true,27554761-8d6e-4de4-8ce3-f31b2c03708c
-2026-10-12,26722467,Chaos Warp,1,c20,Normal,0.7,0.79,0.39,false,c144b325-53a3-4590-beb1-2a39cbced47e
-2026-10-12,26722467,"Arwen, Weaver of Hope",1,ltc,Normal,4.95,5.99,4.93,false,4d4f4d41-232d-4377-be69-de590b880edb
-2026-10-12,26722467,Heartwood Crafter // Soul Tether,1,fra,Normal,0.2,0.59,0.2,true,910a1f41-17fd-4ab0-9597-7151e79dc760
-2026-10-12,26722467,Studious First-Year // Rampant Growth,1,sos,Normal,0.27,0.39,0.25,true,24f888dd-785c-4089-a89c-03f9080130ed
-2026-10-12,26722467,Falcon and Redwing,1,msc,Normal,0.69,1.49,0.61,true,e565fb47-acca-4348-87bb-afdadbf55e8a
-2026-10-12,26722467,Shroofus Sproutsire,1,j25,Normal,5.34,8.99,3.89,false,d29839f0-afe0-4caa-9628-655738aecce4
-2026-10-12,26722467,Wild Wasteland,1,pip,Normal,1.1,2.99,1.04,true,ca1024d6-c5f1-48f5-9081-fb90d0c46fdb
-2026-10-12,26722467,Mosswort Bridge,1,c18,Normal,0.42,0.69,0.35,false,b4f80d5f-539b-4abf-909b-be710d95a2a1
-2026-10-12,26722467,Yotian Dissident,1,bro,Normal,0.28,0.35,0.02,true,1eb02f00-c188-4193-a049-d26f7643e5da
-2026-10-12,26722467,Inspiring Statuary,1,brr,Normal,0.76,1.79,0.3,false,ef86ff2d-4a31-4414-8f5f-68f0c562296a
-2026-10-12,26722467,"Rocco, Street Chef",1,mat,Foil,0.67,2.49,0.6,false,421c2ed3-be60-4814-a82c-a0e3fbb97e63
-2026-10-12,26722467,Aerial Responder,1,kld,Normal,0.14,0.35,0.17,false,956adc86-c0d9-4408-837e-b5def19af1ec
-2026-10-12,26722467,Thundering Raiju,1,neo,Foil,0.63,0.79,0.05,false,ec1a2920-6d39-4276-921c-65cc16a45f17
-2026-10-12,26722467,Forest,3,otj,Foil,0.32,0.99,0.3,false,baf8a774-65f3-431e-b084-328ff1000895
-2026-10-12,26722467,Mountain,2,otj,Foil,0.36,0.79,0.26,false,0a7dbfd2-cda7-4fc9-9677-e442fb5f5f6f
-2026-10-12,26722467,Plains,3,otj,Foil,0.4,0.79,0.4,false,cfe51d97-66f6-4ac3-b926-01ab7e4c5686
-2026-10-12,26722467,Command Tower,1,c17,Normal,0.37,0.79,0.45,false,d2b1183f-bfc6-425f-9089-8657f7c8822b
-2026-10-12,26722467,Hushwood Verge,1,dsk,Normal,9.54,13.99,6.75,false,2bc1b38f-11bf-4eb0-b333-4d605290e75b
-2026-10-12,26722467,Jetmir's Garden,1,snc,Normal,15.2,20.99,13.27,true,ca9203fa-12db-4fa0-affd-4db277c871b7
-2026-10-12,26722467,Thornspire Verge,1,dsk,Normal,5.71,8.99,4.71,true,7e1cdc03-6faa-4138-9a52-caafbe34fb59
-2026-10-12,26722467,Exotic Orchard,1,c21,Normal,0.31,0.59,0.21,false,b45cbc0e-3f5c-4f27-9463-3cffb0f63e3c
-2026-10-12,26722467,Sunbillow Verge,1,dft,Normal,11.62,19.99,9.5,true,94ed132f-b818-4dbf-9b4a-e5acb067e0a4
-2026-10-12,26722467,Sacred Foundry,1,rvr,Normal,11.79,17.99,12.23,true,8076a8c3-7c6c-4636-b5d8-9b09ee95f92c
-2026-10-12,26722467,"Yavimaya, Cradle of Growth",1,mh2,Normal,16.65,21.99,14.13,true,4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c
-2026-10-12,26722467,"Boseiju, Who Endures",1,neo,Normal,50.57,59.99,37.71,true,2135ac5a-187b-4dc9-8f82-34e8d1603416
-2026-10-12,26722467,Commercial District,1,mkm,Normal,7.78,11.99,8.29,true,bf220c06-3cce-4bdd-aa58-83940c223e9c
-2026-10-12,26722467,Plateau,1,3ed,Normal,392.07,499.99,266.79,true,c6ae9cff-8646-4069-8761-df734e067beb
-2026-10-12,26722467,Lush Portico,1,mkm,Normal,6.76,9.99,6.81,true,c17816e8-28b1-4295-a637-efb0e5c18873
-2026-10-12,26722467,Rockfall Vale,1,inr,Normal,3.74,4.99,1.25,true,d4ef22f2-7c4f-4198-982b-f0830fd769cc
-2026-10-12,26722467,Wooded Foothills,1,mh3,Normal,18.57,29.99,16.97,true,4e11ea8a-f895-438d-a3b7-f070238e4161
-2026-10-12,26722467,Taiga,1,3ed,Normal,449.66,549.99,272.5,true,54c5c65a-a444-4e0f-ae44-a3722cdd32a1
-2026-10-12,26722467,Stomping Ground,1,rvr,Normal,8.84,9.49,7.0,true,872301b2-b6e7-4972-a479-66a7e304c1d3
-2026-10-12,26722467,Bountiful Promenade,1,clb,Normal,8.68,11.99,10.29,true,5125a8d8-344d-4419-b37a-ddf343493c5f
-2026-10-12,26722467,Clifftop Retreat,1,tdc,Normal,0.34,0.69,0.38,true,c5e81948-a362-4805-9bdf-ca65488a1a09
-2026-10-12,26722467,Rootbound Crag,1,tdc,Normal,0.43,1.29,1.39,true,1a88057c-0997-4b86-bcd5-b1127e4f1f28
-2026-10-12,26722467,Overgrown Farmland,1,inr,Normal,4.3,5.49,2.49,true,66656795-a64d-4656-a9bf-050dd9a7b9bf
-2026-10-12,26722467,Spectator Seating,1,cmm,Normal,11.36,12.99,9.76,true,dcf3140f-d5c8-45ff-8be4-622b1a129b3d
-2026-10-12,26722467,Sundown Pass,1,inr,Normal,3.19,5.99,3.58,true,12ca1b4f-3e98-4ad4-93fe-c4c2de09aa58
-2026-10-12,26722467,Spire Garden,1,clb,Normal,6.87,9.99,7.0,true,72aed540-7833-4442-90a9-aa5468014c65
-2026-10-12,26722467,Temple Garden,1,rvr,Normal,8.6,10.99,11.51,true,18d2e383-d380-4d18-8aad-bd8ea093a16c
-2026-10-12,26722467,Savannah,1,3ed,Normal,412.51,549.99,245.0,true,5ae71290-c133-406c-8b17-9ea22b437806
-2026-10-12,26722467,Arid Mesa,1,mh2,Normal,30.04,39.99,27.95,true,25ac5405-df7b-4097-914a-022cb18e20d4
-2026-10-12,26722467,Sunpetal Grove,1,tdc,Normal,0.5,1.29,0.7,true,565b4aaa-1990-4cb2-b519-2c0b1c9d5d18
-2026-10-12,26722467,Windswept Heath,1,mh3,Normal,11.99,17.99,11.41,true,bd1d13f7-fd38-4f0b-a8e0-1eac78668117
-2026-10-12,17493352,Battlefield Forge,1,c21,Normal,0.43,0.69,0.6,false,24bf3126-d962-40da-a2bb-84faf7cae05a
-2026-10-12,17493352,Path of Ancestry,1,m3c,Normal,0.35,0.35,0.17,false,06869588-eb99-43b4-9521-948ca9f27c3e
-2026-10-12,17493352,The Gaffer,1,ltc,Normal,7.07,10.99,8.44,false,863ed552-dc6d-4910-b188-3cefc3ebf0ed
-2026-10-12,17493352,Genji Glove,1,fin,Normal,8.33,13.99,5.53,false,f724dde1-84b0-4e3b-a9b8-44cd22bb9f79
-2026-10-12,17493352,Descent into Avernus,1,sld,Foil,17.66,27.99,18.9,false,3e1003d5-f585-4194-a829-1bc342b26e0b
-2026-10-12,17493352,Improvisation Capstone,1,sos,Normal,12.38,17.99,12.95,true,36985a8e-dcc0-4349-93d7-071370a75615
-2026-10-12,17493352,Ingris Stingerquill,1,fra,Normal,11.63,13.99,7.87,true,164a17bc-789b-437f-9798-1854b5cd3dda
-2026-10-12,17493352,Tymna the Weaver,1,c16,Foil,31.54,29.99,30.5,false,bc7cbe9b-324e-42b8-94e2-36e91cb32163
-2026-10-12,17493352,"Arabella, Abandoned Doll",1,dsk,Normal,0.85,0.79,0.14,false,f683d5a1-b8bf-446f-9fe3-88a4398bf3cf
-2026-10-12,17493352,"Vito, Thorn of the Dusk Rose",1,pm21,Foil,11.38,15.99,10.69,false,2415707c-2b0a-4d4c-a9a0-2a6dca69589b
-2026-10-12,17493352,Professional Face-Breaker,1,snc,Normal,5.96,9.99,4.81,false,42acbf52-b137-44f0-a815-2817fe8d2da2
-2026-10-12,17493352,Guild Artisan,1,clb,Normal,0.26,0.59,0.17,false,abe5cc84-db39-4f64-b877-599880a8729a
-2026-10-12,17493352,"Elas il-Kor, Sadistic Pilgrim",1,dmu,Normal,0.75,2.29,0.93,false,552fbde6-515d-457e-81c9-d67157eaaf37
-2026-10-12,17493352,Arbaaz Mir,1,acr,Normal,0.29,0.35,0.12,false,c7187506-4af3-47e9-bad0-4ce8c78ccc10
-2026-10-12,17493352,"Prosper, Tome-Bound",1,afc,Foil,7.2,8.49,8.48,false,d743336e-d5c7-4053-a23d-92ec7581f74e
-2026-10-12,17493352,Access Tunnel,1,ltc,Normal,0.41,0.99,1.6,false,8101166d-03e1-4bc9-b50a-05743c02d653
-2026-10-12,17493352,"Shizo, Death's Storehouse",1,dmc,Normal,35.76,34.99,23.64,false,099352e2-38c8-4fb4-a25f-6d928aa20f9e
-2026-10-12,17493352,Arcane Signet,1,nec,Normal,0.73,0.79,0.54,false,7bdf4615-7a08-40fe-9e04-cdbe10a62e06
-2026-10-12,17493352,Talisman of Hierarchy,1,pip,Normal,0.67,1.29,1.35,false,9b55b6cb-820c-4782-9f63-e04fe46e02d2
-2026-10-12,17493352,Boros Signet,1,c15,Normal,0.54,1.49,0.48,false,1c7eb511-cf4f-4dce-a376-d32a5f3141d2
-2026-10-12,17493352,Talisman of Conviction,1,ltc,Normal,0.38,0.99,0.3,false,c542cc26-f61a-416b-866e-8c500ff24783
-2026-10-12,17493352,Talisman of Indulgence,1,40k,Normal,3.62,4.99,2.48,false,2844e7be-32d2-41dd-9a03-eab9fd09bf14
-2026-10-12,17493352,Silver Shroud Costume,1,sld,Foil,10.88,16.99,7.54,false,49c85e36-de89-4fc0-8058-1eb5bf319c2d
-2026-10-12,17493352,Inkshield,1,sld,Foil,10.95,13.99,9.0,false,c442af6a-8f9c-466f-815c-f7890caff0d0
-2026-10-12,17493352,Damn,1,mh2,Normal,1.73,3.49,2.26,false,efeae088-9ac5-4d2f-a15c-d8675a471ac5
-2026-10-12,17493352,Sundering Eruption // Volcanic Fissure,1,mh3,Normal,1.37,3.49,1.68,false,50686ac7-346c-43d1-bdaa-28d46a12ad93
-2026-10-12,17493352,Steelshaper's Gift,1,sld,Foil,13.74,18.99,14.48,false,81d99e5b-4c2a-47bf-b31b-71c50b944b69
-2026-10-12,17493352,Avatar's Wrath,1,tla,Normal,3.73,6.99,3.97,false,4811072d-fac0-40dd-a5cf-9694d51b12cf
-2026-10-12,17493352,Dusk // Dawn,1,blc,Normal,0.3,0.59,0.25,false,00bbcc83-7307-46cc-b164-e1ff502d18a3
-2026-10-12,17493352,Swords to Plowshares,1,dmr,Normal,2.2,2.99,1.66,false,7d839f21-68c7-47db-8407-ff3e2c3e13b4
-2026-10-12,17493352,Duelist's Heritage,1,tle,Normal,2.47,4.99,2.99,false,45834bc6-be8d-4064-930d-efc73cf3c64d
-2026-10-12,17493352,Thieves' Tools,1,clb,Foil,0.31,0.49,0.25,false,c3bf4ee1-b6a8-4a69-adab-6839c1786cc9
-2026-10-12,17493352,Lightning Greaves,1,c19,Normal,4.77,7.49,4.08,false,9e01e0e4-7e2b-41b5-86de-8e022170b3fc
-2026-10-12,17493352,"Daxos, Blessed by the Sun",1,thb,Normal,0.29,0.49,0.49,false,f5770e8a-045d-42bc-b6aa-17b89488c9d4
-2026-10-12,17493352,"Delney, Streetwise Lookout",1,mkm,Normal,35.11,47.99,27.0,false,b6297104-b73c-439c-ac0c-b7fac01d49dc
-2026-10-12,17493352,"Gollum, Obsessed Stalker",1,ltc,Normal,0.33,0.49,0.37,false,e5a43cf0-60b3-4770-945c-41ee3ec54d5a
-2026-10-12,17493352,"Anim Pakal, Thousandth Moon",1,lci,Normal,4.26,5.99,3.5,false,7fc97d16-c54c-4a2b-9691-39e8a41c7777
-2026-10-12,17493352,"Elena, Turk Recruit",1,fic,Normal,0.24,0.49,0.24,false,d16553a3-65c3-4dec-af92-123d1e5dce10
-2026-10-12,17493352,"Subira, Tulzidi Caravanner",1,m21,Normal,0.32,0.49,0.25,false,034b8d6d-95ea-434a-967a-e6675a7ce88a
-2026-10-12,17493352,"Deadpool, Trading Card",1,sld,Foil,14.21,18.99,18.19,false,3a14d6c5-cfd1-4860-834a-5a0dc9df0320
-2026-10-12,17493352,Brash Taunter,1,m21,Normal,3.71,3.99,1.23,false,ebb5e613-a803-42f3-840a-7089ac6b7e3d
-2026-10-12,17493352,Exotic Orchard,1,c19,Normal,0.33,0.59,0.12,false,23de2dc2-348f-4eeb-ae0c-dda422d654b0
-2026-10-12,17493352,Great Hall of the Citadel,1,ltr,Foil,0.42,0.99,0.5,false,219c7b57-b62b-42d1-85d9-4b57624a3f54
-2026-10-12,17493352,Rogue's Passage,1,ltc,Normal,0.75,1.29,0.66,false,86438671-fdb8-4a82-b1e8-ef51fa4078df
-2026-10-12,17493352,"Saradoc, Master of Buckland",1,ltr,Normal,0.35,0.69,0.26,false,a65a1fb5-cc2c-4556-b109-05c3d966ded9
-2026-10-12,17493352,"Mangara, the Diplomat",1,blc,Normal,0.46,0.99,0.65,false,26f0d639-9d7f-4a90-bbfd-f942bd59a89b
-2026-10-12,17493352,Fellwar Stone,1,ncc,Normal,1.49,1.79,0.6,false,68c3d065-0519-4472-ae6e-23f58af5e859
-2026-10-12,17493352,Orzhov Signet,1,brc,Normal,0.61,1.29,0.64,false,b99cac18-281d-437f-ae34-87a10b92c6e9
-2026-10-12,17493352,Deadly Rollick,1,sld,Foil,26.24,37.99,28.48,false,701335fe-657c-408e-9030-85c9d6f4a666
-2026-10-12,17493352,"Mjölnir, Hammer of Thor",1,msh,Normal,16.03,21.99,17.25,true,e0c7f566-5351-44e3-a346-b84b0eb10209
-2026-10-12,17493352,"Shanid, Sleepers' Scourge",1,dmc,Foil,2.87,3.49,2.62,false,1b0fb859-055d-4aa1-814c-0894cd2ccd4a
-2026-10-12,17493352,Falcon and Redwing,1,msc,Normal,0.69,1.49,0.61,true,e565fb47-acca-4348-87bb-afdadbf55e8a
-2026-10-12,17493352,"Black Widow, Agile Avenger",1,msc,Normal,5.52,8.49,6.95,true,8c2bf77c-9acf-4e2c-9cad-e74546f26070
-2026-10-12,17493352,"General Kreat, the Boltbringer",1,j25,Normal,6.97,9.99,7.57,false,226fc101-abcc-4ed4-8c0b-3677dc8d8f0a
-2026-10-12,17493352,Savai Triome,1,iko,Normal,18.3,24.99,14.49,false,d21ef9e6-e2dd-4e0a-a36c-e07034ac4ba3
-2026-10-12,17493352,Darkstar Augur,1,blb,Normal,2.03,2.29,1.5,false,8e9abfd1-59ba-46f4-ad1d-cf0e125dd4b9
-2026-10-12,17493352,Brotherhood Regalia,1,acr,Foil,9.95,17.99,9.5,false,8a6439a6-288d-427e-b14b-a99e8ef8c5cd
-2026-10-12,17493352,"Lotho, Corrupt Shirriff",1,ltr,Normal,11.11,13.99,11.91,false,69d97af0-8af0-4124-b56f-2633d34e5574
-2026-10-12,17493352,Loran of the Third Path,1,bro,Normal,7.76,11.99,5.98,false,f35a0fc1-790e-4f47-b756-a6b4b298e299
-2026-10-12,17493352,"Moseo, Vein's New Dean",1,sos,Foil,0.98,0.99,1.26,false,6877180c-22a1-4c4d-9178-316f4c34661b
-2026-10-12,17493352,Plaza of Heroes,1,dmu,Foil,10.06,13.99,9.0,false,ea9fc6ee-2205-4f77-8e14-313bfbe68c1e
-2026-10-12,17493352,"Minas Morgul, Dark Fortress",1,ltc,Foil,11.24,16.99,12.82,false,50f76652-15e7-4190-842e-db6db6d66e91
-2026-10-12,17493352,Eiganjo Castle,1,chk,Normal,14.88,11.99,8.94,false,219c1d76-40cf-4edf-8145-e6cec8ca39ad
-2026-10-12,17493352,Fabled Passage,1,tmc,Normal,1.21,1.79,1.5,false,7c787c6b-b6c7-47a0-8f8d-761629f5568e
-2026-10-12,17493352,Clifftop Retreat,1,pip,Normal,0.37,0.59,0.25,false,e6454d4c-5820-4cb8-b625-3d9a09778513
-2026-10-12,17493352,Caves of Koilos,1,dmu,Normal,2.98,5.99,2.5,false,7328a565-966d-4053-b32b-25bdce031d9f
-2026-10-12,17493352,Isolated Chapel,1,ltc,Normal,0.45,1.29,0.86,false,62a7fc91-43c0-49be-ae14-d0a8efb3a185
-2026-10-12,17493352,Fetid Heath,1,tdc,Normal,0.53,0.79,0.67,false,16af23b7-db97-4dd0-84c2-c0095f6dbe96
-2026-10-12,17493352,Knuckles the Echidna,1,sld,Foil,23.33,27.99,20.97,false,54b65cca-7844-4d3e-9d7f-ed1f49f94425
-2026-10-12,17493352,Scheming Silvertongue // Sign in Blood,1,sos,Foil,1.51,1.99,1.1,false,fe85a124-0d8b-4a29-8df1-65888a39147f
-2026-10-12,17493352,Villainous Wrath,1,spm,Foil,1.23,1.49,0.29,false,6f7d7311-2248-4841-960a-8c93497e3de1
-2026-10-12,17493352,Swamp,2,mkm,Foil,0.63,1.49,0.47,false,53d0a415-26b8-4ba2-9503-b4ee2b93617c
-2026-10-12,17493352,Mountain,2,mkm,Normal,0.32,0.79,0.12,false,5383b66e-e559-47d2-9967-9c2d5f898653
-2026-10-12,17493352,Plains,6,mkm,Foil,0.37,1.99,0.47,false,598f857d-ee17-4478-bb39-cc3ab77ab8d8
-2026-10-12,17493352,Plateau,1,3ed,Normal,392.07,499.99,266.79,true,c6ae9cff-8646-4069-8761-df734e067beb
-2026-10-12,17493352,Blood Crypt,1,rvr,Normal,10.06,15.99,13.09,true,0994aef4-b341-45f4-8881-523565a5956e
-2026-10-12,17493352,Sacred Foundry,1,rvr,Normal,11.79,17.99,12.23,true,8076a8c3-7c6c-4636-b5d8-9b09ee95f92c
-2026-10-12,17493352,Scrubland,1,3ed,Normal,452.96,549.99,300.0,true,472034a2-0ba9-4876-ab7a-aa7013d603bb
-2026-10-12,17493352,Arid Mesa,1,zne,Normal,46.18,54.99,32.99,true,245e16ae-4514-42fa-b409-2c3ae084436c
-2026-10-12,17493352,Marsh Flats,1,zne,Normal,46.46,74.99,37.0,true,9e1e76a2-ec37-4fd8-8185-f98f675ff0cb
-2026-10-12,17493352,Badlands,1,3ed,Normal,590.77,749.99,318.32,true,56058359-3c0b-49db-a0ce-9ded4c3f4372
-2026-10-12,17493352,Bloodstained Mire,1,zne,Normal,38.63,44.99,40.0,true,ed7bcbf1-9045-4810-93fa-9918c45856ca
-2026-10-12,17493352,Godless Shrine,1,rvr,Normal,9.42,14.99,12.27,true,9e26f6ad-c1b8-4ec6-a179-e86ce09824c1
-2026-10-12,17493352,Witch Enchanter // Witch-Blessed Meadow,1,mh3,Foil,7.66,10.99,6.53,false,62061e7c-cf19-4f03-b8fa-2bdba62d6b0b
-2026-10-12,17493352,Chaos Warp,1,sld,Foil,10.79,12.99,7.2,false,4f694292-3a9d-4d65-8917-d70a9efd3a88
-2026-10-12,17493352,Wayfarer's Bauble,1,sld,Foil,5.15,6.99,1.67,false,8bd05fa7-6e75-43a6-87b8-7c0e5229aa1a
-2026-10-12,17493352,Aggravated Assault,1,sld,Foil,31.61,32.99,16.0,false,a6a8223a-98f9-43b9-aa89-b6a2c6fcaebe
-2026-10-12,17493352,"Kellan, the Fae-Blooded // Birthright Boon",1,woe,Normal,6.28,7.49,4.2,false,ec5e2680-8b42-4571-ab45-4936aec51901
-2026-10-12,17493352,The Reaver Cleaver,1,sld,Normal,26.66,34.99,17.0,true,be11af2c-ced6-4da7-a56c-60cef97b7fbb
-2026-10-12,17493352,Stoneforge Mystic,1,spg,Normal,40.1,39.99,25.97,true,11130547-391b-4fe7-8821-ef9514f6073f
-2026-10-12,17493352,The Queen of Dale,1,hob,Normal,18.91,27.99,22.66,true,7d635dfb-0a48-4965-82d1-d98f943bb28d
-2026-10-12,17493352,"Kediss, Emberclaw Familiar",1,sld,Foil,14.88,14.99,9.83,false,aa1c4ada-a218-4701-a293-ae6cbbe5c4d8
-2026-10-12,17493352,Command Tower,1,pw25,Foil,10.94,12.99,6.5,false,ffcf7acb-23e4-4658-a5fd-0ae585602dca
 2026-10-12,4279849,The Gaffer,1,ltc,Normal,7.07,10.99,8.44,false,863ed552-dc6d-4910-b188-3cefc3ebf0ed
 2026-10-12,4279849,Leonin Elder,1,mrd,Normal,0.36,0.59,0.09,false,e9b766e7-fe4a-47fb-949b-e046b5a38d91
 2026-10-12,4279849,Ashes of the Abhorrent,1,xln,Normal,0.71,0.99,0.54,false,4e8eb264-dadb-440c-af85-273e755f1db6
