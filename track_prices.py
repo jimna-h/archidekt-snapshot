@@ -312,13 +312,14 @@ def fetch_deck(deck_id, today):
     for entry in deck.get("cards", []):
         # A card's primary category is the first one listed; uncategorized cards count.
         categories = entry.get("categories") or []
-        if categories and "token" in categories[0].lower():
-            # a "Tokens & Extras" style category: the token printings this deck uses
-            uid = (entry.get("card") or {}).get("uid")
-            if uid:
-                deck_extras.setdefault(deck_id, []).append(uid)
-            continue  # tokens aren't cards in the deck, even if the category counts toward it
         if categories and categories[0] in excluded:
+            # A category kept out of the deck with "token" in its name (e.g. "Tokens & Extras")
+            # lists the token printings this deck uses. Categories that count toward the deck,
+            # like "token generators", are ordinary cards.
+            if "token" in categories[0].lower():
+                uid = (entry.get("card") or {}).get("uid")
+                if uid:
+                    deck_extras.setdefault(deck_id, []).append(uid)
             continue
         included.append(entry)
 
