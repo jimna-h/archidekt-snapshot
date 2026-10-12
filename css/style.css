@@ -466,9 +466,9 @@ button.ghost.share { display: inline-flex; align-items: center; gap: 5px; }
 button.ghost.share svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-top: -2px; }
 button.ghost.share span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--axis); }
 /* Reset filters: light red, darker on hover; faded when there's nothing to reset */
-#ixClear { color: var(--down); border-color: color-mix(in oklab, var(--down) 45%, transparent); background: color-mix(in oklab, var(--down) 10%, var(--surface)); }
-#ixClear:hover:not(:disabled) { color: var(--surface); border-color: var(--down); background: var(--down); }
-#ixClear:disabled { color: var(--text-muted); border-color: var(--border); background: var(--surface); }
+#ixClear, #tkClear { color: var(--down); border-color: color-mix(in oklab, var(--down) 45%, transparent); background: color-mix(in oklab, var(--down) 10%, var(--surface)); }
+#ixClear:hover:not(:disabled), #tkClear:hover:not(:disabled) { color: var(--surface); border-color: var(--down); background: var(--down); }
+#ixClear:disabled, #tkClear:disabled { color: var(--text-muted); border-color: var(--border); background: var(--surface); }
 /* row numbers never break across lines (up to 400 rows shown) */
 #indexTable td.rownum { white-space: nowrap; overflow-wrap: normal; word-break: keep-all; font-variant-numeric: tabular-nums; }
 /* Sort and Table/Grid sit right above the results */
@@ -495,4 +495,27 @@ button.ghost.share span { text-decoration: underline; text-underline-offset: 3px
   .full-list { grid-template-columns: 1fr; gap: 10px; }
   .fcard { grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 12px; }
   .fcard .px-img { width: 110px; }
+}
+/* Tokens tab */
+.pt { font-weight: 600; color: var(--text-secondary); margin-left: 4px; }
+.tk-text { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+.tk-made { font-size: 13px; color: var(--text-secondary); }
+.tk-made .flabel { margin-right: 4px; }
+.maker { color: var(--text-primary); }
+#tokenTable td { vertical-align: top; }
+#tokenTable td.tk-makers { font-size: 13px; max-width: 260px; }
+#tokenTable td.tk-text { max-width: 320px; }
+@media (max-width: 600px) {
+  #tokenTable { min-width: 0; width: 100%; }
+  #tokenTable thead { display: none; }
+  #tokenTable tbody { display: block; }
+  #tokenTable tr { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; grid-template-areas: "n name color" ". type type" ". text text" ". made made" ". where where";
+    column-gap: 10px; row-gap: 4px; padding: 12px 0; border-bottom: 1px solid var(--grid); }
+  #tokenTable td { display: block; padding: 0; border: 0; min-width: 0; max-width: none; }
+  #tokenTable td:nth-child(1) { grid-area: n; } #tokenTable td:nth-child(2) { grid-area: name; } #tokenTable td:nth-child(3) { grid-area: type; font-size: 13px; color: var(--text-secondary); }
+  #tokenTable td:nth-child(4) { grid-area: color; } #tokenTable td:nth-child(5) { grid-area: text; } #tokenTable td:nth-child(6) { grid-area: made; }
+  #tokenTable td:nth-child(7) { grid-area: where; }
+  #tokenTable td:nth-child(6) { font-size: 13px; }
+  #tokenTable td:nth-child(6)::before { content: "Made by "; color: var(--text-muted); }
+  #tokenTable td.empty-row { grid-area: auto; grid-column: 1 / -1; }
 }

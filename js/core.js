@@ -76,6 +76,7 @@ const ALL = "__all", AVG = "__avg";
 
 let dates = [], latestDate = null;
 let decks = new Map();              // id -> { id, name, virtual, totals: Map(date -> row), rows: [latest rows], log: [] }
+let tokenRows = [];   // data/tokens.csv: which tokens each card makes
 let cardInfo = new Map(), commandersOf = new Map(), commanderArt = new Map(), deckMeta = new Map();
 const priceDays = new Map();         // date -> Map(printKey -> row)   (loaded months only)
 const loadedMonths = new Set();
@@ -104,9 +105,11 @@ const monthOf = d => d.slice(0, 7);
 const prevMonth = d => { const t = new Date(d.slice(0, 7) + "-01T00:00:00Z"); t.setUTCMonth(t.getUTCMonth() - 1); return t.toISOString().slice(0, 7); };
 
 async function start() {
-  const [totalsT, latestT, logT, decksT, cardsT, folderT] = await Promise.all([
+  const [totalsT, latestT, logT, decksT, cardsT, folderT, tokensT] = await Promise.all([
     getText("data/totals.csv"), getText("data/latest.csv"), getText("data/decklists.csv"),
-    getText("data/decks.csv", true), getText("data/cards.csv", true), getText("data/folder.csv", true)]);
+    getText("data/decks.csv", true), getText("data/cards.csv", true), getText("data/folder.csv", true),
+    getText("data/tokens.csv", true)]);
+  tokenRows = tokensT ? parseCSV(tokensT) : [];
   const folderId = folderT ? parseCSV(folderT)[0]?.folder_id : null;
   if (folderId) { $("folderLink").href = `https://archidekt.com/folders/${encodeURIComponent(folderId)}`; $("folderLink").hidden = false; }
   const totals = parseCSV(totalsT), latest = parseCSV(latestT), log = parseCSV(logT);
@@ -282,7 +285,7 @@ const thumbHtml = id => {
 // ---------- views ----------
 function showView(v) {
   view = v;
-  for (const id of ["pricesView", "indexView", "cardsView"]) $(id === "pricesView" ? "app" : id).hidden = v !== id;
+  for (const id of ["pricesView", "indexView", "tokensView", "cardsView"]) $(id === "pricesView" ? "app" : id).hidden = v !== id;
   document.documentElement.dataset.view = v;   // print styles only apply on the Business cards tab
   if (v === "cardsView" && $("cardSheet").children.length) fitGameChangers();   // can only measure while visible
   $("tabs").querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", b.dataset.view === v));

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=0435b120">
+<link rel="stylesheet" href="css/style.css?v=6130791a">
 </head>
 <body>
 <main>
@@ -37,6 +37,7 @@
   <nav class="tabs" id="tabs" role="tablist" hidden>
     <button role="tab" data-view="pricesView" aria-selected="true">Decks</button>
     <button role="tab" data-view="indexView" aria-selected="false">Cards</button>
+    <button role="tab" data-view="tokensView" aria-selected="false">Tokens</button>
     <button role="tab" data-view="cardsView" aria-selected="false">Business cards</button>
   </nav>
   <div class="tablinks">
@@ -46,6 +47,52 @@
     <button class="ghost share" id="copyLink" title="Share a link to exactly what you're looking at, filters included"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0L7.5 7.5M12 3l4.5 4.5M8 11H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2"/></svg><span>Share</span></button>
   </div>
   </div>
+
+  <section id="tokensView" hidden>
+    <div class="ix-bar">
+      <div class="proxy-summary tk-summary" id="tkSummary"></div>
+      <div class="fsearch">
+        <input type="search" id="tkSearch" placeholder="Search tokens or the cards that make them, e.g. treasure" aria-label="Search tokens">
+        <button class="toggle reset" id="tkClear">Reset filters</button>
+      </div>
+      <div class="fgrid" title="Click a color or type twice to leave it out">
+        <div class="fld"><span class="flabel">Colors</span><div class="ctoggles" id="tkColors"></div></div>
+        <div class="fld"><span class="flabel">Type</span><details class="dd" id="tkTypeDD"><summary>Types <span class="count-badge" hidden></span></summary><div class="panel"></div></details></div>
+        <div class="fld"><span class="flabel">Decks</span><details class="dd" id="tkDeckDD"><summary>Decks <span class="count-badge"></span></summary><div class="panel"></div></details></div>
+      </div>
+    </div>
+    <div class="results-bar">
+      <label class="ctl">Sort
+        <select id="tkSortSel">
+          <option value="-decks">Most decks</option>
+          <option value="-makerCount">Most cards make it</option>
+          <option value="name">Name</option>
+        </select></label>
+      <div class="seg" id="tkLayout" role="group" aria-label="Layout">
+        <button data-l="table" aria-pressed="false">Table</button>
+        <button data-l="grid" aria-pressed="false">Images</button>
+        <button data-l="full" aria-pressed="true">Full</button>
+      </div>
+    </div>
+    <div class="ix-table" id="tkTableBox" hidden>
+      <div class="table-wrap">
+        <table id="tokenTable">
+          <thead><tr>
+            <th class="rownum" aria-label="Row"></th>
+            <th data-k="name">Token</th>
+            <th data-k="type">Type</th>
+            <th>Color</th>
+            <th>Text</th>
+            <th data-k="makerCount">Made by</th>
+            <th data-k="decks">In decks</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="px-grid" id="tkGrid" hidden></div>
+    <div class="full-list" id="tkFull"></div>
+  </section>
 
   <section id="cardsView" hidden>
     <div class="ix-bar cards-bar">
@@ -78,6 +125,9 @@
         <div class="fld"><span class="flabel">Price per copy</span>
           <div class="frow price"><input type="number" id="ixPmin" min="0" step="any" inputmode="decimal" placeholder="$ min" aria-label="Minimum price per copy">
             <span class="muted">to</span><input type="number" id="ixPmax" min="0" step="any" inputmode="decimal" placeholder="$ max" aria-label="Maximum price per copy"></div></div>
+        <div class="fld"><span class="flabel">Mana value</span>
+          <div class="frow price"><input type="number" id="ixMvmin" min="0" step="1" inputmode="numeric" placeholder="min" aria-label="Minimum mana value">
+            <span class="muted">to</span><input type="number" id="ixMvmax" min="0" step="1" inputmode="numeric" placeholder="max" aria-label="Maximum mana value"></div></div>
         <div class="fld"><span class="flabel">Decks</span><details class="dd" id="ixDeckDD"><summary>Decks <span class="count-badge"></span></summary><div class="panel"></div></details></div>
         <div class="fld"><span class="flabel">Copies</span><div class="seg" id="ixProxies" role="group" aria-label="Proxies or paper">
           <button data-v="">All</button><button data-v="only">Proxies</button><button data-v="none">Paper</button></div></div>
@@ -253,10 +303,11 @@
 
 <script src="vendor/qrcode.js?v=18ae399f"></script>
 <script src="vendor/html-to-image.js?v=07c8b1ff"></script>
-<script src="js/core.js?v=daab0254"></script>
+<script src="js/core.js?v=0f9d2ef6"></script>
 <script src="js/decks.js?v=27be0724"></script>
-<script src="js/all-cards.js?v=04808d4c"></script>
+<script src="js/all-cards.js?v=d2982c4c"></script>
+<script src="js/tokens.js?v=42eded9d"></script>
 <script src="js/deck-cards.js?v=0c66f7af"></script>
-<script src="js/app.js?v=86c77299"></script>
+<script src="js/app.js?v=e9046430"></script>
 </body>
 </html>

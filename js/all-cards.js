@@ -15,7 +15,7 @@
 // Like the set and deck filters, the proxy filter limits which copies count, so copies,
 // prices and totals always describe exactly the copies shown.
 const ix = { search: "", colors: new Map(), types: new Map(), subtype: "", sets: [], skip: new Set(), match: "any",
-  commanders: "", gc: "", pmin: null, pmax: null, proxies: "", stores: new Set(["tcg", "ck"]), layout: "table" };
+  commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", stores: new Set(["tcg", "ck"]), layout: "table" };
 // Game Changers, from the cards behind each deck's bracket on Archidekt
 const gameChangers = () => new Set([...deckMeta.values()].flatMap(m => (m.game_changers || "").split(" | ").filter(Boolean)));
 let ixSort = { k: "qty", dir: -1 };   // most copies first
@@ -138,6 +138,8 @@ function ixMatches(c) {
   if (ix.gc) { const g = gcSet.has(c.name); if (ix.gc === "only" ? !g : g) return false; }
   if (ix.pmin != null && !(c.best >= ix.pmin)) return false;
   if (ix.pmax != null && !(c.best <= ix.pmax)) return false;
+  if (ix.mvmin != null && !(c.mv >= ix.mvmin)) return false;
+  if (ix.mvmax != null && !(c.mv != null && c.mv <= ix.mvmax)) return false;
   return true;
 }
 const pipsHtml = id => id == null ? `<span class="muted">?</span>` :
@@ -304,7 +306,7 @@ for (const [id, key] of Object.entries(SEGS))
   $(id).addEventListener("click", e => { const b = e.target.closest("button[data-v]"); if (b) { ix[key] = b.dataset.v; renderIndex(); } });
 const syncSegs = () => { for (const [id, key] of Object.entries(SEGS)) $(id).querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === ix[key]))); };
 const readPrice = el => { const v = el.value.trim(); return v === "" || isNaN(+v) ? null : +v; };
-for (const [id, key] of [["ixPmin", "pmin"], ["ixPmax", "pmax"]])
+for (const [id, key] of [["ixPmin", "pmin"], ["ixPmax", "pmax"], ["ixMvmin", "mvmin"], ["ixMvmax", "mvmax"]])
   $(id).addEventListener("input", e => { ix[key] = readPrice(e.target); renderIndex(); });
 $("ixDeckDD").addEventListener("change", e => {
   const v = e.target.value;
@@ -336,12 +338,12 @@ $("ixSets").addEventListener("input", e => { ix.sets = parseSets(e.target.value)
 $("ixSortSel").addEventListener("change", e => { readSort(e.target.value, ixSort); renderIndex(); });
 // Anything narrowing the list (sort, stores and layout aren't filters)
 const filtersActive = () => !!(ix.search || ix.subtype || ix.sets.length || ix.commanders || ix.gc || ix.proxies || ix.match !== "any" ||
-  ix.pmin != null || ix.pmax != null ||
+  ix.pmin != null || ix.pmax != null || ix.mvmin != null || ix.mvmax != null ||
   ix.colors.size || ix.types.size || ix.skip.size);
 $("ixClear").addEventListener("click", () => {
-  Object.assign(ix, { search: "", subtype: "", sets: [], commanders: "", gc: "", pmin: null, pmax: null, proxies: "", match: "any" });
+  Object.assign(ix, { search: "", subtype: "", sets: [], commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", match: "any" });
   ix.colors.clear(); ix.types.clear(); ix.skip.clear();
-  $("ixSearch").value = $("ixSubtype").value = $("ixSets").value = $("ixPmin").value = $("ixPmax").value = ""; renderIndex();
+  $("ixSearch").value = $("ixSubtype").value = $("ixSets").value = $("ixPmin").value = $("ixPmax").value = $("ixMvmin").value = $("ixMvmax").value = ""; renderIndex();
 });
 // close open dropdowns on outside clicks; composedPath() still knows where the click
 // started even if that element was just redrawn

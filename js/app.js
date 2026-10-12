@@ -22,7 +22,7 @@ function setHipsterLink() {
 //   #cards?q=elf&colors=W,G,-R&types=Creature,-Land&skip=4279849&sets=SLD,-LTR&cmd=only&proxied=only&stores=tcg,ck,cm&layout=grid
 // (#proxies links from before the Proxies tab was merged into Cards still open, as Proxies only.)
 // Switching tab or deck adds a history entry (so Back works); filter tweaks replace it.
-const VIEW_SLUG = { pricesView: "decks", indexView: "cards", cardsView: "business" };
+const VIEW_SLUG = { pricesView: "decks", indexView: "cards", tokensView: "tokens", cardsView: "business" };
 // older addresses: #search was the Cards tab, #proxies its proxies-only view
 const OLD_SLUGS = { search: "indexView", proxies: "indexView" };
 const SLUG_VIEW = Object.fromEntries(Object.entries(VIEW_SLUG).map(([k, v]) => [v, k]));
@@ -44,6 +44,14 @@ function buildUrl() {
     if (moverWindow !== 30) q.set("movers", moverWindow);
     if (sortStr(deckSort) !== "name") q.set("sort", sortStr(deckSort));
     if (sortStr(cardSort) !== "-total") q.set("cards", sortStr(cardSort));
+  } else if (view === "tokensView") {
+    const modes = map => [...map].map(([k, m]) => (m === "out" ? "-" : "") + k).join(",");
+    if (tk.search) q.set("q", tk.search);
+    if (tk.colors.size) q.set("colors", modes(tk.colors));
+    if (tk.types.size) q.set("types", modes(tk.types));
+    if (tk.skip.size) q.set("skip", [...tk.skip].join(","));
+    if (tk.layout !== "full") q.set("layout", tk.layout);
+    if (sortStr(tkSort) !== "-decks") q.set("sort", sortStr(tkSort));
   } else if (view === "indexView") {
     const modes = map => [...map].map(([k, m]) => (m === "out" ? "-" : "") + k).join(",");
     if (ix.search) q.set("q", ix.search);
@@ -57,6 +65,8 @@ function buildUrl() {
     if (ix.gc) q.set("gc", ix.gc);
     if (ix.pmin != null) q.set("min", ix.pmin);
     if (ix.pmax != null) q.set("max", ix.pmax);
+    if (ix.mvmin != null) q.set("mvmin", ix.mvmin);
+    if (ix.mvmax != null) q.set("mvmax", ix.mvmax);
     if (ix.proxies) q.set("proxied", ix.proxies);
     if ([...ix.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...ix.stores].join(","));
     if (ix.layout !== "table") q.set("layout", ix.layout);
@@ -84,9 +94,12 @@ function readUrl() {
   // reset everything, then apply what the link specifies
   selected = ALL; asOf = null; tagFilter = null; moverWindow = 30; $("search").value = "";
   Object.assign(deckSort, { k: "name", dir: 1 }); Object.assign(cardSort, { k: "total", dir: -1 });
-  Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", gc: "", pmin: null, pmax: null, proxies: "", layout: "table" });
+  Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", layout: "table" });
   ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg", "ck"]); Object.assign(ixSort, { k: "qty", dir: -1 });
   const known = id => decks.has(id) && !decks.get(id).virtual;
+  Object.assign(tk, { search: "", layout: "full" }); tk.colors = new Map(); tk.types = new Map(); tk.skip = new Set();
+  Object.assign(tkSort, { k: "decks", dir: -1 });
+  const readModes = (str, ok = () => true) => new Map(csvList(str).map(x => x.startsWith("-") ? [x.slice(1), "out"] : [x, "in"]).filter(([k]) => ok(k)));
 
   if (view === "pricesView") {
     const dk = q.get("deck");
@@ -96,9 +109,15 @@ function readUrl() {
     $("search").value = q.get("q") || "";
     if (q.get("movers") === "7") moverWindow = 7;
     readSort(q.get("sort"), deckSort); readSort(q.get("cards"), cardSort);
+  } else if (view === "tokensView") {
+    tk.search = (q.get("q") || "").toLowerCase();
+    tk.colors = readModes((q.get("colors") || "").toUpperCase(), k => k in COLOR_NAMES);
+    tk.types = readModes(q.get("types"));
+    tk.skip = new Set(csvList(q.get("skip")).filter(known));
+    tk.layout = ["table", "grid"].includes(q.get("layout")) ? q.get("layout") : "full";
+    readSort(q.get("sort"), tkSort);
   } else if (view === "indexView") {
     // "W,-R" style lists ("-" = excluded); older links used "WG" for colors
-    const readModes = (str, ok = () => true) => new Map(csvList(str).map(x => x.startsWith("-") ? [x.slice(1), "out"] : [x, "in"]).filter(([k]) => ok(k)));
     const colorStr = (q.get("colors") || "").toUpperCase();
     ix.colors = readModes(/[,-]/.test(colorStr) ? colorStr : colorStr.split("").join(","), k => k in COLOR_NAMES);
     ix.search = (q.get("q") || "").toLowerCase();
@@ -114,6 +133,7 @@ function readUrl() {
     ix.commanders = tri(q.get("cmd")); ix.proxies = tri(q.get("proxied")); ix.gc = tri(q.get("gc"));
     const bound = v => v == null || v === "" || isNaN(+v) ? null : +v;
     ix.pmin = bound(q.get("min")); ix.pmax = bound(q.get("max"));
+    ix.mvmin = bound(q.get("mvmin")); ix.mvmax = bound(q.get("mvmax"));
     if (slug === "proxies") {   // the old Proxies tab
       ix.proxies = "only";
       if (q.get("lands") === "no") ix.types.set("Land", "out");
@@ -127,15 +147,17 @@ function readUrl() {
   // put the form controls in step with the state
   $("deckSortSel").value = deckSort.k;
   document.querySelectorAll(".ix-store").forEach(c => c.checked = ix.stores.has(c.value));
+  $("tkSearch").value = tk.search;
   $("ixSearch").value = ix.search; $("ixSubtype").value = ix.subtype; $("ixSets").value = ix.sets.join(" ");
   $("ixPmin").value = ix.pmin ?? ""; $("ixPmax").value = ix.pmax ?? "";
+  $("ixMvmin").value = ix.mvmin ?? ""; $("ixMvmax").value = ix.mvmax ?? "";
   lastNav = view + "|" + (view === "pricesView" ? selected : "");
 }
 
 function applyUrl() {
   readUrl();
   showView(view);
-  render(); renderIndex();
+  render(); renderIndex(); renderTokens();
 }
 addEventListener("popstate", () => { urlReady = false; applyUrl(); urlReady = true; });
 
@@ -163,6 +185,7 @@ function sortClick(table, getState, after) {
   });
 }
 sortClick($("indexTable"), () => ixSort, renderIndex);
+sortClick($("tokenTable"), () => tkSort, renderTokens);
 sortClick($("cardTable"), () => cardSort, () => renderCards(decks.get(selected)));
 $("deckSortSel").addEventListener("change", e => { deckSort.k = e.target.value; deckSort.dir = e.target.value === "name" ? 1 : -1; renderDecks(); syncUrl(); });
 $("deckList").addEventListener("click", e => {
