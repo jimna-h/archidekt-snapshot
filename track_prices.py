@@ -513,7 +513,7 @@ def makes_token(part):
 def write_tokens(rows):
     """Which tokens each card in today's decks makes, from Scryfall's related cards, plus the
     tokens each deck lists in its token category. A token's picture is the printing listed in
-    the most decks' token categories (else Scryfall's default). If Scryfall can't be reached
+    the most decks' token categories, counted by artwork (else Scryfall's default). If Scryfall can't be reached
     the previous file is kept."""
     printing = {}
     for row in rows:
@@ -546,13 +546,22 @@ def write_tokens(rows):
             "image_id": token["id"],
         }
 
-    # the printing each token uses: whichever is listed in the most decks' token categories
-    votes = {}
+    # The picture each token uses: the artwork listed in the most decks' token categories.
+    # Votes count by artwork (Scryfall's illustration id), so the same art reprinted in several
+    # sets adds up; each deck votes once per artwork. The winning art is shown with whichever
+    # of its printings is listed most.
+    votes, printings = {}, {}
     for deck_id, ids in deck_extras.items():
-        for pid in set(ids):
+        arts = {}
+        for pid in ids:
             if pid in details:
-                votes.setdefault(describe(details[pid])["token_id"], Counter())[pid] += 1
-    favorite = {tid: counts.most_common(1)[0][0] for tid, counts in votes.items()}
+                art = face(details[pid], "illustration_id") or pid
+                arts.setdefault(art, pid)
+        for art, pid in arts.items():
+            tid = describe(details[pid])["token_id"]
+            votes.setdefault(tid, Counter())[art] += 1
+            printings.setdefault(art, Counter())[pid] += 1
+    favorite = {tid: printings[counts.most_common(1)[0][0]].most_common(1)[0][0] for tid, counts in votes.items()}
 
     out = {}
     for card_name, ids in makes.items():
