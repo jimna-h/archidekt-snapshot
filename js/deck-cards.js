@@ -29,7 +29,6 @@ const deckIdentity = id => {
 };
 const listOf = s => (s || "").split(" | ").filter(Boolean);
 const BRACKET_NAMES = { 1: "Exhibition", 2: "Core", 3: "Upgraded", 4: "Optimized", 5: "cEDH" };
-const cardTitle = name => name.replace(/^\d+\.\s*/, "");   // drop the folder numbering ("3. ")
 const shortYear = d => new Date(d + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
 
 function qrSvg(text) {
@@ -47,11 +46,11 @@ function deckCardHtml(d) {
   // every name goes in; fitGameChangers() trims the list to what fits and adds "+X more"
   const gcRows = gc.length ? gc.map(n => `<li>${esc(n)}</li>`).join("") : `<li class="mc-none">None</li>`;
   return `
-    <article class="mcard" data-id="${esc(d.id)}" role="button" tabindex="0" style="--frame:${frameFill(id)}" aria-label="${esc(cardTitle(d.name))} deck card. Click to include or leave out of the printout.">
+    <article class="mcard" data-id="${esc(d.id)}" role="button" tabindex="0" style="--frame:${frameFill(id)}" aria-label="${esc(d.name)} deck card. Click to include or leave out of the printout.">
       <div class="mc-frame"><div class="mc-inner">
         <div class="mc-art ${cmds.length > 1 ? "pair" : ""}">${cmds.slice(0, 2).map(c => artImg(c)).join("")}</div>
         <div class="mc-body">
-          <h4 class="mc-name">${esc(cardTitle(d.name))}</h4>
+          <h4 class="mc-name">${esc(d.name)}</h4>
           <div class="mc-cmd">${cmds.map((c, i) => `<span>${i ? "&amp; " : ""}${esc(c.name.split(" // ")[0])}</span>`).join("")}</div>
           <div class="mc-row">
             <div class="mc-section">
@@ -144,7 +143,7 @@ function makeZip(files) {   // files: [{ name, bytes: Uint8Array }]
 // One PNG per selected card, at 300 dpi for the card's real size (750 × 1050 px), all in a
 // zip (or just the PNG when only one card is selected). Each card is copied into an
 // off-screen spot at true size first, because the on-screen cards are enlarged.
-const fileName = name => (cardTitle(name).replace(/[\\/:*?"<>|]+/g, "").replace(/\s+/g, " ").trim() || "deck") + ".png";
+const fileName = name => (name.replace(/[\\/:*?"<>|]+/g, "").replace(/\s+/g, " ").trim() || "deck") + ".png";
 const saveBlob = (blob, name) => {
   const url = URL.createObjectURL(blob);
   Object.assign(document.createElement("a"), { href: url, download: name }).click();
