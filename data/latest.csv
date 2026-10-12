@@ -298,8 +298,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-11,25536840,Enduring Innocence,1,dsk,Normal,2.99,5.49,4.23,false,08f79439-b8f8-418f-9772-26d81844749e
 2026-10-11,25536840,Monument to Endurance,1,dft,Normal,16.8,22.99,16.07,true,d21433ba-0a14-42bc-ad0b-a4ef823a3295
 2026-10-11,25536840,Razorgrass Ambush // Razorgrass Field,1,mh3,Normal,0.31,0.39,0.37,false,57065dca-f90e-4184-bbc4-95d726a4160b
-2026-10-11,25536840,Illustrious Wanderglyph,1,lcc,Normal,15.94,22.99,15.15,false,30e02cc7-8ea9-468b-ba61-a1e00fefea22
-2026-10-11,25536840,Charismatic Conqueror,1,lcc,Normal,23.9,34.99,19.74,false,599c934d-bfff-43ce-a545-6e3cde124515
 2026-10-11,25536840,Lotus Field,1,soc,Normal,2.68,3.49,2.82,false,ee5ac47c-e8b6-400e-b91e-a7cd0f952cf1
 2026-10-11,25536840,Redemption Choir,1,lcc,Normal,0.34,0.69,0.4,true,981dcacb-24a3-43bb-bb64-2b227f31dc3e
 2026-10-11,25536840,Lotus Vale,1,wth,Normal,45.46,57.99,26.83,true,2e5cd12a-2a07-44a8-8eac-de00d26fe9e3
@@ -329,7 +327,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-11,25536840,Guardian Scalelord,1,moc,Normal,3.85,3.49,2.1,false,fa54ab0b-72aa-458e-a182-5792d8699dc4
 2026-10-11,25536840,"Legion's Landing // Adanto, the First Fort",1,xln,Normal,3.59,4.49,1.84,false,05e2a5e6-3aaa-4096-bdd0-fcc1afe5a36c
 2026-10-11,25536840,Fountainport,1,blb,Normal,2.86,4.99,3.48,false,658cfcb7-81b7-48c6-9dd2-1663d06108cf
-2026-10-11,25536840,Currency Converter,1,frc,Normal,0.27,0.49,0.3,false,f91b18ef-ac8a-4d4c-9586-b101681d33e2
 2026-10-11,25536840,Erode,1,sos,Normal,6.79,12.99,8.52,true,32e670da-7563-4f6a-a7db-4c126a440eb8
 2026-10-11,25536840,Galadriel's Dismissal,1,ltc,Normal,29.17,47.99,26.95,true,2d1c66a7-a39e-4869-80c7-1cec89777e0d
 2026-10-11,25536840,Caretaker's Talent,1,blb,Normal,11.54,16.99,8.43,true,ad5ea98a-e36e-4ab9-b4da-cc572f3777db
@@ -347,9 +344,7 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-11,25536840,Scavenger Grounds,1,msc,Normal,0.32,0.49,0.16,false,9fbe68ba-ffe5-4fe0-ac0a-0b3221e4f395
 2026-10-11,25536840,Welcoming Vampire,1,vow,Normal,4.04,5.49,1.96,false,d8f69cea-823c-482b-a605-8138b3d950e6
 2026-10-11,25536840,Angel of Indemnity,1,soc,Normal,0.34,0.79,0.64,false,41163f43-7357-4bbc-a1e7-9c8070135c93
-2026-10-11,25536840,Horn of Gondor,1,ltr,Foil,3.36,3.99,1.0,false,b14eaeec-d7ce-462a-90d3-2ae5ff605fdb
 2026-10-11,25536840,Touch the Spirit Realm,1,neo,Normal,0.56,1.99,1.13,false,e16ab44e-4257-4c0c-b705-8ac1e9c1d835
-2026-10-11,25536840,Haunted Library,1,voc,Normal,0.43,1.29,1.0,false,b0193151-0f5f-457b-a6b2-08f66b53c9b2
 2026-10-11,25536840,Bender's Waterskin,1,tla,Normal,1.11,1.79,1.17,false,6d4a1712-d19e-4475-9614-a0b1af4da610
 2026-10-11,25536840,Restoration Seminar,1,sos,Normal,3.47,5.99,2.32,false,9ebc4ecf-2fa2-4ab8-afde-3b91cf5eadb6
 2026-10-11,25536840,Skullclamp,1,brc,Normal,6.89,10.99,6.99,false,3865d44e-7207-4440-9db4-627531979852
@@ -555,7 +550,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-11,17493352,"Daxos, Blessed by the Sun",1,thb,Normal,0.29,0.49,0.49,false,f5770e8a-045d-42bc-b6aa-17b89488c9d4
 2026-10-11,17493352,"Delney, Streetwise Lookout",1,mkm,Normal,35.11,47.99,27.0,false,b6297104-b73c-439c-ac0c-b7fac01d49dc
 2026-10-11,17493352,"Gollum, Obsessed Stalker",1,ltc,Normal,0.33,0.49,0.37,false,e5a43cf0-60b3-4770-945c-41ee3ec54d5a
-2026-10-11,17493352,"Anim Pakal, Thousandth Moon",1,lci,Normal,4.26,5.99,3.5,false,7fc97d16-c54c-4a2b-9691-39e8a41c7777
 2026-10-11,17493352,"Elena, Turk Recruit",1,fic,Normal,0.24,0.49,0.24,false,d16553a3-65c3-4dec-af92-123d1e5dce10
 2026-10-11,17493352,"Subira, Tulzidi Caravanner",1,m21,Normal,0.32,0.49,0.25,false,034b8d6d-95ea-434a-967a-e6675a7ce88a
 2026-10-11,17493352,"Deadpool, Trading Card",1,sld,Foil,14.21,18.99,18.19,false,3a14d6c5-cfd1-4860-834a-5a0dc9df0320
@@ -563,14 +557,12 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-11,17493352,Exotic Orchard,1,c19,Normal,0.33,0.59,0.12,false,23de2dc2-348f-4eeb-ae0c-dda422d654b0
 2026-10-11,17493352,Great Hall of the Citadel,1,ltr,Foil,0.42,0.99,0.5,false,219c7b57-b62b-42d1-85d9-4b57624a3f54
 2026-10-11,17493352,Rogue's Passage,1,ltc,Normal,0.75,1.29,0.66,false,86438671-fdb8-4a82-b1e8-ef51fa4078df
-2026-10-11,17493352,"Saradoc, Master of Buckland",1,ltr,Normal,0.35,0.69,0.26,false,a65a1fb5-cc2c-4556-b109-05c3d966ded9
 2026-10-11,17493352,"Mangara, the Diplomat",1,blc,Normal,0.46,0.99,0.65,false,26f0d639-9d7f-4a90-bbfd-f942bd59a89b
 2026-10-11,17493352,Fellwar Stone,1,ncc,Normal,1.49,1.79,0.6,false,68c3d065-0519-4472-ae6e-23f58af5e859
 2026-10-11,17493352,Orzhov Signet,1,brc,Normal,0.61,1.29,0.64,false,b99cac18-281d-437f-ae34-87a10b92c6e9
 2026-10-11,17493352,Deadly Rollick,1,sld,Foil,26.24,37.99,28.48,false,701335fe-657c-408e-9030-85c9d6f4a666
 2026-10-11,17493352,"Mjölnir, Hammer of Thor",1,msh,Normal,16.03,21.99,17.25,true,e0c7f566-5351-44e3-a346-b84b0eb10209
 2026-10-11,17493352,"Shanid, Sleepers' Scourge",1,dmc,Foil,2.87,3.49,2.62,false,1b0fb859-055d-4aa1-814c-0894cd2ccd4a
-2026-10-11,17493352,Falcon and Redwing,1,msc,Normal,0.69,1.49,0.61,true,e565fb47-acca-4348-87bb-afdadbf55e8a
 2026-10-11,17493352,"Black Widow, Agile Avenger",1,msc,Normal,5.52,8.49,6.95,true,8c2bf77c-9acf-4e2c-9cad-e74546f26070
 2026-10-11,17493352,"General Kreat, the Boltbringer",1,j25,Normal,6.97,9.99,7.57,false,226fc101-abcc-4ed4-8c0b-3677dc8d8f0a
 2026-10-11,17493352,Savai Triome,1,iko,Normal,18.3,24.99,14.49,false,d21ef9e6-e2dd-4e0a-a36c-e07034ac4ba3
@@ -708,15 +700,11 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-11,26722467,Sunpetal Grove,1,tdc,Normal,0.5,1.29,0.7,true,565b4aaa-1990-4cb2-b519-2c0b1c9d5d18
 2026-10-11,26722467,Windswept Heath,1,mh3,Normal,11.99,17.99,11.41,true,bd1d13f7-fd38-4f0b-a8e0-1eac78668117
 2026-10-11,5714358,Arcane Signet,1,p30m,Etched,,,,false,7910ce6c-5cde-436e-8d28-62723f0fd592
-2026-10-11,5714358,Peregrin Took,1,ltr,Normal,0.92,0.79,0.25,false,f5baee8d-88e7-4468-94a9-66ca8e2caf15
-2026-10-11,5714358,"Lonis, Cryptozoologist",1,mh2,Normal,0.32,0.49,0.1,false,5dfd08da-6717-49ee-94ba-2562224f5baa
-2026-10-11,5714358,Samwise Gamgee,1,ltr,Foil,3.89,3.99,2.5,false,a1b6f13e-63d0-46bf-aa57-23c2dbdf62dd
 2026-10-11,5714358,Minas Tirith,1,ltr,Foil,7.98,9.99,7.68,false,b38b6760-616f-4b11-8ce7-ac1223c7fd53
 2026-10-11,5714358,Pendelhaven,1,ath,Normal,3.83,4.99,3.58,false,7ad62749-b2dc-4b2b-91cb-50175d983039
 2026-10-11,5714358,Razortide Bridge,1,brc,Normal,1.94,2.29,1.49,false,390d2c8e-d53f-4590-9a9c-9faad5824ea3
 2026-10-11,5714358,Seat of the Synod,1,brc,Normal,3.34,4.49,2.04,false,4277ebca-1c8d-4066-969a-28adf6445b3e
 2026-10-11,5714358,Trenzalore Clocktower,1,who,Normal,0.31,0.49,0.3,false,64444549-1198-4465-91d5-02a7903691dc
-2026-10-11,5714358,"Osgood, Operation Double",1,who,Normal,0.33,0.49,0.21,false,d180a882-84d9-4e38-8aed-1fc6ecd1df72
 2026-10-11,5714358,"Venser, Shaper Savant",1,tsr,Normal,1.37,0.69,2.99,false,c08dabd1-c043-4bcf-afa8-271225a099e1
 2026-10-11,5714358,"Raff Capashen, Ship's Mage",1,cmm,Normal,0.25,0.35,0.05,false,c681e33b-3d60-4aaa-8186-51866d8b79d1
 2026-10-11,5714358,The Shire,1,ltr,Normal,3.09,3.49,2.24,false,248ed7a6-982a-4ff4-ba9b-3c1f47e7605c
@@ -748,10 +736,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-11,5714358,"Urza, Lord High Artificer",1,dmr,Normal,15.06,20.99,15.5,false,18b26e53-1fc2-4d07-a56f-9000ed25580d
 2026-10-11,5714358,Azorius Signet,1,gk2,Normal,0.39,0.79,0.48,false,37063666-e5e1-4ef0-ac34-2ae47b323dde
 2026-10-11,5714358,Fellwar Stone,1,onc,Normal,1.69,2.29,0.9,false,b1914459-b29f-45c3-8def-39d1790a31c3
-2026-10-11,5714358,Graham O'Brien,1,who,Foil,0.81,0.49,0.49,false,2a0410cb-e202-4bad-a6a5-e3e58e574157
-2026-10-11,5714358,Stridehangar Automaton,1,drc,Normal,2.3,5.49,3.44,false,4c398d11-a2fc-43e2-96e9-7f3383e1a43c
-2026-10-11,5714358,Officious Interrogation,1,mkm,Foil,0.22,0.49,0.2,false,a433ca4c-82d0-4e49-bc8e-98e18dd174e9
-2026-10-11,5714358,Transmutation Font,1,pw24,Foil,1.84,1.99,0.17,false,9e0834f7-e7fc-4f47-9d45-d555b50990a0
 2026-10-11,5714358,Academy Ruins,1,2xm,Normal,9.11,10.99,6.41,false,a95b7645-154f-4904-bf71-db7eb24d4df2
 2026-10-11,5714358,Ignis Scientia,1,fin,Normal,0.2,0.35,0.04,false,ab4f9721-5b2c-4371-98a5-3f6714265e57
 2026-10-11,5714358,Serah Farron // Crystallized Serah,1,fin,Normal,5.04,5.99,2.4,false,7224bb1b-167c-47e5-8314-84aebca054b6
@@ -761,45 +745,31 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-11,5714358,Forest,1,who,Normal,0.23,0.49,0.1,false,c5c95d38-c135-4059-9379-051b2dd33f9c
 2026-10-11,5714358,Plains,1,who,Normal,0.28,0.49,0.17,false,2c4d8ef3-2b26-4376-a00e-ccd58e3ea2eb
 2026-10-11,5714358,Sonic Screwdriver,1,sld,Foil,48.98,39.99,17.24,false,7d3b2b9f-623f-4993-ad45-099ec3b570c6
-2026-10-11,5714358,Astrid Peth,1,who,Normal,4.04,6.49,3.01,false,4cda3aa2-5fac-4188-bdad-dc369a089d00
-2026-10-11,5714358,"James, Wandering Dad // Follow Him",1,pip,Foil,2.97,1.49,0.8,false,7450fcd7-e373-4122-aff5-73d9e8879c6f
 2026-10-11,5714358,Spectacular Spider-Man,1,spm,Normal,6.43,10.99,3.86,false,32bff506-efc0-42ef-8286-ed939bf853d7
 2026-10-11,5714358,The Blue Spirit,1,tle,Normal,0.84,1.79,3.49,false,d0d1f5b0-f842-40d5-ae51-015eefe68fa1
 2026-10-11,5714358,The Grey Havens,1,ltr,Normal,0.29,0.49,0.05,false,9714aa30-1db2-4670-9a0b-72acfc3f703c
 2026-10-11,5714358,Loran of the Third Path,1,blc,Normal,5.44,8.49,4.22,false,647e6b32-c755-4700-b151-6a174dbb2bd0
 2026-10-11,5714358,"Aang, Swift Savior // Aang and La, Ocean's Fury",1,tla,Foil,7.1,6.99,10.0,false,077a1ad2-6317-4271-b86c-cc999776251d
-2026-10-11,5714358,The Cabbage Merchant,1,tle,Foil,34.54,54.99,27.65,false,65ffb473-0a11-44c2-9311-f39d69eef713
 2026-10-11,5714358,"Reki, the History of Kamigawa",1,sld,Foil,16.59,16.99,15.95,false,f8fac46f-cf4e-47df-8f20-e1710744630b
 2026-10-11,5714358,King Solomon's Frogs,1,msc,Normal,0.29,0.49,0.24,true,6908808f-e47e-4acb-a405-41b8018a5729
 2026-10-11,5714358,Great Hall of the Citadel,1,ltr,Foil,0.42,0.99,0.5,false,219c7b57-b62b-42d1-85d9-4b57624a3f54
-2026-10-11,5714358,"Mutagen Man, Living Ooze",1,tmt,Foil,3.75,5.99,6.48,false,3630d2ad-9bfe-4e86-addb-c4b620b52b14
 2026-10-11,5714358,Dispatch,1,eoc,Normal,0.61,1.79,4.5,false,27554761-8d6e-4de4-8ce3-f31b2c03708c
 2026-10-11,5714358,"Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun",1,lci,Normal,8.71,10.99,5.5,false,004524bf-b249-4dac-9c10-44d57143feb9
 2026-10-11,5714358,Sol Ring,1,sld,Foil,17.83,20.99,17.5,false,7d698bdd-b485-409d-b03e-c7c7d3fe9a92
 2026-10-11,5714358,Spara's Headquarters,1,psnc,Normal,14.31,17.99,10.9,false,2bc770c4-4dd8-4129-8428-b730acc7bc68
 2026-10-11,5714358,Plaza of Heroes,1,dmu,Foil,10.06,13.99,9.0,false,ea9fc6ee-2205-4f77-8e14-313bfbe68c1e
-2026-10-11,5714358,"Mondrak, Glory Dominus",1,one,Normal,49.27,74.99,33.25,true,c633ffe8-2198-4d62-969c-9a44a7ca132d
 2026-10-11,5714358,Misty Rainforest,1,zne,Normal,54.02,54.99,35.0,true,6d14bd1a-068e-4338-8014-d5271cb2fe4d
 2026-10-11,5714358,Windswept Heath,1,zne,Normal,31.89,32.99,24.24,true,63c59228-c742-4abd-b4d7-9f7880190e95
 2026-10-11,5714358,Flooded Strand,1,zne,Normal,33.92,42.99,30.0,true,acc4115b-4bbb-4bb7-81c6-466130982a9c
 2026-10-11,5714358,Savannah,1,3ed,Normal,412.51,549.99,245.0,true,5ae71290-c133-406c-8b17-9ea22b437806
 2026-10-11,5714358,Tropical Island,1,3ed,Normal,593.21,699.99,401.33,true,a0f5c6bc-65dc-42a1-a62d-a0b101310a1f
 2026-10-11,5714358,Tundra,1,3ed,Normal,695.59,849.99,385.0,true,9c9d5f72-e199-4d5b-ae7e-cc5b9bdfae99
-2026-10-11,5714358,"Mona Lisa, Ever Adaptable",1,tmc,Normal,3.52,5.49,2.44,true,41f1503b-b056-4f7c-94a1-1e6d78eb209b
 2026-10-11,5714358,"Yavimaya, Cradle of Growth",1,ltc,Normal,52.4,74.99,48.0,true,f442758d-4fee-43fa-a2cb-d09c326da149
-2026-10-11,5714358,"Adrix and Nev, Twincasters",1,c21,Foil,8.3,8.99,5.79,false,d495e084-92ec-4675-b6aa-8ade2775b796
-2026-10-11,5714358,Academy Manufactor,1,sld,Foil,15.59,19.99,12.15,false,5f0d37b6-c092-439b-ba8e-e297ad35f155
-2026-10-11,5714358,"Donatello, the Brains",1,tmc,Foil,0.5,0.99,0.49,false,774716f4-d211-497a-be91-69cd700edbf2
 2026-10-11,5714358,The Wondrous Wasp,1,msh,Normal,0.59,1.99,1.42,false,484e80a4-1d5f-4c27-98a8-ee2ef9d6cbdc
 2026-10-11,5714358,"King T'Challa // Black Panther, Hope Enduring",1,msh,Normal,17.22,21.99,19.14,true,eeedc3a9-e5c0-4234-8653-1a005df095e1
 2026-10-11,5714358,"Mister Fantastic, Reed Richards",1,msh,Normal,0.33,0.59,0.16,false,6fa1c908-68cb-4832-b972-f9efe7d55cdb
-2026-10-11,5714358,"Tippy-Toe, Terrific Partner",1,sld,Normal,11.54,16.99,20.69,true,d3154e82-3497-47ad-99e5-369cb40ac869
 2026-10-11,5714358,"Justice, Vance Astrovik",1,msh,Normal,0.14,0.35,0.11,false,f1448731-d50e-4b9c-8eb2-3d85c21516c6
-2026-10-11,5714358,"Meatsqueak, Hoard Lord",1,mbc,Normal,,,,true,9121582e-5a24-45c6-8c81-c296e379b3fb
 2026-10-11,5714358,Cryptolith Fragment // Aurora of Emrakul,1,inr,Normal,0.34,0.79,0.25,false,262b7b55-0b32-4c4f-a2ca-02f0b83fa7a2
-2026-10-11,5714358,"Lita, Little Orphan Amphibian",1,tmt,Foil,0.31,0.49,0.15,false,9fbaabb5-e981-4cbf-888c-46449412711f
-2026-10-11,5714358,The Queen of Dale,1,hob,Normal,18.91,27.99,22.66,true,7d635dfb-0a48-4965-82d1-d98f943bb28d
-2026-10-11,5714358,The Goose Mother,1,woe,Normal,0.4,0.49,0.3,false,1a55c370-d396-4c73-8ee2-83dc4c124005
 2026-10-11,5714358,"Elena, Turk Recruit",1,fic,Normal,0.24,0.49,0.24,false,d16553a3-65c3-4dec-af92-123d1e5dce10
 2026-10-11,5714358,Sarah Jane Smith,1,who,Foil,1.71,1.49,0.59,false,5f1a86e0-413c-45a0-a4c0-d85fe74361c1
 2026-10-11,5714358,"The Theorist, Jace Beleren",1,fra,Normal,47.37,44.99,34.77,true,707f6fbb-94f6-459b-8a21-bec360b7b668

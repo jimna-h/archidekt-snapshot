@@ -5264,8 +5264,6 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,Plains,hob,Foil,0.43,0.49,0.67
 2026-10-11,Monument to Endurance,dft,Normal,16.8,22.99,16.07
 2026-10-11,Razorgrass Ambush // Razorgrass Field,mh3,Normal,0.31,0.39,0.37
-2026-10-11,Illustrious Wanderglyph,lcc,Normal,15.94,22.99,15.15
-2026-10-11,Charismatic Conqueror,lcc,Normal,23.9,34.99,19.74
 2026-10-11,Redemption Choir,lcc,Normal,0.34,0.69,0.4
 2026-10-11,Tataru Taru,fic,Normal,5.82,9.49,7.21
 2026-10-11,"Emeria, the Sky Ruin",soc,Normal,7.55,8.49,5.2
@@ -5290,7 +5288,6 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,Guardian Scalelord,moc,Normal,3.85,3.49,2.1
 2026-10-11,"Legion's Landing // Adanto, the First Fort",xln,Normal,3.59,4.49,1.84
 2026-10-11,Fountainport,blb,Normal,2.86,4.99,3.48
-2026-10-11,Currency Converter,frc,Normal,0.27,0.49,0.3
 2026-10-11,Erode,sos,Normal,6.79,12.99,8.52
 2026-10-11,Galadriel's Dismissal,ltc,Normal,29.17,47.99,26.95
 2026-10-11,Caretaker's Talent,blb,Normal,11.54,16.99,8.43
@@ -5306,9 +5303,7 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,Scavenger Grounds,msc,Normal,0.32,0.49,0.16
 2026-10-11,Welcoming Vampire,vow,Normal,4.04,5.49,1.96
 2026-10-11,Angel of Indemnity,soc,Normal,0.34,0.79,0.64
-2026-10-11,Horn of Gondor,ltr,Foil,3.36,3.99,1.0
 2026-10-11,Touch the Spirit Realm,neo,Normal,0.56,1.99,1.13
-2026-10-11,Haunted Library,voc,Normal,0.43,1.29,1.0
 2026-10-11,Bender's Waterskin,tla,Normal,1.11,1.79,1.17
 2026-10-11,Restoration Seminar,sos,Normal,3.47,5.99,2.32
 2026-10-11,Soul Warden,exo,Normal,3.86,5.49,2.62
@@ -5495,21 +5490,18 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,Lightning Greaves,c19,Normal,4.77,7.49,4.08
 2026-10-11,"Daxos, Blessed by the Sun",thb,Normal,0.29,0.49,0.49
 2026-10-11,"Gollum, Obsessed Stalker",ltc,Normal,0.33,0.49,0.37
-2026-10-11,"Anim Pakal, Thousandth Moon",lci,Normal,4.26,5.99,3.5
 2026-10-11,"Elena, Turk Recruit",fic,Normal,0.24,0.49,0.24
 2026-10-11,"Subira, Tulzidi Caravanner",m21,Normal,0.32,0.49,0.25
 2026-10-11,"Deadpool, Trading Card",sld,Foil,14.21,18.99,18.19
 2026-10-11,Brash Taunter,m21,Normal,3.71,3.99,1.23
 2026-10-11,Exotic Orchard,c19,Normal,0.33,0.59,0.12
 2026-10-11,Great Hall of the Citadel,ltr,Foil,0.42,0.99,0.5
-2026-10-11,"Saradoc, Master of Buckland",ltr,Normal,0.35,0.69,0.26
 2026-10-11,"Mangara, the Diplomat",blc,Normal,0.46,0.99,0.65
 2026-10-11,Fellwar Stone,ncc,Normal,1.49,1.79,0.6
 2026-10-11,Orzhov Signet,brc,Normal,0.61,1.29,0.64
 2026-10-11,Deadly Rollick,sld,Foil,26.24,37.99,28.48
 2026-10-11,"Mjölnir, Hammer of Thor",msh,Normal,16.03,21.99,17.25
 2026-10-11,"Shanid, Sleepers' Scourge",dmc,Foil,2.87,3.49,2.62
-2026-10-11,Falcon and Redwing,msc,Normal,0.69,1.49,0.61
 2026-10-11,"Black Widow, Agile Avenger",msc,Normal,5.52,8.49,6.95
 2026-10-11,"General Kreat, the Boltbringer",j25,Normal,6.97,9.99,7.57
 2026-10-11,Savai Triome,iko,Normal,18.3,24.99,14.49
@@ -5555,6 +5547,7 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,Three Visits,sld,Foil,53.38,69.99,42.53
 2026-10-11,Utopia Sprawl,pf26,Foil,4.29,5.49,7.25
 2026-10-11,Nature's Lore,sld,Foil,12.19,12.99,8.98
+2026-10-11,"Anim Pakal, Thousandth Moon",lci,Normal,5.34,6.49,4.11
 2026-10-11,Botanical Brawler,mom,Normal,0.27,0.35,0.26
 2026-10-11,Commander Liara Portyr,clb,Normal,0.23,0.35,0.2
 2026-10-11,Dusk Legion Duelist,mom,Normal,2.8,3.99,1.36
@@ -5596,6 +5589,7 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,"Arwen, Weaver of Hope",ltc,Normal,4.95,5.99,4.93
 2026-10-11,Heartwood Crafter // Soul Tether,fra,Normal,0.2,0.59,0.2
 2026-10-11,Studious First-Year // Rampant Growth,sos,Normal,0.27,0.39,0.25
+2026-10-11,Falcon and Redwing,msc,Normal,0.69,1.49,0.61
 2026-10-11,Shroofus Sproutsire,j25,Normal,5.34,8.99,3.89
 2026-10-11,Wild Wasteland,pip,Normal,1.1,2.99,1.04
 2026-10-11,Mosswort Bridge,c18,Normal,0.42,0.69,0.35
@@ -5628,14 +5622,11 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,Sunpetal Grove,tdc,Normal,0.5,1.29,0.7
 2026-10-11,Windswept Heath,mh3,Normal,11.99,17.99,11.41
 2026-10-11,Arcane Signet,p30m,Etched,,,
-2026-10-11,"Lonis, Cryptozoologist",mh2,Normal,0.32,0.49,0.1
-2026-10-11,Samwise Gamgee,ltr,Foil,3.89,3.99,2.5
 2026-10-11,Minas Tirith,ltr,Foil,7.98,9.99,7.68
 2026-10-11,Pendelhaven,ath,Normal,3.83,4.99,3.58
 2026-10-11,Razortide Bridge,brc,Normal,1.94,2.29,1.49
 2026-10-11,Seat of the Synod,brc,Normal,3.34,4.49,2.04
 2026-10-11,Trenzalore Clocktower,who,Normal,0.31,0.49,0.3
-2026-10-11,"Osgood, Operation Double",who,Normal,0.33,0.49,0.21
 2026-10-11,"Venser, Shaper Savant",tsr,Normal,1.37,0.69,2.99
 2026-10-11,"Raff Capashen, Ship's Mage",cmm,Normal,0.25,0.35,0.05
 2026-10-11,The Shire,ltr,Normal,3.09,3.49,2.24
@@ -5665,10 +5656,6 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,"Urza, Lord High Artificer",dmr,Normal,15.06,20.99,15.5
 2026-10-11,Azorius Signet,gk2,Normal,0.39,0.79,0.48
 2026-10-11,Fellwar Stone,onc,Normal,1.69,2.29,0.9
-2026-10-11,Graham O'Brien,who,Foil,0.81,0.49,0.49
-2026-10-11,Stridehangar Automaton,drc,Normal,2.3,5.49,3.44
-2026-10-11,Officious Interrogation,mkm,Foil,0.22,0.49,0.2
-2026-10-11,Transmutation Font,pw24,Foil,1.84,1.99,0.17
 2026-10-11,Academy Ruins,2xm,Normal,9.11,10.99,6.41
 2026-10-11,Ignis Scientia,fin,Normal,0.2,0.35,0.04
 2026-10-11,Serah Farron // Crystallized Serah,fin,Normal,5.04,5.99,2.4
@@ -5678,37 +5665,24 @@ date,card_name,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarke
 2026-10-11,Forest,who,Normal,0.23,0.49,0.1
 2026-10-11,Plains,who,Normal,0.28,0.49,0.17
 2026-10-11,Sonic Screwdriver,sld,Foil,48.98,39.99,17.24
-2026-10-11,Astrid Peth,who,Normal,4.04,6.49,3.01
-2026-10-11,"James, Wandering Dad // Follow Him",pip,Foil,2.97,1.49,0.8
 2026-10-11,Spectacular Spider-Man,spm,Normal,6.43,10.99,3.86
 2026-10-11,The Blue Spirit,tle,Normal,0.84,1.79,3.49
 2026-10-11,The Grey Havens,ltr,Normal,0.29,0.49,0.05
 2026-10-11,"Aang, Swift Savior // Aang and La, Ocean's Fury",tla,Foil,7.1,6.99,10.0
-2026-10-11,The Cabbage Merchant,tle,Foil,34.54,54.99,27.65
 2026-10-11,"Reki, the History of Kamigawa",sld,Foil,16.59,16.99,15.95
 2026-10-11,King Solomon's Frogs,msc,Normal,0.29,0.49,0.24
-2026-10-11,"Mutagen Man, Living Ooze",tmt,Foil,3.75,5.99,6.48
 2026-10-11,"Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun",lci,Normal,8.71,10.99,5.5
 2026-10-11,Sol Ring,sld,Foil,17.83,20.99,17.5
 2026-10-11,Spara's Headquarters,psnc,Normal,14.31,17.99,10.9
-2026-10-11,"Mondrak, Glory Dominus",one,Normal,49.27,74.99,33.25
 2026-10-11,Flooded Strand,zne,Normal,33.92,42.99,30.0
 2026-10-11,Tropical Island,3ed,Normal,593.21,699.99,401.33
 2026-10-11,Tundra,3ed,Normal,695.59,849.99,385.0
-2026-10-11,"Mona Lisa, Ever Adaptable",tmc,Normal,3.52,5.49,2.44
 2026-10-11,"Yavimaya, Cradle of Growth",ltc,Normal,52.4,74.99,48.0
-2026-10-11,"Adrix and Nev, Twincasters",c21,Foil,8.3,8.99,5.79
-2026-10-11,Academy Manufactor,sld,Foil,15.59,19.99,12.15
-2026-10-11,"Donatello, the Brains",tmc,Foil,0.5,0.99,0.49
 2026-10-11,The Wondrous Wasp,msh,Normal,0.59,1.99,1.42
 2026-10-11,"King T'Challa // Black Panther, Hope Enduring",msh,Normal,17.22,21.99,19.14
 2026-10-11,"Mister Fantastic, Reed Richards",msh,Normal,0.33,0.59,0.16
-2026-10-11,"Tippy-Toe, Terrific Partner",sld,Normal,11.54,16.99,20.69
 2026-10-11,"Justice, Vance Astrovik",msh,Normal,0.14,0.35,0.11
-2026-10-11,"Meatsqueak, Hoard Lord",mbc,Normal,,,
 2026-10-11,Cryptolith Fragment // Aurora of Emrakul,inr,Normal,0.34,0.79,0.25
-2026-10-11,"Lita, Little Orphan Amphibian",tmt,Foil,0.31,0.49,0.15
-2026-10-11,The Goose Mother,woe,Normal,0.4,0.49,0.3
 2026-10-11,Sarah Jane Smith,who,Foil,1.71,1.49,0.59
 2026-10-11,"The Theorist, Jace Beleren",fra,Normal,47.37,44.99,34.77
 2026-10-11,Cyclonic Rift,soa,Normal,33.59,39.99,24.7
