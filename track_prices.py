@@ -504,6 +504,10 @@ def scryfall_collection(ids):
     return cards
 
 
+# Placeholder "tokens" that aren't real tokens, e.g. Scryfall's generic "Copy" card
+IGNORED_TOKENS = {"Copy"}
+
+
 def makes_token(part):
     """A related card that's a token, an emblem (from a planeswalker) or a dungeon."""
     if part.get("component") == "token":
@@ -575,6 +579,7 @@ def write_tokens(rows):
             if pid in details:
                 info = describe(details[pid])
                 out[("", deck_id, info["token_id"])] = {"card_name": "", "deck_id": deck_id, **info}
+    out = {k: row for k, row in out.items() if row["token_name"] not in IGNORED_TOKENS}
     for row in out.values():
         row["image_id"] = favorite.get(row["token_id"], row["image_id"])
     write_csv(TOKENS_PATH, TOKEN_FIELDNAMES, sorted(out.values(), key=lambda r: (r["token_name"], r["card_name"], r["deck_id"])))

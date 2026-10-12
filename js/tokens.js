@@ -4,6 +4,8 @@
 // ---------- tokens ----------
 // Filters work like the Cards tab: colors/types cycle off -> in -> out; skip = decks left out.
 const tk = { search: "", colors: new Map(), types: new Map(), skip: new Set(), match: "any", layout: "full" };
+// Placeholders that aren't real tokens (Scryfall's generic "Copy" card); the daily job skips them too
+const IGNORED_TOKENS = new Set(["Copy"]);
 const tkCheckedDecks = () => currentDeckIds().filter(id => !tk.skip.has(id));
 let tkSort = { k: "decks", dir: -1 };
 const TOKEN_TYPES = ["Creature", "Artifact", "Enchantment", "Land", "Emblem", "Dungeon"];
@@ -13,6 +15,7 @@ const TOKEN_TYPES = ["Creature", "Artifact", "Enchantment", "Land", "Emblem", "D
 function tokenList() {
   const byCard = new Map(), byDeck = new Map();
   for (const t of tokenRows) {
+    if (IGNORED_TOKENS.has(t.token_name)) continue;   // older data may still list these
     const [map, key] = t.card_name ? [byCard, t.card_name] : [byDeck, t.deck_id];
     (map.get(key) || map.set(key, []).get(key)).push(t);
   }
