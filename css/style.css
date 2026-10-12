@@ -241,6 +241,8 @@ button.ghost:hover { color: var(--text-primary); }
 #indexTable td { vertical-align: top; }
 /* fixed column widths, so sorting or filtering never reshuffles the layout */
 #indexTable { table-layout: fixed; min-width: 1180px; }
+/* phone-only bits of the Cards table */
+#indexTable td.m-best, #indexTable .m-only { display: none; }
 #indexTable td { overflow-wrap: anywhere; }
 #indexTable td.num, #indexTable th { overflow-wrap: normal; }
 #indexTable .pips { flex-wrap: wrap; }
@@ -252,7 +254,6 @@ td.sets-col .set-code { display: block; line-height: 1.6; }
 td.sets-col { max-width: 160px; }
 
 /* ---------- new pieces ---------- */
-.px-layout { margin-left: auto; }
 #ixMatch { width: 100%; margin: 2px 0 6px; font-size: 14px; }
 .px-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px 14px; margin-top: 16px; }
 .px-tile { margin: 0; }
@@ -303,7 +304,6 @@ label.ctl.small select { min-height: 32px; font-size: 14px; }
 .viewbar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 24px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--grid); }
 .vfld { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
 .vfld .flabel { flex-basis: 100%; }
-.viewbar .px-layout { margin-left: auto; }
 .seg button { min-height: 30px; }
 @media (max-width: 600px) { .fgrid { grid-template-columns: 1fr 1fr; gap: 12px; } .fgrid .fld:nth-child(2), .fgrid .fld:nth-child(5) { grid-column: 1 / -1; } }
 #ixDeckDD .count-badge { box-sizing: content-box; min-width: 3.4em; text-align: center; font-variant-numeric: tabular-nums; }
@@ -441,21 +441,24 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   #cardTable td:nth-child(4) { grid-area: price; text-align: left; font-size: 13px; color: var(--text-secondary); }
   #cardTable td:nth-child(5) { grid-area: total; font-weight: 600; }
   #cardTable td:nth-child(6) { grid-area: chg; font-size: 13px; }
-  #indexTable tr { display: grid; column-gap: 10px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid);
-    grid-template-columns: 30px 1fr 1fr 1fr; grid-template-areas: "n name name name" ". type type type" ". tcg ck cm" ". sets sets sets" ". where where where"; }
+  /* one card per row: name and its cheapest price; type and store; copies and sets; decks */
+  #indexTable tr { display: grid; column-gap: 10px; row-gap: 3px; padding: 12px 0; border-bottom: 1px solid var(--grid);
+    grid-template-columns: 30px minmax(0, 1fr) auto; grid-template-areas: "n name best" ". type best" ". sets sets" ". where where"; }
   #indexTable td { display: block; padding: 0; border: 0; min-width: 0; }
-  #indexTable td[colspan] { grid-column: 1 / -1; }
-  #indexTable td:nth-child(1) { grid-area: n; }
+  #indexTable td:nth-child(1) { grid-area: n; padding-top: 2px; }
   #indexTable td:nth-child(2) { grid-area: name; }
   #indexTable td:nth-child(3) { grid-area: type; font-size: 13px; color: var(--text-secondary); }
-  #indexTable td:nth-child(4), #indexTable td:nth-child(5), #indexTable td:nth-child(6) { display: none; }
-  #indexTable td:nth-child(7) { grid-area: tcg; } #indexTable td:nth-child(8) { grid-area: ck; } #indexTable td:nth-child(9) { grid-area: cm; }
-  #indexTable td:nth-child(7), #indexTable td:nth-child(8), #indexTable td:nth-child(9) { text-align: left; font-size: 13px; }
-  #indexTable td:nth-child(7)::before { content: "TCG "; color: var(--text-muted); font-weight: 400; }
-  #indexTable td:nth-child(8)::before { content: "CK "; color: var(--text-muted); font-weight: 400; }
-  #indexTable td:nth-child(9)::before { content: "CM "; color: var(--text-muted); font-weight: 400; }
-  #indexTable td:nth-child(10) { grid-area: sets; font-size: 13px; }
-  #indexTable td:nth-child(11) { grid-area: where; }
+  #indexTable td:nth-child(n+4):nth-child(-n+9) { display: none; }
+  #indexTable td:nth-child(10) { grid-area: sets; font-size: 13px; color: var(--text-secondary); }
+  #indexTable td:nth-child(10) .set-code { display: inline; font-size: 13px; }
+  #indexTable td:nth-child(10) .m-only::after { content: " ·"; color: var(--text-muted); }
+  #indexTable td:nth-child(10) .set-code:not(:last-child)::after { content: ","; color: var(--text-muted); font-weight: 400; }
+  #indexTable td:nth-child(11) { grid-area: where; margin-top: 3px; }
+  #indexTable td:nth-child(11) .dchip { font-size: 12px; line-height: 19px; }
+  #indexTable td.m-best { display: flex; grid-area: best; flex-direction: column; align-items: flex-end; text-align: right; }
+  #indexTable td.m-best span { font-size: 12px; color: var(--text-muted); }
+  #indexTable td.empty-row { grid-area: auto; grid-column: 1 / -1; }
+  #indexTable .m-only { display: inline; }
 }
 input[type=number] { -moz-appearance: textfield; }
 input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -468,3 +471,6 @@ button.ghost.share span { text-decoration: underline; text-underline-offset: 3px
 #ixClear:disabled { color: var(--text-muted); border-color: var(--border); background: var(--surface); }
 /* row numbers never break across lines (up to 400 rows shown) */
 #indexTable td.rownum { white-space: nowrap; overflow-wrap: normal; word-break: keep-all; font-variant-numeric: tabular-nums; }
+/* Sort and Table/Grid sit right above the results */
+.results-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 4px 2px 12px; }
+.results-bar select { min-height: 34px; }

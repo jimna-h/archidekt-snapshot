@@ -211,10 +211,9 @@ function renderIndex() {
   ].filter(Boolean);
   $("ixResult").textContent = notes.join(" · "); $("ixResult").hidden = !notes.length;
 
-  const MAX = 400;
   const priceCell = (c, s) => `<td class="num ${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}"
       ${c.printings.size > 1 && c[s] != null ? `title="Cheapest of the ${c.printings.size} printings you play"` : ""}>${money(c[s])}</td>`;
-  $("indexTable").tBodies[0].innerHTML = list.slice(0, MAX).map((c, i) => `
+  $("indexTable").tBodies[0].innerHTML = list.map((c, i) => `
     <tr>
       <td class="rownum">${i + 1}</td>
       <td><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}</td>
@@ -223,12 +222,13 @@ function renderIndex() {
       <td>${pipsHtml(c.color)}</td>
       <td class="num">${c.qty}</td>
       ${priceCell(c, "tcg")}${priceCell(c, "ck")}${priceCell(c, "cm")}
-      <td class="sets-col">${[...c.sets].sort((a, b) => a[0].localeCompare(b[0])).map(([set, n]) =>
+      <td class="sets-col"><span class="m-only">${c.qty} ${c.qty === 1 ? "copy" : "copies"}</span> ${[...c.sets].sort((a, b) => a[0].localeCompare(b[0])).map(([set, n]) =>
         `<span class="set-code" title="${n} ${n === 1 ? "copy" : "copies"} from ${esc(set)}">${esc(set)}${c.sets.size > 1 && n > 1 ? `<span class="muted"> ×${n}</span>` : ""}</span>`).join(" ")}</td>
       <td><div class="where">${deckChips(c).map(({ name, e }) => `<span class="dchip ${e.cmd ? "cmd" : ""} ${e.proxy ? "proxy" : ""}">${esc(name)}${e.qty > 1 ? " ×" + e.qty : ""}</span>`).join("")}</div></td>
-    </tr>`).join("") + (list.length > MAX ? `<tr><td colspan="11" class="muted">First ${MAX} shown. Narrow the filters for more.</td></tr>` : "")
-    || `<tr><td colspan="11" class="muted">No cards match.</td></tr>`;
-  $("ixGrid").innerHTML = list.slice(0, MAX).map(c => `
+      <td class="m-best"><b>${money(c.best)}</b><span>${c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></td>
+    </tr>`).join("")
+    || `<tr><td colspan="11" class="muted empty-row">No cards match.</td></tr>`;
+  $("ixGrid").innerHTML = list.map(c => `
     <figure class="px-tile" title="${esc(c.name)}\n${esc(deckChips(c).map(({ name, e }) => name + (e.qty > 1 ? " ×" + e.qty : "")).join("\n"))}">
       <div class="px-img"><div class="ph">${esc(c.name)}</div>${cardImg(c)}${c.qty > 1 ? `<span class="px-qty">×${c.qty}</span>` : ""}</div>
       <figcaption><b class="num">${money(c.best)}</b><span class="muted">${c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></figcaption>
