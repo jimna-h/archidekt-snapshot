@@ -951,6 +951,8 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-12,24974478,Glasspool Mimic // Glasspool Shore,znr,Normal,true,0
 2026-10-12,25536840,"Delney, Streetwise Lookout",mkm,Normal,false,1
 2026-10-12,25536840,"Delney, Streetwise Lookout",mkm,Normal,true,0
+2026-10-12,25536840,Erode,sos,Normal,false,1
+2026-10-12,25536840,Erode,sos,Normal,true,0
 2026-10-12,25536840,Tataru Taru,fic,Normal,false,1
 2026-10-12,25536840,Tataru Taru,fic,Normal,true,0
 2026-10-12,26722467,Germination Practicum,sos,Foil,false,1
