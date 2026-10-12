@@ -474,3 +474,25 @@ button.ghost.share span { text-decoration: underline; text-underline-offset: 3px
 /* Sort and Table/Grid sit right above the results */
 .results-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 4px 2px 12px; }
 .results-bar select { min-height: 34px; }
+/* Cards tab, Full view: the card's picture with every detail beside it */
+.full-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 14px; }
+.fcard { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 14px; align-items: start; }
+.fcard .px-img { width: 140px; }
+.fbody { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.fbody h4 { margin: 0; font-size: 17px; }
+.ftype { font-size: 14px; color: var(--text-secondary); }
+.fmeta { display: flex; gap: 12px; align-items: center; font-size: 13px; color: var(--text-secondary); }
+.fprices { display: grid; gap: 1px; font-size: 14px; margin: 2px 0; }
+.fprices div { display: flex; justify-content: space-between; gap: 12px; max-width: 220px; }
+.fprices div span { color: var(--text-secondary); }
+.fprices div.best b { font-weight: 700; }
+.fprices div:not(.best) b { font-weight: 400; }
+.fprices div.muted, .fprices div.muted span { color: var(--text-muted); }
+.fsets { font-size: 13px; }
+.fsets .set-code:not(:last-child)::after { content: ","; color: var(--text-muted); font-weight: 400; }
+.fbody .dchip { font-size: 12px; line-height: 19px; }
+@media (max-width: 600px) {
+  .full-list { grid-template-columns: 1fr; gap: 10px; }
+  .fcard { grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 12px; }
+  .fcard .px-img { width: 110px; }
+}

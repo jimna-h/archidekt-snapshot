@@ -59,7 +59,7 @@ function buildUrl() {
     if (ix.pmax != null) q.set("max", ix.pmax);
     if (ix.proxies) q.set("proxied", ix.proxies);
     if ([...ix.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...ix.stores].join(","));
-    if (ix.layout === "grid") q.set("layout", "grid");
+    if (ix.layout !== "table") q.set("layout", ix.layout);
     if (sortStr(ixSort) !== "-qty") q.set("sort", sortStr(ixSort));
   }
   const qs = q.toString().replace(/%2C/g, ",");
@@ -121,7 +121,7 @@ function readUrl() {
     }
     const st = csvList(q.get("stores")).filter(x => STORE_NAMES[x]);
     if (st.length) ix.stores = new Set(st);
-    ix.layout = q.get("layout") === "grid" ? "grid" : "table";
+    ix.layout = ["grid", "full"].includes(q.get("layout")) ? q.get("layout") : "table";
     readSort(q.get("sort") === "price" ? "best" : q.get("sort") === "-price" ? "-best" : q.get("sort"), ixSort);
   }
   // put the form controls in step with the state

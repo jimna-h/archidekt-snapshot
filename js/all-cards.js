@@ -211,9 +211,16 @@ function renderIndex() {
   ].filter(Boolean);
   $("ixResult").textContent = notes.join(" · "); $("ixResult").hidden = !notes.length;
 
-  const priceCell = (c, s) => `<td class="num ${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}"
-      ${c.printings.size > 1 && c[s] != null ? `title="Cheapest of the ${c.printings.size} printings you play"` : ""}>${money(c[s])}</td>`;
-  $("indexTable").tBodies[0].innerHTML = list.map((c, i) => `
+  // Three views of the same list; only the one showing is drawn.
+  //   table: every detail in columns   grid (Images): card pictures   full: picture plus every detail
+  const setsHtml = c => [...c.sets].sort((a, b) => a[0].localeCompare(b[0])).map(([set, n]) =>
+    `<span class="set-code" title="${n} ${n === 1 ? "copy" : "copies"} from ${esc(set)}">${esc(set)}${c.sets.size > 1 && n > 1 ? `<span class="muted"> ×${n}</span>` : ""}</span>`).join(" ");
+  const chipsHtml = c => `<div class="where">${deckChips(c).map(({ name, e }) => `<span class="dchip ${e.cmd ? "cmd" : ""} ${e.proxy ? "proxy" : ""}">${esc(name)}${e.qty > 1 ? " ×" + e.qty : ""}</span>`).join("")}</div>`;
+  const cheapestTip = (c, s) => c.printings.size > 1 && c[s] != null ? `title="Cheapest of the ${c.printings.size} printings you play"` : "";
+  const priceCell = (c, s) => `<td class="num ${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}" ${cheapestTip(c, s)}>${money(c[s])}</td>`;
+  const copyText = n => `${n} ${n === 1 ? "copy" : "copies"}`;
+  const layout = ix.layout;
+  $("indexTable").tBodies[0].innerHTML = layout !== "table" ? "" : list.map((c, i) => `
     <tr>
       <td class="rownum">${i + 1}</td>
       <td><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}</td>
@@ -222,19 +229,29 @@ function renderIndex() {
       <td>${pipsHtml(c.color)}</td>
       <td class="num">${c.qty}</td>
       ${priceCell(c, "tcg")}${priceCell(c, "ck")}${priceCell(c, "cm")}
-      <td class="sets-col"><span class="m-only">${c.qty} ${c.qty === 1 ? "copy" : "copies"}</span> ${[...c.sets].sort((a, b) => a[0].localeCompare(b[0])).map(([set, n]) =>
-        `<span class="set-code" title="${n} ${n === 1 ? "copy" : "copies"} from ${esc(set)}">${esc(set)}${c.sets.size > 1 && n > 1 ? `<span class="muted"> ×${n}</span>` : ""}</span>`).join(" ")}</td>
-      <td><div class="where">${deckChips(c).map(({ name, e }) => `<span class="dchip ${e.cmd ? "cmd" : ""} ${e.proxy ? "proxy" : ""}">${esc(name)}${e.qty > 1 ? " ×" + e.qty : ""}</span>`).join("")}</div></td>
+      <td class="sets-col"><span class="m-only">${copyText(c.qty)}</span> ${setsHtml(c)}</td>
+      <td>${chipsHtml(c)}</td>
       <td class="m-best"><b>${money(c.best)}</b><span>${c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></td>
     </tr>`).join("")
     || `<tr><td colspan="11" class="muted empty-row">No cards match.</td></tr>`;
-  $("ixGrid").innerHTML = list.map(c => `
+  $("ixGrid").innerHTML = layout !== "grid" ? "" : list.map(c => `
     <figure class="px-tile" title="${esc(c.name)}\n${esc(deckChips(c).map(({ name, e }) => name + (e.qty > 1 ? " ×" + e.qty : "")).join("\n"))}">
       <div class="px-img"><div class="ph">${esc(c.name)}</div>${cardImg(c)}${c.qty > 1 ? `<span class="px-qty">×${c.qty}</span>` : ""}</div>
       <figcaption><b class="num">${money(c.best)}</b><span class="muted">${c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></figcaption>
     </figure>`).join("") || `<div class="muted">No cards match.</div>`;
-  const grid = ix.layout === "grid";
-  $("ixGrid").hidden = !grid; $("ixTableBox").hidden = grid;
+  $("ixFull").innerHTML = layout !== "full" ? "" : list.map(c => `
+    <article class="fcard">
+      <div class="px-img"><div class="ph">${esc(c.name)}</div>${cardImg(c)}</div>
+      <div class="fbody">
+        <h4><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}</h4>
+        <div class="ftype">${esc(c.type || "–")}</div>
+        <div class="fmeta">${pipsHtml(c.color)}<span>MV ${c.mv ?? "–"}</span><span>${copyText(c.qty)}</span></div>
+        <div class="fprices">${Object.keys(STORE_NAMES).map(s => `<div class="${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}" ${cheapestTip(c, s)}><span>${STORE_NAMES[s]}</span><b class="num">${money(c[s])}</b></div>`).join("")}</div>
+        <div class="fsets">${setsHtml(c)}</div>
+        ${chipsHtml(c)}
+      </div>
+    </article>`).join("") || `<div class="muted">No cards match.</div>`;
+  $("ixGrid").hidden = layout !== "grid"; $("ixFull").hidden = layout !== "full"; $("ixTableBox").hidden = layout !== "table";
   $("ixLayout").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === ix.layout)));
   markSort($("indexTable"), ixSort);
   const ixs = sortStr(ixSort); $("ixSortSel").value = [...$("ixSortSel").options].some(o => o.value && o.value === ixs) ? ixs : "";
