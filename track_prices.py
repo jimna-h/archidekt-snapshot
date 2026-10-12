@@ -14,6 +14,7 @@ identified by their Archidekt deck id. Each run writes:
                            each commander's printing), first and last seen
   data/folder.csv          the Archidekt folder id, so the page can link to it
   data/cards.csv           one row per card name: type line, mana value, color identity
+  data/tokens.csv          which tokens (and emblems) each card makes, from Scryfall
 
 A deck missing from the folder for PRUNE_AFTER_DAYS days has all of its history deleted.
 
@@ -47,6 +48,7 @@ CARD_PRICES_DIR = os.path.join(DATA_DIR, "card_prices")
 DECKS_PATH = os.path.join(DATA_DIR, "decks.csv")
 FOLDER_PATH = os.path.join(DATA_DIR, "folder.csv")
 CARDS_PATH = os.path.join(DATA_DIR, "cards.csv")
+TOKENS_PATH = os.path.join(DATA_DIR, "tokens.csv")
 LEGACY_PRICES_PATH = os.path.join(DATA_DIR, "prices.csv")  # old single-file format, migrated on sight
 PRUNE_AFTER_DAYS = 10
 # Snapshot dates use this time zone; set a TIMEZONE repository variable (e.g. America/Chicago) to change it
@@ -83,6 +85,8 @@ SOURCE_COLUMNS = {"tcg": "price_tcgplayer", "ck": "price_cardkingdom", "cm": "pr
 DECKLIST_FIELDNAMES = ["date", "deck_id", "card_name", "set_code", "finish", "proxied", "quantity"]
 CARD_PRICE_FIELDNAMES = ["date", "card_name", "set_code", "finish", *PRICE_SOURCES.values()]
 CARD_FIELDNAMES = ["card_name", "type_line", "mana_value", "color_identity"]
+# token_id groups identical tokens across sets (Scryfall's oracle id); image_id is one printing
+TOKEN_FIELDNAMES = ["card_name", "token_id", "token_name", "type_line", "power", "toughness", "colors", "text", "image_id"]
 COLOR_CODES = {"white": "W", "blue": "U", "black": "B", "red": "R", "green": "G"}
 
 session = Session()
@@ -456,6 +460,84 @@ def prune_missing_decks(today):
     return sorted(gone)
 
 
+def post(url, payload):
+    """POST JSON with the same retry rules as get()."""
+    for attempt in range(5):
+        try:
+            response = session.post(url, json=payload, timeout=30, headers={"Accept": "application/json"})
+        except RequestException:
+            if attempt == 4:
+                raise
+            time.sleep(2 ** attempt * 5)
+            continue
+        if (response.status_code == 429 or response.status_code >= 500) and attempt < 4:
+            time.sleep(2 ** attempt * 5)
+            continue
+        return response
+    return response
+
+
+def scryfall_collection(ids):
+    """Full Scryfall card objects for printing ids, 75 per request (Scryfall's limit)."""
+    cards = []
+    for start in range(0, len(ids), 75):
+        response = post("https://api.scryfall.com/cards/collection",
+                        {"identifiers": [{"id": i} for i in ids[start:start + 75]]})
+        response.raise_for_status()
+        cards += response.json().get("data", [])
+        time.sleep(0.2)  # Scryfall asks for no more than ~10 requests a second
+    return cards
+
+
+def makes_token(part):
+    """A related card that's a token, an emblem (from a planeswalker) or a dungeon."""
+    if part.get("component") == "token":
+        return True
+    return part.get("component") == "combo_piece" and part.get("type_line", "").split(" ")[0] in ("Emblem", "Dungeon")
+
+
+def write_tokens(rows):
+    """Which tokens each card in today's decks makes, from Scryfall's related cards. If Scryfall
+    can't be reached the previous file is kept."""
+    printing = {}
+    for row in rows:
+        if row.get("scryfall_id") and row["card_name"] not in printing:
+            printing[row["card_name"]] = row["scryfall_id"]
+    name_of = {pid: name for name, pid in printing.items()}
+    try:
+        makes = {}
+        for card in scryfall_collection(list(printing.values())):
+            ids = [p["id"] for p in card.get("all_parts") or [] if makes_token(p) and p.get("id") != card.get("id")]
+            if ids and card.get("id") in name_of:
+                makes[name_of[card["id"]]] = ids
+        details = {t["id"]: t for t in scryfall_collection(sorted({i for ids in makes.values() for i in ids}))}
+    except Exception as error:  # tokens are a bonus; never fail the snapshot over them
+        print(f"  tokens: skipped ({error})")
+        return
+
+    def face(token, key):
+        faces = token.get("card_faces") or [{}]
+        return token.get(key) if token.get(key) not in (None, "") else faces[0].get(key, "")
+
+    out = {}
+    for card_name, ids in makes.items():
+        for token_printing in ids:
+            token = details.get(token_printing)
+            if not token:
+                continue
+            token_id = face(token, "oracle_id") or token["id"]
+            out[(card_name, token_id)] = {
+                "card_name": card_name, "token_id": token_id,
+                "token_name": token.get("name", ""), "type_line": face(token, "type_line"),
+                "power": face(token, "power"), "toughness": face(token, "toughness"),
+                "colors": "".join(c for c in "WUBRG" if c in (face(token, "colors") or [])),
+                "text": face(token, "oracle_text").replace("\n", " / "),
+                "image_id": token["id"],
+            }
+    write_csv(TOKENS_PATH, TOKEN_FIELDNAMES, sorted(out.values(), key=lambda r: (r["token_name"], r["card_name"])))
+    print(f"  tokens: {len({k[1] for k in out})} kinds made by {len(makes)} cards")
+
+
 def write_card_info(infos):
     """One row per card name. Cards seen this run are refreshed; older ones are kept."""
     cards = {row["card_name"]: row for row in read_csv(CARDS_PATH)}
@@ -537,6 +619,7 @@ def main():
     write_deck_names(names, commanders, deck_ids, today, profiles)
     write_csv(FOLDER_PATH, ["folder_id"], [{"folder_id": folder_id}])
     write_card_info(infos)
+    write_tokens(rows)
     pruned = prune_missing_decks(today)
     print(f"{today}: {len(rows)} card rows from {len(names)} decks, {changed} decklist changes"
           + (f", deleted history for decks {pruned}" if pruned else ""))

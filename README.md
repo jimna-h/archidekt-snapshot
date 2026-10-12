@@ -47,6 +47,7 @@ Decks are always identified by their Archidekt deck id. The files are laid out s
 | `data/decks.csv` (continued) | Also each deck's Archidekt bracket, owner, the date it was last edited, and the cards behind its bracket: Game Changers, nonland tutors, mass land denial, extra turns, and complete two-card combos with their total mana value | |
 | `data/folder.csv` | The Archidekt folder id, for the page's folder link | Tiny |
 | `data/cards.csv` | One row per card name: type line, mana value, color identity | Tiny |
+| `data/tokens.csv` | Which tokens (and emblems) each card makes, from Scryfall's related cards: token name, type, power/toughness, colors, rules text, and a printing for its image | Tiny |
 
 Prices are Archidekt's: TCGplayer, Card Kingdom and Cardmarket, using the foil price for foil copies. A deck that disappears from the folder for 10 days has all of its history deleted.
 
