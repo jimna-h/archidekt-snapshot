@@ -54,6 +54,9 @@ function buildUrl() {
     if (ix.skip.size) q.set("skip", [...ix.skip].join(","));
     if (checkedDecks().length > 1 && ix.match === "every") q.set("match", "every");
     if (ix.commanders) q.set("cmd", ix.commanders);
+    if (ix.gc) q.set("gc", ix.gc);
+    if (ix.pmin != null) q.set("min", ix.pmin);
+    if (ix.pmax != null) q.set("max", ix.pmax);
     if (ix.proxies) q.set("proxied", ix.proxies);
     if ([...ix.stores].sort().join(",") !== "ck,tcg") q.set("stores", [...ix.stores].join(","));
     if (ix.layout === "grid") q.set("layout", "grid");
@@ -81,7 +84,7 @@ function readUrl() {
   // reset everything, then apply what the link specifies
   selected = ALL; asOf = null; tagFilter = null; moverWindow = 30; $("search").value = "";
   Object.assign(deckSort, { k: "name", dir: 1 }); Object.assign(cardSort, { k: "total", dir: -1 });
-  Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", proxies: "", layout: "table" });
+  Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", gc: "", pmin: null, pmax: null, proxies: "", layout: "table" });
   ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg", "ck"]); Object.assign(ixSort, { k: "qty", dir: -1 });
   const known = id => decks.has(id) && !decks.get(id).virtual;
 
@@ -108,7 +111,9 @@ function readUrl() {
     if (only.length) ix.skip = new Set(currentDeckIds().filter(id => !only.includes(id)));
     ix.match = q.get("match") === "every" ? "every" : "any";
     const tri = v => v === "1" || v === "only" ? "only" : v === "none" ? "none" : "";
-    ix.commanders = tri(q.get("cmd")); ix.proxies = tri(q.get("proxied"));
+    ix.commanders = tri(q.get("cmd")); ix.proxies = tri(q.get("proxied")); ix.gc = tri(q.get("gc"));
+    const bound = v => v == null || v === "" || isNaN(+v) ? null : +v;
+    ix.pmin = bound(q.get("min")); ix.pmax = bound(q.get("max"));
     if (slug === "proxies") {   // the old Proxies tab
       ix.proxies = "only";
       if (q.get("lands") === "no") ix.types.set("Land", "out");
@@ -123,7 +128,7 @@ function readUrl() {
   $("deckSortSel").value = deckSort.k;
   document.querySelectorAll(".ix-store").forEach(c => c.checked = ix.stores.has(c.value));
   $("ixSearch").value = ix.search; $("ixSubtype").value = ix.subtype; $("ixSets").value = ix.sets.join(" ");
-  $("ixCommanders").value = ix.commanders; $("ixProxies").value = ix.proxies;
+  $("ixPmin").value = ix.pmin ?? ""; $("ixPmax").value = ix.pmax ?? "";
   lastNav = view + "|" + (view === "pricesView" ? selected : "");
 }
 

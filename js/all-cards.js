@@ -9,12 +9,15 @@
 //   subtype / sets        space- or comma-separated terms; a leading "-" excludes that term
 //   skip                  decks left out (every deck starts checked); only checked decks' copies count
 //   match                 "every": with two or more checked decks, only cards in all of them
-//   commanders            "" (either), "only", or "none"
+//   commanders / gc       "" (either), "only", or "none" (gc = Game Changers)
+//   pmin / pmax           price per copy (cheapest compared store), null = no bound
 //   proxies               "" (all copies), "only" (proxy copies only), "none" (paper copies only)
 // Like the set and deck filters, the proxy filter limits which copies count, so copies,
 // prices and totals always describe exactly the copies shown.
 const ix = { search: "", colors: new Map(), types: new Map(), subtype: "", sets: [], skip: new Set(), match: "any",
-  commanders: "", proxies: "", stores: new Set(["tcg", "ck"]), layout: "table" };
+  commanders: "", gc: "", pmin: null, pmax: null, proxies: "", stores: new Set(["tcg", "ck"]), layout: "table" };
+// Game Changers, from the cards behind each deck's bracket on Archidekt
+const gameChangers = () => new Set([...deckMeta.values()].flatMap(m => (m.game_changers || "").split(" | ").filter(Boolean)));
 let ixSort = { k: "qty", dir: -1 };   // most copies first
 const STORE_KEYS = { tcg: "price_tcgplayer", ck: "price_cardkingdom", cm: "price_cardmarket" };
 const currentDeckIds = () => realDecks().filter(d => !isStale(d)).map(d => d.id);
@@ -33,6 +36,7 @@ const splitTerms = text => {
   return { yes, no };
 };
 
+let gcSet = new Set();
 // Front face only, so a spell // land card (e.g. a modal double-faced card) still counts as a spell
 const isLand = name => /\bLand\b/.test((cardInfo.get(name)?.type_line || "").split(" // ")[0].split(" — ")[0]);
 
@@ -131,6 +135,9 @@ function ixMatches(c) {
   if (ix.match === "every" && n > 1 && c.perDeck.size < n) return false;
   if (ix.commanders === "only" && !c.commander) return false;
   if (ix.commanders === "none" && c.commander) return false;
+  if (ix.gc) { const g = gcSet.has(c.name); if (ix.gc === "only" ? !g : g) return false; }
+  if (ix.pmin != null && !(c.best >= ix.pmin)) return false;
+  if (ix.pmax != null && !(c.best <= ix.pmax)) return false;
   return true;
 }
 const pipsHtml = id => id == null ? `<span class="muted">?</span>` :
@@ -186,6 +193,7 @@ function renderIndex() {
       title="${COLOR_NAMES[k]}${st === "in" ? " (included)" : st === "out" ? " (excluded)" : ""}. Click to include, again to exclude."><span class="pip ${k}">${k}</span></button>`;
   }).join("");
 
+  gcSet = gameChangers(); syncSegs();
   const list = sortBy(indexCards().filter(ixMatches), ixSort);
   const copies = list.reduce((s, c) => s + c.qty, 0), mix = list.reduce((s, c) => s + c.mix, 0);
   const deckCount = new Set(list.flatMap(c => [...c.perDeck.keys()])).size;
@@ -273,8 +281,14 @@ $("overlapGrid").addEventListener("click", e => {
 
 $("ixSearch").addEventListener("input", e => { ix.search = e.target.value.trim().toLowerCase(); renderIndex(); });
 $("ixSubtype").addEventListener("input", e => { ix.subtype = e.target.value.trim().toLowerCase(); renderIndex(); });
-$("ixCommanders").addEventListener("change", e => { ix.commanders = e.target.value; renderIndex(); });
-$("ixProxies").addEventListener("change", e => { ix.proxies = e.target.value; renderIndex(); });
+// either/or switches: Copies (proxies), Commanders, Game Changers
+const SEGS = { ixProxies: "proxies", ixCommanders: "commanders", ixGC: "gc" };
+for (const [id, key] of Object.entries(SEGS))
+  $(id).addEventListener("click", e => { const b = e.target.closest("button[data-v]"); if (b) { ix[key] = b.dataset.v; renderIndex(); } });
+const syncSegs = () => { for (const [id, key] of Object.entries(SEGS)) $(id).querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === ix[key]))); };
+const readPrice = el => { const v = el.value.trim(); return v === "" || isNaN(+v) ? null : +v; };
+for (const [id, key] of [["ixPmin", "pmin"], ["ixPmax", "pmax"]])
+  $(id).addEventListener("input", e => { ix[key] = readPrice(e.target); renderIndex(); });
 $("ixDeckDD").addEventListener("change", e => {
   const v = e.target.value;
   if (e.target.id === "ixMatch") ix.match = v;
@@ -304,12 +318,13 @@ const parseSets = text => text.toUpperCase().split(/[\s,;]+/).map(x => x.replace
 $("ixSets").addEventListener("input", e => { ix.sets = parseSets(e.target.value); renderIndex(); });
 $("ixSortSel").addEventListener("change", e => { readSort(e.target.value, ixSort); renderIndex(); });
 // Anything narrowing the list (sort, stores and layout aren't filters)
-const filtersActive = () => !!(ix.search || ix.subtype || ix.sets.length || ix.commanders || ix.proxies || ix.match !== "any" ||
+const filtersActive = () => !!(ix.search || ix.subtype || ix.sets.length || ix.commanders || ix.gc || ix.proxies || ix.match !== "any" ||
+  ix.pmin != null || ix.pmax != null ||
   ix.colors.size || ix.types.size || ix.skip.size);
 $("ixClear").addEventListener("click", () => {
-  Object.assign(ix, { search: "", subtype: "", sets: [], commanders: "", proxies: "", match: "any" });
+  Object.assign(ix, { search: "", subtype: "", sets: [], commanders: "", gc: "", pmin: null, pmax: null, proxies: "", match: "any" });
   ix.colors.clear(); ix.types.clear(); ix.skip.clear();
-  $("ixSearch").value = $("ixSubtype").value = $("ixSets").value = ""; $("ixCommanders").value = $("ixProxies").value = ""; renderIndex();
+  $("ixSearch").value = $("ixSubtype").value = $("ixSets").value = $("ixPmin").value = $("ixPmax").value = ""; renderIndex();
 });
 // close open dropdowns on outside clicks; composedPath() still knows where the click
 // started even if that element was just redrawn

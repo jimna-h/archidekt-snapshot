@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=684cc358">
+<link rel="stylesheet" href="css/style.css?v=d8056228">
 </head>
 <body>
 <main>
@@ -59,42 +59,43 @@
   <section id="indexView" hidden>
     <div class="ix-bar">
       <div class="proxy-summary" id="ixSummary"></div>
-      <div class="filters ix-filters" title="Click a color or type twice, or put a minus before a word, to leave it out">
-        <input type="search" id="ixSearch" placeholder="Card name, e.g. bolt -lightning" aria-label="Search all decks by card name">
-        <div class="ctoggles" id="ixColors"></div>
-        <details class="dd" id="ixTypeDD"><summary>Type <span class="count-badge" hidden></span></summary><div class="panel"></div></details>
-        <input type="text" id="ixSubtype" placeholder="Subtypes, e.g. Elf -Druid" aria-label="Subtypes">
-        <input type="text" id="ixSets" placeholder="Sets, e.g. MH -SLD" title="Set codes; a prefix like MH matches MH1, MH2 and MH3" aria-label="Set codes" autocomplete="off" spellcheck="false">
-      </div>
-      <div class="filters ix-filters">
-        <details class="dd" id="ixDeckDD"><summary>Decks <span class="count-badge"></span></summary><div class="panel"></div></details>
-        <select id="ixProxies" aria-label="Proxies">
-          <option value="">Proxies and paper</option>
-          <option value="only">Proxies only</option>
-          <option value="none">Paper only</option>
-        </select>
-        <select id="ixCommanders" aria-label="Commanders">
-          <option value="">Commanders or not</option>
-          <option value="only">Commanders only</option>
-          <option value="none">Not commanders</option>
-        </select>
-        <button class="toggle" id="ixLands" aria-pressed="false">Exclude lands</button>
+      <div class="fsearch">
+        <input type="search" id="ixSearch" placeholder="Search card names, e.g. bolt -lightning" aria-label="Search all decks by card name">
         <button class="toggle" id="ixClear">Reset filters</button>
       </div>
-      <div class="filters ix-filters">
-        <select id="ixSortSel" aria-label="Sort">
-          <option value="-qty">Most copies</option>
-          <option value="-decks">Most decks</option>
-          <option value="best">Cheapest first</option>
-          <option value="-best">Priciest first</option>
-          <option value="mv">Mana value</option>
-          <option value="name">Name</option>
-          <option value="" disabled hidden>Sorted by column</option>
-        </select>
-        <span class="filter-label">Compare stores</span>
-        <label class="check"><input type="checkbox" class="ix-store" value="tcg" checked> TCGplayer</label>
-        <label class="check"><input type="checkbox" class="ix-store" value="ck" checked> Card Kingdom</label>
-        <label class="check" title="European store; prices may not be in dollars"><input type="checkbox" class="ix-store" value="cm"> Cardmarket</label>
+      <div class="fgrid" title="Click a color or type twice, or put a minus before a word, to leave it out">
+        <div class="fld"><span class="flabel">Colors</span><div class="ctoggles" id="ixColors"></div></div>
+        <div class="fld"><span class="flabel">Type</span>
+          <div class="frow"><details class="dd" id="ixTypeDD"><summary>Types <span class="count-badge" hidden></span></summary><div class="panel"></div></details>
+            <button class="toggle" id="ixLands" aria-pressed="false">Exclude lands</button></div></div>
+        <label class="fld"><span class="flabel">Subtypes</span><input type="text" id="ixSubtype" placeholder="e.g. Elf -Druid"></label>
+        <label class="fld"><span class="flabel">Sets</span><input type="text" id="ixSets" placeholder="e.g. MH -SLD" title="Set codes; a prefix like MH matches MH1, MH2 and MH3" autocomplete="off" spellcheck="false"></label>
+        <div class="fld"><span class="flabel">Price per copy</span>
+          <div class="frow price"><input type="number" id="ixPmin" min="0" step="any" inputmode="decimal" placeholder="$ min" aria-label="Minimum price per copy">
+            <span class="muted">to</span><input type="number" id="ixPmax" min="0" step="any" inputmode="decimal" placeholder="$ max" aria-label="Maximum price per copy"></div></div>
+        <div class="fld"><span class="flabel">Decks</span><details class="dd" id="ixDeckDD"><summary>Decks <span class="count-badge"></span></summary><div class="panel"></div></details></div>
+        <div class="fld"><span class="flabel">Copies</span><div class="seg" id="ixProxies" role="group" aria-label="Proxies or paper">
+          <button data-v="">All</button><button data-v="only">Proxies</button><button data-v="none">Paper</button></div></div>
+        <div class="fld"><span class="flabel">Commanders</span><div class="seg" id="ixCommanders" role="group" aria-label="Commanders">
+          <button data-v="">Any</button><button data-v="only">Only</button><button data-v="none">None</button></div></div>
+        <div class="fld"><span class="flabel">Game Changers</span><div class="seg" id="ixGC" role="group" aria-label="Game Changers">
+          <button data-v="">Any</button><button data-v="only">Only</button><button data-v="none">None</button></div></div>
+      </div>
+      <div class="viewbar">
+        <label class="vfld"><span class="flabel">Sort</span>
+          <select id="ixSortSel">
+            <option value="-qty">Most copies</option>
+            <option value="-decks">Most decks</option>
+            <option value="best">Cheapest first</option>
+            <option value="-best">Priciest first</option>
+            <option value="mv">Mana value</option>
+            <option value="name">Name</option>
+            <option value="" disabled hidden>Sorted by column</option>
+          </select></label>
+        <div class="vfld"><span class="flabel">Compare stores</span>
+          <label class="check"><input type="checkbox" class="ix-store" value="tcg" checked> TCGplayer</label>
+          <label class="check"><input type="checkbox" class="ix-store" value="ck" checked> Card Kingdom</label>
+          <label class="check" title="European store; prices may not be in dollars"><input type="checkbox" class="ix-store" value="cm"> Cardmarket</label></div>
         <div class="seg px-layout" id="ixLayout" role="group" aria-label="Layout">
           <button data-l="table" aria-pressed="true">Table</button>
           <button data-l="grid" aria-pressed="false">Grid</button>
@@ -245,8 +246,8 @@
 <script src="vendor/html-to-image.js?v=07c8b1ff"></script>
 <script src="js/core.js?v=bb689255"></script>
 <script src="js/decks.js?v=27be0724"></script>
-<script src="js/all-cards.js?v=95aa5b7d"></script>
+<script src="js/all-cards.js?v=9f8b61e7"></script>
 <script src="js/deck-cards.js?v=dbd2883a"></script>
-<script src="js/app.js?v=2872a0fb"></script>
+<script src="js/app.js?v=125b31b0"></script>
 </body>
 </html>
