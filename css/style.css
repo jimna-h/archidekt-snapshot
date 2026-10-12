@@ -462,3 +462,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 button.ghost.share { display: inline-flex; align-items: center; gap: 5px; }
 button.ghost.share svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-top: -2px; }
 button.ghost.share span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--axis); }
+/* Reset filters: light red, darker on hover; faded when there's nothing to reset */
+#ixClear { color: var(--down); border-color: color-mix(in oklab, var(--down) 45%, transparent); background: color-mix(in oklab, var(--down) 10%, var(--surface)); }
+#ixClear:hover:not(:disabled) { color: var(--surface); border-color: var(--down); background: var(--down); }
+#ixClear:disabled { color: var(--text-muted); border-color: var(--border); background: var(--surface); }
