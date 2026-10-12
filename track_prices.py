@@ -26,6 +26,7 @@ Only public folders/decks can be read, since no login is used.
 """
 
 import csv
+from collections import Counter
 import glob
 import os
 import shutil
@@ -86,7 +87,9 @@ DECKLIST_FIELDNAMES = ["date", "deck_id", "card_name", "set_code", "finish", "pr
 CARD_PRICE_FIELDNAMES = ["date", "card_name", "set_code", "finish", *PRICE_SOURCES.values()]
 CARD_FIELDNAMES = ["card_name", "type_line", "mana_value", "color_identity"]
 # token_id groups identical tokens across sets (Scryfall's oracle id); image_id is one printing
-TOKEN_FIELDNAMES = ["card_name", "token_id", "token_name", "type_line", "power", "toughness", "colors", "text", "image_id"]
+# Rows with a card_name: a card that makes the token. Rows with a deck_id instead: the token is
+# listed in that deck's token category ("Tokens & Extras").
+TOKEN_FIELDNAMES = ["card_name", "deck_id", "token_id", "token_name", "type_line", "power", "toughness", "colors", "text", "image_id"]
 COLOR_CODES = {"white": "W", "blue": "U", "black": "B", "red": "R", "green": "G"}
 
 session = Session()
@@ -285,6 +288,10 @@ def order_by_featured(deck, commanders):
             return
 
 
+# deck id -> Scryfall printing ids listed in that deck's token category (filled by fetch_deck)
+deck_extras = {}
+
+
 def fetch_deck(deck_id, today):
     """Returns (deck name, commander names, card rows, card info, profile) for one deck."""
     response = get(f"{API}/decks/{deck_id}/")
@@ -305,6 +312,12 @@ def fetch_deck(deck_id, today):
     for entry in deck.get("cards", []):
         # A card's primary category is the first one listed; uncategorized cards count.
         categories = entry.get("categories") or []
+        if categories and "token" in categories[0].lower():
+            # a "Tokens & Extras" style category: the token printings this deck uses
+            uid = (entry.get("card") or {}).get("uid")
+            if uid:
+                deck_extras.setdefault(deck_id, []).append(uid)
+            continue  # tokens aren't cards in the deck, even if the category counts toward it
         if categories and categories[0] in excluded:
             continue
         included.append(entry)
@@ -497,8 +510,10 @@ def makes_token(part):
 
 
 def write_tokens(rows):
-    """Which tokens each card in today's decks makes, from Scryfall's related cards. If Scryfall
-    can't be reached the previous file is kept."""
+    """Which tokens each card in today's decks makes, from Scryfall's related cards, plus the
+    tokens each deck lists in its token category. A token's picture is the printing listed in
+    the most decks' token categories (else Scryfall's default). If Scryfall can't be reached
+    the previous file is kept."""
     printing = {}
     for row in rows:
         if row.get("scryfall_id") and row["card_name"] not in printing:
@@ -510,7 +525,8 @@ def write_tokens(rows):
             ids = [p["id"] for p in card.get("all_parts") or [] if makes_token(p) and p.get("id") != card.get("id")]
             if ids and card.get("id") in name_of:
                 makes[name_of[card["id"]]] = ids
-        details = {t["id"]: t for t in scryfall_collection(sorted({i for ids in makes.values() for i in ids}))}
+        wanted = {i for ids in makes.values() for i in ids} | {i for ids in deck_extras.values() for i in ids}
+        details = {t["id"]: t for t in scryfall_collection(sorted(wanted))}
     except Exception as error:  # tokens are a bonus; never fail the snapshot over them
         print(f"  tokens: skipped ({error})")
         return
@@ -519,23 +535,40 @@ def write_tokens(rows):
         faces = token.get("card_faces") or [{}]
         return token.get(key) if token.get(key) not in (None, "") else faces[0].get(key, "")
 
+    def describe(token):
+        return {
+            "token_id": face(token, "oracle_id") or token["id"],
+            "token_name": token.get("name", ""), "type_line": face(token, "type_line"),
+            "power": face(token, "power"), "toughness": face(token, "toughness"),
+            "colors": "".join(c for c in "WUBRG" if c in (face(token, "colors") or [])),
+            "text": face(token, "oracle_text").replace("\n", " / "),
+            "image_id": token["id"],
+        }
+
+    # the printing each token uses: whichever is listed in the most decks' token categories
+    votes = {}
+    for deck_id, ids in deck_extras.items():
+        for pid in set(ids):
+            if pid in details:
+                votes.setdefault(describe(details[pid])["token_id"], Counter())[pid] += 1
+    favorite = {tid: counts.most_common(1)[0][0] for tid, counts in votes.items()}
+
     out = {}
     for card_name, ids in makes.items():
-        for token_printing in ids:
-            token = details.get(token_printing)
-            if not token:
-                continue
-            token_id = face(token, "oracle_id") or token["id"]
-            out[(card_name, token_id)] = {
-                "card_name": card_name, "token_id": token_id,
-                "token_name": token.get("name", ""), "type_line": face(token, "type_line"),
-                "power": face(token, "power"), "toughness": face(token, "toughness"),
-                "colors": "".join(c for c in "WUBRG" if c in (face(token, "colors") or [])),
-                "text": face(token, "oracle_text").replace("\n", " / "),
-                "image_id": token["id"],
-            }
-    write_csv(TOKENS_PATH, TOKEN_FIELDNAMES, sorted(out.values(), key=lambda r: (r["token_name"], r["card_name"])))
-    print(f"  tokens: {len({k[1] for k in out})} kinds made by {len(makes)} cards")
+        for pid in ids:
+            if pid in details:
+                info = describe(details[pid])
+                out[(card_name, "", info["token_id"])] = {"card_name": card_name, "deck_id": "", **info}
+    for deck_id, ids in deck_extras.items():
+        for pid in ids:
+            if pid in details:
+                info = describe(details[pid])
+                out[("", deck_id, info["token_id"])] = {"card_name": "", "deck_id": deck_id, **info}
+    for row in out.values():
+        row["image_id"] = favorite.get(row["token_id"], row["image_id"])
+    write_csv(TOKENS_PATH, TOKEN_FIELDNAMES, sorted(out.values(), key=lambda r: (r["token_name"], r["card_name"], r["deck_id"])))
+    print(f"  tokens: {len({k[2] for k in out})} kinds, made by {len(makes)} cards; "
+          f"{sum(map(len, deck_extras.values()))} listed in {len(deck_extras)} decks' token categories")
 
 
 def write_card_info(infos):

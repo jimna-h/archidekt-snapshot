@@ -7,17 +7,31 @@ const tk = { search: "", colors: new Map(), types: new Map(), skip: new Set(), l
 let tkSort = { k: "decks", dir: -1 };
 const TOKEN_TYPES = ["Creature", "Artifact", "Enchantment", "Land", "Emblem", "Dungeon"];
 
+// Rows either name a card that makes the token, or a deck that lists the token in its
+// "Tokens & Extras" category (which also picks the token's picture; see track_prices.py).
 function tokenList() {
-  const byCard = new Map();
-  for (const t of tokenRows) (byCard.get(t.card_name) || byCard.set(t.card_name, []).get(t.card_name)).push(t);
+  const byCard = new Map(), byDeck = new Map();
+  for (const t of tokenRows) {
+    const [map, key] = t.card_name ? [byCard, t.card_name] : [byDeck, t.deck_id];
+    (map.get(key) || map.set(key, []).get(key)).push(t);
+  }
   const tokens = new Map();
+  const entry = t => {
+    let e = tokens.get(t.token_id);
+    if (!e) tokens.set(t.token_id, e = { ...t, name: t.token_name, type: t.type_line, id: t.image_id,
+      types: t.type_line.split(" — ")[0].split(" "), color: t.colors, makers: new Map(), listedIn: new Set(), perDeck: new Map() });
+    return e;
+  };
   for (const d of realDecks()) {
     if (isStale(d) || tk.skip.has(d.id)) continue;
     for (const name of new Set(d.rows.map(r => r.card_name))) for (const t of byCard.get(name) || []) {
-      let e = tokens.get(t.token_id);
-      if (!e) tokens.set(t.token_id, e = { ...t, name: t.token_name, type: t.type_line, id: t.image_id,
-        types: t.type_line.split(" — ")[0].split(" "), color: t.colors, makers: new Map(), perDeck: new Map() });
+      const e = entry(t);
       (e.makers.get(name) || e.makers.set(name, new Set()).get(name)).add(d.id);
+      e.perDeck.set(d.id, { qty: 1, cmd: false, proxy: false });
+    }
+    for (const t of byDeck.get(d.id) || []) {
+      const e = entry(t);
+      e.listedIn.add(d.id);
       e.perDeck.set(d.id, { qty: 1, cmd: false, proxy: false });
     }
   }
@@ -54,7 +68,9 @@ const ptText = t => t.power !== "" || t.toughness !== "" ? `${t.power}/${t.tough
 const tokenTitle = t => `<span class="card-name">${esc(t.name)}</span>${ptText(t) ? ` <span class="pt">${esc(ptText(t))}</span>` : ""}`;
 // "{T}" style symbols stay as text; " / " separates lines
 const tokenText = t => esc(t.text || "").replace(/ \/ /g, "<br>");
-const makersHtml = t => [...t.makers.keys()].sort((a, b) => a.localeCompare(b)).map(n => `<span class="maker">${esc(n)}</span>`).join(", ");
+const makersHtml = t => t.makers.size
+  ? [...t.makers.keys()].sort((a, b) => a.localeCompare(b)).map(n => `<span class="maker">${esc(n)}</span>`).join(", ")
+  : `<span class="muted">Listed with the deck's tokens</span>`;
 const tokenChips = t => `<div class="where">${deckChips(t).map(({ name }) => `<span class="dchip">${esc(name)}</span>`).join("")}</div>`;
 
 function renderTokens() {
@@ -97,7 +113,7 @@ function renderTokens() {
         <h4>${tokenTitle(t)}</h4>
         <div class="ftype">${esc(t.type)}</div>
         ${t.text ? `<div class="tk-text">${tokenText(t)}</div>` : ""}
-        <div class="tk-made"><span class="flabel">Made by</span> ${makersHtml(t)}</div>
+        <div class="tk-made">${t.makers.size ? `<span class="flabel">Made by</span> ` : ""}${makersHtml(t)}</div>
         ${tokenChips(t)}
       </div>
     </article>`).join("") || empty;
