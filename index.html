@@ -3,12 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Snapshot">
+<meta name="theme-color" content="#eef0f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
 <title>Archidekt Snapshot</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M11.58%2014.73L7.18%203.86A15%2015%200%200%201%2024.82%203.86L15.84%2011.40Z%22%20fill%3D%22%23f2e8c9%22/%3E%3Cpath%20d%3D%22M15.84%2011.40L24.82%203.86A15%2015%200%200%201%2030.27%2020.64L20.32%2014.43Z%22%20fill%3D%22%233d8fd1%22/%3E%3Cpath%20d%3D%22M20.32%2014.43L30.27%2020.64A15%2015%200%200%201%2016.00%2031.00L18.83%2019.62Z%22%20fill%3D%22%233b3733%22/%3E%3Cpath%20d%3D%22M18.83%2019.62L16.00%2031.00A15%2015%200%200%201%201.73%2020.64L13.43%2019.81Z%22%20fill%3D%22%23d9533b%22/%3E%3Cpath%20d%3D%22M13.43%2019.81L1.73%2020.64A15%2015%200%200%201%207.18%203.86L11.58%2014.73Z%22%20fill%3D%22%232f8a52%22/%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2215%22%20fill%3D%22none%22%20stroke%3D%22%2315171c%22%20stroke-opacity%3D%22.18%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=d8056228">
+<link rel="stylesheet" href="css/style.css?v=4fe10c97">
 </head>
 <body>
 <main>
@@ -38,7 +43,7 @@
     <a class="ghost" id="folderLink" target="_blank" rel="noopener" hidden title="Opens the tracked folder on Archidekt">Archidekt folder ↗</a>
     <a class="ghost" id="hqLink" target="_blank" rel="noopener" hidden
        title="Opens EDH Hipster Quotient with every current deck's commanders filled in">Hipster Quotient ↗</a>
-    <button class="ghost" id="copyLink" title="Copies a link to exactly what you're looking at, filters included">Copy link</button>
+    <button class="ghost share" id="copyLink" title="Share a link to exactly what you're looking at, filters included"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0L7.5 7.5M12 3l4.5 4.5M8 11H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2"/></svg><span>Share</span></button>
   </div>
   </div>
 
@@ -244,10 +249,10 @@
 
 <script src="vendor/qrcode.js?v=18ae399f"></script>
 <script src="vendor/html-to-image.js?v=07c8b1ff"></script>
-<script src="js/core.js?v=bb689255"></script>
+<script src="js/core.js?v=daab0254"></script>
 <script src="js/decks.js?v=27be0724"></script>
 <script src="js/all-cards.js?v=9f8b61e7"></script>
 <script src="js/deck-cards.js?v=dbd2883a"></script>
-<script src="js/app.js?v=125b31b0"></script>
+<script src="js/app.js?v=8770d8dc"></script>
 </body>
 </html>

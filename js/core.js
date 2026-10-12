@@ -131,7 +131,12 @@ async function start() {
   await Promise.all([loadMonth(monthOf(latestDate)), loadMonth(prevMonth(latestDate))]);
 
   const current = realDecks().filter(d => !isStale(d)).length;
-  $("subtitle").textContent = `${current} deck${current === 1 ? "" : "s"} · updated ${fmtDate(latestDate)}` +
+  // whose collection this is (the Archidekt owner of most of the decks), for anyone opening a shared link
+  const owners = new Map();
+  for (const m of deckMeta.values()) if (m.owner) owners.set(m.owner, (owners.get(m.owner) || 0) + 1);
+  const owner = [...owners].sort((a, b) => b[1] - a[1])[0]?.[0];
+  if (owner) document.title = `${owner}'s decks · Archidekt Snapshot`;
+  $("subtitle").textContent = (owner ? `${owner}'s ` : "") + `${current} deck${current === 1 ? "" : "s"} · updated ${fmtDate(latestDate)}` +
     (dates.length > 1 ? ` · tracked since ${fmtDate(dates[0])}` : "");
   $("tabs").hidden = false;
   setHipsterLink();

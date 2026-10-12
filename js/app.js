@@ -139,12 +139,20 @@ function applyUrl() {
 }
 addEventListener("popstate", () => { urlReady = false; applyUrl(); urlReady = true; });
 
+// Share: the phone's share sheet where there is one, otherwise copy the link
 $("copyLink").addEventListener("click", async () => {
-  const btn = $("copyLink"), link = location.href;
-  try { await navigator.clipboard.writeText(link); btn.textContent = "Link copied"; }
+  const label = $("copyLink").querySelector("span"), link = location.href;
+  if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+    try { await navigator.share({ title: document.title, url: link }); } catch {}
+    return;
+  }
+  try { await navigator.clipboard.writeText(link); label.textContent = "Link copied"; }
   catch { prompt("Copy this link:", link); }
-  setTimeout(() => btn.textContent = "Copy link", 1600);
+  setTimeout(() => label.textContent = "Share", 1600);
 });
+
+// home-screen app support (see sw.js)
+if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
 
 // ---------- events ----------
 function sortClick(table, getState, after) {

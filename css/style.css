@@ -459,3 +459,6 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
 }
 input[type=number] { -moz-appearance: textfield; }
 input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+button.ghost.share { display: inline-flex; align-items: center; gap: 5px; }
+button.ghost.share svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-top: -2px; }
+button.ghost.share span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--axis); }
