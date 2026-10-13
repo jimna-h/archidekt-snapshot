@@ -180,9 +180,13 @@ $("copyLink").addEventListener("click", async () => {
 // needs a GitHub login). Meanwhile this page watches the repo's public run list and reloads once
 // the snapshot has finished and the site has been republished with the new data. The watch is
 // remembered for the session, so it carries on if the browser reloads this tab in the meantime.
-const SITE = (() => {   // <owner>.github.io/<repo>/
-  const m = location.hostname.match(/^([^.]+)\.github\.io$/), repo = location.pathname.split("/").filter(Boolean)[0];
-  return m && repo ? { owner: m[1], repo } : null;
+// The repo comes from the site's own address, so copies made from the template point at their own
+// repo: <owner>.github.io/<repo>/, or a repo named <owner>.github.io served at the root address.
+const SITE = (() => {
+  const m = location.hostname.match(/^([^.]+)\.github\.io$/);
+  if (!m) return null;   // e.g. opened locally or on a custom domain: no Sync button
+  const first = location.pathname.split("/").filter(Boolean)[0];
+  return { owner: m[1], repo: first && !first.includes(".") ? first : `${m[1]}.github.io` };
 })();
 const SYNC_KEY = "snapshot-sync";
 function syncLabel(text, busy) {
