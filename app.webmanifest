@@ -2,7 +2,7 @@
   "name": "Archidekt Snapshot",
   "short_name": "Snapshot",
   "description": "Daily prices, history and cards for an Archidekt folder of Commander decks.",
-  "id": "archidekt-snapshot",
+  "id": "archidekt-snapshot-app",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
