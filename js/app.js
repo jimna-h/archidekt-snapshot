@@ -175,6 +175,63 @@ $("copyLink").addEventListener("click", async () => {
   setTimeout(() => label.textContent = "Share", 1600);
 });
 
+// ---------- sync ----------
+// Sync opens GitHub's "Run workflow" page for the daily snapshot in a new tab (starting it there
+// needs a GitHub login). Meanwhile this page watches the repo's public run list and reloads once
+// the snapshot has finished and the site has been republished with the new data. The watch is
+// remembered for the session, so it carries on if the browser reloads this tab in the meantime.
+const SITE = (() => {   // <owner>.github.io/<repo>/
+  const m = location.hostname.match(/^([^.]+)\.github\.io$/), repo = location.pathname.split("/").filter(Boolean)[0];
+  return m && repo ? { owner: m[1], repo } : null;
+})();
+const SYNC_KEY = "snapshot-sync";
+function syncLabel(text, busy) {
+  $("syncBtn").querySelector("span").textContent = text;
+  $("syncBtn").classList.toggle("busy", !!busy);
+}
+async function watchSync(since) {
+  const api = `https://api.github.com/repos/${SITE.owner}/${SITE.repo}/actions/runs?per_page=10`;
+  const giveUp = since + 15 * 60 * 1000;
+  let snapshot = null;
+  const done = text => { try { sessionStorage.removeItem(SYNC_KEY); } catch {} syncLabel(text); setTimeout(() => syncLabel("Sync"), 6000); };
+  while (Date.now() < giveUp) {
+    let runs = [];
+    try { runs = (await (await fetch(api, { cache: "no-store" })).json()).workflow_runs || []; } catch {}
+    const after = (r, t) => Date.parse(r.created_at) >= t;
+    if (!snapshot) {
+      snapshot = runs.find(r => r.name === "Daily snapshot" && after(r, since - 60000)) || null;
+      syncLabel(snapshot ? "Syncing…" : "Waiting for run…", true);
+    }
+    if (snapshot) {
+      const now = runs.find(r => r.id === snapshot.id) || snapshot;
+      if (now.status === "completed") {
+        if (now.conclusion !== "success") return done("Sync failed");
+        // the snapshot commits new data, which republishes the site; wait for that to finish
+        const finished = Date.parse(now.updated_at);
+        const pages = runs.find(r => r.name === "pages build and deployment" && after(r, finished - 30000));
+        if (pages?.status === "completed") { try { sessionStorage.removeItem(SYNC_KEY); } catch {} return location.reload(); }
+        if (!pages && Date.now() - finished > 120000) return done("Up to date");   // nothing changed, so no republish
+        syncLabel("Publishing…", true);
+      } else syncLabel("Syncing…", true);
+    }
+    await new Promise(r => setTimeout(r, 15000));   // GitHub allows 60 unauthenticated checks an hour
+  }
+  done("Sync timed out");
+}
+if (SITE) {
+  $("syncBtn").hidden = false;
+  $("syncBtn").addEventListener("click", () => {
+    if ($("syncBtn").classList.contains("busy")) return;
+    const since = Date.now();
+    try { sessionStorage.setItem(SYNC_KEY, String(since)); } catch {}
+    open(`https://github.com/${SITE.owner}/${SITE.repo}/actions/workflows/daily-prices.yml`, "_blank", "noopener");
+    watchSync(since);
+  });
+  let pending = null;
+  try { pending = +sessionStorage.getItem(SYNC_KEY) || null; } catch {}
+  if (pending && Date.now() - pending < 15 * 60 * 1000) watchSync(pending);
+}
+
 // home-screen app support (see sw.js)
 if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
 

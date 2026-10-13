@@ -8,7 +8,7 @@ A GitHub Action that, once a day, snapshots every deck in one [Archidekt](https:
 - **Tokens**: every token and emblem your decks can make (from Scryfall's related cards), with which cards make it and which decks they're in. Token art comes from the tokens in each deck's "Tokens & Extras" category (the one Archidekt makes automatically): each token shows the artwork listed in the most decks. Filter by color, type and deck, see which tokens each pair of decks both makes, and view as a table, token images, or a full view with each token's picture, rules text and makers.
 - **Business cards**: a Magic-card-sized card for each deck (color-identity frame, commander art, bracket, Game Changers and a QR code to the deck), laid out to print nine to a letter page and sleeve with the deck, or download as a zip of 300 dpi PNGs, one per card.
 
-The page address always reflects the tab, deck and filters you have open, so you can bookmark or share any view (the Share button sends it).
+The page address always reflects the tab, deck and filters you have open, so you can bookmark or share any view (the Share button sends it). **Sync** takes a fresh snapshot on demand: it opens GitHub's Run workflow page (click Run workflow there), and the site reloads by itself once the new data is published, usually 2–3 minutes later.
 
 Turn on GitHub Pages (Settings → Pages → Deploy from a branch → `main`, `/ (root)`) to view it online.
 

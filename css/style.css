@@ -519,3 +519,12 @@ button.ghost.share span { text-decoration: underline; text-underline-offset: 3px
   #tokenTable td:nth-child(6)::before { content: "Made by "; color: var(--text-muted); }
   #tokenTable td.empty-row { grid-area: auto; grid-column: 1 / -1; }
 }
+#syncBtn.busy { color: var(--series-1); cursor: default; }
+#syncBtn.busy svg { animation: spin 1.2s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { #syncBtn.busy svg { animation: none; } }
+@media (max-width: 600px) {
+  .tablinks { gap: 2px 4px; }
+  .tablinks a.ghost, .tablinks button.ghost { padding: 6px 5px; font-size: 13px; }
+}
+@media (max-width: 380px) { .tablinks button.ghost.share span { display: none; } .tablinks button.ghost.share svg { width: 18px; height: 18px; } }
