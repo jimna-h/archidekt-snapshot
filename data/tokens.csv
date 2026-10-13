@@ -1,8 +1,5 @@
 card_name,deck_id,token_id,token_name,type_line,power,toughness,colors,text,image_id
-,4279849,ee946840-7b8f-4ce2-8e7e-704a9042e4aa,Ajani Resolute Emblem,Emblem,,,,Creatures you control get +2/+2.,595a628e-218b-4df2-8bd2-d84ad22d302f
-Ajani Resolute,,ee946840-7b8f-4ce2-8e7e-704a9042e4aa,Ajani Resolute Emblem,Emblem,,,,Creatures you control get +2/+2.,595a628e-218b-4df2-8bd2-d84ad22d302f
 ,4279849,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
-Ajani Resolute,,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
 "Ajani, Strength of the Pride",,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
 ,26722467,40c64f08-ab2f-4933-8e0e-d1a1c729008f,Angel,Token Creature — Angel,4,4,W,Flying,d41f6ac8-6aa3-45b8-8ab3-8c6065e842be
 Speaker of the Heavens,,40c64f08-ab2f-4933-8e0e-d1a1c729008f,Angel,Token Creature — Angel,4,4,W,Flying,d41f6ac8-6aa3-45b8-8ab3-8c6065e842be
@@ -37,9 +34,9 @@ Transmutation Font,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact —
 Darkstar Augur,,08887c45-02e5-40a3-b13f-5245a80938ff,Darkstar Augur,Token Creature — Bat Warlock,1,1,B,"Flying / At the beginning of your upkeep, reveal the top card of your library and put that card into your hand. You lose life equal to its mana value. / (This token's mana cost is {2}{B}.)",01b55966-0910-484d-9b2b-0a59233c44c4
 ,25536840,41014a6a-0f5b-48ae-8cb8-9a89f0f0180f,Eldrazi,Token Creature — Eldrazi,10,10,,,ce6d2786-ef9c-4772-bb71-697131c3c3a4
 Idol of Oblivion,,41014a6a-0f5b-48ae-8cb8-9a89f0f0180f,Eldrazi,Token Creature — Eldrazi,10,10,,,ce6d2786-ef9c-4772-bb71-697131c3c3a4
-,4279849,079c46cc-feb0-4998-8593-c8b739afdb82,Elephant,Token Creature — Elephant,3,3,G,,2853ba8b-650e-49e3-ab12-86b76e02743b
-,26722467,079c46cc-feb0-4998-8593-c8b739afdb82,Elephant,Token Creature — Elephant,3,3,G,,2853ba8b-650e-49e3-ab12-86b76e02743b
-Generous Gift,,079c46cc-feb0-4998-8593-c8b739afdb82,Elephant,Token Creature — Elephant,3,3,G,,2853ba8b-650e-49e3-ab12-86b76e02743b
+,4279849,079c46cc-feb0-4998-8593-c8b739afdb82,Elephant,Token Creature — Elephant,3,3,G,,f0a8841d-1d2d-429f-a14d-bb2251dbf898
+,26722467,079c46cc-feb0-4998-8593-c8b739afdb82,Elephant,Token Creature — Elephant,3,3,G,,f0a8841d-1d2d-429f-a14d-bb2251dbf898
+Generous Gift,,079c46cc-feb0-4998-8593-c8b739afdb82,Elephant,Token Creature — Elephant,3,3,G,,f0a8841d-1d2d-429f-a14d-bb2251dbf898
 ,5005670,521939c6-cf5a-4b92-874f-11f2889061d7,Faerie,Token Creature — Faerie,1,1,UB,Flying,01524db2-c96f-4902-8394-bc7a7128e573
 ,5005670,6004bdef-b952-40db-9113-921e6d6b8964,Faerie,Token Creature — Faerie,1,1,U,Flying / This creature can block only creatures with flying.,0f9a993f-1f2b-4b17-b415-e975b7873e18
 Bitterbloom Bearer,,521939c6-cf5a-4b92-874f-11f2889061d7,Faerie,Token Creature — Faerie,1,1,UB,Flying,01524db2-c96f-4902-8394-bc7a7128e573
