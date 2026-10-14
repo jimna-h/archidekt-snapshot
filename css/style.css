@@ -240,7 +240,7 @@ button.ghost:hover { color: var(--text-primary); }
 .dchip.proxy { border-style: dashed; border-color: var(--series-proxy); }
 #indexTable td { vertical-align: top; }
 /* fixed column widths, so sorting or filtering never reshuffles the layout */
-#indexTable { table-layout: fixed; min-width: 1240px; }
+#indexTable { table-layout: fixed; min-width: 1200px; }
 /* phone-only bits of the Cards table */
 #indexTable td.m-best, #indexTable .m-only { display: none; }
 #indexTable td { overflow-wrap: anywhere; }
