@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3ac039e5">
+<link rel="stylesheet" href="css/style.css?v=4e277732">
 </head>
 <body>
 <main>
@@ -160,6 +160,7 @@
           <option value="-decks">Most decks</option>
           <option value="best">Cheapest first</option>
           <option value="-best">Priciest first</option>
+          <option value="-bling">Most bling</option>
           <option value="mv">Mana value</option>
           <option value="name">Name</option>
           <option value="" disabled hidden>Sorted by column</option>
@@ -177,7 +178,7 @@
         <table id="indexTable">
           <colgroup>
             <col style="width:36px"><col style="width:16%"><col style="width:13%"><col style="width:40px">
-            <col style="width:72px"><col style="width:60px"><col style="width:86px"><col style="width:106px"><col style="width:92px">
+            <col style="width:72px"><col style="width:60px"><col style="width:56px"><col style="width:86px"><col style="width:106px"><col style="width:92px">
             <col style="width:84px"><col>
           </colgroup>
           <thead><tr>
@@ -187,6 +188,7 @@
             <th data-k="mv" class="num">MV</th>
             <th data-k="color">Color</th>
             <th data-k="qty" class="num">Copies</th>
+            <th data-k="bling" class="num" title="Bling of your real copies (0-100): how much pricier they are than the card's cheapest printing, how many are upgraded, and foils">Bling</th>
             <th data-k="tcg" class="num" title="Per copy, cheapest printing you play; cheapest compared store in bold">TCGplayer</th>
             <th data-k="ck" class="num" title="Per copy, cheapest printing you play; cheapest compared store in bold">Card Kingdom</th>
             <th data-k="cm" class="num" title="Per copy, cheapest printing you play; cheapest compared store in bold">Cardmarket</th>
@@ -310,9 +312,9 @@
 
 <script src="vendor/qrcode.js?v=18ae399f"></script>
 <script src="vendor/html-to-image.js?v=07c8b1ff"></script>
-<script src="js/core.js?v=e9ea87af"></script>
+<script src="js/core.js?v=5a6229cb"></script>
 <script src="js/decks.js?v=27be0724"></script>
-<script src="js/all-cards.js?v=2a0c8842"></script>
+<script src="js/all-cards.js?v=173970c0"></script>
 <script src="js/tokens.js?v=e745f64c"></script>
 <script src="js/deck-cards.js?v=0c66f7af"></script>
 <script src="js/app.js?v=2343908f"></script>

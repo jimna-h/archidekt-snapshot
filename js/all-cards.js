@@ -72,7 +72,8 @@ function indexCards() {
         byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: typesOf, subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
-          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, mix: 0, id: "", printings: new Set(), sets: new Map() });
+          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, mix: 0, id: "",
+          bl: { tcg: { value: 0, cheapest: 0, upgrades: 0 }, ck: { value: 0, cheapest: 0, upgrades: 0 }, cm: { value: 0, cheapest: 0, upgrades: 0 } }, realN: 0, foilN: 0, printings: new Set(), sets: new Map() });
       }
       c.qty += r.qty;
       c.printings.add(printKey(r));
@@ -87,6 +88,15 @@ function indexCards() {
       // each copy bought wherever it's cheapest among the compared stores
       const opts = [...ix.stores].map(s => priceIn(r, STORE_KEYS[s])).filter(p => p != null);
       if (opts.length) c.mix += Math.min(...opts) * r.qty;
+      // bling counts real copies only: their price vs the card's cheapest printing
+      if (!isProxy(r)) {
+        c.realN += r.qty; c.rowsHaveMin ||= r.tcg_min != null && r.tcg_min !== "" || r.ck_min != null && r.ck_min !== ""; if ((r.finish || "Normal") !== "Normal") c.foilN += r.qty;
+        for (const s of Object.keys(STORE_KEYS)) {
+          const v = priceIn(r, STORE_KEYS[s]) ?? 0, min = +r[`${s}_min`] || 0, b = c.bl[s];
+          b.value += v * r.qty; b.cheapest += (min ? Math.min(min, v) : v) * r.qty;
+          if (min && v > min + 0.005) b.upgrades += r.qty;
+        }
+      }
       const e = c.perDeck.get(d.id) || { qty: 0, cmd: false, proxy: false };
       e.qty += r.qty; e.cmd ||= cmds.has(r.card_name); e.proxy ||= isProxy(r);
       c.perDeck.set(d.id, e);
@@ -95,7 +105,10 @@ function indexCards() {
   }
   return [...byName.values()].map(c => {
     const [bestStore, best] = [...ix.stores].map(s => [s, c[s]]).filter(([, p]) => p != null).sort((a, b) => a[1] - b[1])[0] || [null, null];
-    return { ...c, decks: c.perDeck.size, bestStore, best, price: best, setList: [...c.sets.keys()].sort().join(", ") };
+    // card bling uses the first compared store (TCGplayer unless it's unticked)
+    const bs = ["tcg", "ck", "cm"].find(s => ix.stores.has(s)) || "tcg";
+    const bling = c.realN && c.rowsHaveMin ? blingFrom({ ...c.bl[bs], foils: c.foilN, real: c.realN })?.score ?? null : null;
+    return { ...c, decks: c.perDeck.size, bestStore, best, price: best, bling, setList: [...c.sets.keys()].sort().join(", ") };
   });
 }
 
@@ -250,12 +263,13 @@ function renderIndex() {
       <td class="num">${c.mv ?? "–"}</td>
       <td>${pipsHtml(c.color)}</td>
       <td class="num">${c.qty}</td>
+      <td class="num">${c.bling == null ? `<span class="muted">–</span>` : Math.round(c.bling)}</td>
       ${priceCell(c, "tcg")}${priceCell(c, "ck")}${priceCell(c, "cm")}
       <td class="sets-col"><span class="m-only">${copyText(c.qty)}</span> ${setsHtml(c)}</td>
       <td>${chipsHtml(c)}</td>
-      <td class="m-best"><b>${money(c.best)}</b><span>${c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></td>
+      <td class="m-best"><b>${money(c.best)}</b><span>${ixSort.k === "bling" && c.bling != null ? `Bling ${Math.round(c.bling)}` : c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></td>
     </tr>`).join("")
-    || `<tr><td colspan="11" class="muted empty-row">No cards match.</td></tr>`;
+    || `<tr><td colspan="12" class="muted empty-row">No cards match.</td></tr>`;
   $("ixGrid").innerHTML = layout !== "grid" ? "" : list.map(c => `
     <figure class="px-tile" title="${esc(c.name)}\n${esc(deckChips(c).map(({ name, e }) => name + (e.qty > 1 ? " ×" + e.qty : "")).join("\n"))}">
       <div class="px-img"><div class="ph">${esc(c.name)}</div>${cardImg(c)}${c.qty > 1 ? `<span class="px-qty">×${c.qty}</span>` : ""}</div>
@@ -267,7 +281,7 @@ function renderIndex() {
       <div class="fbody">
         <h4><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}${c.token ? ` <span class="badge">Token</span>` : ""}</h4>
         <div class="ftype">${esc(c.type || "–")}</div>
-        <div class="fmeta">${pipsHtml(c.color)}<span>MV ${c.mv ?? "–"}</span><span>${copyText(c.qty)}</span></div>
+        <div class="fmeta">${pipsHtml(c.color)}<span>MV ${c.mv ?? "–"}</span><span>${copyText(c.qty)}</span>${c.bling != null ? `<span>Bling ${Math.round(c.bling)}</span>` : ""}</div>
         <div class="fprices">${Object.keys(STORE_NAMES).map(s => `<div class="${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}" ${cheapestTip(c, s)}><span>${STORE_NAMES[s]}</span><b class="num">${money(c[s])}</b></div>`).join("")}</div>
         <div class="fsets">${setsHtml(c)}</div>
         ${chipsHtml(c)}

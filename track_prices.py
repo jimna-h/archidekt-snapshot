@@ -75,6 +75,9 @@ FIELDNAMES = [
     *PRICE_SOURCES.values(),
     "proxied",
     "scryfall_id",   # the exact printing, so the page can show the card image
+    # each card's cheapest printing at each store, for per-card bling (today only: this file is
+    # rewritten every day, and the history keeps just the per-deck totals)
+    "tcg_min", "ck_min", "cm_min",
 ]
 
 DECK_FIELDNAMES = ["deck_id", "deck_name", "commanders", "commander_ids", "first_seen", "last_seen",
@@ -320,8 +323,8 @@ def card_row(entry, deck_id, today):
     }
     for key, column in PRICE_SOURCES.items():
         row[column] = price(prices, key, foil)
-        # cheapest printing of this card at that store (not saved per card; only summed per deck)
-        row[f"_min_{key}"] = prices.get(f"{key}Minimum")
+        # cheapest printing of this card at that store
+        row[f"{key}_min"] = prices.get(f"{key}Minimum")
     return row
 
 
@@ -424,7 +427,7 @@ def write_totals(rows, today):
             t[f"{src}_{part}"] += value
             if part == "paper":
                 # the same card in its cheapest printing (never more than what this copy is worth)
-                cheapest = num(r.get(f"_min_{src}"))
+                cheapest = num(r.get(f"{src}_min"))
                 t[f"{src}_paper_min"] += min(cheapest, num(r[column])) * qty if cheapest else value
                 if cheapest and num(r[column]) > cheapest + 0.005:
                     t[f"{src}_upgraded"] += qty

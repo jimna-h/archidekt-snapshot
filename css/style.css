@@ -240,7 +240,7 @@ button.ghost:hover { color: var(--text-primary); }
 .dchip.proxy { border-style: dashed; border-color: var(--series-proxy); }
 #indexTable td { vertical-align: top; }
 /* fixed column widths, so sorting or filtering never reshuffles the layout */
-#indexTable { table-layout: fixed; min-width: 1180px; }
+#indexTable { table-layout: fixed; min-width: 1240px; }
 /* phone-only bits of the Cards table */
 #indexTable td.m-best, #indexTable .m-only { display: none; }
 #indexTable td { overflow-wrap: anywhere; }
@@ -448,13 +448,13 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   #indexTable td:nth-child(1) { grid-area: n; padding-top: 2px; }
   #indexTable td:nth-child(2) { grid-area: name; }
   #indexTable td:nth-child(3) { grid-area: type; font-size: 13px; color: var(--text-secondary); }
-  #indexTable td:nth-child(n+4):nth-child(-n+9) { display: none; }
-  #indexTable td:nth-child(10) { grid-area: sets; font-size: 13px; color: var(--text-secondary); }
-  #indexTable td:nth-child(10) .set-code { display: inline; font-size: 13px; }
-  #indexTable td:nth-child(10) .m-only::after { content: " ·"; color: var(--text-muted); }
-  #indexTable td:nth-child(10) .set-code:not(:last-child)::after { content: ","; color: var(--text-muted); font-weight: 400; }
-  #indexTable td:nth-child(11) { grid-area: where; margin-top: 3px; }
-  #indexTable td:nth-child(11) .dchip { font-size: 12px; line-height: 19px; }
+  #indexTable td:nth-child(n+4):nth-child(-n+10) { display: none; }
+  #indexTable td:nth-child(11) { grid-area: sets; font-size: 13px; color: var(--text-secondary); }
+  #indexTable td:nth-child(11) .set-code { display: inline; font-size: 13px; }
+  #indexTable td:nth-child(11) .m-only::after { content: " ·"; color: var(--text-muted); }
+  #indexTable td:nth-child(11) .set-code:not(:last-child)::after { content: ","; color: var(--text-muted); font-weight: 400; }
+  #indexTable td:nth-child(12) { grid-area: where; margin-top: 3px; }
+  #indexTable td:nth-child(12) .dchip { font-size: 12px; line-height: 19px; }
   #indexTable td.m-best { display: flex; grid-area: best; flex-direction: column; align-items: flex-end; text-align: right; }
   #indexTable td.m-best span { font-size: 12px; color: var(--text-muted); }
   #indexTable td.empty-row { grid-area: auto; grid-column: 1 / -1; }
