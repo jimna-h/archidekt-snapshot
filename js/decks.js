@@ -212,15 +212,25 @@ async function renderCards(d) {
   if (token !== cardsToken) return;
   const from = dayOnOrAfter(addDays(latestDate, -30));
   const q = $("search").value.trim().toLowerCase();
-  let list = rows.map(r => {
+  // one row per printing, with how many of its copies are proxies (the Paper/Proxied filter
+  // narrows each row to just those copies)
+  const byPrint = new Map();
+  for (const r of rows) {
+    let e = byPrint.get(printKey(r));
+    if (!e) byPrint.set(printKey(r), e = { r, qty: 0, proxies: 0 });
+    e.qty += r.qty;
+    if (isProxy(r)) e.proxies += r.qty;
+  }
+  let list = [...byPrint.values()].map(({ r, qty: all, proxies: px }) => {
+    const qty = tagFilter === "Proxied" ? px : tagFilter === "Paper" ? all - px : all;
+    const proxies = tagFilter === "Paper" ? 0 : px;
     const p = priceIn(r), then = !past && from && from !== latestDate ? priceOn(from, printKey(r)) : null;
     const info = cardInfo.get(r.card_name);
-    return { name: r.card_name, color: info?.color_identity ?? null, mv: info?.mana_value === "" || info?.mana_value == null ? null : +info.mana_value, set: r.set_code, finish: r.finish, qty: r.qty, tag: isProxy(r) ? "Proxied" : "Paper", proxy: isProxy(r),
-             price: p, total: p == null ? null : p * r.qty, d30: p != null && then != null ? (p - then) * r.qty : null,
-             // this printing's bling (proxies have none); past days use today's cheapest-printing prices
-             bling: isProxy(r) || !(p > 0) ? null : blingScore(copyBling(p, +r[`${src()}_min`] || cheapestToday().get(r.card_name) || 0, (r.finish || "Normal") !== "Normal"), 1) };
-  });
-  if (tagFilter) list = list.filter(c => c.tag === tagFilter);
+    return { name: r.card_name, color: info?.color_identity ?? null, mv: info?.mana_value === "" || info?.mana_value == null ? null : +info.mana_value, set: r.set_code, finish: r.finish,
+             qty, proxies, price: p, total: p == null ? null : p * qty, d30: p != null && then != null ? (p - then) * qty : null,
+             // this printing's bling, if any copy is real (proxies have none); past days use today's cheapest-printing prices
+             bling: qty - proxies <= 0 || !(p > 0) ? null : blingScore(copyBling(p, +r[`${src()}_min`] || cheapestToday().get(r.card_name) || 0, (r.finish || "Normal") !== "Normal"), 1) };
+  }).filter(c => c.qty > 0);
   if (q) list = list.filter(c => c.name.toLowerCase().includes(q));
   sortBy(list, cardSort);
   const label = tagFilter === "Proxied" ? "Proxied cards" : tagFilter === "Paper" ? "Paper cards" : "Cards";
@@ -229,7 +239,7 @@ async function renderCards(d) {
   $("cardTable").tBodies[0].innerHTML = withColorHeads(list, cardSort.k === "color", c => `
     <tr>
       <td><span class="card-name">${esc(c.name)}</span><span class="printing">${esc(c.set.toUpperCase())}${c.finish && c.finish !== "Normal" ? ", " + esc(c.finish.toLowerCase()) : ""}</span></td>
-      <td class="ind">${c.proxy ? `<span class="badge proxy">Proxy</span>` : ""}</td>
+      <td class="ind">${c.proxies ? `<span class="badge proxy" title="${c.proxies === c.qty ? (c.qty === 1 ? "A proxy" : "All proxies") : `${c.proxies} of ${c.qty} copies are proxies`}">${c.proxies}<span class="m-only"> proxied</span></span>` : ""}</td>
       <td class="num">${c.qty}</td>
       <td class="num">${money(c.price)}</td>
       <td class="num">${money(c.total)}</td>

@@ -161,7 +161,8 @@ th[aria-sort="ascending"]::after { content: " ↑"; }
 tbody tr:hover { background: var(--hover); }
 tbody tr:last-child td { border-bottom: 0; }
 .card-name { font-weight: 500; }
-th.ind, td.ind { width: 1%; padding-left: 0; padding-right: 0; cursor: default; }
+th.ind, td.ind { width: 1%; padding-left: 0; padding-right: 0; cursor: default; white-space: nowrap; }
+th.ind[data-k] { cursor: pointer; padding-right: 12px; }
 .badge.proxy { border-style: dashed; border-color: var(--series-proxy); }
 .printing { color: var(--text-muted); font-size: 13px; margin-left: 4px; }
 .badge { display: inline-block; font-size: 12px; font-weight: 500; color: var(--text-secondary); border: 1px solid var(--axis); border-radius: 999px; padding: 0 8px; line-height: 18px; vertical-align: 1px; }
@@ -242,7 +243,7 @@ button.ghost:hover { color: var(--text-primary); }
 /* fixed column widths, so sorting or filtering never reshuffles the layout */
 #indexTable { table-layout: fixed; min-width: 1200px; }
 /* phone-only bits of the Cards table */
-#indexTable td.m-best, #indexTable .m-only { display: none; }
+#indexTable td.m-best, #indexTable .m-only, #cardTable .m-only { display: none; }
 #indexTable td { overflow-wrap: anywhere; }
 #indexTable td.num, #indexTable th { overflow-wrap: normal; }
 #indexTable .pips { flex-wrap: wrap; }
@@ -466,6 +467,7 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   #indexTable td.m-best span { font-size: 12px; color: var(--text-muted); }
   #indexTable td.empty-row { grid-area: auto; grid-column: 1 / -1; }
   #indexTable .m-only { display: inline; }
+  #cardTable .m-only { display: inline; }
 }
 input[type=number] { -moz-appearance: textfield; }
 input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
