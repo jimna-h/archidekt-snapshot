@@ -87,7 +87,7 @@ TOTAL_FIELDNAMES = ["date", "deck_id", "cards"] + [
     # for the bling score: real (non-proxy) cards, how many are foil, and what those real cards
     # would cost in each card's cheapest printing
     "paper_cards", "foil_cards", "tcg_paper_min", "ck_paper_min", "cm_paper_min",
-    # real cards whose printing (foil aside) is clearly pricier than the card's cheapest printing
+    # real cards worth more than the card's cheapest printing (a pricier printing, a foil, or both)
     "tcg_upgraded", "ck_upgraded", "cm_upgraded"]
 SOURCE_COLUMNS = {"tcg": "price_tcgplayer", "ck": "price_cardkingdom", "cm": "price_cardmarket"}
 DECKLIST_FIELDNAMES = ["date", "deck_id", "card_name", "set_code", "finish", "proxied", "quantity"]
@@ -320,10 +320,8 @@ def card_row(entry, deck_id, today):
     }
     for key, column in PRICE_SOURCES.items():
         row[column] = price(prices, key, foil)
-        # cheapest printing of this card at that store, and this printing's nonfoil price
-        # (not saved per card; only used for the per-deck bling counts)
+        # cheapest printing of this card at that store (not saved per card; only summed per deck)
         row[f"_min_{key}"] = prices.get(f"{key}Minimum")
-        row[f"_base_{key}"] = prices.get(key)
     return row
 
 
@@ -428,8 +426,7 @@ def write_totals(rows, today):
                 # the same card in its cheapest printing (never more than what this copy is worth)
                 cheapest = num(r.get(f"_min_{src}"))
                 t[f"{src}_paper_min"] += min(cheapest, num(r[column])) * qty if cheapest else value
-                base = num(r.get(f"_base_{src}"))
-                if cheapest and base >= cheapest * 1.25 and base - cheapest >= 0.25:
+                if cheapest and num(r[column]) > cheapest + 0.005:
                     t[f"{src}_upgraded"] += qty
         if part == "paper":
             t["paper_cards"] += qty

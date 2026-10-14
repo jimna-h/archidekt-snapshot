@@ -184,24 +184,26 @@ const isStale = d => !d.virtual && ![...d.totals.keys()].includes(latestDate);
 const deckDates = d => [...d.totals.keys()].sort();
 const val = (d, date, part = "total") => { const t = d.totals.get(date); return t ? +t[`${src()}_${part}`] || 0 : null; };
 
-// Bling score (0-100) from one day's totals, real (non-proxy) cards only, at the chosen store.
-// Every part is a share of the deck itself, so a cheap deck can score as high as an expensive one:
+// Bling score (0-100) from one day's totals, at the chosen store. The parts are measured among
+// the real (non-proxy) cards only:
 //   flex      40  of the money in the real cards, the share spent above their cheapest printings
-//                 (scaled by how much of the deck is real cards)
-//   upgraded  30  share of the deck that's real cards in a clearly pricier printing than the
-//                 cheapest one, foil aside (at least 25% and $0.25 more)
-//   foil      30  share of the deck that's real foils
+//   upgraded  30  share of real cards worth more than their cheapest printing (pricier printing or foil)
+//   foil      30  share of real cards that are foil
+// That raw score is multiplied by the share of the deck that's real (lots of proxies hold a deck
+// back), then curved with a square root so the middle of the range spreads out:
+//   bling = 100 * sqrt(raw/100 * real/all)
 // Snapshots from before bling was tracked have no data (null).
 const BLING_TIERS = [[80, "Crown jewel"], [60, "Gilded"], [40, "Upgraded"], [20, "Sleeved"], [0, "Bulk"]];
 function blingOn(d, date) {
   const t = d.totals.get(date); if (!t || !(+t.paper_cards > 0) || !(+t.cards > 0) || t[`${src()}_upgraded`] == null || t[`${src()}_upgraded`] === "") return null;
   const N = +t.cards, real = +t.paper_cards, foils = +t.foil_cards || 0, upgrades = +t[`${src()}_upgraded`] || 0;
   const value = +t[`${src()}_paper`] || 0, cheapest = Math.min(+t[`${src()}_paper_min`] || 0, value);
-  const flex = value > 0 ? 40 * (real / N) * (1 - cheapest / value) : 0;
-  const upgraded = 30 * upgrades / N;
-  const foil = 30 * foils / N;
-  const score = flex + upgraded + foil;
-  return { score, flex, upgraded, foil, real, foils, upgrades, N, value, cheapest, tier: BLING_TIERS.find(([min]) => score >= min)[1] };
+  const flex = value > 0 ? 40 * (1 - cheapest / value) : 0;
+  const upgraded = 30 * upgrades / real;
+  const foil = 30 * foils / real;
+  const raw = flex + upgraded + foil, realShare = real / N;
+  const score = 100 * Math.sqrt(raw / 100 * realShare);
+  return { score, raw, realShare, flex, upgraded, foil, real, foils, upgrades, N, value, cheapest, tier: BLING_TIERS.find(([min]) => score >= min)[1] };
 }
 
 // ---------- prices ----------
@@ -345,12 +347,14 @@ function renderBling(d, s) {
   const firstDay = s.ds.find(x => blingOn(d, x)), first = firstDay && firstDay !== s.last ? blingOn(d, firstDay) : null;
   const change = first ? b.score - first.score : null;
   $("blingVal").innerHTML = `${Math.round(b.score)}<span class="tier">${b.tier}</span>`;
-  $("blingParts").innerHTML = `Flex ${Math.round(b.flex)}/40 · Upgraded ${Math.round(b.upgraded)}/30 · Foil ${Math.round(b.foil)}/30` +
+  $("blingParts").innerHTML = `Flex ${Math.round(b.flex)}/40 · Upgraded ${Math.round(b.upgraded)}/30 · Foil ${Math.round(b.foil)}/30 · ${Math.round(b.realShare * 100)}% real` +
     (change != null && Math.round(change) ? ` · <span class="${change > 0 ? "up" : "down"}">${change > 0 ? "+" : ""}${Math.round(change)} since ${fmtDate(firstDay)}</span>` : "");
-  box.title = `Real cards only (proxies don't count).\n` +
-    `Flex: these ${fmtCount(b.real)} real cards are worth ${money(b.value)}; in their cheapest printings they'd be ${money(b.cheapest)}.\n` +
-    `Upgraded: ${fmtCount(b.upgrades)} of ${fmtCount(b.N)} cards are real cards in a pricier printing than their cheapest.\n` +
-    `Foil: ${fmtCount(b.foils)} of ${fmtCount(b.N)} cards are real foils.`;
+  box.title = `Measured on the ${fmtCount(b.real)} real cards (proxies don't count):\n` +
+    `Flex: they're worth ${money(b.value)}; in their cheapest printings they'd be ${money(b.cheapest)}.\n` +
+    `Upgraded: ${fmtCount(b.upgrades)} of them are worth more than their cheapest printing.\n` +
+    `Foil: ${fmtCount(b.foils)} of them are foil.\n` +
+    `Those parts add to ${Math.round(b.raw)}/100. ${Math.round(b.realShare * 100)}% of the deck is real, so the score is ` +
+    `100 × √(${(b.raw / 100).toFixed(2)} × ${b.realShare.toFixed(2)}) = ${Math.round(b.score)}.`;
 }
 
 function renderDeck() {
