@@ -15,7 +15,8 @@
 // Like the set and deck filters, the proxy filter limits which copies count, so copies,
 // prices and totals always describe exactly the copies shown.
 const ix = { search: "", colors: new Map(), types: new Map(), subtype: "", sets: [], skip: new Set(), match: "any",
-  commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", stores: new Set(["tcg", "ck"]), layout: "table" };
+  commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", stores: new Set(["tcg", "ck"]), layout: "table",
+  version: "" };   // which printing a card's price and bling describe: "" cheapest, "avg" average of your copies, "high" priciest
 // Game Changers, from the cards behind each deck's bracket on Archidekt
 const gameChangers = () => new Set([...deckMeta.values()].flatMap(m => (m.game_changers || "").split(" | ").filter(Boolean)));
 let ixSort = { k: "qty", dir: -1 };   // most copies first
@@ -72,21 +73,27 @@ function indexCards() {
         byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: typesOf, subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
-          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, mix: 0, id: "",
+          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, loB: {}, hiB: {}, mix: 0, id: "",
           bl: { tcg: { sum: 0, n: 0 }, ck: { sum: 0, n: 0 }, cm: { sum: 0, n: 0 } }, realN: 0, foilN: 0, printings: new Set(), sets: new Map() });
       }
       c.qty += r.qty;
       c.printings.add(printKey(r));
       c.sets.set(set, (c.sets.get(set) || 0) + r.qty);
       if (!c.id && r.scryfall_id) c.id = r.scryfall_id;   // a printing you play, for the card image
-      // per store: what these copies cost there, and the cheapest and priciest printing among them
+      // per store: what these copies cost there, and the cheapest and priciest printing among
+      // them with that printing's bling (a proxy has none)
+      const foil = (r.finish || "Normal") !== "Normal";
       for (const [s, col] of Object.entries(STORE_KEYS)) {
         const p = priceIn(r, col);
         c.tot[s] += (p ?? 0) * r.qty;
         if (p == null) continue;
         c.priced[s] += r.qty;
-        if (c.lo[s] == null || p < c.lo[s]) c.lo[s] = p;
-        if (c.hi[s] == null || p > c.hi[s]) c.hi[s] = p;
+        const b = isProxy(r) || !(p > 0) ? null : blingScore(copyBling(p, +r[`${s}_min`] || 0, foil), 1);
+        // at the same price a real copy beats a proxy; then the cheapest version is the least
+        // blingy one and the priciest the most
+        const tie = (old, lower) => b != null && (old == null || (lower ? b < old : b > old));
+        if (c.lo[s] == null || p < c.lo[s] || p === c.lo[s] && tie(c.loB[s], true)) { c.lo[s] = p; c.loB[s] = b; }
+        if (c.hi[s] == null || p > c.hi[s] || p === c.hi[s] && tie(c.hiB[s], false)) { c.hi[s] = p; c.hiB[s] = b; }
       }
       // each copy bought wherever it's cheapest among the compared stores
       const opts = [...ix.stores].map(s => priceIn(r, STORE_KEYS[s])).filter(p => p != null);
@@ -94,7 +101,6 @@ function indexCards() {
       // bling counts real copies only: their price vs the card's cheapest printing
       if (!isProxy(r)) {
         c.realN += r.qty; c.rowsHaveMin ||= r.tcg_min != null && r.tcg_min !== "" || r.ck_min != null && r.ck_min !== "";
-        const foil = (r.finish || "Normal") !== "Normal";
         if (foil) c.foilN += r.qty;
         for (const s of Object.keys(STORE_KEYS)) {
           const v = priceIn(r, STORE_KEYS[s]) ?? 0, b = c.bl[s];
@@ -108,12 +114,15 @@ function indexCards() {
     }
   }
   return [...byName.values()].map(c => {
-    // the price shown is the average per copy, so it describes the same copies the bling score does
-    for (const s of Object.keys(STORE_KEYS)) c[s] = c.priced[s] ? c.tot[s] / c.priced[s] : null;
+    // price and bling both describe the chosen version: the cheapest printing you play, the
+    // average of your copies, or the priciest printing
+    const v = ix.version;
+    for (const s of Object.keys(STORE_KEYS))
+      c[s] = v === "avg" ? (c.priced[s] ? c.tot[s] / c.priced[s] : null) : v === "high" ? c.hi[s] ?? null : c.lo[s] ?? null;
     const [bestStore, best] = [...ix.stores].map(s => [s, c[s]]).filter(([, p]) => p != null).sort((a, b) => a[1] - b[1])[0] || [null, null];
     // card bling uses the first compared store (TCGplayer unless it's unticked)
     const bs = ["tcg", "ck", "cm"].find(s => ix.stores.has(s)) || "tcg";
-    const bling = c.rowsHaveMin ? blingScore(c.bl[bs].sum, c.bl[bs].n) : null;
+    const bling = !c.rowsHaveMin ? null : v === "avg" ? blingScore(c.bl[bs].sum, c.bl[bs].n) : (v === "high" ? c.hiB : c.loB)[bs] ?? null;
     return { ...c, decks: c.perDeck.size, bestStore, best, price: best, bling, setList: [...c.sets.keys()].sort().join(", ") };
   });
 }
@@ -257,8 +266,9 @@ function renderIndex() {
   const setsHtml = c => [...c.sets].sort((a, b) => a[0].localeCompare(b[0])).map(([set, n]) =>
     `<span class="set-code" title="${n} ${n === 1 ? "copy" : "copies"} from ${esc(set)}">${esc(set)}${c.sets.size > 1 && n > 1 ? `<span class="muted"> ×${n}</span>` : ""}</span>`).join(" ");
   const chipsHtml = c => `<div class="where">${deckChips(c).map(({ name, e }) => `<span class="dchip ${e.cmd ? "cmd" : ""} ${e.proxy ? "proxy" : ""}">${esc(name)}${e.qty > 1 ? " ×" + e.qty : ""}</span>`).join("")}</div>`;
+  const VERSION_TIP = { "": "Cheapest", avg: "Average", high: "Priciest" };
   const cheapestTip = (c, s) => c.printings.size > 1 && c[s] != null && c.hi[s] - c.lo[s] >= 0.005
-    ? `title="Average of ${c.qty} copies in ${c.printings.size} printings: ${money(c.lo[s])} to ${money(c.hi[s])} each"` : "";
+    ? `title="${ix.version === "avg" ? `Average of ${c.qty} copies` : `${VERSION_TIP[ix.version]} of the ${c.printings.size} printings you play`}: they range ${money(c.lo[s])} to ${money(c.hi[s])} each"` : "";
   const priceCell = (c, s) => `<td class="num ${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}" ${cheapestTip(c, s)}>${money(c[s])}</td>`;
   const copyText = n => `${n} ${n === 1 ? "copy" : "copies"}`;
   const layout = ix.layout;
@@ -351,7 +361,7 @@ wireOverlap($("overlapGrid"), (a, b) => {
 $("ixSearch").addEventListener("input", e => { ix.search = e.target.value.trim().toLowerCase(); renderIndex(); });
 $("ixSubtype").addEventListener("input", e => { ix.subtype = e.target.value.trim().toLowerCase(); renderIndex(); });
 // either/or switches: Copies (proxies), Commanders, Game Changers
-const SEGS = { ixProxies: "proxies", ixCommanders: "commanders", ixGC: "gc" };
+const SEGS = { ixProxies: "proxies", ixCommanders: "commanders", ixGC: "gc", ixVersion: "version" };
 for (const [id, key] of Object.entries(SEGS))
   $(id).addEventListener("click", e => { const b = e.target.closest("button[data-v]"); if (b) { ix[key] = b.dataset.v; renderIndex(); } });
 const syncSegs = () => { for (const [id, key] of Object.entries(SEGS)) $(id).querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === ix[key]))); };
