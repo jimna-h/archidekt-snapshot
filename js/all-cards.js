@@ -72,18 +72,21 @@ function indexCards() {
         byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: typesOf, subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
-          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, mix: 0, id: "",
+          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, mix: 0, id: "",
           bl: { tcg: { sum: 0, n: 0 }, ck: { sum: 0, n: 0 }, cm: { sum: 0, n: 0 } }, realN: 0, foilN: 0, printings: new Set(), sets: new Map() });
       }
       c.qty += r.qty;
       c.printings.add(printKey(r));
       c.sets.set(set, (c.sets.get(set) || 0) + r.qty);
       if (!c.id && r.scryfall_id) c.id = r.scryfall_id;   // a printing you play, for the card image
-      // per store: the cheapest printing you play (per copy), and what all these copies cost there
+      // per store: what these copies cost there, and the cheapest and priciest printing among them
       for (const [s, col] of Object.entries(STORE_KEYS)) {
         const p = priceIn(r, col);
-        if (p != null && (c[s] == null || p < c[s])) c[s] = p;
         c.tot[s] += (p ?? 0) * r.qty;
+        if (p == null) continue;
+        c.priced[s] += r.qty;
+        if (c.lo[s] == null || p < c.lo[s]) c.lo[s] = p;
+        if (c.hi[s] == null || p > c.hi[s]) c.hi[s] = p;
       }
       // each copy bought wherever it's cheapest among the compared stores
       const opts = [...ix.stores].map(s => priceIn(r, STORE_KEYS[s])).filter(p => p != null);
@@ -105,6 +108,8 @@ function indexCards() {
     }
   }
   return [...byName.values()].map(c => {
+    // the price shown is the average per copy, so it describes the same copies the bling score does
+    for (const s of Object.keys(STORE_KEYS)) c[s] = c.priced[s] ? c.tot[s] / c.priced[s] : null;
     const [bestStore, best] = [...ix.stores].map(s => [s, c[s]]).filter(([, p]) => p != null).sort((a, b) => a[1] - b[1])[0] || [null, null];
     // card bling uses the first compared store (TCGplayer unless it's unticked)
     const bs = ["tcg", "ck", "cm"].find(s => ix.stores.has(s)) || "tcg";
@@ -252,7 +257,8 @@ function renderIndex() {
   const setsHtml = c => [...c.sets].sort((a, b) => a[0].localeCompare(b[0])).map(([set, n]) =>
     `<span class="set-code" title="${n} ${n === 1 ? "copy" : "copies"} from ${esc(set)}">${esc(set)}${c.sets.size > 1 && n > 1 ? `<span class="muted"> ×${n}</span>` : ""}</span>`).join(" ");
   const chipsHtml = c => `<div class="where">${deckChips(c).map(({ name, e }) => `<span class="dchip ${e.cmd ? "cmd" : ""} ${e.proxy ? "proxy" : ""}">${esc(name)}${e.qty > 1 ? " ×" + e.qty : ""}</span>`).join("")}</div>`;
-  const cheapestTip = (c, s) => c.printings.size > 1 && c[s] != null ? `title="Cheapest of the ${c.printings.size} printings you play"` : "";
+  const cheapestTip = (c, s) => c.printings.size > 1 && c[s] != null && c.hi[s] - c.lo[s] >= 0.005
+    ? `title="Average of ${c.qty} copies in ${c.printings.size} printings: ${money(c.lo[s])} to ${money(c.hi[s])} each"` : "";
   const priceCell = (c, s) => `<td class="num ${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}" ${cheapestTip(c, s)}>${money(c[s])}</td>`;
   const copyText = n => `${n} ${n === 1 ? "copy" : "copies"}`;
   const layout = ix.layout;
