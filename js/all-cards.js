@@ -47,6 +47,33 @@ let gcSet = new Set();
 // Front face only, so a spell // land card (e.g. a modal double-faced card) still counts as a spell
 const isLand = name => /\bLand\b/.test((cardInfo.get(name)?.type_line || "").split(" // ")[0].split(" — ")[0]);
 
+// Card bling (0-100), from your real copies of a card:
+//   flex      60  dollars per copy above the card's cheapest printing, on a log curve against the
+//                 biggest such premium in your collection (that card gets the full 60)
+//   upgraded  30  share of copies worth more than the cheapest printing (pricier printing or foil)
+//   foil      10  share of copies that are foil
+// added straight up (no extra curve, so cheap cards stay low). Dollars, not ratios, drive flex here: $48 over a
+// $5 card is far more bling than 27 cents over a 2-cent basic land.
+function cardBling(b, foils, real, top) {
+  const premium = Math.max(0, b.value - b.cheapest) / real;
+  const flex = top > 0 ? 60 * Math.log1p(premium) / Math.log1p(top) : 0;
+  const raw = Math.min(60, flex) + 30 * b.upgrades / real + 10 * foils / real;
+  return raw;
+}
+// The biggest per-copy premium over the cheapest printing among all real cards, per store
+const premiumCache = new Map();
+function maxPremium(store) {
+  if (premiumCache.has(store)) return premiumCache.get(store);
+  let top = 0;
+  for (const d of realDecks()) if (!isStale(d)) for (const r of d.rows) {
+    if (isProxy(r)) continue;
+    const v = priceIn(r, STORE_KEYS[store]) ?? 0, min = +r[`${store}_min`] || 0;
+    if (min) top = Math.max(top, v - min);
+  }
+  premiumCache.set(store, top);
+  return top;
+}
+
 function indexCards() {
   const byName = new Map();
   for (const d of realDecks()) {
@@ -107,7 +134,7 @@ function indexCards() {
     const [bestStore, best] = [...ix.stores].map(s => [s, c[s]]).filter(([, p]) => p != null).sort((a, b) => a[1] - b[1])[0] || [null, null];
     // card bling uses the first compared store (TCGplayer unless it's unticked)
     const bs = ["tcg", "ck", "cm"].find(s => ix.stores.has(s)) || "tcg";
-    const bling = c.realN && c.rowsHaveMin ? blingFrom({ ...c.bl[bs], foils: c.foilN, real: c.realN })?.score ?? null : null;
+    const bling = c.realN && c.rowsHaveMin ? cardBling(c.bl[bs], c.foilN, c.realN, maxPremium(bs)) : null;
     return { ...c, decks: c.perDeck.size, bestStore, best, price: best, bling, setList: [...c.sets.keys()].sort().join(", ") };
   });
 }
