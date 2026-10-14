@@ -48,29 +48,33 @@ let gcSet = new Set();
 const isLand = name => /\bLand\b/.test((cardInfo.get(name)?.type_line || "").split(" // ")[0].split(" — ")[0]);
 
 // Card bling (0-100), from your real copies of a card:
-//   flex      60  dollars per copy above the card's cheapest printing, on a log curve against the
-//                 biggest such premium in your collection (that card gets the full 60)
+//   flex      60  how far above the card's cheapest printing your copies are, needing BOTH:
+//                 the multiple (share of the price that's premium: $60 for a $10 card = 83%) and
+//                 the dollars (log of the premium per copy). Their product is scored against the
+//                 flashiest card in your collection, which gets the full 60. So $550 for a $500
+//                 card (9%, $50) and $1 for a 1-cent card (99%, 99 cents) both score low, while
+//                 $60 for a $10 card scores high.
 //   upgraded  30  share of copies worth more than the cheapest printing (pricier printing or foil)
 //   foil      10  share of copies that are foil
-// added straight up (no extra curve, so cheap cards stay low). Dollars, not ratios, drive flex here: $48 over a
-// $5 card is far more bling than 27 cents over a 2-cent basic land.
+// added straight up (no extra curve, so cheap cards stay low).
+const flexRaw = (value, cheapest) => value > 0 && value > cheapest
+  ? (1 - cheapest / value) * Math.log1p(value - cheapest) : 0;
 function cardBling(b, foils, real, top) {
-  const premium = Math.max(0, b.value - b.cheapest) / real;
-  const flex = top > 0 ? 60 * Math.log1p(premium) / Math.log1p(top) : 0;
-  const raw = Math.min(60, flex) + 30 * b.upgrades / real + 10 * foils / real;
-  return raw;
+  const raw = flexRaw(b.value / real, b.cheapest / real);
+  const flex = top > 0 ? Math.min(60, 60 * raw / top) : 0;
+  return flex + 30 * b.upgrades / real + 10 * foils / real;
 }
-// The biggest per-copy premium over the cheapest printing among all real cards, per store
-const premiumCache = new Map();
-function maxPremium(store) {
-  if (premiumCache.has(store)) return premiumCache.get(store);
+// The flashiest single copy among all real cards (highest flexRaw), per store
+const flexCache = new Map();
+function maxFlex(store) {
+  if (flexCache.has(store)) return flexCache.get(store);
   let top = 0;
   for (const d of realDecks()) if (!isStale(d)) for (const r of d.rows) {
     if (isProxy(r)) continue;
     const v = priceIn(r, STORE_KEYS[store]) ?? 0, min = +r[`${store}_min`] || 0;
-    if (min) top = Math.max(top, v - min);
+    if (min) top = Math.max(top, flexRaw(v, Math.min(min, v)));
   }
-  premiumCache.set(store, top);
+  flexCache.set(store, top);
   return top;
 }
 
@@ -134,7 +138,7 @@ function indexCards() {
     const [bestStore, best] = [...ix.stores].map(s => [s, c[s]]).filter(([, p]) => p != null).sort((a, b) => a[1] - b[1])[0] || [null, null];
     // card bling uses the first compared store (TCGplayer unless it's unticked)
     const bs = ["tcg", "ck", "cm"].find(s => ix.stores.has(s)) || "tcg";
-    const bling = c.realN && c.rowsHaveMin ? cardBling(c.bl[bs], c.foilN, c.realN, maxPremium(bs)) : null;
+    const bling = c.realN && c.rowsHaveMin ? cardBling(c.bl[bs], c.foilN, c.realN, maxFlex(bs)) : null;
     return { ...c, decks: c.perDeck.size, bestStore, best, price: best, bling, setList: [...c.sets.keys()].sort().join(", ") };
   });
 }
