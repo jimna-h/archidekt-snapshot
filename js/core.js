@@ -184,31 +184,34 @@ const isStale = d => !d.virtual && ![...d.totals.keys()].includes(latestDate);
 const deckDates = d => [...d.totals.keys()].sort();
 const val = (d, date, part = "total") => { const t = d.totals.get(date); return t ? +t[`${src()}_${part}`] || 0 : null; };
 
-// Bling score (0-100). The parts are measured among real (non-proxy) cards only:
-//   flex      60  of the money in the real cards, the share spent above their cheapest printings
-//   upgraded  30  share of real cards worth more than their cheapest printing (pricier printing or foil)
-//   foil      10  share of real cards that are foil
-// For a deck, that raw score is multiplied by the share of the deck that's real (lots of proxies
-// hold a deck back). Then it's curved with a square root so the middle of the range spreads out:
-//   bling = 100 * sqrt(raw/100 * real/all)
-// The same formula scores a single card from its real copies (Cards tab).
-const BLING_TIERS = [[80, "Crown jewel"], [60, "Gilded"], [40, "Upgraded"], [20, "Sleeved"], [0, "Bulk"]];
-function blingFrom({ value, cheapest, upgrades, foils, real, total = real }) {
-  if (!(real > 0) || !(total > 0)) return null;
-  cheapest = Math.min(cheapest, value);
-  const flex = value > 0 ? 60 * (1 - cheapest / value) : 0;
-  const upgraded = 30 * upgrades / real;
-  const foil = 10 * foils / real;
-  const raw = flex + upgraded + foil, realShare = real / total;
-  const score = 100 * Math.sqrt(Math.max(0, raw) / 100 * realShare);
-  return { score, raw, realShare, flex, upgraded, foil, real, foils, upgrades, N: total, value, cheapest, tier: BLING_TIERS.find(([min]) => score >= min)[1] };
+// Bling score (0-100). Every copy gets a bling from 0 to 1 that needs BOTH a big price multiple
+// and real dollars over the card's cheapest printing:
+//   copy = (share of its price that's premium) x (premium / (premium + $10))
+//   $60 for a $10 card: 0.83 x 0.83 = 0.69    $550 for a $500 card: 0.09 x 0.83 = 0.08
+//   $1 for a 1-cent card: 0.99 x 0.09 = 0.09  same printing as the cheapest: 0
+// Foils (and etched) get at least 0.2, since a foil is bling even when it's cheap.
+// A card's bling is 100 x sqrt(average over your real copies of it). A deck's is the same over
+// all its copies, with proxies counting as 0 bling: a deck where every card is a 60 is a 60, and
+// half proxies holds it back. The square root spreads out the low end, where most cards sit.
+// track_prices.py has the same formula (copy_bling) for the daily history; keep them in step.
+const BLING_DOLLARS = 10, FOIL_FLOOR = 0.2;
+const BLING_TIERS = [[70, "Crown jewel"], [50, "Gilded"], [30, "Polished"], [15, "Sleeved"], [0, "Bulk"]];
+function copyBling(value, cheapest, foil) {
+  cheapest = cheapest ? Math.min(cheapest, value) : value;
+  const premium = value - cheapest;
+  const b = premium > 0 ? premium / value * premium / (premium + BLING_DOLLARS) : 0;
+  return foil ? 1 - (1 - b) * (1 - FOIL_FLOOR) : b;
 }
-// A deck's bling on one day, from its saved totals; null before bling was tracked.
+const blingScore = (sum, n) => n > 0 ? 100 * Math.sqrt(Math.max(0, sum) / n) : null;
+const blingTier = score => BLING_TIERS.find(([min]) => score >= min)[1];
+// A deck's bling on one day, from its saved totals; null before this bling was tracked.
 function blingOn(d, date) {
   const t = d.totals.get(date), s = src();
-  if (!t || t[`${s}_upgraded`] == null || t[`${s}_upgraded`] === "") return null;
-  return blingFrom({ value: +t[`${s}_paper`] || 0, cheapest: +t[`${s}_paper_min`] || 0, upgrades: +t[`${s}_upgraded`] || 0,
-    foils: +t.foil_cards || 0, real: +t.paper_cards || 0, total: +t.cards || 0 });
+  const n = +t?.[`${s}_bling_n`] || 0;
+  if (!n) return null;
+  const score = blingScore(+t[`${s}_bling`] || 0, n);
+  return { score, tier: blingTier(score), n, real: +t.paper_cards || 0, cards: +t.cards || 0, foils: +t.foil_cards || 0,
+    value: +t[`${s}_paper`] || 0, cheapest: Math.min(+t[`${s}_paper_min`] || 0, +t[`${s}_paper`] || 0) };
 }
 
 // ---------- prices ----------
@@ -352,14 +355,15 @@ function renderBling(d, s) {
   const firstDay = s.ds.find(x => blingOn(d, x)), first = firstDay && firstDay !== s.last ? blingOn(d, firstDay) : null;
   const change = first ? b.score - first.score : null;
   $("blingVal").innerHTML = `${Math.round(b.score)}<span class="tier">${b.tier}</span>`;
-  $("blingParts").innerHTML = `Flex ${Math.round(b.flex)}/60 · Upgraded ${Math.round(b.upgraded)}/30 · Foil ${Math.round(b.foil)}/10 · ${Math.round(b.realShare * 100)}% real` +
+  const realPct = b.cards ? Math.round(b.real / b.cards * 100) : 100;
+  $("blingParts").innerHTML = `${money(b.value - b.cheapest)} over the cheapest printings · ${fmtCount(b.foils)} foil${b.foils === 1 ? "" : "s"} · ${realPct}% real` +
     (change != null && Math.round(change) ? ` · <span class="${change > 0 ? "up" : "down"}">${change > 0 ? "+" : ""}${Math.round(change)} since ${fmtDate(firstDay)}</span>` : "");
-  box.title = `Measured on the ${fmtCount(b.real)} real cards (proxies don't count):\n` +
-    `Flex: they're worth ${money(b.value)}; in their cheapest printings they'd be ${money(b.cheapest)}.\n` +
-    `Upgraded: ${fmtCount(b.upgrades)} of them are worth more than their cheapest printing.\n` +
-    `Foil: ${fmtCount(b.foils)} of them are foil.\n` +
-    `Those parts add to ${Math.round(b.raw)}/100. ${Math.round(b.realShare * 100)}% of the deck is real, so the score is ` +
-    `100 × √(${(b.raw / 100).toFixed(2)} × ${b.realShare.toFixed(2)}) = ${Math.round(b.score)}.`;
+  box.title = `Each copy scores 0-1: (share of its price above the card's cheapest printing) × (premium ÷ (premium + $10)). ` +
+    `Foils score at least 0.2; proxies score 0.\n` +
+    `The ${fmtCount(b.real)} real cards are worth ${money(b.value)}; in their cheapest printings they'd be ${money(b.cheapest)}. ${fmtCount(b.foils)} are foil.\n` +
+    `Bling = 100 × √(average copy score) = ${Math.round(b.score)}.\n` +
+    `Tiers: 70+ Crown jewel, 50+ Gilded, 30+ Polished, 15+ Sleeved, below that Bulk. ` +
+    `Across 120+ public Commander decks, budget lists score about 10, a typical deck about 20, and all-foil showpieces 60-80.`;
 }
 
 function renderDeck() {

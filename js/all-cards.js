@@ -47,37 +47,6 @@ let gcSet = new Set();
 // Front face only, so a spell // land card (e.g. a modal double-faced card) still counts as a spell
 const isLand = name => /\bLand\b/.test((cardInfo.get(name)?.type_line || "").split(" // ")[0].split(" — ")[0]);
 
-// Card bling (0-100), from your real copies of a card:
-//   flex      60  how far above the card's cheapest printing your copies are, needing BOTH:
-//                 the multiple (share of the price that's premium: $60 for a $10 card = 83%) and
-//                 the dollars (log of the premium per copy). Their product is scored against the
-//                 flashiest card in your collection, which gets the full 60. So $550 for a $500
-//                 card (9%, $50) and $1 for a 1-cent card (99%, 99 cents) both score low, while
-//                 $60 for a $10 card scores high.
-//   upgraded  30  share of copies worth more than the cheapest printing (pricier printing or foil)
-//   foil      10  share of copies that are foil
-// added straight up (no extra curve, so cheap cards stay low).
-const flexRaw = (value, cheapest) => value > 0 && value > cheapest
-  ? (1 - cheapest / value) * Math.log1p(value - cheapest) : 0;
-function cardBling(b, foils, real, top) {
-  const raw = flexRaw(b.value / real, b.cheapest / real);
-  const flex = top > 0 ? Math.min(60, 60 * raw / top) : 0;
-  return flex + 30 * b.upgrades / real + 10 * foils / real;
-}
-// The flashiest single copy among all real cards (highest flexRaw), per store
-const flexCache = new Map();
-function maxFlex(store) {
-  if (flexCache.has(store)) return flexCache.get(store);
-  let top = 0;
-  for (const d of realDecks()) if (!isStale(d)) for (const r of d.rows) {
-    if (isProxy(r)) continue;
-    const v = priceIn(r, STORE_KEYS[store]) ?? 0, min = +r[`${store}_min`] || 0;
-    if (min) top = Math.max(top, flexRaw(v, Math.min(min, v)));
-  }
-  flexCache.set(store, top);
-  return top;
-}
-
 function indexCards() {
   const byName = new Map();
   for (const d of realDecks()) {
@@ -104,7 +73,7 @@ function indexCards() {
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
           tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, mix: 0, id: "",
-          bl: { tcg: { value: 0, cheapest: 0, upgrades: 0 }, ck: { value: 0, cheapest: 0, upgrades: 0 }, cm: { value: 0, cheapest: 0, upgrades: 0 } }, realN: 0, foilN: 0, printings: new Set(), sets: new Map() });
+          bl: { tcg: { sum: 0, n: 0 }, ck: { sum: 0, n: 0 }, cm: { sum: 0, n: 0 } }, realN: 0, foilN: 0, printings: new Set(), sets: new Map() });
       }
       c.qty += r.qty;
       c.printings.add(printKey(r));
@@ -121,11 +90,12 @@ function indexCards() {
       if (opts.length) c.mix += Math.min(...opts) * r.qty;
       // bling counts real copies only: their price vs the card's cheapest printing
       if (!isProxy(r)) {
-        c.realN += r.qty; c.rowsHaveMin ||= r.tcg_min != null && r.tcg_min !== "" || r.ck_min != null && r.ck_min !== ""; if ((r.finish || "Normal") !== "Normal") c.foilN += r.qty;
+        c.realN += r.qty; c.rowsHaveMin ||= r.tcg_min != null && r.tcg_min !== "" || r.ck_min != null && r.ck_min !== "";
+        const foil = (r.finish || "Normal") !== "Normal";
+        if (foil) c.foilN += r.qty;
         for (const s of Object.keys(STORE_KEYS)) {
-          const v = priceIn(r, STORE_KEYS[s]) ?? 0, min = +r[`${s}_min`] || 0, b = c.bl[s];
-          b.value += v * r.qty; b.cheapest += (min ? Math.min(min, v) : v) * r.qty;
-          if (min && v > min + 0.005) b.upgrades += r.qty;
+          const v = priceIn(r, STORE_KEYS[s]) ?? 0, b = c.bl[s];
+          if (v > 0) { b.sum += copyBling(v, +r[`${s}_min`] || 0, foil) * r.qty; b.n += r.qty; }   // unpriced copies can't be scored
         }
       }
       const e = c.perDeck.get(d.id) || { qty: 0, cmd: false, proxy: false };
@@ -138,7 +108,7 @@ function indexCards() {
     const [bestStore, best] = [...ix.stores].map(s => [s, c[s]]).filter(([, p]) => p != null).sort((a, b) => a[1] - b[1])[0] || [null, null];
     // card bling uses the first compared store (TCGplayer unless it's unticked)
     const bs = ["tcg", "ck", "cm"].find(s => ix.stores.has(s)) || "tcg";
-    const bling = c.realN && c.rowsHaveMin ? cardBling(c.bl[bs], c.foilN, c.realN, maxFlex(bs)) : null;
+    const bling = c.rowsHaveMin ? blingScore(c.bl[bs].sum, c.bl[bs].n) : null;
     return { ...c, decks: c.perDeck.size, bestStore, best, price: best, bling, setList: [...c.sets.keys()].sort().join(", ") };
   });
 }
@@ -312,7 +282,7 @@ function renderIndex() {
       <div class="fbody">
         <h4><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}${c.token ? ` <span class="badge">Token</span>` : ""}</h4>
         <div class="ftype">${esc(c.type || "–")}</div>
-        <div class="fmeta">${pipsHtml(c.color)}<span>MV ${c.mv ?? "–"}</span><span>${copyText(c.qty)}</span>${c.bling != null ? `<span>Bling ${Math.round(c.bling)}</span>` : ""}</div>
+        <div class="fmeta">${pipsHtml(c.color)}<span>MV ${c.mv ?? "–"}</span><span>${copyText(c.qty)}</span>${c.bling != null ? `<span title="${blingTier(c.bling)}">Bling ${Math.round(c.bling)}</span>` : ""}</div>
         <div class="fprices">${Object.keys(STORE_NAMES).map(s => `<div class="${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}" ${cheapestTip(c, s)}><span>${STORE_NAMES[s]}</span><b class="num">${money(c[s])}</b></div>`).join("")}</div>
         <div class="fsets">${setsHtml(c)}</div>
         ${chipsHtml(c)}

@@ -56,7 +56,9 @@ LEGACY_PRICES_PATH = os.path.join(DATA_DIR, "prices.csv")  # old single-file for
 PRUNE_AFTER_DAYS = 10
 # Snapshot dates use this time zone; set a TIMEZONE repository variable (e.g. America/Chicago) to change it
 TIMEZONE = ZoneInfo(os.environ.get("TIMEZONE") or "America/Denver")
-PROXY_TAG = "proxied"  # color tag name (any capitalization) that marks a card as a proxy
+# Color tag names (any capitalization) that mark a card as a proxy. "Proxied" is what this
+# project uses; "Proxy" and "Proxies" are the most common tags on other public decks.
+PROXY_TAGS = {"proxied", "proxy", "proxies"}
 
 # Archidekt's price keys -> CSV column names
 PRICE_SOURCES = {
@@ -90,8 +92,25 @@ TOTAL_FIELDNAMES = ["date", "deck_id", "cards"] + [
     # for the bling score: real (non-proxy) cards, how many are foil, and what those real cards
     # would cost in each card's cheapest printing
     "paper_cards", "foil_cards", "tcg_paper_min", "ck_paper_min", "cm_paper_min",
-    # real cards worth more than the card's cheapest printing (a pricier printing, a foil, or both)
-    "tcg_upgraded", "ck_upgraded", "cm_upgraded"]
+    # bling: the sum of every copy's bling (see copy_bling; proxies add 0) and how many copies were
+    # scored (every proxy, plus real copies with a price). Deck bling = 100 * sqrt(sum / n).
+    "tcg_bling", "ck_bling", "cm_bling", "tcg_bling_n", "ck_bling_n", "cm_bling_n"]
+# Bling of one copy, 0-1. It needs both a big price multiple and real dollars over the card's
+# cheapest printing: (share of the price that's premium) x (premium / (premium + $10)).
+# $60 for a $10 card -> 0.69; $550 for a $500 card -> 0.08; $1 for a 1-cent card -> 0.09.
+# Foils (and etched) get at least FOIL_FLOOR, since a foil is bling even when it's cheap.
+# js/core.js has the same formula; keep them in step.
+BLING_DOLLARS = 10
+FOIL_FLOOR = 0.2
+
+
+def copy_bling(value, cheapest, foil):
+    cheapest = min(cheapest, value) if cheapest else value
+    premium = value - cheapest
+    bling = premium / value * premium / (premium + BLING_DOLLARS) if premium > 0 else 0.0
+    return 1 - (1 - bling) * (1 - FOIL_FLOOR) if foil else bling
+
+
 SOURCE_COLUMNS = {"tcg": "price_tcgplayer", "ck": "price_cardkingdom", "cm": "price_cardmarket"}
 DECKLIST_FIELDNAMES = ["date", "deck_id", "card_name", "set_code", "finish", "proxied", "quantity"]
 CARD_PRICE_FIELDNAMES = ["date", "card_name", "set_code", "finish", *PRICE_SOURCES.values()]
@@ -182,7 +201,7 @@ def is_proxied(label):
     """Archidekt stores a card's color tag as "Name,#hexcolor"; only the name matters here."""
     label = label or ""
     name = label.rpartition(",")[0] if "," in label else label
-    return name.strip().lower() == PROXY_TAG
+    return name.strip().lower() in PROXY_TAGS
 
 
 def price(prices, key, foil):
@@ -417,7 +436,7 @@ def write_latest(rows, failed_ids):
 def write_totals(rows, today):
     by_deck = {}
     for r in rows:
-        t = by_deck.setdefault(str(r["deck_id"]), {f: 0.0 for f in TOTAL_FIELDNAMES[3:]} | {"cards": 0, "paper_cards": 0, "foil_cards": 0, "tcg_upgraded": 0, "ck_upgraded": 0, "cm_upgraded": 0})
+        t = by_deck.setdefault(str(r["deck_id"]), {f: 0.0 for f in TOTAL_FIELDNAMES[3:]} | {"cards": 0, "paper_cards": 0, "foil_cards": 0, "tcg_bling_n": 0, "ck_bling_n": 0, "cm_bling_n": 0})
         qty = int(r["quantity"])
         t["cards"] += qty
         part = "proxy" if r["proxied"] == "true" else "paper"
@@ -429,13 +448,16 @@ def write_totals(rows, today):
                 # the same card in its cheapest printing (never more than what this copy is worth)
                 cheapest = num(r.get(f"{src}_min"))
                 t[f"{src}_paper_min"] += min(cheapest, num(r[column])) * qty if cheapest else value
-                if cheapest and num(r[column]) > cheapest + 0.005:
-                    t[f"{src}_upgraded"] += qty
+                if num(r[column]) > 0:   # a real copy with no price can't be scored
+                    t[f"{src}_bling"] += copy_bling(num(r[column]), cheapest, (r.get("finish") or "Normal") != "Normal") * qty
+                    t[f"{src}_bling_n"] += qty
+            else:
+                t[f"{src}_bling_n"] += qty   # proxies count as copies with no bling
         if part == "paper":
             t["paper_cards"] += qty
             if (r.get("finish") or "Normal") != "Normal":
                 t["foil_cards"] += qty
-    new = [{"date": today, "deck_id": deck_id, **{k: (round(v, 2) if isinstance(v, float) else v) for k, v in t.items()}}
+    new = [{"date": today, "deck_id": deck_id, **{k: (round(v, 3 if k.endswith("_bling") else 2) if isinstance(v, float) else v) for k, v in t.items()}}
            for deck_id, t in by_deck.items()]
     old = [r for r in read_csv(TOTALS_PATH) if r["date"] != today]
     write_csv(TOTALS_PATH, TOTAL_FIELDNAMES, old + new)
