@@ -184,6 +184,24 @@ const isStale = d => !d.virtual && ![...d.totals.keys()].includes(latestDate);
 const deckDates = d => [...d.totals.keys()].sort();
 const val = (d, date, part = "total") => { const t = d.totals.get(date); return t ? +t[`${src()}_${part}`] || 0 : null; };
 
+// Bling score (0-100) from one day's totals, real (non-proxy) cards only, at the chosen store:
+//   flex  50  share of the real cards' value spent above each card's cheapest printing,
+//             scaled by how much of the deck is real cards
+//   foil  30  share of the whole deck that's real foils
+//   value 20  the real cards' value, on a log curve that's full at about $5,000
+// Snapshots from before bling was tracked have no data (null).
+const BLING_TIERS = [[80, "Crown jewel"], [60, "Gilded"], [40, "Upgraded"], [20, "Sleeved"], [0, "Bulk"]];
+function blingOn(d, date) {
+  const t = d.totals.get(date); if (!t || !(+t.paper_cards > 0) || !(+t.cards > 0)) return null;
+  const N = +t.cards, real = +t.paper_cards, foils = +t.foil_cards || 0;
+  const value = +t[`${src()}_paper`] || 0, cheapest = Math.min(+t[`${src()}_paper_min`] || 0, value);
+  const flex = value > 0 ? 50 * (real / N) * (1 - cheapest / value) : 0;
+  const foil = 30 * foils / N;
+  const worth = 20 * Math.min(1, Math.log1p(value) / Math.log1p(5000));
+  const score = flex + foil + worth;
+  return { score, flex, foil, worth, real, foils, N, value, cheapest, tier: BLING_TIERS.find(([min]) => score >= min)[1] };
+}
+
 // ---------- prices ----------
 const priceIn = (row, column = source) => num(row?.[column]);
 // Price of a printing on a given day (from the loaded months), or null.
@@ -267,6 +285,7 @@ function deckStats(d) {
     cards: d.totals.get(last) ? +d.totals.get(last).cards : 0,
     dFirst: ds.length > 1 ? value - val(d, first) : null, firstVal: val(d, first),
     lastSwap: d.virtual && d.id === AVG ? null : (deckSwaps(d).at(-1)?.date ?? null),
+    bling: blingOn(d, last)?.score ?? null,
     stale: isStale(d),
   };
 }
@@ -307,12 +326,29 @@ function renderDecks() {
       ${st.virtual ? `<span class="thumb none" aria-hidden="true"></span>` : thumbHtml(st.id)}
       <span class="dname" title="${esc(st.name)}">${esc(st.name)}</span>
       <span class="dval num">${money(st.value)}</span>
-      <span class="dmeta">${st.stale ? `Last in folder ${fmtDate(st.last)}` : `${fmtCount(st.cards)} cards`}${!st.stale && st.lastSwap ? `, swapped ${shortDate(st.lastSwap)}` : ""}</span>
+      <span class="dmeta">${st.stale ? `Last in folder ${fmtDate(st.last)}` : deckSort.k === "bling" && st.bling != null ? `Bling ${Math.round(st.bling)}` : `${fmtCount(st.cards)} cards`}${!st.stale && st.lastSwap ? `, swapped ${shortDate(st.lastSwap)}` : ""}</span>
       <span class="ddelta num ${tone(st.dFirst)}">${st.dFirst == null ? "" : signed(st.dFirst)}</span>
     </button>`;
   const all = sortBy(realDecks().map(deckStats), deckSort);
   const real = [...all.filter(s => !s.stale), ...all.filter(s => s.stale)];
   $("deckList").innerHTML = item(deckStats(decks.get(ALL))) + item(deckStats(decks.get(AVG))) + `<div class="deck-sep" role="presentation"></div>` + real.map(item).join("");
+}
+
+// The bling stat in the deck header: score, tier, the three parts, and the change since bling
+// was first recorded for this deck.
+function renderBling(d, s) {
+  const b = blingOn(d, s.last), box = $("heroBling");
+  box.hidden = !b;
+  if (!b) return;
+  const firstDay = s.ds.find(x => blingOn(d, x)), first = firstDay && firstDay !== s.last ? blingOn(d, firstDay) : null;
+  const change = first ? b.score - first.score : null;
+  $("blingVal").innerHTML = `${Math.round(b.score)}<span class="tier">${b.tier}</span>`;
+  $("blingParts").innerHTML = `Flex ${Math.round(b.flex)}/50 · Foil ${Math.round(b.foil)}/30 · Value ${Math.round(b.worth)}/20` +
+    (change != null && Math.round(change) ? ` · <span class="${change > 0 ? "up" : "down"}">${change > 0 ? "+" : ""}${Math.round(change)} since ${fmtDate(firstDay)}</span>` : "");
+  box.title = `Real cards only (proxies don't count).\n` +
+    `Flex: these ${fmtCount(b.real)} real cards are worth ${money(b.value)}; in their cheapest printings they'd be ${money(b.cheapest)}.\n` +
+    `Foil: ${fmtCount(b.foils)} of ${fmtCount(b.N)} cards are real foils.\n` +
+    `Value: ${money(b.value)} of real cards (full points at $5,000).`;
 }
 
 function renderDeck() {
@@ -330,6 +366,7 @@ function renderDeck() {
   $("heroLbl").textContent = s.stale ? `Value on ${fmtDate(s.last)} (left folder)` : `Value on ${fmtDate(s.last)}`;
   $("heroVal").textContent = money(s.value);
   delta($("heroFirst"), s.dFirst, s.firstVal);
+  renderBling(d, s);
   const missing = d.rows.filter(r => priceIn(r) == null).length;
   const swaps = d.noCards ? [] : deckSwaps(d);
   $("chartNote").textContent = [

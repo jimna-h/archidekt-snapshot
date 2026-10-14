@@ -528,3 +528,7 @@ button.ghost.share span { text-decoration: underline; text-underline-offset: 3px
   .tablinks a.ghost, .tablinks button.ghost { padding: 6px 5px; font-size: 13px; }
 }
 @media (max-width: 380px) { .tablinks button.ghost.share span { display: none; } .tablinks button.ghost.share svg { width: 18px; height: 18px; } }
+/* Bling score in the deck header */
+.hero .bling .big .tier { font-family: var(--sans, inherit); font-size: 15px; font-weight: 600; color: var(--text-secondary); margin-left: 8px; letter-spacing: 0.02em; }
+.bling-parts { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.bling-parts .up { color: var(--up); } .bling-parts .down { color: var(--down); }
