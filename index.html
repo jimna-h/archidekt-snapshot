@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=fb52d40f">
+<link rel="stylesheet" href="css/style.css?v=c91921fa">
 </head>
 <body>
 <main>
@@ -119,6 +119,7 @@
       <div class="proxy-summary" id="ixSummary"></div>
       <div class="fsearch">
         <input type="search" id="ixSearch" placeholder="Search card names, e.g. bolt -lightning" aria-label="Search all decks by card name">
+        <button class="toggle" id="ixFiltersBtn" aria-expanded="false">Filters</button>
         <button class="toggle" id="ixClear">Reset filters</button>
       </div>
       <div class="fgrid" title="Click a color or type twice, or put a minus before a word, to leave it out">
@@ -268,6 +269,7 @@
         <section>
           <div class="section-head"><h3>Paper vs proxied</h3></div>
           <div class="tags" id="tags" title="Select a row to filter the card list. Proxies are cards tagged &quot;Proxied&quot; on Archidekt."></div>
+          <p class="tag-note" id="tagNote"></p>
           
         </section>
 
@@ -290,6 +292,7 @@
                 <option value="price">Cheapest first</option>
                 <option value="-d30">Biggest gains</option>
                 <option value="d30">Biggest drops</option>
+                <option value="-bling">Most bling</option>
                 <option value="color">Color</option>
                 <option value="name">Name</option>
                 <option value="" disabled hidden>Sorted by column</option>
@@ -305,6 +308,7 @@
                 <th data-k="qty" class="num">Qty</th>
                 <th data-k="price" class="num">Price</th>
                 <th data-k="total" class="num">Total</th>
+                <th data-k="bling" class="num" title="Bling of this printing (0-100); proxies have none">Bling</th>
                 <th data-k="d30" class="num">Last 30 days</th>
               </tr></thead>
               <tbody></tbody>
@@ -318,10 +322,10 @@
 
 <script src="vendor/qrcode.js?v=18ae399f"></script>
 <script src="vendor/html-to-image.js?v=07c8b1ff"></script>
-<script src="js/core.js?v=4b997031"></script>
-<script src="js/decks.js?v=0f071712"></script>
-<script src="js/all-cards.js?v=5a5f6689"></script>
-<script src="js/tokens.js?v=e745f64c"></script>
+<script src="js/core.js?v=f21619f2"></script>
+<script src="js/decks.js?v=aac6ec7c"></script>
+<script src="js/all-cards.js?v=f8739f31"></script>
+<script src="js/tokens.js?v=c32a0925"></script>
 <script src="js/deck-cards.js?v=8e9b630a"></script>
 <script src="js/app.js?v=5b9f5d6b"></script>
 </body>

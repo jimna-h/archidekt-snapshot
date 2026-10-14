@@ -101,7 +101,8 @@ function renderTokens() {
          ${list.length < all.length ? `<div>${all.length - list.length} more hidden by filters</div>` : ""}</div>`;
 
   const layout = tk.layout, empty = `<div class="muted">No tokens match.</div>`;
-  $("tokenTable").tBodies[0].innerHTML = layout !== "table" ? "" : list.map((t, i) => `
+  const byColor = tkSort.k === "color", gridHead = (id, n) => `<div class="group-head">${colorHeadHtml(id, n)}</div>`;
+  $("tokenTable").tBodies[0].innerHTML = layout !== "table" ? "" : withColorHeads(list, byColor, (t, i) => `
     <tr>
       <td class="rownum">${i + 1}</td>
       <td>${tokenTitle(t)}</td>
@@ -110,13 +111,13 @@ function renderTokens() {
       <td class="tk-text">${tokenText(t)}</td>
       <td class="tk-makers">${makersHtml(t)}</td>
       <td>${tokenChips(t)}</td>
-    </tr>`).join("") || `<tr><td colspan="7" class="muted empty-row">No tokens match.</td></tr>`;
-  $("tkGrid").innerHTML = layout !== "grid" ? "" : list.map(t => `
+    </tr>`, (id, n) => `<tr class="group-row"><td colspan="7">${colorHeadHtml(id, n)}</td></tr>`) || `<tr><td colspan="7" class="muted empty-row">No tokens match.</td></tr>`;
+  $("tkGrid").innerHTML = layout !== "grid" ? "" : withColorHeads(list, byColor, t => `
     <figure class="px-tile" title="${esc(t.name)}\nMade by ${esc([...t.makers.keys()].join(", "))}">
       <div class="px-img"><div class="ph">${esc(t.name)}</div>${cardImg(t)}</div>
       <figcaption><b>${esc(t.name)}${ptText(t) ? " " + esc(ptText(t)) : ""}</b><span class="muted">${t.decks} deck${t.decks === 1 ? "" : "s"}</span></figcaption>
-    </figure>`).join("") || empty;
-  $("tkFull").innerHTML = layout !== "full" ? "" : list.map(t => `
+    </figure>`, gridHead) || empty;
+  $("tkFull").innerHTML = layout !== "full" ? "" : withColorHeads(list, byColor, t => `
     <article class="fcard">
       <div class="px-img"><div class="ph">${esc(t.name)}</div>${cardImg(t)}</div>
       <div class="fbody">
@@ -126,7 +127,7 @@ function renderTokens() {
         <div class="tk-made">${t.makers.size ? `<span class="flabel">Made by</span> ` : ""}${makersHtml(t)}</div>
         ${tokenChips(t)}
       </div>
-    </article>`).join("") || empty;
+    </article>`, gridHead) || empty;
   $("tkTableBox").hidden = layout !== "table"; $("tkGrid").hidden = layout !== "grid"; $("tkFull").hidden = layout !== "full";
   $("tkLayout").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === layout)));
   $("tkSortSel").value = sortStr(tkSort);

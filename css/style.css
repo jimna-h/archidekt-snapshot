@@ -432,7 +432,7 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   #indexTable, #cardTable { min-width: 0; width: 100%; }
   #indexTable thead, #cardTable thead, #indexTable colgroup { display: none; }
   #indexTable tbody, #cardTable tbody { display: block; }
-  #cardTable tr { display: grid; grid-template-columns: auto 1fr auto auto; grid-template-areas: "card card card total" "qty price ind chg"; align-items: center; column-gap: 8px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid); }
+  #cardTable tr { display: grid; grid-template-columns: auto 1fr auto auto auto; grid-template-areas: "card card card card total" "qty price bl ind chg"; align-items: center; column-gap: 8px; row-gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--grid); }
   #cardTable td { display: block; padding: 0; border: 0; min-width: 0; }
   #cardTable td[colspan] { grid-column: 1 / -1; }
   #cardTable td:nth-child(1) { grid-area: card; } #cardTable td:nth-child(2) { grid-area: ind; }
@@ -440,7 +440,14 @@ button.secondary:hover:not(:disabled) { background: var(--series-1-wash); }
   #cardTable td:nth-child(3)::after { content: " ×"; }
   #cardTable td:nth-child(4) { grid-area: price; text-align: left; font-size: 13px; color: var(--text-secondary); }
   #cardTable td:nth-child(5) { grid-area: total; font-weight: 600; }
-  #cardTable td:nth-child(6) { grid-area: chg; font-size: 13px; }
+  #cardTable td:nth-child(6) { grid-area: bl; font-size: 13px; color: var(--text-secondary); }
+  #cardTable td:nth-child(6):not(:has(.muted))::before { content: "Bling "; }
+  #cardTable td:nth-child(7) { grid-area: chg; font-size: 13px; }
+  /* color group headings stay plain full-width rows */
+  #indexTable tr.group-row, #cardTable tr.group-row, #tokenTable tr.group-row { display: block; padding: 16px 0 6px; }
+  /* the Cards filters fold away behind the Filters button */
+  #indexView .ix-bar:not(.filters-open) .fgrid, #indexView .ix-bar:not(.filters-open) .viewbar { display: none; }
+
   /* one card per row: name and its cheapest price; type and store; copies and sets; decks */
   #indexTable tr { display: grid; column-gap: 10px; row-gap: 3px; padding: 12px 0; border-bottom: 1px solid var(--grid);
     grid-template-columns: 30px minmax(0, 1fr) auto; grid-template-areas: "n name best" ". type best" ". sets sets" ". where where"; }
@@ -532,3 +539,28 @@ button.ghost.share span { text-decoration: underline; text-underline-offset: 3px
 .hero .bling .big .tier { font-family: var(--sans, inherit); font-size: 15px; font-weight: 600; color: var(--text-secondary); margin-left: 8px; letter-spacing: 0.02em; }
 .bling-parts { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
 .bling-parts .up { color: var(--up); } .bling-parts .down { color: var(--down); }
+
+/* Phone-only Filters button on the Cards tab */
+#ixFiltersBtn { display: none; align-items: center; gap: 6px; }
+@media (max-width: 600px) {
+  #ixFiltersBtn { display: inline-flex; }
+  #indexView .fsearch { flex-wrap: wrap; }
+  #indexView .fsearch input { flex-basis: 100%; }
+  #indexView .fsearch button { flex: 1; justify-content: center; }
+}
+#ixFiltersBtn .count-badge { margin: 0; }
+/* Color group headings when a list is sorted by color */
+tr.group-row td { padding: 18px 8px 6px; border-bottom: 1px solid var(--axis); background: none; }
+tr.group-row:first-child td { padding-top: 6px; }
+.group-head { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; padding: 10px 0 2px; border-bottom: 1px solid var(--axis); }
+.group-head:first-child { padding-top: 0; }
+tr.group-row td, .group-head { font-size: 15px; }
+.gh-name { font-family: var(--serif); font-weight: 700; margin-right: 6px; }
+tr.group-row td .muted, .group-head .muted { margin-left: 8px; font-size: 13px; }
+tr.group-row:hover td { background: none; }
+/* Bling over time, next to the deck's bling score */
+.bling-spark { vertical-align: middle; margin-left: 12px; overflow: visible; }
+/* What it'd cost to replace the proxies in their cheapest printings */
+.tag-note { margin: 10px 0 0; font-size: 14px; color: var(--text-secondary); }
+.tag-note:empty { display: none; }
+.proxy-summary .sub { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }

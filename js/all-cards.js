@@ -73,7 +73,7 @@ function indexCards() {
         byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: typesOf, subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
-          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, loB: {}, hiB: {}, loId: {}, hiId: {}, idQty: new Map(), mix: 0, id: "",
+          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, loB: {}, hiB: {}, loId: {}, hiId: {}, idQty: new Map(), mix: 0, mixMin: 0, id: "",
           bl: { tcg: { sum: 0, n: 0 }, ck: { sum: 0, n: 0 }, cm: { sum: 0, n: 0 } }, realN: 0, foilN: 0, printings: new Set(), sets: new Map() });
       }
       c.qty += r.qty;
@@ -99,6 +99,9 @@ function indexCards() {
       // each copy bought wherever it's cheapest among the compared stores
       const opts = [...ix.stores].map(s => priceIn(r, STORE_KEYS[s])).filter(p => p != null);
       if (opts.length) c.mix += Math.min(...opts) * r.qty;
+      // the same, but each copy in the card's cheapest printing (what replacing a proxy really costs)
+      const mins = [...ix.stores].map(s => { const p = priceIn(r, STORE_KEYS[s]), m = +r[`${s}_min`] || 0; return p == null ? null : m ? Math.min(m, p) : p; }).filter(p => p != null);
+      if (mins.length) c.mixMin += Math.min(...mins) * r.qty;
       // bling counts real copies only: their price vs the card's cheapest printing
       if (!isProxy(r)) {
         c.realN += r.qty; c.rowsHaveMin ||= r.tcg_min != null && r.tcg_min !== "" || r.ck_min != null && r.ck_min !== "";
@@ -248,12 +251,13 @@ function renderIndex() {
 
   gcSet = gameChangers(); syncSegs();
   const list = sortBy(indexCards().filter(ixMatches), ixSort);
-  const copies = list.reduce((s, c) => s + c.qty, 0), mix = list.reduce((s, c) => s + c.mix, 0);
+  const copies = list.reduce((s, c) => s + c.qty, 0), mix = list.reduce((s, c) => s + c.mix, 0), mixMin = list.reduce((s, c) => s + c.mixMin, 0);
   const deckCount = new Set(list.flatMap(c => [...c.perDeck.keys()])).size;
   const storeTotal = s => list.reduce((t, c) => t + c.tot[s], 0);
   $("ixSummary").innerHTML = `
     <div><div class="lbl" title="Each copy at whichever compared store is cheapest">${ix.proxies === "only" ? "Cost to replace these proxies" : "Value at the cheapest store"}</div>
-      <div class="big num" style="text-align:left">${money(mix)}</div></div>
+      <div class="big num" style="text-align:left">${money(mix)}</div>
+      ${ix.proxies === "only" && mix - mixMin >= 0.5 ? `<div class="sub" title="Each copy in the card's cheapest printing, at whichever compared store is cheapest">${money(mixMin)} in each card's cheapest printing</div>` : ""}</div>
     <div class="alt"><div>${list.length} card${list.length === 1 ? "" : "s"} · ${copies} ${copies === 1 ? "copy" : "copies"} · ${deckCount} deck${deckCount === 1 ? "" : "s"}</div>
       ${Object.keys(STORE_NAMES).map(s => `<div class="${ix.stores.has(s) ? "" : "off"}">${STORE_NAMES[s]} only: ${money(storeTotal(s))}</div>`).join("")}</div>`;
   const notes = [
@@ -275,7 +279,9 @@ function renderIndex() {
   const priceCell = (c, s) => `<td class="num ${c.bestStore === s ? "best" : ""} ${ix.stores.has(s) ? "" : "muted"}" ${cheapestTip(c, s)}>${money(c[s])}</td>`;
   const copyText = n => `${n} ${n === 1 ? "copy" : "copies"}`;
   const layout = ix.layout;
-  $("indexTable").tBodies[0].innerHTML = layout !== "table" ? "" : list.map((c, i) => `
+  const byColor = ixSort.k === "color";
+  const gridHead = (id, n) => `<div class="group-head">${colorHeadHtml(id, n)}</div>`;
+  $("indexTable").tBodies[0].innerHTML = layout !== "table" ? "" : withColorHeads(list, byColor, (c, i) => `
     <tr>
       <td class="rownum">${i + 1}</td>
       <td><span class="card-name">${esc(c.name)}</span>${c.commander ? ` <span class="badge">Commander</span>` : ""}${c.token ? ` <span class="badge">Token</span>` : ""}</td>
@@ -288,14 +294,14 @@ function renderIndex() {
       <td class="sets-col"><span class="m-only">${copyText(c.qty)}</span> ${setsHtml(c)}</td>
       <td>${chipsHtml(c)}</td>
       <td class="m-best"><b>${money(c.best)}</b><span>${ixSort.k === "bling" && c.bling != null ? `Bling ${Math.round(c.bling)}` : c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></td>
-    </tr>`).join("")
+    </tr>`, (id, n) => `<tr class="group-row"><td colspan="12">${colorHeadHtml(id, n)}</td></tr>`)
     || `<tr><td colspan="12" class="muted empty-row">No cards match.</td></tr>`;
-  $("ixGrid").innerHTML = layout !== "grid" ? "" : list.map(c => `
+  $("ixGrid").innerHTML = layout !== "grid" ? "" : withColorHeads(list, byColor, c => `
     <figure class="px-tile" title="${esc(c.name)}\n${esc(deckChips(c).map(({ name, e }) => name + (e.qty > 1 ? " ×" + e.qty : "")).join("\n"))}">
       <div class="px-img"><div class="ph">${esc(c.name)}</div>${cardImg(c)}${c.qty > 1 ? `<span class="px-qty">×${c.qty}</span>` : ""}</div>
       <figcaption><b class="num">${money(c.best)}</b><span class="muted">${c.bestStore ? STORE_NAMES[c.bestStore] : "No price"}</span></figcaption>
-    </figure>`).join("") || `<div class="muted">No cards match.</div>`;
-  $("ixFull").innerHTML = layout !== "full" ? "" : list.map(c => `
+    </figure>`, gridHead) || `<div class="muted">No cards match.</div>`;
+  $("ixFull").innerHTML = layout !== "full" ? "" : withColorHeads(list, byColor, c => `
     <article class="fcard">
       <div class="px-img"><div class="ph">${esc(c.name)}</div>${cardImg(c)}</div>
       <div class="fbody">
@@ -306,13 +312,15 @@ function renderIndex() {
         <div class="fsets">${setsHtml(c)}</div>
         ${chipsHtml(c)}
       </div>
-    </article>`).join("") || `<div class="muted">No cards match.</div>`;
+    </article>`, gridHead) || `<div class="muted">No cards match.</div>`;
   $("ixGrid").hidden = layout !== "grid"; $("ixFull").hidden = layout !== "full"; $("ixTableBox").hidden = layout !== "table";
   $("ixLayout").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === ix.layout)));
   markSort($("indexTable"), ixSort);
   const ixs = sortStr(ixSort); $("ixSortSel").value = [...$("ixSortSel").options].some(o => o.value && o.value === ixs) ? ixs : "";
   renderOverlap(list);
   $("ixClear").disabled = !filtersActive();
+  const nOn = activeFilterCount();
+  $("ixFiltersBtn").innerHTML = `Filters${nOn ? ` <span class="count-badge">${nOn}</span>` : ""}`;
   syncUrl();
 }
 
@@ -400,6 +408,14 @@ const parseSets = text => text.toUpperCase().split(/[\s,;]+/).map(x => x.replace
 $("ixSets").addEventListener("input", e => { ix.sets = parseSets(e.target.value); renderIndex(); });
 $("ixSortSel").addEventListener("change", e => { readSort(e.target.value, ixSort); renderIndex(); });
 // Anything narrowing the list (sort, stores and layout aren't filters)
+// How many filters are on (for the phone "Filters" button; the search box shows itself)
+const activeFilterCount = () => [ix.subtype, ix.sets.length, ix.commanders, ix.gc, ix.proxies, ix.match !== "any",
+  ix.pmin != null || ix.pmax != null, ix.mvmin != null || ix.mvmax != null, ix.colors.size, ix.types.size, ix.skip.size].filter(Boolean).length;
+// On phones the filters fold away behind a button so the cards come first
+$("ixFiltersBtn").addEventListener("click", () => {
+  const open = $("indexView").querySelector(".ix-bar").classList.toggle("filters-open");
+  $("ixFiltersBtn").setAttribute("aria-expanded", String(open));
+});
 const filtersActive = () => !!(ix.search || ix.subtype || ix.sets.length || ix.commanders || ix.gc || ix.proxies || ix.match !== "any" ||
   ix.pmin != null || ix.pmax != null || ix.mvmin != null || ix.mvmax != null ||
   ix.colors.size || ix.types.size || ix.skip.size);

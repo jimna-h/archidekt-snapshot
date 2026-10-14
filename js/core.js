@@ -70,6 +70,35 @@ function colorRank(id) {
   if (id.length === 4) return 30 + "WUBRG".split("").findIndex(c => !id.includes(c));
   return 40;
 }
+// Group names for headings when a list is sorted by color
+const GROUP_NAMES = { W: "White", U: "Blue", B: "Black", R: "Red", G: "Green",
+  WU: "Azorius", UB: "Dimir", BR: "Rakdos", RG: "Gruul", GW: "Selesnya", WB: "Orzhov", UR: "Izzet", BG: "Golgari", RW: "Boros", GU: "Simic",
+  WUB: "Esper", UBR: "Grixis", BRG: "Jund", RGW: "Naya", GWU: "Bant", WBG: "Abzan", URW: "Jeskai", BGU: "Sultai", RWB: "Mardu", GUR: "Temur" };
+const FOUR_NAMES = ["Glint-Eye", "Dune-Brood", "Ink-Treader", "Witch-Maw", "Yore-Tiller"];   // by the missing color, W U B R G
+function colorGroupName(id) {
+  const r = colorRank(id);
+  if (r == null) return "Unknown color";
+  if (r === 60) return "Colorless";
+  if (r === 40) return "Five-color";
+  if (r >= 30) return `${FOUR_NAMES[r - 30]} (four-color)`;
+  if (r < 10) return GROUP_NAMES["WUBRG"[r]];
+  return GROUP_NAMES[r < 20 ? PAIR_ORDER[r - 10] : TRIO_ORDER[r - 20]];
+}
+// A list sorted by color gets a heading before each color group: item(c, i) renders an entry,
+// head(color, count) a heading. Other sorts render the entries as they are.
+function withColorHeads(list, byColor, item, head) {
+  if (!byColor) return list.map(item).join("");
+  const counts = new Map();
+  for (const c of list) { const r = colorRank(c.color); counts.set(r, (counts.get(r) || 0) + 1); }
+  let prev;
+  return list.map((c, i) => {
+    const r = colorRank(c.color), h = i === 0 || r !== prev ? head(c.color, counts.get(r)) : "";
+    prev = r;
+    return h + item(c, i);
+  }).join("");
+}
+const colorHeadHtml = (id, n) => `<span class="gh-name">${esc(colorGroupName(id))}</span>${id ? pipsHtml(id) : ""}<span class="muted">${n}</span>`;
+
 const cmpVal = (x, y) => typeof x === "string" ? x.localeCompare(y, undefined, { numeric: true, sensitivity: "base" }) : x - y;
 function sortBy(arr, { k, dir }) {
   const byColor = k === "color";
@@ -367,6 +396,19 @@ function renderDecks() {
   $("deckList").innerHTML = item(deckStats(decks.get(ALL))) + item(deckStats(decks.get(AVG))) + `<div class="deck-sep" role="presentation"></div>` + real.map(item).join("");
 }
 
+// A small line of bling scores over time (needs two or more days); the dot is today.
+function blingSpark(hist) {
+  if (hist.length < 2) return "";
+  const W = 96, H = 28, pad = 3, vs = hist.map(([, v]) => v);
+  let lo = Math.min(...vs), hi = Math.max(...vs);
+  if (hi - lo < 4) { const mid = (hi + lo) / 2; lo = mid - 2; hi = mid + 2; }   // flat-ish stays flat-looking
+  const x = i => pad + i * (W - 2 * pad) / (hist.length - 1), y = v => H - pad - (v - lo) / (hi - lo) * (H - 2 * pad);
+  const pts = vs.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  const tip = hist.map(([dt, v]) => `${shortDate(dt)}: ${Math.round(v)}`).join("\n");
+  return `<svg class="bling-spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Bling over time"><title>${esc(tip)}</title>` +
+    `<polyline points="${pts}" fill="none" stroke="var(--series-1)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>` +
+    `<circle cx="${x(vs.length - 1).toFixed(1)}" cy="${y(vs.at(-1)).toFixed(1)}" r="2.6" fill="var(--series-1)"/></svg>`;
+}
 // The bling stat in the deck header: score, tier, the three parts, and the change since bling
 // was first recorded for this deck.
 function renderBling(d, s) {
@@ -375,7 +417,9 @@ function renderBling(d, s) {
   if (!b) return;
   const firstDay = s.ds.find(x => blingOn(d, x)), first = firstDay && firstDay !== s.last ? blingOn(d, firstDay) : null;
   const change = first ? b.score - first.score : null;
-  $("blingVal").innerHTML = `${Math.round(b.score)}<span class="tier">${b.tier}</span>`;
+  // bling over time, as a small line next to the score
+  const hist = s.ds.map(x => [x, blingOn(d, x)?.score]).filter(([, v]) => v != null);
+  $("blingVal").innerHTML = `${Math.round(b.score)}<span class="tier">${b.tier}</span>${blingSpark(hist)}`;
   const realPct = b.cards ? Math.round(b.real / b.cards * 100) : 100;
   $("blingParts").innerHTML = `${money(b.value - b.cheapest)} over the cheapest printings · ${fmtCount(b.foils)} foil${b.foils === 1 ? "" : "s"} · ${realPct}% real` +
     (change != null && Math.round(change) ? ` · <span class="${change > 0 ? "up" : "down"}">${change > 0 ? "+" : ""}${Math.round(change)} since ${fmtDate(firstDay)}</span>` : "");

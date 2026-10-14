@@ -137,6 +137,13 @@ function renderTags(d, s) {
   const list = [...groups.values()].filter(g => g.n > 0).sort((a, b) => b.v - a.v);
   const max = Math.max(...list.map(g => g.v), 0.01);
   if (tagFilter && !list.some(g => g.name === tagFilter)) tagFilter = null;
+  // what the proxies would cost in each card's cheapest printing (today's prices only)
+  const s0 = src(), proxyRows = rows.filter(isProxy);
+  let cheap = proxyRows.reduce((t, r) => { const p = priceIn(r) ?? 0, m = +r[`${s0}_min`] || 0; return t + (m ? Math.min(m, p) : p) * r.qty; }, 0);
+  if (d.id === AVG) cheap /= realDecks().filter(x => !isStale(x)).length || 1;
+  const proxyV = groups.get("Proxied").v;
+  $("tagNote").innerHTML = proxyRows.length && proxyV - cheap >= 0.5
+    ? `Replacing the proxies would cost <b>${money(cheap)}</b> in each card's cheapest printing (${money(proxyV)} in the printings listed).` : "";
   $("tags").innerHTML = list.map(g => `
     <div class="tagrow ${g.name === tagFilter ? "active" : ""}" data-tag="${g.name}">
       <span class="chip">${g.name} <span class="muted">${fmtCount(g.n)} card${g.n === 1 ? "" : "s"}</span></span>
@@ -187,6 +194,17 @@ async function cardsFor(d) {
   return { date: asOf, rows, past: true };
 }
 
+// Each card's cheapest-printing price today at the chosen store, by name (for past decklists)
+let cheapCache = null;
+function cheapestToday() {
+  const s = src();
+  if (cheapCache?.s === s) return cheapCache.map;
+  const map = new Map();
+  for (const d of realDecks()) for (const r of d.rows) { const m = +r[`${s}_min`]; if (m > 0 && !map.has(r.card_name)) map.set(r.card_name, m); }
+  cheapCache = { s, map };
+  return map;
+}
+
 let cardsToken = 0;
 async function renderCards(d) {
   const token = ++cardsToken;
@@ -198,7 +216,9 @@ async function renderCards(d) {
     const p = priceIn(r), then = !past && from && from !== latestDate ? priceOn(from, printKey(r)) : null;
     const info = cardInfo.get(r.card_name);
     return { name: r.card_name, color: info?.color_identity ?? null, mv: info?.mana_value === "" || info?.mana_value == null ? null : +info.mana_value, set: r.set_code, finish: r.finish, qty: r.qty, tag: isProxy(r) ? "Proxied" : "Paper", proxy: isProxy(r),
-             price: p, total: p == null ? null : p * r.qty, d30: p != null && then != null ? (p - then) * r.qty : null };
+             price: p, total: p == null ? null : p * r.qty, d30: p != null && then != null ? (p - then) * r.qty : null,
+             // this printing's bling (proxies have none); past days use today's cheapest-printing prices
+             bling: isProxy(r) || !(p > 0) ? null : blingScore(copyBling(p, +r[`${src()}_min`] || cheapestToday().get(r.card_name) || 0, (r.finish || "Normal") !== "Normal"), 1) };
   });
   if (tagFilter) list = list.filter(c => c.tag === tagFilter);
   if (q) list = list.filter(c => c.name.toLowerCase().includes(q));
@@ -206,15 +226,16 @@ async function renderCards(d) {
   const label = tagFilter === "Proxied" ? "Proxied cards" : tagFilter === "Paper" ? "Paper cards" : "Cards";
   $("cardsTitle").textContent = `${label} (${list.length})${past ? `, ${fmtDate(date)}` : ""}`;
   $("cardTable").querySelector('th[data-k="d30"]').hidden = past;
-  $("cardTable").tBodies[0].innerHTML = list.map(c => `
+  $("cardTable").tBodies[0].innerHTML = withColorHeads(list, cardSort.k === "color", c => `
     <tr>
       <td><span class="card-name">${esc(c.name)}</span><span class="printing">${esc(c.set.toUpperCase())}${c.finish && c.finish !== "Normal" ? ", " + esc(c.finish.toLowerCase()) : ""}</span></td>
       <td class="ind">${c.proxy ? `<span class="badge proxy">Proxy</span>` : ""}</td>
       <td class="num">${c.qty}</td>
       <td class="num">${money(c.price)}</td>
       <td class="num">${money(c.total)}</td>
+      <td class="num bling-cell">${c.bling == null ? `<span class="muted">–</span>` : `<span title="${blingTier(c.bling)}">${Math.round(c.bling)}</span>`}</td>
       ${past ? "" : deltaCell(c.d30)}
-    </tr>`).join("") || `<tr><td colspan="6" class="muted">No cards match.</td></tr>`;
+    </tr>`, (id, n) => `<tr class="group-row"><td colspan="7">${colorHeadHtml(id, n)}</td></tr>`) || `<tr><td colspan="7" class="muted">No cards match.</td></tr>`;
   markSort($("cardTable"), cardSort);
   const cs = sortStr(cardSort), sel = $("cardSortSel");
   [...sel.options].forEach(o => { if (/d30/.test(o.value)) o.hidden = o.disabled = past; });
