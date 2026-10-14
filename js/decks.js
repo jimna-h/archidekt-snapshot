@@ -196,7 +196,8 @@ async function renderCards(d) {
   const q = $("search").value.trim().toLowerCase();
   let list = rows.map(r => {
     const p = priceIn(r), then = !past && from && from !== latestDate ? priceOn(from, printKey(r)) : null;
-    return { name: r.card_name, set: r.set_code, finish: r.finish, qty: r.qty, tag: isProxy(r) ? "Proxied" : "Paper", proxy: isProxy(r),
+    const info = cardInfo.get(r.card_name);
+    return { name: r.card_name, color: info?.color_identity ?? null, mv: info?.mana_value === "" || info?.mana_value == null ? null : +info.mana_value, set: r.set_code, finish: r.finish, qty: r.qty, tag: isProxy(r) ? "Proxied" : "Paper", proxy: isProxy(r),
              price: p, total: p == null ? null : p * r.qty, d30: p != null && then != null ? (p - then) * r.qty : null };
   });
   if (tagFilter) list = list.filter(c => c.tag === tagFilter);

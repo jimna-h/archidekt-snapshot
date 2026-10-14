@@ -252,7 +252,7 @@ function sortClick(table, getState, after) {
 sortClick($("indexTable"), () => ixSort, renderIndex);
 sortClick($("tokenTable"), () => tkSort, renderTokens);
 sortClick($("cardTable"), () => cardSort, () => renderCards(decks.get(selected)));
-$("deckSortSel").addEventListener("change", e => { deckSort.k = e.target.value; deckSort.dir = e.target.value === "name" ? 1 : -1; renderDecks(); syncUrl(); });
+$("deckSortSel").addEventListener("change", e => { deckSort.k = e.target.value; deckSort.dir = ["name", "color"].includes(e.target.value) ? 1 : -1; renderDecks(); syncUrl(); });
 $("deckList").addEventListener("click", e => {
   const b = e.target.closest(".deck-item"); if (!b) return;
   selected = b.dataset.id; tagFilter = null; asOf = null; $("search").value = ""; render();

@@ -6,10 +6,6 @@
 // Magic card: name + color "mana cost", art, type line (commanders), text box, and the
 // bracket where power/toughness would be.
 const FRAME = { W: "#e8dcbc", U: "#2268ad", B: "#36302e", R: "#c4402c", G: "#2a7748", gold: "#c9a03a", C: "#a3a8ad" };
-// Magic's own ordering for color pairs and triples (e.g. Bant is G-W-U, Rakdos is B-R)
-const PAIR_ORDER = ["WU", "UB", "BR", "RG", "GW", "WB", "UR", "BG", "RW", "GU"];
-const TRIO_ORDER = ["WUB", "UBR", "BRG", "RGW", "GWU", "WBG", "URW", "BGU", "RWB", "GUR"];
-const sameLetters = (a, b) => a.length === b.length && [...a].every(c => b.includes(c));
 function orderedColors(id) {
   const list = id.length === 2 ? PAIR_ORDER : id.length === 3 ? TRIO_ORDER : null;
   return (list && list.find(x => sameLetters(x, id))) || "WUBRG".split("").filter(c => id.includes(c)).join("");

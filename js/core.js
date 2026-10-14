@@ -53,11 +53,31 @@ function delta(el, d, base) {
   const pct = base ? ` (${d >= 0 ? "+" : ""}${(d / base * 100).toFixed(1)}%)` : "";
   el.textContent = signed(d) + pct; el.classList.add(tone(d));
 }
+// Magic's own ordering for color pairs and triples (e.g. Bant is G-W-U, Rakdos is B-R)
+const PAIR_ORDER = ["WU", "UB", "BR", "RG", "GW", "WB", "UR", "BG", "RW", "GU"];
+const TRIO_ORDER = ["WUB", "UBR", "BRG", "RGW", "GWU", "WBG", "URW", "BGU", "RWB", "GUR"];
+const sameLetters = (a, b) => a.length === b.length && [...a].every(c => b.includes(c));
+// Color order the way Magic sorts it: white, blue, black, red, green, then the pairs (allied
+// first: WU UB BR RG GW, then enemy), the triples (shards, then wedges), four colors (by the
+// missing one), all five, and colorless last. null (unknown) sorts after everything.
+function colorRank(id) {
+  if (id == null) return null;
+  id = [...new Set(String(id).toUpperCase().replace(/[^WUBRG]/g, ""))].join("");
+  if (!id) return 60;
+  if (id.length === 1) return "WUBRG".indexOf(id);
+  if (id.length === 2) return 10 + PAIR_ORDER.findIndex(x => sameLetters(x, id));
+  if (id.length === 3) return 20 + TRIO_ORDER.findIndex(x => sameLetters(x, id));
+  if (id.length === 4) return 30 + "WUBRG".split("").findIndex(c => !id.includes(c));
+  return 40;
+}
+const cmpVal = (x, y) => typeof x === "string" ? x.localeCompare(y, undefined, { numeric: true, sensitivity: "base" }) : x - y;
 function sortBy(arr, { k, dir }) {
+  const byColor = k === "color";
   return arr.sort((a, b) => {
-    const x = a[k], y = b[k];
+    const x = byColor ? colorRank(a.color) : a[k], y = byColor ? colorRank(b.color) : b[k];
     if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
-    return (typeof x === "string" ? x.localeCompare(y, undefined, { numeric: true, sensitivity: "base" }) : x - y) * dir;
+    // within a color: mana value, then name
+    return cmpVal(x, y) * dir || (byColor ? (a.mv ?? 99) - (b.mv ?? 99) || cmpVal(a.name || "", b.name || "") : 0);
   });
 }
 function markSort(table, s) {
@@ -298,6 +318,7 @@ function deckStats(d) {
     dFirst: ds.length > 1 ? value - val(d, first) : null, firstVal: val(d, first),
     lastSwap: d.virtual && d.id === AVG ? null : (deckSwaps(d).at(-1)?.date ?? null),
     bling: blingOn(d, last)?.score ?? null,
+    color: d.virtual ? null : deckIdentity(d.id),
     stale: isStale(d),
   };
 }
@@ -338,7 +359,7 @@ function renderDecks() {
       ${st.virtual ? `<span class="thumb none" aria-hidden="true"></span>` : thumbHtml(st.id)}
       <span class="dname" title="${esc(st.name)}">${esc(st.name)}</span>
       <span class="dval num">${money(st.value)}</span>
-      <span class="dmeta">${st.stale ? `Last in folder ${fmtDate(st.last)}` : deckSort.k === "bling" && st.bling != null ? `Bling ${Math.round(st.bling)}` : `${fmtCount(st.cards)} cards`}${!st.stale && st.lastSwap ? `, swapped ${shortDate(st.lastSwap)}` : ""}</span>
+      <span class="dmeta">${st.stale ? `Last in folder ${fmtDate(st.last)}` : deckSort.k === "bling" && st.bling != null ? `Bling ${Math.round(st.bling)}` : deckSort.k === "color" && st.color != null ? pipsHtml(st.color) : `${fmtCount(st.cards)} cards`}${!st.stale && st.lastSwap ? `, swapped ${shortDate(st.lastSwap)}` : ""}</span>
       <span class="ddelta num ${tone(st.dFirst)}">${st.dFirst == null ? "" : signed(st.dFirst)}</span>
     </button>`;
   const all = sortBy(realDecks().map(deckStats), deckSort);
