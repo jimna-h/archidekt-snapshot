@@ -86,7 +86,9 @@ TOTAL_FIELDNAMES = ["date", "deck_id", "cards"] + [
     f"{src}_{part}" for src in ("tcg", "ck", "cm") for part in ("total", "paper", "proxy")] + [
     # for the bling score: real (non-proxy) cards, how many are foil, and what those real cards
     # would cost in each card's cheapest printing
-    "paper_cards", "foil_cards", "tcg_paper_min", "ck_paper_min", "cm_paper_min"]
+    "paper_cards", "foil_cards", "tcg_paper_min", "ck_paper_min", "cm_paper_min",
+    # real cards whose printing (foil aside) is clearly pricier than the card's cheapest printing
+    "tcg_upgraded", "ck_upgraded", "cm_upgraded"]
 SOURCE_COLUMNS = {"tcg": "price_tcgplayer", "ck": "price_cardkingdom", "cm": "price_cardmarket"}
 DECKLIST_FIELDNAMES = ["date", "deck_id", "card_name", "set_code", "finish", "proxied", "quantity"]
 CARD_PRICE_FIELDNAMES = ["date", "card_name", "set_code", "finish", *PRICE_SOURCES.values()]
@@ -318,8 +320,10 @@ def card_row(entry, deck_id, today):
     }
     for key, column in PRICE_SOURCES.items():
         row[column] = price(prices, key, foil)
-        # cheapest printing of this card at that store (not saved per card; only summed per deck)
+        # cheapest printing of this card at that store, and this printing's nonfoil price
+        # (not saved per card; only used for the per-deck bling counts)
         row[f"_min_{key}"] = prices.get(f"{key}Minimum")
+        row[f"_base_{key}"] = prices.get(key)
     return row
 
 
@@ -412,7 +416,7 @@ def write_latest(rows, failed_ids):
 def write_totals(rows, today):
     by_deck = {}
     for r in rows:
-        t = by_deck.setdefault(str(r["deck_id"]), {f: 0.0 for f in TOTAL_FIELDNAMES[3:]} | {"cards": 0, "paper_cards": 0, "foil_cards": 0})
+        t = by_deck.setdefault(str(r["deck_id"]), {f: 0.0 for f in TOTAL_FIELDNAMES[3:]} | {"cards": 0, "paper_cards": 0, "foil_cards": 0, "tcg_upgraded": 0, "ck_upgraded": 0, "cm_upgraded": 0})
         qty = int(r["quantity"])
         t["cards"] += qty
         part = "proxy" if r["proxied"] == "true" else "paper"
@@ -424,6 +428,9 @@ def write_totals(rows, today):
                 # the same card in its cheapest printing (never more than what this copy is worth)
                 cheapest = num(r.get(f"_min_{src}"))
                 t[f"{src}_paper_min"] += min(cheapest, num(r[column])) * qty if cheapest else value
+                base = num(r.get(f"_base_{src}"))
+                if cheapest and base >= cheapest * 1.25 and base - cheapest >= 0.25:
+                    t[f"{src}_upgraded"] += qty
         if part == "paper":
             t["paper_cards"] += qty
             if (r.get("finish") or "Normal") != "Normal":
