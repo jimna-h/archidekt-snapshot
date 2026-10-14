@@ -73,13 +73,14 @@ function indexCards() {
         byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: typesOf, subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
-          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, loB: {}, hiB: {}, mix: 0, id: "",
+          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, loB: {}, hiB: {}, loId: {}, hiId: {}, idQty: new Map(), mix: 0, id: "",
           bl: { tcg: { sum: 0, n: 0 }, ck: { sum: 0, n: 0 }, cm: { sum: 0, n: 0 } }, realN: 0, foilN: 0, printings: new Set(), sets: new Map() });
       }
       c.qty += r.qty;
       c.printings.add(printKey(r));
       c.sets.set(set, (c.sets.get(set) || 0) + r.qty);
       if (!c.id && r.scryfall_id) c.id = r.scryfall_id;   // a printing you play, for the card image
+      if (r.scryfall_id) c.idQty.set(r.scryfall_id, (c.idQty.get(r.scryfall_id) || 0) + r.qty);
       // per store: what these copies cost there, and the cheapest and priciest printing among
       // them with that printing's bling (a proxy has none)
       const foil = (r.finish || "Normal") !== "Normal";
@@ -92,8 +93,8 @@ function indexCards() {
         // at the same price a real copy beats a proxy; then the cheapest version is the least
         // blingy one and the priciest the most
         const tie = (old, lower) => b != null && (old == null || (lower ? b < old : b > old));
-        if (c.lo[s] == null || p < c.lo[s] || p === c.lo[s] && tie(c.loB[s], true)) { c.lo[s] = p; c.loB[s] = b; }
-        if (c.hi[s] == null || p > c.hi[s] || p === c.hi[s] && tie(c.hiB[s], false)) { c.hi[s] = p; c.hiB[s] = b; }
+        if (c.lo[s] == null || p < c.lo[s] || p === c.lo[s] && tie(c.loB[s], true)) { c.lo[s] = p; c.loB[s] = b; c.loId[s] = r.scryfall_id || c.loId[s]; }
+        if (c.hi[s] == null || p > c.hi[s] || p === c.hi[s] && tie(c.hiB[s], false)) { c.hi[s] = p; c.hiB[s] = b; c.hiId[s] = r.scryfall_id || c.hiId[s]; }
       }
       // each copy bought wherever it's cheapest among the compared stores
       const opts = [...ix.stores].map(s => priceIn(r, STORE_KEYS[s])).filter(p => p != null);
@@ -122,8 +123,10 @@ function indexCards() {
     const [bestStore, best] = [...ix.stores].map(s => [s, c[s]]).filter(([, p]) => p != null).sort((a, b) => a[1] - b[1])[0] || [null, null];
     // card bling uses the first compared store (TCGplayer unless it's unticked)
     const bs = ["tcg", "ck", "cm"].find(s => ix.stores.has(s)) || "tcg";
+    // the art follows too: that printing, or for the average the printing you have most copies of
+    const id = (v === "avg" ? [...c.idQty].sort((a, b) => b[1] - a[1])[0]?.[0] : (v === "high" ? c.hiId : c.loId)[bs]) || c.id;
     const bling = !c.rowsHaveMin ? null : v === "avg" ? blingScore(c.bl[bs].sum, c.bl[bs].n) : (v === "high" ? c.hiB : c.loB)[bs] ?? null;
-    return { ...c, decks: c.perDeck.size, bestStore, best, price: best, bling, setList: [...c.sets.keys()].sort().join(", ") };
+    return { ...c, id, decks: c.perDeck.size, bestStore, best, price: best, bling, setList: [...c.sets.keys()].sort().join(", ") };
   });
 }
 
