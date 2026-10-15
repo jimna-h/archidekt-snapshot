@@ -9,7 +9,7 @@ Daily snapshots of every deck in one public [Archidekt](https://archidekt.com) f
 - **Tokens**: every token your decks make and which cards make them, with art from each deck's "Tokens & Extras".
 - **Business cards**: a printable Magic-card-sized card per deck with a QR code to it.
 
-Every view has its own link (**Share**). **Sync** opens GitHub's Run workflow page for a fresh snapshot, and the site reloads once it's published. Any list can sort by color in Magic's order, with a heading per color group.
+**Sync** opens GitHub's Run workflow page for a fresh snapshot, and the site reloads once it's published. The Sync button will only work for you, as you need to be logged in in order to actually run the workflow.
 
 ### Bling score
 
@@ -32,7 +32,7 @@ $60 for a $10 card scores 0.69; $550 for a $500 card, 0.08; $1 for a 1¢ card, 0
 It then runs every morning (13:17 UTC, with two backup runs). If a run can't push, set **Settings → Actions → General → Workflow permissions** to **Read and write**.
 
 **Good to know**
-- Tag proxies with the Archidekt color tag **Proxied** (or **Proxy** / **Proxies**). Filter the Cards tab to "Proxies only" for a to-buy list.
+- Tag proxies with the Archidekt color tag called **Proxied** (or **Proxy** or **Proxies**). Filter the Cards tab to "Proxies only" for essentially a to-buy list.
 - Only decks directly in the folder count. A card counts if its first category is included in the deck; Sideboard and Maybeboard never count, even though Archidekt includes Sideboard by default.
 - A deck gone from the folder for 10 days has its history deleted.
 - On a phone, **Add to Home Screen** installs it as an app.
@@ -53,15 +53,6 @@ All in `data/`. Decks are keyed by Archidekt deck id. Re-running on the same day
 | `token_proxies.csv` | Proxied tokens in each deck's "Tokens & Extras" | Tiny |
 | `folder.csv` | The folder id | Tiny |
 
-Prices come from Archidekt (TCGplayer, Card Kingdom, Cardmarket), using the foil price for foil copies.
-
-## Development
-
-```bash
-pip install -r requirements.txt
-python track_prices.py 781767   # snapshot a folder locally
-```
-
-The site is plain static files with no build step: `index.html`, `css/style.css`, and ordinary scripts in `js/` loaded in order. After editing `css/`, `js/` or `vendor/`, run `python tools/stamp_assets.py` so browsers don't use cached copies.
+Prices (and all other data) come from Archidekt (TCGplayer, Card Kingdom, Cardmarket).
 
 Builds on [LandBase](https://github.com/jimna-h/LandBase) and replaces [edh-ledger](https://github.com/jimna-h/edh-ledger).
