@@ -32,10 +32,9 @@ On a phone, open the site and use **Add to Home Screen** (Safari's share menu, o
 
 Only decks directly inside the folder are tracked; subfolders are ignored.
 
-To mark a card as a proxy, give it the Archidekt color tag **Proxied** (or **Proxy** / **Proxies**). Proxies count toward deck value separately and score no bling.
+To mark a card as a proxy, give it the Archidekt color tag **Proxied** (or **Proxy**, or **Proxies**). Proxies count toward deck value separately and score no bling. In the Cards tab, you can also filter to only see proxies as a sort of to-buy list.
 
-Within each deck, a card is only recorded if its primary (first) category is included in the deck, so Maybeboard, Sideboard and any custom category with "included in deck" turned off are skipped. Uncategorized cards are recorded.
-
+Within each deck, a card is only recorded if its primary (first) category is included in the deck, so Maybeboard, Sideboard and any custom category with "included in deck" turned off are skipped.
 ## Data files
 
 Decks are always identified by their Archidekt deck id. The files are laid out so the page only downloads a couple of megabytes however long this runs.
