@@ -1,9 +1,9 @@
 date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarket,proxied,scryfall_id,tcg_min,ck_min,cm_min,type_line,mana_value,color_identity
+2026-10-15,24974478,Wurm,1,t2xm,Normal,8.24,5.99,,true,b68e816f-f9ac-435b-ad0b-ceedbe72447a,3.26,5.99,0.02,Artifact Creature Token — Wurm,0,
+2026-10-15,24974478,Wurm,1,t2xm,Normal,10.18,7.49,3.0,true,a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd,6.58,5.49,0.08,Artifact Creature Token — Wurm,0,
 2026-10-15,26722467,Gnome,1,tust,Foil,0.28,0.79,,true,dbf33cc3-254f-4c5c-be22-3a2d96f29b80,0.28,0.69,0.7,Artifact Creature Token — Gnome,0,
 2026-10-15,26722467,Mutagen,1,ttmt,Normal,,0.35,,true,6559c423-449c-4e8e-8384-3ce78183e317,0.0,0.35,0.0,Artifact Token — Mutagen,0,
 2026-10-15,26722467,Bird,2,tmsc,Normal,,0.35,,true,95181e08-33c2-4df9-97bd-34fb5f78b820,0.12,0.35,0.03,Creature Token — Bird,0,W
-2026-10-15,24974478,Wurm,1,t2xm,Normal,8.24,5.99,,true,b68e816f-f9ac-435b-ad0b-ceedbe72447a,3.26,5.99,0.02,Artifact Creature Token — Wurm,0,
-2026-10-15,24974478,Wurm,1,t2xm,Normal,10.18,7.49,3.0,true,a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd,6.58,5.49,0.08,Artifact Creature Token — Wurm,0,
 2026-10-15,25536840,Gnome,1,tust,Foil,0.28,0.79,,true,dbf33cc3-254f-4c5c-be22-3a2d96f29b80,0.28,0.69,0.7,Artifact Creature Token — Gnome,0,
 2026-10-15,25536840,Incubator // Phyrexian,1,tfrc,Normal,,0.35,,true,7b7f2e3a-ec43-4408-affd-a09338566ce3,0.0,0.35,1.42,Artifact Token — Incubator,0,
 2026-10-15,6482039,Fanatic of Rhonas,1,tmh3,Normal,3.26,3.99,0.34,true,6ef58164-4155-4e5b-8c16-f16f2ab65baa,3.26,3.99,0.34,Creature Token — Druid Zombie Snake,0,BG

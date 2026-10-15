@@ -1,4 +1,71 @@
 date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarket,proxied,scryfall_id,tcg_min,ck_min,cm_min
+2026-10-15,24974478,"Elrond, Moon-Reader",1,hob,Normal,1.8,2.29,2.65,false,fbcb310c-be73-46f8-8e65-8632454ccc6e,1.8,2.29,2.65
+2026-10-15,24974478,Glasspool Mimic // Glasspool Shore,1,znr,Normal,6.28,10.99,6.66,false,5adcb500-8c77-4925-8e2c-1243502827d1,6.28,10.99,2.67
+2026-10-15,24974478,Sire of Seven Deaths,1,fdn,Normal,34.31,47.99,35.49,true,1b486b75-4680-4a94-af8c-c1c335c9782b,19.26,34.99,20.0
+2026-10-15,24974478,Exit Specialist,1,mkm,Normal,0.22,0.35,0.02,false,268f142d-9fb1-4673-b804-add1f08dacb9,0.22,0.35,0.02
+2026-10-15,24974478,Dreamstone Hedron,1,cmr,Normal,0.28,0.35,0.1,false,77a0b45f-d044-4d59-81fd-c2683beca401,0.17,0.35,0.02
+2026-10-15,24974478,Stonespeaker Crystal,1,clb,Normal,0.37,0.99,0.35,false,8c99e6e1-3b88-4d2f-bc5d-70439585a063,0.29,0.99,0.35
+2026-10-15,24974478,Waterbender's Restoration,1,tle,Normal,4.24,5.49,4.99,true,fe68e08e-8d84-4f87-b2e9-b552788d78e7,3.65,4.99,4.58
+2026-10-15,24974478,Lord of Change,1,40k,Normal,2.95,3.99,2.9,true,f9099d82-c13a-480d-b4bc-ecf8b810427c,2.95,3.99,2.9
+2026-10-15,24974478,Sol Ring,1,blc,Normal,2.08,2.99,1.32,false,fff440c0-7e6a-46c2-9989-f1b5af20fd44,1.28,2.79,0.1
+2026-10-15,24974478,Illusionist's Bracers,1,rvr,Foil,5.49,6.99,3.8,false,f5a08d47-fe06-4040-89f9-27dccad7c275,4.16,5.99,1.95
+2026-10-15,24974478,Wonder,1,cma,Normal,3.58,2.99,1.3,true,c7c29f93-e7c0-4dd9-88f2-2e4e1a37db56,2.13,2.79,0.03
+2026-10-15,24974478,Cavalier of Gales,1,j25,Normal,1.57,2.99,1.98,false,289cc92d-68e7-4b9c-8779-fa2583f3eef1,1.57,2.99,1.98
+2026-10-15,24974478,Heartstone,1,plst,Normal,1.82,2.49,1.15,false,5139d090-fcf1-419f-8ce7-0d544c8e1217,1.82,2.49,1.15
+2026-10-15,24974478,"Silver Surfer, Cosmic Voyager",1,msc,Normal,0.6,1.29,0.98,false,4f200c66-2356-4aec-978b-6bb509a3d885,0.6,1.29,0.98
+2026-10-15,24974478,Displacer Kitten,1,pclb,Foil,23.18,89.99,34.99,false,2b347ecf-d032-4d6c-9b4b-6e33c08a0722,23.18,42.99,15.0
+2026-10-15,24974478,Training Grounds,1,mat,Normal,9.95,10.99,6.32,true,991c27ed-f53c-48c6-8c12-282f44b8d441,5.22,5.99,3.33
+2026-10-15,24974478,"Grazilaxx, Illithid Scholar",1,sld,Normal,3.27,,2.75,true,4dc6ed00-45d3-4c5c-8d19-57334023879f,1.47,2.29,0.76
+2026-10-15,24974478,Stratus Dancer,1,c19,Normal,0.38,0.49,0.24,false,82fb8b0c-b86e-4915-b72d-9a6b5c1368c7,0.28,0.49,0.22
+2026-10-15,24974478,Y'shtola Rhul,1,fin,Normal,4.92,7.49,4.18,true,aef218fa-13a4-4653-95d6-6b3ef1b33a92,4.92,7.49,4.18
+2026-10-15,24974478,Sceptre of Eternal Glory,1,40k,Normal,19.88,23.99,18.58,true,bc7f3009-c852-41e7-8e62-d2ee637b3998,19.88,23.99,18.58
+2026-10-15,24974478,Chromatic Orrery,1,m21,Normal,32.81,49.99,19.85,true,3af78d76-ad5c-44ba-880d-b834bcde5398,32.81,49.99,17.95
+2026-10-15,24974478,"Galactus, Devourer of Worlds",1,msc,Normal,3.95,5.99,3.82,true,3a9df9dd-a480-406c-ba28-94895fbfb574,3.95,5.99,3.82
+2026-10-15,24974478,Displace,1,emn,Normal,0.35,0.59,0.47,false,8ab850c5-6f5e-41b7-ab52-094579caca12,0.35,0.59,0.3
+2026-10-15,24974478,Conjurer's Closet,1,inr,Normal,6.75,10.99,10.26,true,83e4e358-d639-4581-8c31-597f6d7fa57f,3.19,4.99,1.4
+2026-10-15,24974478,Baboon Spirit,1,tle,Foil,0.45,0.49,0.24,false,83fdb879-945c-4b33-8c5a-acce7247e8c4,0.29,0.49,0.24
+2026-10-15,24974478,"Ixidor, Reality Sculptor",1,ons,Normal,2.1,3.99,0.94,true,314d5e89-55f7-42b4-af19-d4d0f499a265,2.09,3.99,0.94
+2026-10-15,24974478,Branch of Vitu-Ghazi,1,mkm,Normal,1.01,0.35,0.12,false,73a8169f-b858-47a5-9c76-2e7c50ad4ecd,0.28,0.35,0.12
+2026-10-15,24974478,"Otawara, Soaring City",1,neo,Normal,28.09,42.99,22.73,true,486d7edc-d983-41f0-8b78-c99aecd72996,28.09,42.99,22.73
+2026-10-15,24974478,Dowsing Dagger // Lost Vale,1,xln,Normal,7.31,7.49,5.87,true,514d53be-6ade-4f73-a844-e9ae2dafd6ce,6.08,7.49,4.0
+2026-10-15,24974478,Sword of Hearth and Home,1,tmc,Foil,13.27,14.99,9.4,false,b35b5b3f-3daa-4091-9de4-1e6a7da27a74,13.27,14.99,9.4
+2026-10-15,24974478,Abhorrent Oculus,1,pdsk,Normal,9.23,15.99,13.42,false,4a140142-30bd-428b-82cb-323029090c21,9.23,15.99,13.0
+2026-10-15,24974478,Dour Port-Mage,1,blb,Normal,2.94,4.99,3.15,false,6402133e-eed1-4a46-9667-8b7a310362c1,2.94,4.99,2.48
+2026-10-15,24974478,"Thassa, Deep-Dwelling",1,thb,Foil,34.66,44.99,32.5,false,27b52628-de05-4ec1-9978-e998cf17bb26,23.21,32.99,22.22
+2026-10-15,24974478,Island,34,j25,Normal,0.16,0.35,0.02,false,9b0bfe70-e584-42f2-9a32-984c17ba6d1a,0.08,0.35,0.01
+2026-10-15,24974478,Hide on the Ceiling,1,spm,Normal,0.64,1.79,0.87,false,7977e448-01fa-4fa5-a275-0d6a1357b35c,0.64,1.79,0.6
+2026-10-15,24974478,Relic of Legends,1,dmu,Normal,2.32,2.29,1.13,false,64a2809e-c441-416c-90ff-6fb1e246dff3,0.81,1.79,1.06
+2026-10-15,24974478,"Wan Shi Tong, All-Knowing",1,tle,Foil,3.77,3.99,3.97,false,a071a829-b3dc-4229-9b09-0e96bd7a40dd,0.85,2.29,2.23
+2026-10-15,24974478,Wurmcoil Engine,1,sld,Foil,10.2,11.99,9.5,false,4a7ee95f-5a55-49e1-a0b5-8249a4c79d5e,9.06,11.99,0.02
+2026-10-15,24974478,Essence Flux,1,inr,Normal,1.78,1.99,1.19,false,c94b37df-aaa5-4981-be3b-c934a7971123,1.34,1.99,0.8
+2026-10-15,24974478,Siren Stormtamer,1,cmr,Normal,0.56,0.69,0.23,false,d0e5f191-0b20-4bc4-b41e-36c53a182f85,0.33,0.69,0.1
+2026-10-15,24974478,Glitch Interpreter,1,dsc,Normal,0.34,0.49,0.05,false,453d6565-137a-44b9-987d-e67944f2bebf,0.28,0.49,0.05
+2026-10-15,24974478,Enigma Thief,1,znc,Normal,0.4,0.99,0.32,false,3536a97f-565b-45c6-a54b-96afd2a268ec,0.4,0.99,0.32
+2026-10-15,24974478,Primordial Mist,1,dsc,Normal,0.35,0.49,0.24,false,1f814aa9-f5e7-409c-82b5-45205d2b5f29,0.35,0.49,0.24
+2026-10-15,24974478,"Sash and Waistcoat, Unmen",1,mbc,Normal,,,,true,7ee28c45-01c4-4f15-83d5-ede29f05a256,0.0,0.0,0.0
+2026-10-15,24974478,The Eternity Elevator,1,peoe,Foil,2.67,4.49,0.98,false,79a8dc3b-96dc-4824-ae36-060b7aad0811,2.07,3.49,0.49
+2026-10-15,24974478,Gilded Lotus,1,msc,Normal,0.65,1.49,0.48,false,28e619e6-ecc1-49c3-8fa9-ce42becdb9ba,0.6,0.99,0.33
+2026-10-15,24974478,Brass Infiniscope,1,soc,Normal,0.25,0.49,0.28,false,7dbab676-0bc4-47a8-9fd2-1f58c6bd71bd,0.25,0.49,0.28
+2026-10-15,24974478,Ring of the Lucii,1,fin,Normal,0.25,0.49,0.06,false,75761f1e-9449-4c58-8265-8abac71dafc1,0.25,0.49,0.06
+2026-10-15,24974478,Ur-Golem's Eye,1,dst,Normal,0.34,0.39,0.21,false,00cd61eb-a526-46db-8675-334663e0d63a,0.34,0.39,0.21
+2026-10-15,24974478,Scourge of Fleets,1,jou,Normal,0.54,1.29,0.7,false,0aaf1de7-1476-4f8d-b8b3-67675891df23,0.44,1.29,0.1
+2026-10-15,24974478,Spellskite,1,sld,Normal,15.52,16.99,17.0,true,d2e8104a-e6db-44bc-95eb-23e78b27a6bd,7.35,9.49,0.4
+2026-10-15,24974478,Sol Talisman,1,mh2,Normal,0.77,1.79,0.66,false,a51fb64d-cc0c-400d-971f-78c28d42043b,0.77,1.79,0.66
+2026-10-15,24974478,Gossip's Talent,1,blb,Foil,0.34,0.79,0.24,false,b299889a-03d6-4659-b0e1-f0830842e40f,0.3,0.49,0.18
+2026-10-15,24974478,Voidwalk,1,gtc,Normal,0.27,0.35,0.45,false,611d0e10-e767-4e66-b1f1-02f1624fab2b,0.27,0.35,0.45
+2026-10-15,24974478,Zoetic Cavern,1,fut,Normal,0.4,0.39,0.17,false,c1db30e1-31df-44b9-930a-02428bd5ce47,0.11,0.35,0.02
+2026-10-15,24974478,Scroll of Fate,1,c19,Normal,0.3,0.49,0.14,false,a25ffab0-1119-4eca-9abe-077a699f19d0,0.3,0.49,0.14
+2026-10-15,24974478,Willbender,1,lgn,Normal,0.25,0.35,0.27,false,fb33b35b-33c9-4d59-9ed6-7ad40ea82cb0,0.1,0.35,0.04
+2026-10-15,24974478,Ghostly Flicker,1,sld,Foil,6.27,14.99,11.95,false,f5adfbfd-11e8-43e0-997e-e83d9fcc674d,1.15,2.99,0.2
+2026-10-15,24974478,Thran Dynamo,1,blc,Normal,4.62,3.49,2.49,false,6455b185-aa5e-45e1-951e-f6eef517daf2,2.16,3.49,1.4
+2026-10-15,24974478,Hedron Archive,1,c21,Normal,0.33,0.59,0.18,false,f8900980-6e0d-4d78-91a7-60a2e8cc92a5,0.22,0.49,0.05
+2026-10-15,24974478,Extraplanar Lens,1,cmm,Normal,14.06,18.99,5.0,true,f050a675-c6a2-4d0d-bac6-1d8c51ecf824,13.0,18.99,4.78
+2026-10-15,24974478,"Fblthp, Impossibly Lost",1,fra,Normal,0.2,0.35,0.14,false,a3a2edbb-d144-4670-acad-17316cea98d2,0.2,0.35,0.14
+2026-10-15,24974478,Ugin's Mastery,1,cmm,Normal,0.37,0.79,0.38,true,42991890-731c-4e6a-b0c5-57d6217029ab,0.37,0.69,0.22
+2026-10-15,24974478,Sculpting Steel,1,sld,Foil,5.35,5.49,5.0,false,9f824b34-f783-48b3-b5d5-579935101148,1.66,3.49,0.64
+2026-10-15,24974478,Hidden Strings,1,dgm,Normal,0.29,0.59,0.59,true,216e8047-6f54-49ce-bf86-27dc8fc8c8f7,0.29,0.59,0.06
+2026-10-15,24974478,Laboratory Maniac,1,slz,Normal,,,,true,f35a6b94-2e1e-4be2-bc1f-5b734f9f7479,0.38,1.49,0.46
+2026-10-15,24974478,Scroll Rack,1,cmr,Normal,32.95,44.99,31.16,true,dfaaa58d-89bb-4cb3-96a6-b480e6f6954e,32.95,44.99,3.0
 2026-10-15,26722467,Abandoned Air Temple,1,tla,Normal,6.71,10.99,7.64,false,9c0433f9-8f1e-4a19-a83f-a41925f1b1a9,6.58,10.99,7.64
 2026-10-15,26722467,"Agent Bishop, Man in Black",1,tmt,Normal,0.33,0.79,0.41,true,9c769202-178c-442a-a9e2-aa08b5ae5c9a,0.33,0.49,0.3
 2026-10-15,26722467,Sakura-Tribe Elder,1,plg24,Foil,3.29,3.99,1.75,false,bf0b01ab-c846-459b-8d6f-7e5cb75a5d26,0.31,0.79,0.15
@@ -94,73 +161,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-10-15,26722467,Windswept Heath,1,mh3,Normal,12.16,17.99,10.29,true,bd1d13f7-fd38-4f0b-a8e0-1eac78668117,12.16,17.99,0.25
 2026-10-15,26722467,Overgrown Farmland,1,fra,Normal,0.93,1.99,1.1,false,178e61e4-472f-42cd-9d3b-4880c2acc527,0.93,1.99,0.99
 2026-10-15,26722467,Studious First-Year // Rampant Growth,1,sos,Foil,0.86,0.79,0.6,false,24f888dd-785c-4089-a89c-03f9080130ed,0.2,0.35,0.17
-2026-10-15,24974478,"Elrond, Moon-Reader",1,hob,Normal,1.8,2.29,2.65,false,fbcb310c-be73-46f8-8e65-8632454ccc6e,1.8,2.29,2.65
-2026-10-15,24974478,Glasspool Mimic // Glasspool Shore,1,znr,Normal,6.28,10.99,6.66,false,5adcb500-8c77-4925-8e2c-1243502827d1,6.28,10.99,2.67
-2026-10-15,24974478,Sire of Seven Deaths,1,fdn,Normal,34.31,47.99,35.49,true,1b486b75-4680-4a94-af8c-c1c335c9782b,19.26,34.99,20.0
-2026-10-15,24974478,Exit Specialist,1,mkm,Normal,0.22,0.35,0.02,false,268f142d-9fb1-4673-b804-add1f08dacb9,0.22,0.35,0.02
-2026-10-15,24974478,Dreamstone Hedron,1,cmr,Normal,0.28,0.35,0.1,false,77a0b45f-d044-4d59-81fd-c2683beca401,0.17,0.35,0.02
-2026-10-15,24974478,Stonespeaker Crystal,1,clb,Normal,0.37,0.99,0.35,false,8c99e6e1-3b88-4d2f-bc5d-70439585a063,0.29,0.99,0.35
-2026-10-15,24974478,Waterbender's Restoration,1,tle,Normal,4.24,5.49,4.99,true,fe68e08e-8d84-4f87-b2e9-b552788d78e7,3.65,4.99,4.58
-2026-10-15,24974478,Lord of Change,1,40k,Normal,2.95,3.99,2.9,true,f9099d82-c13a-480d-b4bc-ecf8b810427c,2.95,3.99,2.9
-2026-10-15,24974478,Sol Ring,1,blc,Normal,2.08,2.99,1.32,false,fff440c0-7e6a-46c2-9989-f1b5af20fd44,1.28,2.79,0.1
-2026-10-15,24974478,Illusionist's Bracers,1,rvr,Foil,5.49,6.99,3.8,false,f5a08d47-fe06-4040-89f9-27dccad7c275,4.16,5.99,1.95
-2026-10-15,24974478,Wonder,1,cma,Normal,3.58,2.99,1.3,true,c7c29f93-e7c0-4dd9-88f2-2e4e1a37db56,2.13,2.79,0.03
-2026-10-15,24974478,Cavalier of Gales,1,j25,Normal,1.57,2.99,1.98,false,289cc92d-68e7-4b9c-8779-fa2583f3eef1,1.57,2.99,1.98
-2026-10-15,24974478,Heartstone,1,plst,Normal,1.82,2.49,1.15,false,5139d090-fcf1-419f-8ce7-0d544c8e1217,1.82,2.49,1.15
-2026-10-15,24974478,"Silver Surfer, Cosmic Voyager",1,msc,Normal,0.6,1.29,0.98,false,4f200c66-2356-4aec-978b-6bb509a3d885,0.6,1.29,0.98
-2026-10-15,24974478,Displacer Kitten,1,pclb,Foil,23.18,89.99,34.99,false,2b347ecf-d032-4d6c-9b4b-6e33c08a0722,23.18,42.99,15.0
-2026-10-15,24974478,Training Grounds,1,mat,Normal,9.95,10.99,6.32,true,991c27ed-f53c-48c6-8c12-282f44b8d441,5.22,5.99,3.33
-2026-10-15,24974478,"Grazilaxx, Illithid Scholar",1,sld,Normal,3.27,,2.75,true,4dc6ed00-45d3-4c5c-8d19-57334023879f,1.47,2.29,0.76
-2026-10-15,24974478,Stratus Dancer,1,c19,Normal,0.38,0.49,0.24,false,82fb8b0c-b86e-4915-b72d-9a6b5c1368c7,0.28,0.49,0.22
-2026-10-15,24974478,Y'shtola Rhul,1,fin,Normal,4.92,7.49,4.18,true,aef218fa-13a4-4653-95d6-6b3ef1b33a92,4.92,7.49,4.18
-2026-10-15,24974478,Sceptre of Eternal Glory,1,40k,Normal,19.88,23.99,18.58,true,bc7f3009-c852-41e7-8e62-d2ee637b3998,19.88,23.99,18.58
-2026-10-15,24974478,Chromatic Orrery,1,m21,Normal,32.81,49.99,19.85,true,3af78d76-ad5c-44ba-880d-b834bcde5398,32.81,49.99,17.95
-2026-10-15,24974478,"Galactus, Devourer of Worlds",1,msc,Normal,3.95,5.99,3.82,true,3a9df9dd-a480-406c-ba28-94895fbfb574,3.95,5.99,3.82
-2026-10-15,24974478,Displace,1,emn,Normal,0.35,0.59,0.47,false,8ab850c5-6f5e-41b7-ab52-094579caca12,0.35,0.59,0.3
-2026-10-15,24974478,Conjurer's Closet,1,inr,Normal,6.75,10.99,10.26,true,83e4e358-d639-4581-8c31-597f6d7fa57f,3.19,4.99,1.4
-2026-10-15,24974478,Baboon Spirit,1,tle,Foil,0.45,0.49,0.24,false,83fdb879-945c-4b33-8c5a-acce7247e8c4,0.29,0.49,0.24
-2026-10-15,24974478,"Ixidor, Reality Sculptor",1,ons,Normal,2.1,3.99,0.94,true,314d5e89-55f7-42b4-af19-d4d0f499a265,2.09,3.99,0.94
-2026-10-15,24974478,Branch of Vitu-Ghazi,1,mkm,Normal,1.01,0.35,0.12,false,73a8169f-b858-47a5-9c76-2e7c50ad4ecd,0.28,0.35,0.12
-2026-10-15,24974478,"Otawara, Soaring City",1,neo,Normal,28.09,42.99,22.73,true,486d7edc-d983-41f0-8b78-c99aecd72996,28.09,42.99,22.73
-2026-10-15,24974478,Dowsing Dagger // Lost Vale,1,xln,Normal,7.31,7.49,5.87,true,514d53be-6ade-4f73-a844-e9ae2dafd6ce,6.08,7.49,4.0
-2026-10-15,24974478,Sword of Hearth and Home,1,tmc,Foil,13.27,14.99,9.4,false,b35b5b3f-3daa-4091-9de4-1e6a7da27a74,13.27,14.99,9.4
-2026-10-15,24974478,Abhorrent Oculus,1,pdsk,Normal,9.23,15.99,13.42,false,4a140142-30bd-428b-82cb-323029090c21,9.23,15.99,13.0
-2026-10-15,24974478,Dour Port-Mage,1,blb,Normal,2.94,4.99,3.15,false,6402133e-eed1-4a46-9667-8b7a310362c1,2.94,4.99,2.48
-2026-10-15,24974478,"Thassa, Deep-Dwelling",1,thb,Foil,34.66,44.99,32.5,false,27b52628-de05-4ec1-9978-e998cf17bb26,23.21,32.99,22.22
-2026-10-15,24974478,Island,34,j25,Normal,0.16,0.35,0.02,false,9b0bfe70-e584-42f2-9a32-984c17ba6d1a,0.08,0.35,0.01
-2026-10-15,24974478,Hide on the Ceiling,1,spm,Normal,0.64,1.79,0.87,false,7977e448-01fa-4fa5-a275-0d6a1357b35c,0.64,1.79,0.6
-2026-10-15,24974478,Relic of Legends,1,dmu,Normal,2.32,2.29,1.13,false,64a2809e-c441-416c-90ff-6fb1e246dff3,0.81,1.79,1.06
-2026-10-15,24974478,"Wan Shi Tong, All-Knowing",1,tle,Foil,3.77,3.99,3.97,false,a071a829-b3dc-4229-9b09-0e96bd7a40dd,0.85,2.29,2.23
-2026-10-15,24974478,Wurmcoil Engine,1,sld,Foil,10.2,11.99,9.5,false,4a7ee95f-5a55-49e1-a0b5-8249a4c79d5e,9.06,11.99,0.02
-2026-10-15,24974478,Essence Flux,1,inr,Normal,1.78,1.99,1.19,false,c94b37df-aaa5-4981-be3b-c934a7971123,1.34,1.99,0.8
-2026-10-15,24974478,Siren Stormtamer,1,cmr,Normal,0.56,0.69,0.23,false,d0e5f191-0b20-4bc4-b41e-36c53a182f85,0.33,0.69,0.1
-2026-10-15,24974478,Glitch Interpreter,1,dsc,Normal,0.34,0.49,0.05,false,453d6565-137a-44b9-987d-e67944f2bebf,0.28,0.49,0.05
-2026-10-15,24974478,Enigma Thief,1,znc,Normal,0.4,0.99,0.32,false,3536a97f-565b-45c6-a54b-96afd2a268ec,0.4,0.99,0.32
-2026-10-15,24974478,Primordial Mist,1,dsc,Normal,0.35,0.49,0.24,false,1f814aa9-f5e7-409c-82b5-45205d2b5f29,0.35,0.49,0.24
-2026-10-15,24974478,"Sash and Waistcoat, Unmen",1,mbc,Normal,,,,true,7ee28c45-01c4-4f15-83d5-ede29f05a256,0.0,0.0,0.0
-2026-10-15,24974478,The Eternity Elevator,1,peoe,Foil,2.67,4.49,0.98,false,79a8dc3b-96dc-4824-ae36-060b7aad0811,2.07,3.49,0.49
-2026-10-15,24974478,Gilded Lotus,1,msc,Normal,0.65,1.49,0.48,false,28e619e6-ecc1-49c3-8fa9-ce42becdb9ba,0.6,0.99,0.33
-2026-10-15,24974478,Brass Infiniscope,1,soc,Normal,0.25,0.49,0.28,false,7dbab676-0bc4-47a8-9fd2-1f58c6bd71bd,0.25,0.49,0.28
-2026-10-15,24974478,Ring of the Lucii,1,fin,Normal,0.25,0.49,0.06,false,75761f1e-9449-4c58-8265-8abac71dafc1,0.25,0.49,0.06
-2026-10-15,24974478,Ur-Golem's Eye,1,dst,Normal,0.34,0.39,0.21,false,00cd61eb-a526-46db-8675-334663e0d63a,0.34,0.39,0.21
-2026-10-15,24974478,Scourge of Fleets,1,jou,Normal,0.54,1.29,0.7,false,0aaf1de7-1476-4f8d-b8b3-67675891df23,0.44,1.29,0.1
-2026-10-15,24974478,Spellskite,1,sld,Normal,15.52,16.99,17.0,true,d2e8104a-e6db-44bc-95eb-23e78b27a6bd,7.35,9.49,0.4
-2026-10-15,24974478,Sol Talisman,1,mh2,Normal,0.77,1.79,0.66,false,a51fb64d-cc0c-400d-971f-78c28d42043b,0.77,1.79,0.66
-2026-10-15,24974478,Gossip's Talent,1,blb,Foil,0.34,0.79,0.24,false,b299889a-03d6-4659-b0e1-f0830842e40f,0.3,0.49,0.18
-2026-10-15,24974478,Voidwalk,1,gtc,Normal,0.27,0.35,0.45,false,611d0e10-e767-4e66-b1f1-02f1624fab2b,0.27,0.35,0.45
-2026-10-15,24974478,Zoetic Cavern,1,fut,Normal,0.4,0.39,0.17,false,c1db30e1-31df-44b9-930a-02428bd5ce47,0.11,0.35,0.02
-2026-10-15,24974478,Scroll of Fate,1,c19,Normal,0.3,0.49,0.14,false,a25ffab0-1119-4eca-9abe-077a699f19d0,0.3,0.49,0.14
-2026-10-15,24974478,Willbender,1,lgn,Normal,0.25,0.35,0.27,false,fb33b35b-33c9-4d59-9ed6-7ad40ea82cb0,0.1,0.35,0.04
-2026-10-15,24974478,Ghostly Flicker,1,sld,Foil,6.27,14.99,11.95,false,f5adfbfd-11e8-43e0-997e-e83d9fcc674d,1.15,2.99,0.2
-2026-10-15,24974478,Thran Dynamo,1,blc,Normal,4.62,3.49,2.49,false,6455b185-aa5e-45e1-951e-f6eef517daf2,2.16,3.49,1.4
-2026-10-15,24974478,Hedron Archive,1,c21,Normal,0.33,0.59,0.18,false,f8900980-6e0d-4d78-91a7-60a2e8cc92a5,0.22,0.49,0.05
-2026-10-15,24974478,Extraplanar Lens,1,cmm,Normal,14.06,18.99,5.0,true,f050a675-c6a2-4d0d-bac6-1d8c51ecf824,13.0,18.99,4.78
-2026-10-15,24974478,"Fblthp, Impossibly Lost",1,fra,Normal,0.2,0.35,0.14,false,a3a2edbb-d144-4670-acad-17316cea98d2,0.2,0.35,0.14
-2026-10-15,24974478,Ugin's Mastery,1,cmm,Normal,0.37,0.79,0.38,true,42991890-731c-4e6a-b0c5-57d6217029ab,0.37,0.69,0.22
-2026-10-15,24974478,Sculpting Steel,1,sld,Foil,5.35,5.49,5.0,false,9f824b34-f783-48b3-b5d5-579935101148,1.66,3.49,0.64
-2026-10-15,24974478,Hidden Strings,1,dgm,Normal,0.29,0.59,0.59,true,216e8047-6f54-49ce-bf86-27dc8fc8c8f7,0.29,0.59,0.06
-2026-10-15,24974478,Laboratory Maniac,1,slz,Normal,,,,true,f35a6b94-2e1e-4be2-bc1f-5b734f9f7479,0.38,1.49,0.46
-2026-10-15,24974478,Scroll Rack,1,cmr,Normal,32.95,44.99,31.16,true,dfaaa58d-89bb-4cb3-96a6-b480e6f6954e,32.95,44.99,3.0
 2026-10-15,4279849,The Gaffer,1,ltc,Normal,7.17,10.99,8.31,false,863ed552-dc6d-4910-b188-3cefc3ebf0ed,7.17,9.99,7.0
 2026-10-15,4279849,Leonin Elder,1,mrd,Normal,0.34,0.59,0.16,false,e9b766e7-fe4a-47fb-949b-e046b5a38d91,0.34,0.59,0.16
 2026-10-15,4279849,Ashes of the Abhorrent,1,xln,Normal,0.71,0.99,0.66,false,4e8eb264-dadb-440c-af85-273e755f1db6,0.71,0.79,0.66
