@@ -55,4 +55,4 @@ All in `data/`. Decks are keyed by Archidekt deck id. Re-running on the same day
 
 Prices (and all other data) come from Archidekt (TCGplayer, Card Kingdom, Cardmarket).
 
-Builds on [LandBase](https://github.com/jimna-h/LandBase) and replaces [edh-ledger](https://github.com/jimna-h/edh-ledger).
+Builds on the idea of [LandBase](https://github.com/jimna-h/LandBase) and replaces [edh-ledger](https://github.com/jimna-h/edh-ledger).
