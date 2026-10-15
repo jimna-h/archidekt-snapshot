@@ -59,6 +59,8 @@ TIMEZONE = ZoneInfo(os.environ.get("TIMEZONE") or "America/Denver")
 # Color tag names (any capitalization) that mark a card as a proxy. "Proxied" is what this
 # project uses; "Proxy" and "Proxies" are the most common tags on other public decks.
 PROXY_TAGS = {"proxied", "proxy", "proxies"}
+# Categories never counted as part of a deck, whatever their "included in deck" setting
+ALWAYS_EXCLUDED = {"sideboard", "maybeboard"}
 
 # Archidekt's price keys -> CSV column names
 PRICE_SOURCES = {
@@ -353,12 +355,13 @@ def fetch_deck(deck_id, today):
     response.raise_for_status()
     deck = response.json()
 
-    # Categories the deck excludes from the deck itself (Maybeboard, Sideboard, and any
-    # custom category with "included in deck" turned off).
+    # Categories that aren't part of the deck: any with "included in deck" turned off, plus
+    # Sideboard and Maybeboard always (Archidekt includes Sideboard by default, but a Commander
+    # deck has no sideboard).
     excluded = {
         category.get("name")
         for category in deck.get("categories") or []
-        if category.get("includedInDeck") is False
+        if category.get("includedInDeck") is False or (category.get("name") or "").strip().lower() in ALWAYS_EXCLUDED
     }
     # The commander zone is Archidekt's "premier" category (normally called "Commander").
     premier = {category.get("name") for category in deck.get("categories") or [] if category.get("isPremier")} or {"Commander"}

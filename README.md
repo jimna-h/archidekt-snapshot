@@ -32,8 +32,8 @@ $60 for a $10 card scores 0.69; $550 for a $500 card, 0.08; $1 for a 1¢ card, 0
 It then runs every morning (13:17 UTC, with two backup runs). If a run can't push, set **Settings → Actions → General → Workflow permissions** to **Read and write**.
 
 **Good to know**
-- Tag proxies with the Archidekt color tag **Proxied** (or **Proxy** / **Proxies**).
-- Only decks directly in the folder count, and only cards whose first category is included in the deck (no Maybeboard or Sideboard).
+- Tag proxies with the Archidekt color tag **Proxied** (or **Proxy** / **Proxies**). Filter the Cards tab to "Proxies only" for a to-buy list.
+- Only decks directly in the folder count. A card counts if its first category is included in the deck; Sideboard and Maybeboard never count, even though Archidekt includes Sideboard by default.
 - A deck gone from the folder for 10 days has its history deleted.
 - On a phone, **Add to Home Screen** installs it as an app.
 
