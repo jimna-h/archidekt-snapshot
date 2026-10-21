@@ -91,9 +91,11 @@ Brass Infiniscope,Artifact,4,
 Brazen Borrower // Petty Theft,Creature — Rogue Faerie,3,U
 Breeding Pool,Land — Island Forest,0,UG
 Bridgeworks Battle // Tanglespan Bridgeworks,Sorcery,3,G
+"Brigid, Clachan's Heart // Brigid, Doun's Mind",Legendary Creature — Warrior Kithkin,3,WG
 Brotherhood Regalia,Artifact — Equipment,2,
 Brushland,Land,0,WG
 Call Forth the Tempest,Sorcery,8,R
+Campsite Cuisine,Enchantment,2,G
 Canopy Vista,Land — Plains Forest,0,WG
 Caretaker's Talent,Enchantment — Class,3,W
 Case of the Uneaten Feast,Enchantment — Case,1,W
@@ -329,6 +331,8 @@ Jund Panorama,Land,0,
 Kami of Celebration,Creature — Spirit,5,R
 Kami of False Hope,Creature — Spirit,1,W
 Kami of Whispered Hopes,Creature — Spirit,3,G
+Kappa Cannoneer,Artifact Creature — Warrior Turtle,6,U
+"Katara, Water Tribe's Hope",Legendary Creature — Human Warrior Ally,5,WU
 "Kediss, Emberclaw Familiar",Legendary Creature — Elemental Lizard,2,R
 "Kellan, the Fae-Blooded // Birthright Boon",Legendary Creature — Human Faerie,3,WR
 Kindly Customer,Creature — Human Citizen,2,W
@@ -453,6 +457,7 @@ Prismatic Vista,Land,0,
 Professional Face-Breaker,Creature — Human Warrior,3,R
 "Prosper, Tome-Bound",Legendary Creature — Warlock Tiefling,4,BR
 Prowling Geistcatcher,Creature — Human Rogue,4,B
+Radagast of Rhosgobel,Legendary Creature — Wizard Avatar,4,G
 "Raff Capashen, Ship's Mage",Legendary Creature — Human Wizard,4,WU
 Ram Through,Instant,2,G
 Ranger's Guile,Instant,1,G
@@ -565,6 +570,7 @@ Spellskite,Artifact Creature — Horror Phyrexian,2,U
 Spinner of Souls,Creature — Spirit Spider,3,G
 Spire Garden,Land,0,RG
 Spirited Companion,Enchantment Creature — Dog,2,W
+"Spot, Felis catus",Legendary Creature — Cat,3,W
 Springheart Nantuko,Enchantment Creature — Monk Insect,2,G
 Spry and Mighty,Sorcery,5,G
 Spyglass Siren,Creature — Pirate Siren,1,U
@@ -632,6 +638,7 @@ The Reaver Cleaver,Legendary Artifact — Equipment,3,R
 The Shire,Legendary Land,0,G
 The Tabernacle at Pendrell Vale,Legendary Land,0,
 "The Theorist, Jace Beleren",Legendary Planeswalker — Jace,4,U
+The Third Doctor,Legendary Creature — Doctor Time Lord,4,UG
 The Wondrous Wasp,Legendary Creature — Human Hero,2,U
 Thespian's Stage,Land,0,
 Thieves' Tools,Artifact — Equipment,2,B

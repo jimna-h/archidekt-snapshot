@@ -1,6 +1,7 @@
 card_name,deck_id,token_id,token_name,type_line,power,toughness,colors,text,image_id
 ,4279849,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
 "Ajani, Strength of the Pride",,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
+"Katara, Water Tribe's Hope",,63d59a37-fd7c-4d53-a666-7db6fae2f78f,Ally,Token Creature — Ally,1,1,W,,01439983-8394-4a0c-9e9e-92a3f1927fe3
 ,26722467,40c64f08-ab2f-4933-8e0e-d1a1c729008f,Angel,Token Creature — Angel,4,4,W,Flying,d41f6ac8-6aa3-45b8-8ab3-8c6065e842be
 Speaker of the Heavens,,40c64f08-ab2f-4933-8e0e-d1a1c729008f,Angel,Token Creature — Angel,4,4,W,Flying,d41f6ac8-6aa3-45b8-8ab3-8c6065e842be
 ,25536840,b9489980-e741-4cf9-a2ef-086c712f45f1,Angel Warrior,Token Creature — Angel Warrior,4,4,W,Flying,91098481-46c2-49bf-8123-e9cab2f22b84
@@ -17,7 +18,6 @@ Beast Within,,6bb61f34-5d57-4eaa-a02c-f5d08c1ee920,Beast,Token Creature — Beas
 Chocobo Camp,,b9b3385e-a899-46ca-b476-a5c7989b97ba,Bird,Token Creature — Bird,2,2,G,"Whenever a land you control enters, this token gets +1/+0 until end of turn.",8632216a-33c3-4d16-bf25-42e41af53986
 Falcon and Redwing,,b1a2b096-a440-4ef9-ab2a-059c79999297,Bird,Token Creature — Bird,1,1,W,Flying,95181e08-33c2-4df9-97bd-34fb5f78b820
 ,5714358,03f45075-9423-454f-a256-94dcafb2a779,Blood,Token Artifact — Blood,,,,"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.",6b563165-b97f-42c6-82a8-65d8ee69e381
-Transmutation Font,,03f45075-9423-454f-a256-94dcafb2a779,Blood,Token Artifact — Blood,,,,"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.",6b563165-b97f-42c6-82a8-65d8ee69e381
 ,17493352,2d321161-65cd-43ed-8285-551e3d4989e4,Cadet,Token Creature — Wizard Soldier,2,2,,,8f4534d8-2783-484f-8ebf-a47b1cc4c6df
 Ingris Stingerquill,,2d321161-65cd-43ed-8285-551e3d4989e4,Cadet,Token Creature — Wizard Soldier,2,2,,,8f4534d8-2783-484f-8ebf-a47b1cc4c6df
 ,5714358,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
@@ -27,7 +27,7 @@ Academy Manufactor,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact —
 Officious Interrogation,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
 "Osgood, Operation Double",,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
 Sarah Jane Smith,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
-Transmutation Font,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
+The Third Doctor,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
 ,5714358,ee740c48-59cd-4fcc-b4a5-fe3dde1361d5,Construct,Token Artifact Creature — Construct,0,0,,This creature gets +1/+1 for each artifact you control.,85f212cd-4fc6-42fe-b268-22d8e3b2b7eb
 "Urza, Lord High Artificer",,ee740c48-59cd-4fcc-b4a5-fe3dde1361d5,Construct,Token Artifact Creature — Construct,0,0,,This creature gets +1/+1 for each artifact you control.,85f212cd-4fc6-42fe-b268-22d8e3b2b7eb
 ,17493352,08887c45-02e5-40a3-b13f-5245a80938ff,Darkstar Augur,Token Creature — Bat Warlock,1,1,B,"Flying / At the beginning of your upkeep, reveal the top card of your library and put that card into your hand. You lose life equal to its mana value. / (This token's mana cost is {2}{B}.)",01b55966-0910-484d-9b2b-0a59233c44c4
@@ -51,25 +51,24 @@ Fanatic of Rhonas,,86aef5a2-e975-4f35-8fd1-b1de187319e6,Fanatic of Rhonas,Token 
 Fountainport,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
 Into the Flood Maw,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
 Parting Gust,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
-,5714358,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-,26722467,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Academy Manufactor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Astrid Peth,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Graham O'Brien,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Ignis Scientia,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Lita, Little Orphan Amphibian",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Meatsqueak, Hoard Lord",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Oko, Thief of Crowns",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Peregrin Took,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Rocco, Street Chef",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Rosie Cotton of South Lane,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Samwise Gamgee,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-The Cabbage Merchant,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-The Fourth Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-The Goose Mother,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-The Shire,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Tippy-Toe, Terrific Partner",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Transmutation Font,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+,5714358,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+,26722467,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Academy Manufactor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Astrid Peth,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Campsite Cuisine,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Graham O'Brien,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Ignis Scientia,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Lita, Little Orphan Amphibian",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Oko, Thief of Crowns",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Peregrin Took,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Rocco, Street Chef",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Rosie Cotton of South Lane,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Samwise Gamgee,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+The Cabbage Merchant,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+The Fourth Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+The Shire,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+The Third Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Tippy-Toe, Terrific Partner",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
 ,17493352,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
 ,25536840,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
 ,26722467,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
@@ -96,6 +95,7 @@ Excise the Imperfect,,dd3bf75e-9ef0-4ded-9b65-1a60a78a6253,Incubator // Phyrexia
 Inkshield,,fbdbff76-c1ea-47ea-bfcc-7c64c23dad70,Inkling,Token Creature — Inkling,2,1,WB,Flying,c9deae5c-80d4-4701-b425-91853b7ee03b
 ,6482039,c39cd31f-c4a2-4ca8-b4f9-b2e6289743bc,Insect,Token Creature — Insect,1,1,G,,e5aa36ec-5f3a-405d-9a65-5a56a44dcee3
 Springheart Nantuko,,c39cd31f-c4a2-4ca8-b4f9-b2e6289743bc,Insect,Token Creature — Insect,1,1,G,,e5aa36ec-5f3a-405d-9a65-5a56a44dcee3
+"Brigid, Clachan's Heart // Brigid, Doun's Mind",,199a2ccc-f3e3-405e-a0eb-a97b964918d2,Kithkin,Token Creature — Kithkin,1,1,WG,,2ed11e1b-2289-48d2-8d96-ee7e590ecfd4
 ,25536840,8d7d636d-4ae7-4411-8f45-fc57fead851e,Knight,Token Creature — Knight,2,2,WU,Vigilance,88439bfc-8942-473b-9e4f-863017788476
 Chivalric Alliance,,8d7d636d-4ae7-4411-8f45-fc57fead851e,Knight,Token Creature — Knight,2,2,WU,Vigilance,88439bfc-8942-473b-9e4f-863017788476
 ,5005670,c050f054-1ccf-4819-bc30-a928aed60c56,Map,Token Artifact — Map,,,,"{1}, {T}, Sacrifice this artifact: Target creature you control explores. Activate only as a sorcery. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on that creature, then put the card back or put it into your graveyard.)",64839118-09d2-4645-9d3c-f80755ac781f
@@ -160,6 +160,7 @@ Professional Face-Breaker,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token A
 "Prosper, Tome-Bound",,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 Tataru Taru,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 The Reaver Cleaver,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
+The Third Doctor,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 Thieves' Tools,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 "Vraska, the Cutting Glare",,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 ,4279849,97af46cb-6209-4ae7-81cc-792894999937,Vampire,Token Creature — Vampire,1,1,W,Lifelink (Damage dealt by this creature also causes you to gain that much life.),03a2f3c3-fbcb-4b21-8f86-232c0db80c1f
