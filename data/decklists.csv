@@ -973,8 +973,12 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-14,26722467,Overgrown Farmland,inr,Normal,true,0
 2026-10-14,26722467,Studious First-Year // Rampant Growth,sos,Foil,false,1
 2026-10-14,26722467,Studious First-Year // Rampant Growth,sos,Foil,true,0
+2026-10-21,4279849,Healer's Hawk,jmp,Normal,false,0
+2026-10-21,4279849,Profane Memento,m15,Normal,true,1
+2026-10-21,5005670,Starfleet Communicator,trc,Normal,true,1
+2026-10-21,5005670,Tezzeret the Seeker,sld,Normal,true,0
 2026-10-21,5714358,"Brigid, Clachan's Heart // Brigid, Doun's Mind",ecl,Normal,true,1
-2026-10-21,5714358,Campsite Cuisine,fic,Normal,true,1
+2026-10-21,5714358,Campsite Cuisine,fic,Foil,true,1
 2026-10-21,5714358,Clock of Omens,5dn,Normal,false,0
 2026-10-21,5714358,Cryptolith Fragment // Aurora of Emrakul,inr,Normal,false,0
 2026-10-21,5714358,Cyclonic Rift,soa,Normal,true,0
@@ -987,3 +991,11 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-21,5714358,The Goose Mother,woe,Normal,false,0
 2026-10-21,5714358,The Third Doctor,who,Normal,false,1
 2026-10-21,5714358,Transmutation Font,pw24,Foil,false,0
+2026-10-21,26722467,Avatar's Wrath,tla,Normal,true,0
+2026-10-21,26722467,Beast Within,cmr,Normal,false,0
+2026-10-21,26722467,Crimson Caravaneer,pip,Normal,true,1
+2026-10-21,26722467,Invasion of Gobakhan // Lightshield Array,mom,Normal,true,1
+2026-10-21,26722467,Patrolling Peacemaker,eoc,Normal,false,0
+2026-10-21,26722467,Soul Partition,bro,Normal,false,1
+2026-10-21,26722467,Throne of Geth,2xm,Normal,false,1
+2026-10-21,26722467,Wild Wasteland,pip,Normal,true,0
