@@ -978,7 +978,7 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-21,5005670,Starfleet Communicator,trc,Normal,true,1
 2026-10-21,5005670,Tezzeret the Seeker,sld,Normal,true,0
 2026-10-21,5714358,"Brigid, Clachan's Heart // Brigid, Doun's Mind",ecl,Normal,true,1
-2026-10-21,5714358,Campsite Cuisine,fic,Foil,true,1
+2026-10-21,5714358,Campsite Cuisine,fic,Normal,true,1
 2026-10-21,5714358,Clock of Omens,5dn,Normal,false,0
 2026-10-21,5714358,Cryptolith Fragment // Aurora of Emrakul,inr,Normal,false,0
 2026-10-21,5714358,Cyclonic Rift,soa,Normal,true,0
@@ -989,7 +989,7 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-21,5714358,Radagast of Rhosgobel,hob,Normal,true,1
 2026-10-21,5714358,"Spot, Felis catus",trc,Normal,true,1
 2026-10-21,5714358,The Goose Mother,woe,Normal,false,0
-2026-10-21,5714358,The Third Doctor,who,Normal,false,1
+2026-10-21,5714358,The Third Doctor,who,Foil,false,1
 2026-10-21,5714358,Transmutation Font,pw24,Foil,false,0
 2026-10-21,26722467,Avatar's Wrath,tla,Normal,true,0
 2026-10-21,26722467,Beast Within,cmr,Normal,false,0
