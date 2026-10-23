@@ -1001,3 +1001,9 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-21,26722467,Wild Wasteland,pip,Normal,true,0
 2026-10-22,17493352,Decorum Dissertation,sos,Normal,true,1
 2026-10-22,17493352,Improvisation Capstone,sos,Normal,true,0
+2026-10-23,17493352,"Deadpool, Trading Card",sld,Foil,false,0
+2026-10-23,17493352,Decorum Dissertation,sos,Normal,true,0
+2026-10-23,17493352,Descent into Avernus,sld,Foil,false,0
+2026-10-23,17493352,Lifecreed Duo,blb,Normal,false,1
+2026-10-23,17493352,Starscape Cleric,blb,Normal,false,1
+2026-10-23,17493352,Welcoming Vampire,tdc,Normal,true,1
