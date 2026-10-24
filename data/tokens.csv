@@ -1,7 +1,8 @@
 card_name,deck_id,token_id,token_name,type_line,power,toughness,colors,text,image_id
 ,4279849,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
 "Ajani, Strength of the Pride",,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
-"Katara, Water Tribe's Hope",,63d59a37-fd7c-4d53-a666-7db6fae2f78f,Ally,Token Creature — Ally,1,1,W,,01439983-8394-4a0c-9e9e-92a3f1927fe3
+,5714358,63d59a37-fd7c-4d53-a666-7db6fae2f78f,Ally,Token Creature — Ally,1,1,W,,cae9c13e-fda2-4591-bd52-888d12194e4d
+"Katara, Water Tribe's Hope",,63d59a37-fd7c-4d53-a666-7db6fae2f78f,Ally,Token Creature — Ally,1,1,W,,cae9c13e-fda2-4591-bd52-888d12194e4d
 ,26722467,40c64f08-ab2f-4933-8e0e-d1a1c729008f,Angel,Token Creature — Angel,4,4,W,Flying,d41f6ac8-6aa3-45b8-8ab3-8c6065e842be
 Speaker of the Heavens,,40c64f08-ab2f-4933-8e0e-d1a1c729008f,Angel,Token Creature — Angel,4,4,W,Flying,d41f6ac8-6aa3-45b8-8ab3-8c6065e842be
 ,25536840,b9489980-e741-4cf9-a2ef-086c712f45f1,Angel Warrior,Token Creature — Angel Warrior,4,4,W,Flying,91098481-46c2-49bf-8123-e9cab2f22b84
@@ -50,25 +51,25 @@ Fanatic of Rhonas,,86aef5a2-e975-4f35-8fd1-b1de187319e6,Fanatic of Rhonas,Token 
 Fountainport,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
 Into the Flood Maw,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
 Parting Gust,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
-,5714358,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-,26722467,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Academy Manufactor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Astrid Peth,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Campsite Cuisine,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Graham O'Brien,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Ignis Scientia,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Lita, Little Orphan Amphibian",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Oko, Thief of Crowns",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Peregrin Took,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Rocco, Street Chef",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Rosie Cotton of South Lane,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-Samwise Gamgee,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Spot, Felis catus",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-The Cabbage Merchant,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-The Fourth Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-The Shire,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-The Third Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
-"Tippy-Toe, Terrific Partner",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+,5714358,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+,26722467,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Academy Manufactor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Astrid Peth,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Campsite Cuisine,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Graham O'Brien,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Ignis Scientia,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Lita, Little Orphan Amphibian",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Oko, Thief of Crowns",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Peregrin Took,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Rocco, Street Chef",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Rosie Cotton of South Lane,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+Samwise Gamgee,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Spot, Felis catus",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+The Cabbage Merchant,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+The Fourth Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+The Shire,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+The Third Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+"Tippy-Toe, Terrific Partner",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
 ,17493352,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
 ,25536840,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
 ,26722467,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
@@ -88,14 +89,17 @@ Castle Ardenvale,,30272edf-097c-4918-84d2-9fa6c42dbe0a,Human,Token Creature — 
 ,25536840,a4095286-d51b-4527-b6ce-23aa539fc23a,Human Soldier,Token Creature — Human Soldier,1,1,W,,6007af81-4541-4b55-90ea-03d365362ae5
 Horn of Gondor,,a4095286-d51b-4527-b6ce-23aa539fc23a,Human Soldier,Token Creature — Human Soldier,1,1,W,,6007af81-4541-4b55-90ea-03d365362ae5
 The Queen of Dale,,a4095286-d51b-4527-b6ce-23aa539fc23a,Human Soldier,Token Creature — Human Soldier,1,1,W,,6007af81-4541-4b55-90ea-03d365362ae5
+,5714358,58a1e3c9-a718-4413-b14e-d8d6257567bf,Illusion,Token Creature — Illusion,1,1,U,,7bda0b63-fd0f-495d-9eb0-20057571c0ee
 "The Theorist, Jace Beleren",,58a1e3c9-a718-4413-b14e-d8d6257567bf,Illusion,Token Creature — Illusion,1,1,U,,7bda0b63-fd0f-495d-9eb0-20057571c0ee
-,25536840,dd3bf75e-9ef0-4ded-9b65-1a60a78a6253,Incubator // Phyrexian,Token Artifact — Incubator // Token Artifact Creature — Phyrexian,,,,{2}: Transform this artifact.,7b7f2e3a-ec43-4408-affd-a09338566ce3
-Excise the Imperfect,,dd3bf75e-9ef0-4ded-9b65-1a60a78a6253,Incubator // Phyrexian,Token Artifact — Incubator // Token Artifact Creature — Phyrexian,,,,{2}: Transform this artifact.,7b7f2e3a-ec43-4408-affd-a09338566ce3
+,25536840,dd3bf75e-9ef0-4ded-9b65-1a60a78a6253,Incubator // Phyrexian,Token Artifact — Incubator // Token Artifact Creature — Phyrexian,,,,{2}: Transform this artifact.,d0f953c3-09b9-42c7-816d-59fb0f8b541c
+Excise the Imperfect,,dd3bf75e-9ef0-4ded-9b65-1a60a78a6253,Incubator // Phyrexian,Token Artifact — Incubator // Token Artifact Creature — Phyrexian,,,,{2}: Transform this artifact.,d0f953c3-09b9-42c7-816d-59fb0f8b541c
 ,17493352,fbdbff76-c1ea-47ea-bfcc-7c64c23dad70,Inkling,Token Creature — Inkling,2,1,WB,Flying,c9deae5c-80d4-4701-b425-91853b7ee03b
 Inkshield,,fbdbff76-c1ea-47ea-bfcc-7c64c23dad70,Inkling,Token Creature — Inkling,2,1,WB,Flying,c9deae5c-80d4-4701-b425-91853b7ee03b
 ,6482039,c39cd31f-c4a2-4ca8-b4f9-b2e6289743bc,Insect,Token Creature — Insect,1,1,G,,e5aa36ec-5f3a-405d-9a65-5a56a44dcee3
 Springheart Nantuko,,c39cd31f-c4a2-4ca8-b4f9-b2e6289743bc,Insect,Token Creature — Insect,1,1,G,,e5aa36ec-5f3a-405d-9a65-5a56a44dcee3
+,26722467,7034bca4-8ba0-47a6-886e-ecbd829ddaec,Junk,Token Artifact — Junk,,,,"{T}, Sacrifice this artifact: Exile the top card of your library. You may play that card this turn. Activate only as a sorcery.",62c4a6f6-6425-4c0c-b35a-880fcab42aad
 Crimson Caravaneer,,7034bca4-8ba0-47a6-886e-ecbd829ddaec,Junk,Token Artifact — Junk,,,,"{T}, Sacrifice this artifact: Exile the top card of your library. You may play that card this turn. Activate only as a sorcery.",62c4a6f6-6425-4c0c-b35a-880fcab42aad
+,5714358,199a2ccc-f3e3-405e-a0eb-a97b964918d2,Kithkin,Token Creature — Kithkin,1,1,WG,,2ed11e1b-2289-48d2-8d96-ee7e590ecfd4
 "Brigid, Clachan's Heart // Brigid, Doun's Mind",,199a2ccc-f3e3-405e-a0eb-a97b964918d2,Kithkin,Token Creature — Kithkin,1,1,WG,,2ed11e1b-2289-48d2-8d96-ee7e590ecfd4
 ,25536840,8d7d636d-4ae7-4411-8f45-fc57fead851e,Knight,Token Creature — Knight,2,2,WU,Vigilance,88439bfc-8942-473b-9e4f-863017788476
 Chivalric Alliance,,8d7d636d-4ae7-4411-8f45-fc57fead851e,Knight,Token Creature — Knight,2,2,WU,Vigilance,88439bfc-8942-473b-9e4f-863017788476
@@ -139,6 +143,7 @@ Baboon Spirit,,9d73d64b-3ef7-43b0-b0c2-203ab976d564,Spirit,Token Creature — Sp
 Forbidden Orchard,,6a7a9dff-ff9e-4005-a17f-6ea0c11c1d5a,Spirit,Token Creature — Spirit,1,1,,,ca20548f-6324-4858-adbe-87303ff1ca52
 Haunted Library,,dc4e2134-f0c2-49aa-9ea3-ebf83af1445c,Spirit,Token Creature — Spirit,1,1,W,Flying,6bee4081-5d74-4cc2-ba2f-887bc8799513
 "Wan Shi Tong, All-Knowing",,9d73d64b-3ef7-43b0-b0c2-203ab976d564,Spirit,Token Creature — Spirit,1,1,,This token can't block or be blocked by non-Spirit creatures.,f59eba51-458a-40e0-b754-999f91d5d839
+,17493352,7bdb02d9-20e2-40a9-a895-f1da83d739f4,Starscape Cleric,Token Creature — Bat Cleric,1,1,B,"Flying / This creature can't block. / Whenever you gain life, each opponent loses 1 life. / (This token's mana cost is {1}{B}.)",5379a77e-4b98-4abc-b967-fbc76bb85fc6
 Starscape Cleric,,7bdb02d9-20e2-40a9-a895-f1da83d739f4,Starscape Cleric,Token Creature — Bat Cleric,1,1,B,"Flying / This creature can't block. / Whenever you gain life, each opponent loses 1 life. / (This token's mana cost is {1}{B}.)",5379a77e-4b98-4abc-b967-fbc76bb85fc6
 ,5714358,7c0b6b53-4ddb-4bb5-8a26-0041b2006d3f,Thopter,Token Artifact Creature — Thopter,1,1,,Flying,1e542094-8d95-463c-ae6c-8f2cd56434b2
 Stridehangar Automaton,,7c0b6b53-4ddb-4bb5-8a26-0041b2006d3f,Thopter,Token Artifact Creature — Thopter,1,1,,Flying,1e542094-8d95-463c-ae6c-8f2cd56434b2
