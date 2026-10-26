@@ -1,12 +1,12 @@
 date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarket,proxied,scryfall_id,tcg_min,ck_min,cm_min,type_line,mana_value,color_identity
-2026-10-25,5714358,Kithkin,1,tecl,Normal,,0.35,,true,2ed11e1b-2289-48d2-8d96-ee7e590ecfd4,0.0,0.35,0.0,Creature Token — Kithkin,0,
-2026-10-25,5714358,Illusion,1,tfra,Normal,,0.79,,true,7bda0b63-fd0f-495d-9eb0-20057571c0ee,0.0,0.79,0.0,Creature Token — Illusion,0,U
-2026-10-25,17493352,Starscape Cleric,1,tblb,Normal,0.42,1.99,0.8,true,5379a77e-4b98-4abc-b967-fbc76bb85fc6,0.42,1.99,0.8,Creature Token — Cleric Bat,2,B
-2026-10-25,17493352,Bird,2,tmsc,Normal,,0.35,,true,95181e08-33c2-4df9-97bd-34fb5f78b820,0.12,0.35,0.03,Creature Token — Bird,0,W
-2026-10-25,26722467,Gnome,1,tust,Foil,0.28,0.79,,true,dbf33cc3-254f-4c5c-be22-3a2d96f29b80,0.28,0.69,0.7,Artifact Creature Token — Gnome,0,
-2026-10-25,26722467,Mutagen,1,ttmt,Normal,,0.35,,true,6559c423-449c-4e8e-8384-3ce78183e317,0.0,0.35,0.0,Artifact Token — Mutagen,0,
-2026-10-25,26722467,Bird,2,tmsc,Normal,,0.35,,true,95181e08-33c2-4df9-97bd-34fb5f78b820,0.12,0.35,0.03,Creature Token — Bird,0,W
-2026-10-25,6482039,Fanatic of Rhonas,1,tmh3,Normal,3.26,3.49,0.34,true,6ef58164-4155-4e5b-8c16-f16f2ab65baa,3.26,3.49,0.34,Creature Token — Druid Zombie Snake,0,BG
-2026-10-25,25536840,Gnome,1,tust,Foil,0.28,0.79,,true,dbf33cc3-254f-4c5c-be22-3a2d96f29b80,0.28,0.69,0.7,Artifact Creature Token — Gnome,0,
-2026-10-25,24974478,Wurm,1,t2xm,Normal,8.24,6.49,,true,b68e816f-f9ac-435b-ad0b-ceedbe72447a,3.26,5.99,0.02,Artifact Creature Token — Wurm,0,
-2026-10-25,24974478,Wurm,1,t2xm,Normal,10.18,6.99,3.0,true,a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd,6.58,4.99,0.08,Artifact Creature Token — Wurm,0,
+2026-10-26,5714358,Kithkin,1,tecl,Normal,,0.35,,true,2ed11e1b-2289-48d2-8d96-ee7e590ecfd4,0.0,0.35,0.0,Creature Token — Kithkin,0,
+2026-10-26,5714358,Illusion,1,tfra,Normal,,0.99,,true,7bda0b63-fd0f-495d-9eb0-20057571c0ee,0.0,0.99,0.0,Creature Token — Illusion,0,U
+2026-10-26,17493352,Starscape Cleric,1,tblb,Normal,0.42,1.99,0.8,true,5379a77e-4b98-4abc-b967-fbc76bb85fc6,0.42,1.99,0.8,Creature Token — Cleric Bat,2,B
+2026-10-26,17493352,Bird,2,tmsc,Normal,,0.35,,true,95181e08-33c2-4df9-97bd-34fb5f78b820,0.12,0.35,0.03,Creature Token — Bird,0,W
+2026-10-26,26722467,Gnome,1,tust,Foil,0.28,0.79,,true,dbf33cc3-254f-4c5c-be22-3a2d96f29b80,0.28,0.69,0.7,Artifact Creature Token — Gnome,0,
+2026-10-26,26722467,Mutagen,1,ttmt,Normal,,0.35,,true,6559c423-449c-4e8e-8384-3ce78183e317,0.0,0.35,0.0,Artifact Token — Mutagen,0,
+2026-10-26,26722467,Bird,2,tmsc,Normal,,0.35,,true,95181e08-33c2-4df9-97bd-34fb5f78b820,0.12,0.35,0.03,Creature Token — Bird,0,W
+2026-10-26,6482039,Fanatic of Rhonas,1,tmh3,Normal,3.26,3.49,0.34,true,6ef58164-4155-4e5b-8c16-f16f2ab65baa,3.26,3.49,0.34,Creature Token — Druid Zombie Snake,0,BG
+2026-10-26,25536840,Gnome,1,tust,Foil,0.28,0.79,,true,dbf33cc3-254f-4c5c-be22-3a2d96f29b80,0.28,0.69,0.7,Artifact Creature Token — Gnome,0,
+2026-10-26,24974478,Wurm,1,t2xm,Normal,8.24,6.49,,true,b68e816f-f9ac-435b-ad0b-ceedbe72447a,3.26,5.99,0.02,Artifact Creature Token — Wurm,0,
+2026-10-26,24974478,Wurm,1,t2xm,Normal,10.18,6.99,3.0,true,a6ee0db9-ac89-4ab6-ac2e-8a7527d9ecbd,6.58,4.99,0.08,Artifact Creature Token — Wurm,0,
