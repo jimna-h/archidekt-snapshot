@@ -51,25 +51,25 @@ Fanatic of Rhonas,,86aef5a2-e975-4f35-8fd1-b1de187319e6,Fanatic of Rhonas,Token 
 Fountainport,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
 Into the Flood Maw,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
 Parting Gust,,bdb03306-355c-41e5-96bc-f60483e59b2a,Fish,Token Creature — Fish,1,1,U,,44057462-40b7-4709-afac-2ce03d53d525
-,5714358,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-,26722467,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-Academy Manufactor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-Astrid Peth,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-Campsite Cuisine,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-Graham O'Brien,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-Ignis Scientia,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-"Lita, Little Orphan Amphibian",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-"Oko, Thief of Crowns",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-Peregrin Took,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-"Rocco, Street Chef",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-Rosie Cotton of South Lane,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-Samwise Gamgee,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-"Spot, Felis catus",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-The Cabbage Merchant,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-The Fourth Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-The Shire,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-The Third Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-"Tippy-Toe, Terrific Partner",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
+,5714358,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+,26722467,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+Academy Manufactor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+Astrid Peth,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+Campsite Cuisine,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+Graham O'Brien,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+Ignis Scientia,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+"Lita, Little Orphan Amphibian",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+"Oko, Thief of Crowns",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+Peregrin Took,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+"Rocco, Street Chef",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+Rosie Cotton of South Lane,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+Samwise Gamgee,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+"Spot, Felis catus",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+The Cabbage Merchant,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+The Fourth Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+The Shire,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+The Third Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
+"Tippy-Toe, Terrific Partner",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",d4a47380-3e51-4c1d-9ffa-472d4f97d36b
 ,17493352,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
 ,25536840,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
 ,26722467,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
