@@ -1013,3 +1013,19 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-24,5714358,Seat of the Synod,sld,Foil,false,1
 2026-10-24,5714358,Tree of Tales,mrd,Normal,false,0
 2026-10-24,5714358,Tree of Tales,sld,Foil,false,1
+2026-10-28,4279849,Generous Gift,cmm,Foil,false,1
+2026-10-28,4279849,Generous Gift,cmm,Normal,false,0
+2026-10-28,4279849,"Lyra, Archangel of Dawn",fra,Normal,false,1
+2026-10-28,4279849,"Lyra, Archangel of Dawn",fra,Normal,true,0
+2026-10-28,5714358,"Mona Lisa, Ever Adaptable",tmc,Normal,false,1
+2026-10-28,5714358,"Mona Lisa, Ever Adaptable",tmc,Normal,true,0
+2026-10-28,5714358,Radagast of Rhosgobel,hob,Normal,false,1
+2026-10-28,5714358,Radagast of Rhosgobel,hob,Normal,true,0
+2026-10-28,6482039,Simulacrum Shaper,fra,Normal,false,1
+2026-10-28,6482039,Simulacrum Shaper,fra,Normal,true,0
+2026-10-28,17493352,Welcoming Vampire,lcc,Normal,false,1
+2026-10-28,17493352,Welcoming Vampire,tdc,Normal,true,0
+2026-10-28,24974478,Training Grounds,mat,Normal,false,1
+2026-10-28,24974478,Training Grounds,mat,Normal,true,0
+2026-10-28,26722467,"Anim Pakal, Thousandth Moon",lci,Normal,false,1
+2026-10-28,26722467,"Anim Pakal, Thousandth Moon",lci,Normal,true,0
