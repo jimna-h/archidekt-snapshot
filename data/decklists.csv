@@ -1033,3 +1033,5 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-30,5714358,"David and Carol Marcus, Creators",trk,Normal,true,1
 2026-10-30,5714358,"Dr. Leonard ""Bones"" McCoy",trk,Normal,true,1
 2026-10-30,5714358,"Elena, Turk Recruit",fic,Normal,false,0
+2026-10-31,6482039,"Tom, Bert, and William",purl,Foil,false,1
+2026-10-31,6482039,"Tom, Bert, and William",purl,Normal,true,0
