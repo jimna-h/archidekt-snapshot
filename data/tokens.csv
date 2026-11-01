@@ -2,7 +2,7 @@ card_name,deck_id,token_id,token_name,type_line,power,toughness,colors,text,imag
 ,4279849,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
 "Ajani, Strength of the Pride",,9fcff433-c6f7-44c6-8279-04625703cb3e,Ajani's Pridemate,Token Creature — Cat Soldier,2,2,W,"Whenever you gain life, put a +1/+1 counter on Ajani's Pridemate.",b0819e8e-fb7e-43c7-a7cf-d768f43193ac
 ,5714358,63d59a37-fd7c-4d53-a666-7db6fae2f78f,Ally,Token Creature — Ally,1,1,W,,cae9c13e-fda2-4591-bd52-888d12194e4d
-"Katara, Water Tribe's Hope",,63d59a37-fd7c-4d53-a666-7db6fae2f78f,Ally,Token Creature — Ally,1,1,W,,cae9c13e-fda2-4591-bd52-888d12194e4d
+"Appa, Steadfast Guardian",,63d59a37-fd7c-4d53-a666-7db6fae2f78f,Ally,Token Creature — Ally,1,1,W,,cae9c13e-fda2-4591-bd52-888d12194e4d
 ,26722467,40c64f08-ab2f-4933-8e0e-d1a1c729008f,Angel,Token Creature — Angel,4,4,W,Flying,d41f6ac8-6aa3-45b8-8ab3-8c6065e842be
 Speaker of the Heavens,,40c64f08-ab2f-4933-8e0e-d1a1c729008f,Angel,Token Creature — Angel,4,4,W,Flying,d41f6ac8-6aa3-45b8-8ab3-8c6065e842be
 ,25536840,b9489980-e741-4cf9-a2ef-086c712f45f1,Angel Warrior,Token Creature — Angel Warrior,4,4,W,Flying,91098481-46c2-49bf-8123-e9cab2f22b84
@@ -26,8 +26,8 @@ Academy Manufactor,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact —
 "Lonis, Cryptozoologist",,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
 Officious Interrogation,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
 "Osgood, Operation Double",,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
+"Sam Kirk, Xenoanthropologist",,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
 Sarah Jane Smith,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
-The Third Doctor,,496e1083-c792-40a4-adf4-fec1d559cd5e,Clue,Token Artifact — Clue,,,,"{2}, Sacrifice this token: Draw a card.",0de94d6e-2c7c-46d8-897d-4f0e56cc583b
 ,5714358,ee740c48-59cd-4fcc-b4a5-fe3dde1361d5,Construct,Token Artifact Creature — Construct,0,0,,This creature gets +1/+1 for each artifact you control.,85f212cd-4fc6-42fe-b268-22d8e3b2b7eb
 "Urza, Lord High Artificer",,ee740c48-59cd-4fcc-b4a5-fe3dde1361d5,Construct,Token Artifact Creature — Construct,0,0,,This creature gets +1/+1 for each artifact you control.,85f212cd-4fc6-42fe-b268-22d8e3b2b7eb
 ,17493352,08887c45-02e5-40a3-b13f-5245a80938ff,Darkstar Augur,Token Creature — Bat Warlock,1,1,B,"Flying / At the beginning of your upkeep, reveal the top card of your library and put that card into your hand. You lose life equal to its mana value. / (This token's mana cost is {2}{B}.)",01b55966-0910-484d-9b2b-0a59233c44c4
@@ -68,7 +68,6 @@ Samwise Gamgee,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Foo
 The Cabbage Merchant,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
 The Fourth Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
 The Shire,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
-The Third Doctor,,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
 "Tippy-Toe, Terrific Partner",,a468338f-635e-4206-89d6-72d723071d45,Food,Token Artifact — Food,,,,"{2}, {T}, Sacrifice this token: You gain 3 life.",883a8ba9-6a3c-4f3b-876e-ec47a08dbb8a
 ,17493352,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
 ,25536840,142c04da-7739-4e43-954b-3cd9b462f6bb,Gnome,Token Artifact Creature — Gnome,1,1,,,dbf33cc3-254f-4c5c-be22-3a2d96f29b80
@@ -166,7 +165,6 @@ Professional Face-Breaker,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token A
 "Prosper, Tome-Bound",,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 Tataru Taru,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 The Reaver Cleaver,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
-The Third Doctor,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 Thieves' Tools,,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 "Vraska, the Cutting Glare",,3c549374-6c37-42e0-8d88-a8555d46732d,Treasure,Token Artifact — Treasure,,,,"{T}, Sacrifice this token: Add one mana of any color.",70a356a2-c851-41e5-a389-7019575d5ace
 ,4279849,97af46cb-6209-4ae7-81cc-792894999937,Vampire,Token Creature — Vampire,1,1,W,Lifelink (Damage dealt by this creature also causes you to gain that much life.),03a2f3c3-fbcb-4b21-8f86-232c0db80c1f

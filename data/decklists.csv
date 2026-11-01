@@ -1035,3 +1035,15 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-10-30,5714358,"Elena, Turk Recruit",fic,Normal,false,0
 2026-10-31,6482039,"Tom, Bert, and William",purl,Foil,false,1
 2026-10-31,6482039,"Tom, Bert, and William",purl,Normal,true,0
+2026-11-01,5714358,"Appa, Steadfast Guardian",tla,Normal,true,1
+2026-11-01,5714358,Avatar's Wrath,tla,Normal,true,1
+2026-11-01,5714358,"Crystal Skull, Isu Spyglass",acr,Etched,false,0
+2026-11-01,5714358,Inspiring Statuary,brr,Normal,true,1
+2026-11-01,5714358,Kappa Cannoneer,nec,Normal,false,0
+2026-11-01,5714358,"Katara, Water Tribe's Hope",tla,Foil,false,0
+2026-11-01,5714358,"Sam Kirk, Xenoanthropologist",trc,Normal,true,1
+2026-11-01,5714358,The Third Doctor,who,Foil,false,0
+2026-11-01,16293254,Field of the Dead,m20,Normal,false,1
+2026-11-01,16293254,Field of the Dead,m20,Normal,true,0
+2026-11-01,16293254,Temporal Anomaly,trk,Normal,true,1
+2026-11-01,16293254,Yavimaya Hollow,vma,Normal,true,0
