@@ -1,4 +1,5 @@
 date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarket,proxied,scryfall_id,tcg_min,ck_min,cm_min,type_line,mana_value,color_identity
+2026-11-03,16293254,New Planet,2,ttrk,Normal,,0.49,,true,21d855f7-fd5c-4eb4-b997-a905849806b9,0.0,0.49,0.0,Land Token — Planet,0,
 2026-11-03,25536840,Gnome,1,tust,Foil,0.34,0.79,,true,dbf33cc3-254f-4c5c-be22-3a2d96f29b80,0.34,0.69,0.7,Artifact Creature Token — Gnome,0,
 2026-11-03,26722467,Gnome,1,tust,Foil,0.34,0.79,,true,dbf33cc3-254f-4c5c-be22-3a2d96f29b80,0.34,0.69,0.7,Artifact Creature Token — Gnome,0,
 2026-11-03,26722467,Mutagen,1,ttmt,Normal,,0.35,,true,6559c423-449c-4e8e-8384-3ce78183e317,0.0,0.35,0.0,Artifact Token — Mutagen,0,

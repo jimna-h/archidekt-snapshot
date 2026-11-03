@@ -1,4 +1,92 @@
 date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarket,proxied,scryfall_id,tcg_min,ck_min,cm_min
+2026-11-03,16293254,Great Hall of the Citadel,1,ltr,Normal,0.3,0.99,0.17,false,219c7b57-b62b-42d1-85d9-4b57624a3f54,0.3,0.99,0.17
+2026-11-03,16293254,Plaza of Heroes,1,dmu,Normal,5.33,7.49,5.43,true,a2cfcf67-f83c-43af-9e2d-5513fcdde835,4.22,4.99,3.6
+2026-11-03,16293254,Arid Archway,1,otj,Normal,1.27,1.79,0.74,false,3f8c8fa2-12ab-4f6a-9f7a-2bc69e9ba024,1.27,1.79,0.74
+2026-11-03,16293254,Arena,1,mb2,Normal,1.01,2.79,0.99,true,2a972559-249a-4a35-92e6-71e7e0474c9d,1.01,2.79,0.39
+2026-11-03,16293254,Cavern of Souls,1,lci,Normal,49.68,69.99,47.98,true,3aad15a2-8a1b-4460-9b06-e85863081878,49.51,64.99,33.5
+2026-11-03,16293254,City of Shadows,1,me3,Normal,,,121.65,true,0629322b-e9e8-4cac-abe5-fff083bcc240,70.69,69.99,30.0
+2026-11-03,16293254,Maze of Ith,1,dmr,Foil,16.76,22.99,16.98,false,7286bd95-0d8e-4b1a-b319-052fe2ae1951,8.68,11.99,0.02
+2026-11-03,16293254,Desert of the Indomitable,1,m3c,Normal,0.29,0.35,0.09,true,c8ff47b8-467b-4fdc-8ba1-3460301b1de7,0.13,0.35,0.09
+2026-11-03,16293254,Wasteland,1,slc,Normal,14.83,21.99,14.97,false,b673bf01-aed0-4d5b-bdd2-35dc8a162dc6,14.83,21.99,0.09
+2026-11-03,16293254,Scorched Ruins,1,wth,Normal,64.28,69.99,36.72,true,75a4e843-937c-47fb-8768-0f42c5cb4e4f,64.28,69.99,36.72
+2026-11-03,16293254,Fabled Passage,1,tmc,Normal,1.45,1.49,1.21,false,7c787c6b-b6c7-47a0-8f8d-761629f5568e,0.42,1.29,0.94
+2026-11-03,16293254,"Boseiju, Who Endures",1,neo,Normal,47.37,64.99,37.9,true,2135ac5a-187b-4dc9-8f82-34e8d1603416,47.37,64.99,33.33
+2026-11-03,16293254,Castle Garenbrig,1,eld,Normal,9.23,13.99,5.34,true,e3c2c66c-f7f0-41d5-a805-a129aeaf1b75,8.36,13.99,5.0
+2026-11-03,16293254,Ancient Tomb,1,zne,Normal,137.53,159.99,117.0,true,880ffa23-ed71-4f39-aa66-0953a1f20fe9,125.71,149.99,0.2
+2026-11-03,16293254,Ash Barrens,1,cmm,Normal,0.32,0.35,0.19,true,df0693ae-55f9-4864-b5db-383715a04d21,0.21,0.35,0.02
+2026-11-03,16293254,Bant Panorama,1,ala,Normal,0.62,0.49,0.22,true,b22c6b34-0066-47f8-8062-9363c024fa56,0.33,0.39,0.14
+2026-11-03,16293254,Crystal Vein,1,cma,Normal,8.71,11.99,7.25,true,1c28ab69-1a46-45af-a331-1f52f99a9da3,6.37,7.99,0.25
+2026-11-03,16293254,Emergence Zone,1,war,Normal,4.22,4.49,1.61,true,ab95f6e7-b806-47fe-a071-6c38b3176d94,4.22,4.49,1.61
+2026-11-03,16293254,Forest,11,blb,Foil,0.41,0.99,0.33,false,3a7a2a54-47e1-4694-b4f6-b7d659bb2b1f,0.1,0.35,0.02
+2026-11-03,16293254,Ghost Quarter,1,ltc,Normal,0.96,1.49,1.0,true,25e987d9-6a69-46af-bd9f-8e505fa721bb,0.43,0.99,0.28
+2026-11-03,16293254,Grasslands,1,cmm,Normal,0.36,0.39,0.1,true,ecf52798-b2e0-4d0a-a41b-8927bfa60375,0.36,0.35,0.05
+2026-11-03,16293254,Hall of the Bandit Lord,1,chk,Normal,21.66,24.99,9.99,true,59fa5bab-8626-4b45-a3a3-621f6d9509ab,19.15,22.99,7.0
+2026-11-03,16293254,Havenwood Battleground,1,c14,Normal,0.38,0.49,0.15,true,2db76816-d634-4629-9bf1-5dbca71d1615,0.28,0.35,0.1
+2026-11-03,16293254,Hickory Woodlot,1,mmq,Normal,4.66,5.99,3.17,false,af7aafb7-6870-4d09-a191-70786766c459,4.66,5.99,3.17
+2026-11-03,16293254,Hollow Trees,1,5ed,Normal,0.86,0.79,0.61,true,3d6d30a4-a24e-4537-9230-bf6f57fbcd98,0.86,0.49,0.5
+2026-11-03,16293254,Homeward Path,1,ltc,Normal,13.56,19.99,13.56,true,b926c3a5-c672-45ac-96b9-82183bfd9344,11.75,17.99,3.16
+2026-11-03,16293254,Command Beacon,1,cmr,Normal,8.88,11.99,7.42,true,0bec6181-e214-4833-8c2f-8a10d59b2879,3.32,9.99,0.43
+2026-11-03,16293254,Deserted Temple,1,mh3,Normal,0.93,1.49,0.57,true,fd51f8f0-779b-40bb-b65c-5907f816676e,0.93,1.49,0.57
+2026-11-03,16293254,Dryad Arbor,1,mb2,Normal,3.34,4.49,2.62,true,7d131beb-9458-4ad4-8074-85e116a3d24d,3.34,4.49,2.2
+2026-11-03,16293254,Echoing Deeps,1,lci,Normal,0.7,0.99,0.68,true,244c06b3-532d-426e-8bee-ee9461d092a6,0.46,0.79,0.48
+2026-11-03,16293254,Gemstone Caverns,1,plst,Normal,64.87,79.99,44.0,true,8f8f02f1-ccb6-48b6-ae4e-adc4fe721606,62.51,79.99,39.81
+2026-11-03,16293254,High Market,1,c21,Normal,2.3,1.29,1.69,false,56e6e77d-8779-441a-946e-d2be76794a0d,0.36,1.29,0.7
+2026-11-03,16293254,Horizon of Progress,1,m3c,Normal,4.17,3.99,2.98,true,c2ae7cf3-f793-4572-a32c-0d66dba8faf7,4.17,3.99,2.98
+2026-11-03,16293254,Diamond Valley,1,me1,Normal,,,1.96,true,37ccc3ab-9875-4bd2-bdbd-e3af5e01d682,690.0,899.99,1.96
+2026-11-03,16293254,City of Traitors,1,tpr,Normal,,,4.78,true,71624139-a255-48be-93ca-594a4beba487,553.14,749.99,4.78
+2026-11-03,16293254,Jund Panorama,1,ala,Normal,0.4,0.49,0.35,true,a2b31fcd-43eb-44ad-b63e-4f2e6984963c,0.39,0.39,0.15
+2026-11-03,16293254,Lotus Vale,1,wth,Normal,45.56,49.99,12.3,true,2e5cd12a-2a07-44a8-8eac-de00d26fe9e3,45.56,49.99,12.3
+2026-11-03,16293254,Mage-Ring Network,1,cmm,Normal,0.36,0.39,0.1,true,f060ea2b-717a-47ae-a4d6-b0594e838459,0.31,0.39,0.05
+2026-11-03,16293254,"Miren, the Moaning Well",1,sok,Normal,22.81,42.99,7.5,true,53d414f0-15ae-446b-a8d7-56c1b502740c,22.81,42.99,0.04
+2026-11-03,16293254,Misty Rainforest,1,zne,Normal,53.15,59.99,35.0,true,6d14bd1a-068e-4338-8014-d5271cb2fe4d,36.22,42.99,26.65
+2026-11-03,16293254,Mountain Valley,1,eoc,Normal,0.3,0.39,0.14,false,3094800e-9994-47c3-9ebc-536bf5de13cd,0.23,0.35,0.09
+2026-11-03,16293254,Myriad Landscape,1,ltc,Foil,3.97,3.99,4.9,false,79bfe024-1be9-4902-898a-93502e48b86d,0.21,0.49,0.02
+2026-11-03,16293254,Mystifying Maze,1,eos,Normal,2.43,3.99,0.99,true,4bdcdc32-0e38-4b50-9120-defbc8b2b18f,0.54,1.49,0.09
+2026-11-03,16293254,Ominous Cemetery,1,who,Normal,0.32,0.35,0.27,true,2e843c57-fae3-4127-94e7-cad8c8bb9486,0.32,0.35,0.27
+2026-11-03,16293254,Pit of Offerings,1,lci,Normal,0.34,0.49,0.18,true,bc7d3957-b483-4a1f-a244-293c90032f5e,0.34,0.49,0.18
+2026-11-03,16293254,Rushwood Grove,1,mmq,Normal,0.58,0.99,0.19,false,c315c72c-3e2f-4aff-b7d7-2f709ccec332,0.58,0.99,0.19
+2026-11-03,16293254,Safe Haven,1,tsb,Normal,0.49,0.99,0.16,true,d130205f-53e3-4c04-967c-4808d7945880,0.49,0.59,0.16
+2026-11-03,16293254,Sanctum of Eternity,1,c19,Normal,7.8,10.99,6.94,true,a680cc6d-9c31-4f5d-808f-dace92bf4346,7.8,10.99,3.6
+2026-11-03,16293254,Sandstorm Verge,1,otj,Normal,0.23,0.35,0.24,true,3ab4e0a4-2faf-456b-99e3-ee06c008538c,0.23,0.35,0.12
+2026-11-03,16293254,Sequestered Stash,1,kld,Normal,0.14,0.35,0.2,true,86a17084-bb96-4e81-bff0-005bd44a1fbd,0.14,0.35,0.2
+2026-11-03,16293254,Shire Terrace,1,ltr,Normal,0.23,0.35,0.1,false,25932483-58cd-4ae5-82bf-ab455177d117,0.23,0.35,0.1
+2026-11-03,16293254,Slippery Karst,1,dmr,Normal,0.19,0.35,0.25,false,c41073e8-01cc-4d19-acb5-caaf2861bc6a,0.11,0.35,0.03
+2026-11-03,16293254,Snow-Covered Forest,3,mh1,Normal,1.2,1.79,0.71,false,1c59fc48-704b-4187-b9d3-2a2cff6dd54b,0.85,1.79,0.22
+2026-11-03,16293254,Tower of the Magistrate,1,mb2,Normal,1.1,2.79,2.0,true,0743db09-bf73-4d56-8c0c-7834cb535055,1.1,2.79,1.2
+2026-11-03,16293254,Underdark Rift,1,afc,Normal,0.55,0.69,0.2,true,da7b5c5b-fba1-4993-9779-bef96bcb0064,0.55,0.69,0.1
+2026-11-03,16293254,"Untaidake, the Cloud Keeper",1,chk,Normal,5.47,6.99,1.49,true,3c571f66-7a00-4cb0-9da9-8271083f49d3,5.47,6.99,1.49
+2026-11-03,16293254,Urza's Cave,1,mh3,Normal,2.72,3.49,1.24,true,926916ed-2f22-4ba9-9427-194886ad6c1e,2.72,3.49,1.24
+2026-11-03,16293254,Verdant Catacombs,1,zne,Normal,47.99,54.99,31.0,true,efd97080-c5c7-47db-b605-8bdd06c2dd5a,28.26,34.99,22.0
+2026-11-03,16293254,Vesuva,1,slc,Normal,5.2,6.49,4.49,false,2671eaa1-e6d5-4b70-a36c-3c7765695f1b,3.99,4.49,2.44
+2026-11-03,16293254,Winding Canyons,1,wth,Normal,36.12,37.99,14.5,true,f26672a8-f4ff-4c64-bb3e-f5072bbc9e3e,36.12,37.99,14.5
+2026-11-03,16293254,Windswept Heath,1,zne,Normal,33.04,29.99,27.99,true,63c59228-c742-4abd-b4d7-9f7880190e95,11.53,16.99,0.25
+2026-11-03,16293254,Wooded Foothills,1,zne,Normal,28.59,34.99,25.0,true,1066a94a-8e4f-4d77-820b-7a77a18116f0,17.63,24.99,0.07
+2026-11-03,16293254,Daily Bugle Building,1,spm,Normal,0.36,0.49,0.15,false,669bbcb1-0981-40e7-905e-b94e74bc4861,0.35,0.49,0.07
+2026-11-03,16293254,"Argoth, Sanctum of Nature",1,bro,Normal,2.98,3.99,1.24,false,b29c9e4f-7b98-4610-a681-ae6297e8fc72,2.98,3.99,1.24
+2026-11-03,16293254,Chocobo Camp,1,fic,Normal,7.82,17.99,14.11,true,4fcd08ad-4dac-4236-9030-f59e473b3ec7,7.82,7.99,4.48
+2026-11-03,16293254,Northampton Farm,1,tmt,Normal,0.38,0.49,0.32,false,dbca168e-095f-4fbc-88f8-3048d83caf94,0.38,0.49,0.3
+2026-11-03,16293254,Tranquil Thicket,1,mh1,Normal,0.22,0.35,0.13,false,b73571bd-b6e5-4338-a9b1-d847a8ad43d1,0.11,0.35,0.02
+2026-11-03,16293254,Rogue's Passage,1,ltc,Normal,0.67,1.29,0.94,false,86438671-fdb8-4a82-b1e8-ef51fa4078df,0.38,0.69,0.1
+2026-11-03,16293254,Sunken Citadel,1,lci,Normal,0.39,0.79,1.3,true,3e1c9b1a-e306-47bb-9f68-2083660319c0,0.39,0.79,0.3
+2026-11-03,16293254,Temple of the False God,1,cm2,Normal,0.3,0.35,0.25,false,35017400-02ba-4b6a-afb7-1ea870e2833e,0.18,0.35,0.02
+2026-11-03,16293254,Scavenger Grounds,1,c21,Normal,0.52,0.59,0.55,false,78748ac8-4726-4156-a97e-023f80fef610,0.21,0.49,0.05
+2026-11-03,16293254,Lazotep Quarry,1,m3c,Normal,4.73,6.99,5.98,true,656ddd43-c70c-4927-9a02-fef5732708da,3.74,6.99,5.98
+2026-11-03,16293254,Lotus Field,1,soc,Normal,2.6,4.49,2.74,false,ee5ac47c-e8b6-400e-b91e-a7cd0f952cf1,2.6,3.99,2.74
+2026-11-03,16293254,Mariposa Military Base,1,pip,Normal,0.41,0.49,0.2,true,cd7be9d4-f9fa-44a3-9902-7e9e226ccf56,0.33,0.49,0.2
+2026-11-03,16293254,Prismatic Vista,1,mh1,Normal,29.66,37.99,31.11,true,e37da81e-be12-45a2-9128-376f1ad7b3e8,29.15,37.99,31.0
+2026-11-03,16293254,Talon Gates of Madara,1,m3c,Normal,33.16,42.99,31.62,true,c565f8fe-acf7-40dd-8100-8f692d1e232c,33.16,24.99,31.62
+2026-11-03,16293254,Terrain Generator,1,clb,Normal,2.25,3.49,1.69,true,f40e9f0f-8c0d-4bfd-9872-370ce3763006,1.38,3.49,1.0
+2026-11-03,16293254,"Urborg, Tomb of Yawgmoth",1,tsr,Normal,52.21,69.99,32.0,true,9e1a9e38-6ffc-490f-b0be-23ba4e8204c6,51.81,69.99,32.0
+2026-11-03,16293254,Witch's Clinic,1,c21,Normal,12.29,16.99,10.99,true,fe17b08f-4790-4885-8b2b-b22f00b52d4e,5.35,5.99,2.75
+2026-11-03,16293254,"Yavimaya, Cradle of Growth",1,mh2,Normal,13.86,19.99,12.19,true,4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c,11.71,19.99,5.0
+2026-11-03,16293254,The Tabernacle at Pendrell Vale,1,me3,Normal,,,,true,cd3f7f4e-cb25-4121-96a0-a4dc530420b9,3619.5,4199.99,2785.0
+2026-11-03,16293254,Bazaar of Baghdad,1,vma,Normal,,,747.66,true,c88acaa8-ad4d-4321-a6f6-9361916e5b5e,1984.6,3099.99,747.66
+2026-11-03,16293254,Mirrorpool,1,cmm,Normal,2.76,3.49,2.2,true,0441cd2c-3646-4c69-ae97-ad3bcea7466f,2.11,3.49,2.2
+2026-11-03,16293254,Thespian's Stage,1,who,Normal,0.5,0.69,0.36,true,50ae3d9d-e269-4a83-9b2d-cfe34f5f0f78,0.45,0.69,0.34
+2026-11-03,16293254,"Lumra, Bellow of the Woods",1,blb,Foil,114.93,159.99,140.0,true,b43b3c33-aa44-4001-87ff-695bf04f51be,27.0,37.99,24.0
+2026-11-03,16293254,Hall of Echoes,1,fra,Normal,2.31,3.99,2.14,false,4a771010-b397-4849-ac9b-08e4dd5d6a72,2.31,3.99,2.0
+2026-11-03,16293254,Field of the Dead,1,m20,Normal,26.51,29.99,30.45,false,470ca3f4-29aa-4c4c-8ff2-8cdd70c69943,23.78,29.99,22.49
+2026-11-03,16293254,Temporal Anomaly,1,trk,Normal,2.06,0.49,0.32,true,d2000219-0a57-48e6-ab0f-d5ad0fb7bcf6,2.06,0.49,0.32
 2026-11-03,25536840,"Delney, Streetwise Lookout",1,mkm,Normal,34.4,57.99,26.85,false,b6297104-b73c-439c-ac0c-b7fac01d49dc,34.19,44.99,26.0
 2026-11-03,25536840,The Echoverse Fulcrum,1,fra,Normal,2.26,3.49,3.49,true,1b54a4c5-511f-439f-86d0-e84a30275462,1.81,2.49,2.0
 2026-11-03,25536840,Castle Ardenvale,1,peld,Normal,2.64,1.29,0.8,false,14255ada-7b64-497a-b9c4-5e25060ba6f8,0.29,0.69,0.25
@@ -269,94 +357,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-11-03,17493352,Lifecreed Duo,1,blb,Normal,0.17,0.35,0.1,false,ca543405-5e12-48a0-9a77-082ac9bcb2f2,0.17,0.35,0.1
 2026-11-03,17493352,Break Through the Line,1,frf,Normal,0.32,0.49,0.59,false,81c1cdbe-5ddb-4cc6-975b-42f3f1ee4749,0.32,0.49,0.59
 2026-11-03,17493352,"Kurn, Son of Mogh",1,trc,Normal,9.95,0.99,,true,03fcc84d-45cc-4894-ab35-6d5a799b21ef,9.95,0.99,0.0
-2026-11-03,16293254,Great Hall of the Citadel,1,ltr,Normal,0.3,0.99,0.17,false,219c7b57-b62b-42d1-85d9-4b57624a3f54,0.3,0.99,0.17
-2026-11-03,16293254,Plaza of Heroes,1,dmu,Normal,5.33,7.49,5.43,true,a2cfcf67-f83c-43af-9e2d-5513fcdde835,4.22,4.99,3.6
-2026-11-03,16293254,Arid Archway,1,otj,Normal,1.27,1.79,0.74,false,3f8c8fa2-12ab-4f6a-9f7a-2bc69e9ba024,1.27,1.79,0.74
-2026-11-03,16293254,Arena,1,mb2,Normal,1.01,2.79,0.99,true,2a972559-249a-4a35-92e6-71e7e0474c9d,1.01,2.79,0.39
-2026-11-03,16293254,Cavern of Souls,1,lci,Normal,49.68,69.99,47.98,true,3aad15a2-8a1b-4460-9b06-e85863081878,49.51,64.99,33.5
-2026-11-03,16293254,City of Shadows,1,me3,Normal,,,121.65,true,0629322b-e9e8-4cac-abe5-fff083bcc240,70.69,69.99,30.0
-2026-11-03,16293254,Maze of Ith,1,dmr,Foil,16.76,22.99,16.98,false,7286bd95-0d8e-4b1a-b319-052fe2ae1951,8.68,11.99,0.02
-2026-11-03,16293254,Desert of the Indomitable,1,m3c,Normal,0.29,0.35,0.09,true,c8ff47b8-467b-4fdc-8ba1-3460301b1de7,0.13,0.35,0.09
-2026-11-03,16293254,Wasteland,1,slc,Normal,14.83,21.99,14.97,false,b673bf01-aed0-4d5b-bdd2-35dc8a162dc6,14.83,21.99,0.09
-2026-11-03,16293254,Scorched Ruins,1,wth,Normal,64.28,69.99,36.72,true,75a4e843-937c-47fb-8768-0f42c5cb4e4f,64.28,69.99,36.72
-2026-11-03,16293254,Fabled Passage,1,tmc,Normal,1.45,1.49,1.21,false,7c787c6b-b6c7-47a0-8f8d-761629f5568e,0.42,1.29,0.94
-2026-11-03,16293254,"Boseiju, Who Endures",1,neo,Normal,47.37,64.99,37.9,true,2135ac5a-187b-4dc9-8f82-34e8d1603416,47.37,64.99,33.33
-2026-11-03,16293254,Castle Garenbrig,1,eld,Normal,9.23,13.99,5.34,true,e3c2c66c-f7f0-41d5-a805-a129aeaf1b75,8.36,13.99,5.0
-2026-11-03,16293254,Ancient Tomb,1,zne,Normal,137.53,159.99,117.0,true,880ffa23-ed71-4f39-aa66-0953a1f20fe9,125.71,149.99,0.2
-2026-11-03,16293254,Ash Barrens,1,cmm,Normal,0.32,0.35,0.19,true,df0693ae-55f9-4864-b5db-383715a04d21,0.21,0.35,0.02
-2026-11-03,16293254,Bant Panorama,1,ala,Normal,0.62,0.49,0.22,true,b22c6b34-0066-47f8-8062-9363c024fa56,0.33,0.39,0.14
-2026-11-03,16293254,Crystal Vein,1,cma,Normal,8.71,11.99,7.25,true,1c28ab69-1a46-45af-a331-1f52f99a9da3,6.37,7.99,0.25
-2026-11-03,16293254,Emergence Zone,1,war,Normal,4.22,4.49,1.61,true,ab95f6e7-b806-47fe-a071-6c38b3176d94,4.22,4.49,1.61
-2026-11-03,16293254,Forest,11,blb,Foil,0.41,0.99,0.33,false,3a7a2a54-47e1-4694-b4f6-b7d659bb2b1f,0.1,0.35,0.02
-2026-11-03,16293254,Ghost Quarter,1,ltc,Normal,0.96,1.49,1.0,true,25e987d9-6a69-46af-bd9f-8e505fa721bb,0.43,0.99,0.28
-2026-11-03,16293254,Grasslands,1,cmm,Normal,0.36,0.39,0.1,true,ecf52798-b2e0-4d0a-a41b-8927bfa60375,0.36,0.35,0.05
-2026-11-03,16293254,Hall of the Bandit Lord,1,chk,Normal,21.66,24.99,9.99,true,59fa5bab-8626-4b45-a3a3-621f6d9509ab,19.15,22.99,7.0
-2026-11-03,16293254,Havenwood Battleground,1,c14,Normal,0.38,0.49,0.15,true,2db76816-d634-4629-9bf1-5dbca71d1615,0.28,0.35,0.1
-2026-11-03,16293254,Hickory Woodlot,1,mmq,Normal,4.66,5.99,3.17,false,af7aafb7-6870-4d09-a191-70786766c459,4.66,5.99,3.17
-2026-11-03,16293254,Hollow Trees,1,5ed,Normal,0.86,0.79,0.61,true,3d6d30a4-a24e-4537-9230-bf6f57fbcd98,0.86,0.49,0.5
-2026-11-03,16293254,Homeward Path,1,ltc,Normal,13.56,19.99,13.56,true,b926c3a5-c672-45ac-96b9-82183bfd9344,11.75,17.99,3.16
-2026-11-03,16293254,Command Beacon,1,cmr,Normal,8.88,11.99,7.42,true,0bec6181-e214-4833-8c2f-8a10d59b2879,3.32,9.99,0.43
-2026-11-03,16293254,Deserted Temple,1,mh3,Normal,0.93,1.49,0.57,true,fd51f8f0-779b-40bb-b65c-5907f816676e,0.93,1.49,0.57
-2026-11-03,16293254,Dryad Arbor,1,mb2,Normal,3.34,4.49,2.62,true,7d131beb-9458-4ad4-8074-85e116a3d24d,3.34,4.49,2.2
-2026-11-03,16293254,Echoing Deeps,1,lci,Normal,0.7,0.99,0.68,true,244c06b3-532d-426e-8bee-ee9461d092a6,0.46,0.79,0.48
-2026-11-03,16293254,Gemstone Caverns,1,plst,Normal,64.87,79.99,44.0,true,8f8f02f1-ccb6-48b6-ae4e-adc4fe721606,62.51,79.99,39.81
-2026-11-03,16293254,High Market,1,c21,Normal,2.3,1.29,1.69,false,56e6e77d-8779-441a-946e-d2be76794a0d,0.36,1.29,0.7
-2026-11-03,16293254,Horizon of Progress,1,m3c,Normal,4.17,3.99,2.98,true,c2ae7cf3-f793-4572-a32c-0d66dba8faf7,4.17,3.99,2.98
-2026-11-03,16293254,Diamond Valley,1,me1,Normal,,,1.96,true,37ccc3ab-9875-4bd2-bdbd-e3af5e01d682,690.0,899.99,1.96
-2026-11-03,16293254,City of Traitors,1,tpr,Normal,,,4.78,true,71624139-a255-48be-93ca-594a4beba487,553.14,749.99,4.78
-2026-11-03,16293254,Jund Panorama,1,ala,Normal,0.4,0.49,0.35,true,a2b31fcd-43eb-44ad-b63e-4f2e6984963c,0.39,0.39,0.15
-2026-11-03,16293254,Lotus Vale,1,wth,Normal,45.56,49.99,12.3,true,2e5cd12a-2a07-44a8-8eac-de00d26fe9e3,45.56,49.99,12.3
-2026-11-03,16293254,Mage-Ring Network,1,cmm,Normal,0.36,0.39,0.1,true,f060ea2b-717a-47ae-a4d6-b0594e838459,0.31,0.39,0.05
-2026-11-03,16293254,"Miren, the Moaning Well",1,sok,Normal,22.81,42.99,7.5,true,53d414f0-15ae-446b-a8d7-56c1b502740c,22.81,42.99,0.04
-2026-11-03,16293254,Misty Rainforest,1,zne,Normal,53.15,59.99,35.0,true,6d14bd1a-068e-4338-8014-d5271cb2fe4d,36.22,42.99,26.65
-2026-11-03,16293254,Mountain Valley,1,eoc,Normal,0.3,0.39,0.14,false,3094800e-9994-47c3-9ebc-536bf5de13cd,0.23,0.35,0.09
-2026-11-03,16293254,Myriad Landscape,1,ltc,Foil,3.97,3.99,4.9,false,79bfe024-1be9-4902-898a-93502e48b86d,0.21,0.49,0.02
-2026-11-03,16293254,Mystifying Maze,1,eos,Normal,2.43,3.99,0.99,true,4bdcdc32-0e38-4b50-9120-defbc8b2b18f,0.54,1.49,0.09
-2026-11-03,16293254,Ominous Cemetery,1,who,Normal,0.32,0.35,0.27,true,2e843c57-fae3-4127-94e7-cad8c8bb9486,0.32,0.35,0.27
-2026-11-03,16293254,Pit of Offerings,1,lci,Normal,0.34,0.49,0.18,true,bc7d3957-b483-4a1f-a244-293c90032f5e,0.34,0.49,0.18
-2026-11-03,16293254,Rushwood Grove,1,mmq,Normal,0.58,0.99,0.19,false,c315c72c-3e2f-4aff-b7d7-2f709ccec332,0.58,0.99,0.19
-2026-11-03,16293254,Safe Haven,1,tsb,Normal,0.49,0.99,0.16,true,d130205f-53e3-4c04-967c-4808d7945880,0.49,0.59,0.16
-2026-11-03,16293254,Sanctum of Eternity,1,c19,Normal,7.8,10.99,6.94,true,a680cc6d-9c31-4f5d-808f-dace92bf4346,7.8,10.99,3.6
-2026-11-03,16293254,Sandstorm Verge,1,otj,Normal,0.23,0.35,0.24,true,3ab4e0a4-2faf-456b-99e3-ee06c008538c,0.23,0.35,0.12
-2026-11-03,16293254,Sequestered Stash,1,kld,Normal,0.14,0.35,0.2,true,86a17084-bb96-4e81-bff0-005bd44a1fbd,0.14,0.35,0.2
-2026-11-03,16293254,Shire Terrace,1,ltr,Normal,0.23,0.35,0.1,false,25932483-58cd-4ae5-82bf-ab455177d117,0.23,0.35,0.1
-2026-11-03,16293254,Slippery Karst,1,dmr,Normal,0.19,0.35,0.25,false,c41073e8-01cc-4d19-acb5-caaf2861bc6a,0.11,0.35,0.03
-2026-11-03,16293254,Snow-Covered Forest,3,mh1,Normal,1.2,1.79,0.71,false,1c59fc48-704b-4187-b9d3-2a2cff6dd54b,0.85,1.79,0.22
-2026-11-03,16293254,Tower of the Magistrate,1,mb2,Normal,1.1,2.79,2.0,true,0743db09-bf73-4d56-8c0c-7834cb535055,1.1,2.79,1.2
-2026-11-03,16293254,Underdark Rift,1,afc,Normal,0.55,0.69,0.2,true,da7b5c5b-fba1-4993-9779-bef96bcb0064,0.55,0.69,0.1
-2026-11-03,16293254,"Untaidake, the Cloud Keeper",1,chk,Normal,5.47,6.99,1.49,true,3c571f66-7a00-4cb0-9da9-8271083f49d3,5.47,6.99,1.49
-2026-11-03,16293254,Urza's Cave,1,mh3,Normal,2.72,3.49,1.24,true,926916ed-2f22-4ba9-9427-194886ad6c1e,2.72,3.49,1.24
-2026-11-03,16293254,Verdant Catacombs,1,zne,Normal,47.99,54.99,31.0,true,efd97080-c5c7-47db-b605-8bdd06c2dd5a,28.26,34.99,22.0
-2026-11-03,16293254,Vesuva,1,slc,Normal,5.2,6.49,4.49,false,2671eaa1-e6d5-4b70-a36c-3c7765695f1b,3.99,4.49,2.44
-2026-11-03,16293254,Winding Canyons,1,wth,Normal,36.12,37.99,14.5,true,f26672a8-f4ff-4c64-bb3e-f5072bbc9e3e,36.12,37.99,14.5
-2026-11-03,16293254,Windswept Heath,1,zne,Normal,33.04,29.99,27.99,true,63c59228-c742-4abd-b4d7-9f7880190e95,11.53,16.99,0.25
-2026-11-03,16293254,Wooded Foothills,1,zne,Normal,28.59,34.99,25.0,true,1066a94a-8e4f-4d77-820b-7a77a18116f0,17.63,24.99,0.07
-2026-11-03,16293254,Daily Bugle Building,1,spm,Normal,0.36,0.49,0.15,false,669bbcb1-0981-40e7-905e-b94e74bc4861,0.35,0.49,0.07
-2026-11-03,16293254,"Argoth, Sanctum of Nature",1,bro,Normal,2.98,3.99,1.24,false,b29c9e4f-7b98-4610-a681-ae6297e8fc72,2.98,3.99,1.24
-2026-11-03,16293254,Chocobo Camp,1,fic,Normal,7.82,17.99,14.11,true,4fcd08ad-4dac-4236-9030-f59e473b3ec7,7.82,7.99,4.48
-2026-11-03,16293254,Northampton Farm,1,tmt,Normal,0.38,0.49,0.32,false,dbca168e-095f-4fbc-88f8-3048d83caf94,0.38,0.49,0.3
-2026-11-03,16293254,Tranquil Thicket,1,mh1,Normal,0.22,0.35,0.13,false,b73571bd-b6e5-4338-a9b1-d847a8ad43d1,0.11,0.35,0.02
-2026-11-03,16293254,Rogue's Passage,1,ltc,Normal,0.67,1.29,0.94,false,86438671-fdb8-4a82-b1e8-ef51fa4078df,0.38,0.69,0.1
-2026-11-03,16293254,Sunken Citadel,1,lci,Normal,0.39,0.79,1.3,true,3e1c9b1a-e306-47bb-9f68-2083660319c0,0.39,0.79,0.3
-2026-11-03,16293254,Temple of the False God,1,cm2,Normal,0.3,0.35,0.25,false,35017400-02ba-4b6a-afb7-1ea870e2833e,0.18,0.35,0.02
-2026-11-03,16293254,Scavenger Grounds,1,c21,Normal,0.52,0.59,0.55,false,78748ac8-4726-4156-a97e-023f80fef610,0.21,0.49,0.05
-2026-11-03,16293254,Lazotep Quarry,1,m3c,Normal,4.73,6.99,5.98,true,656ddd43-c70c-4927-9a02-fef5732708da,3.74,6.99,5.98
-2026-11-03,16293254,Lotus Field,1,soc,Normal,2.6,4.49,2.74,false,ee5ac47c-e8b6-400e-b91e-a7cd0f952cf1,2.6,3.99,2.74
-2026-11-03,16293254,Mariposa Military Base,1,pip,Normal,0.41,0.49,0.2,true,cd7be9d4-f9fa-44a3-9902-7e9e226ccf56,0.33,0.49,0.2
-2026-11-03,16293254,Prismatic Vista,1,mh1,Normal,29.66,37.99,31.11,true,e37da81e-be12-45a2-9128-376f1ad7b3e8,29.15,37.99,31.0
-2026-11-03,16293254,Talon Gates of Madara,1,m3c,Normal,33.16,42.99,31.62,true,c565f8fe-acf7-40dd-8100-8f692d1e232c,33.16,24.99,31.62
-2026-11-03,16293254,Terrain Generator,1,clb,Normal,2.25,3.49,1.69,true,f40e9f0f-8c0d-4bfd-9872-370ce3763006,1.38,3.49,1.0
-2026-11-03,16293254,"Urborg, Tomb of Yawgmoth",1,tsr,Normal,52.21,69.99,32.0,true,9e1a9e38-6ffc-490f-b0be-23ba4e8204c6,51.81,69.99,32.0
-2026-11-03,16293254,Witch's Clinic,1,c21,Normal,12.29,16.99,10.99,true,fe17b08f-4790-4885-8b2b-b22f00b52d4e,5.35,5.99,2.75
-2026-11-03,16293254,"Yavimaya, Cradle of Growth",1,mh2,Normal,13.86,19.99,12.19,true,4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c,11.71,19.99,5.0
-2026-11-03,16293254,The Tabernacle at Pendrell Vale,1,me3,Normal,,,,true,cd3f7f4e-cb25-4121-96a0-a4dc530420b9,3619.5,4199.99,2785.0
-2026-11-03,16293254,Bazaar of Baghdad,1,vma,Normal,,,747.66,true,c88acaa8-ad4d-4321-a6f6-9361916e5b5e,1984.6,3099.99,747.66
-2026-11-03,16293254,Mirrorpool,1,cmm,Normal,2.76,3.49,2.2,true,0441cd2c-3646-4c69-ae97-ad3bcea7466f,2.11,3.49,2.2
-2026-11-03,16293254,Thespian's Stage,1,who,Normal,0.5,0.69,0.36,true,50ae3d9d-e269-4a83-9b2d-cfe34f5f0f78,0.45,0.69,0.34
-2026-11-03,16293254,"Lumra, Bellow of the Woods",1,blb,Foil,114.93,159.99,140.0,true,b43b3c33-aa44-4001-87ff-695bf04f51be,27.0,37.99,24.0
-2026-11-03,16293254,Hall of Echoes,1,fra,Normal,2.31,3.99,2.14,false,4a771010-b397-4849-ac9b-08e4dd5d6a72,2.31,3.99,2.0
-2026-11-03,16293254,Field of the Dead,1,m20,Normal,26.51,29.99,30.45,false,470ca3f4-29aa-4c4c-8ff2-8cdd70c69943,23.78,29.99,22.49
-2026-11-03,16293254,Temporal Anomaly,1,trk,Normal,2.06,0.49,0.32,true,d2000219-0a57-48e6-ab0f-d5ad0fb7bcf6,2.06,0.49,0.32
 2026-11-03,5714358,Arcane Signet,1,p30m,Etched,,,,false,7910ce6c-5cde-436e-8d28-62723f0fd592,0.33,0.79,0.09
 2026-11-03,5714358,Peregrin Took,1,ltr,Normal,0.75,0.79,0.64,false,f5baee8d-88e7-4468-94a9-66ca8e2caf15,0.41,0.79,0.15
 2026-11-03,5714358,"Lonis, Cryptozoologist",1,mh2,Normal,0.34,0.49,0.1,false,5dfd08da-6717-49ee-94ba-2562224f5baa,0.27,0.49,0.05
