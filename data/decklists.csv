@@ -1063,3 +1063,5 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-11-09,5714358,"Dr. Leonard ""Bones"" McCoy",trk,Normal,true,0
 2026-11-12,24974478,Conjurer's Closet,inr,Normal,true,0
 2026-11-12,24974478,Conjurer's Closet,sld,Normal,true,1
+2026-11-13,16293254,Ash Barrens,40k,Foil,false,1
+2026-11-13,16293254,Ash Barrens,cmm,Normal,true,0
