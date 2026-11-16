@@ -320,11 +320,7 @@ def order_by_featured(deck, commanders):
             return
 
 
-# Archidekt's own category for a deck's tokens (it creates it automatically)
-TOKEN_CATEGORY = "Tokens & Extras"
-# deck id -> Scryfall printing ids listed in that deck's "Tokens & Extras" (filled by fetch_deck)
 deck_extras = {}
-# proxied entries in "Tokens & Extras", as card rows plus type/mana value/colors (filled by fetch_deck)
 token_proxy_rows = []
 
 
@@ -371,17 +367,8 @@ def fetch_deck(deck_id, today):
     for entry in deck.get("cards", []):
         # A card's primary category is the first one listed; uncategorized cards count.
         categories = entry.get("categories") or []
-        if categories and categories[0] == TOKEN_CATEGORY:
-            # the token printings this deck uses; tokens are never counted as cards in the deck
-            uid = (entry.get("card") or {}).get("uid")
-            if uid:
-                deck_extras.setdefault(deck_id, []).append(uid)
-            if is_proxied(entry.get("label")):
-                # proxied tokens show on the Cards tab's proxies-only view (what it'd cost to buy them)
-                info = card_info((entry.get("card") or {}).get("oracleCard") or {})
-                token_proxy_rows.append({**card_row(entry, deck_id, today), "type_line": info["type_line"],
-                                         "mana_value": info["mana_value"], "color_identity": info["color_identity"]})
-            continue
+        if categories and categories[0] == "Tokens & Extras":
+            continue  # Token availability comes from Scryfall's related-card data.
         if categories and categories[0] in excluded:
             continue
         included.append(entry)
