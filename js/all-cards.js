@@ -74,12 +74,13 @@ function indexCards() {
         byName.set(key, c = { key, token: !!r.token, name: r.card_name, type: info.type_line || "", types: typesOf, subtypes,
           mv: info.mana_value === "" || info.mana_value == null ? null : +info.mana_value,
           color: info.color_identity ?? null, qty: 0, perDeck: new Map(), commander: false, proxied: false,
-          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, loB: {}, hiB: {}, loId: {}, hiId: {}, idQty: new Map(), mix: 0, mixMin: 0, id: "",
+          tcg: null, ck: null, cm: null, tot: { tcg: 0, ck: 0, cm: 0 }, priced: { tcg: 0, ck: 0, cm: 0 }, lo: {}, hi: {}, loB: {}, hiB: {}, loId: {}, hiId: {}, idQty: new Map(), setNumbers: new Map(), mix: 0, mixMin: 0, id: "",
           bl: { tcg: { sum: 0, n: 0 }, ck: { sum: 0, n: 0 }, cm: { sum: 0, n: 0 } }, realN: 0, foilN: 0, printings: new Set(), sets: new Map() });
       }
       c.qty += r.qty;
       c.printings.add(printKey(r));
       c.sets.set(set, (c.sets.get(set) || 0) + r.qty);
+      if (r.collector_number) c.setNumbers.set(set, r.collector_number);
       if (!c.id && r.scryfall_id) c.id = r.scryfall_id;   // a printing you play, for the card image
       if (r.scryfall_id) c.idQty.set(r.scryfall_id, (c.idQty.get(r.scryfall_id) || 0) + r.qty);
       // per store: what these copies cost there, and the cheapest and priciest printing among
@@ -329,7 +330,8 @@ function renderIndex() {
 $("copyIndexCards").addEventListener("click", async () => {
   const text = currentIndexList.map(c => {
     const set = [...c.sets.keys()].sort((a, b) => a.localeCompare(b))[0] || "???";
-    return `${c.qty}x ${c.name} (${set.toLowerCase()})`;
+    const number = c.setNumbers.get(set);
+    return `${c.qty}x ${c.name} (${set.toLowerCase()})${number ? ` ${number}` : ""}`;
   }).join("\n");
   const btn = $("copyIndexCards"), old = btn.textContent;
   try { await navigator.clipboard.writeText(text); btn.textContent = "Copied!"; }

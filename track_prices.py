@@ -79,6 +79,7 @@ FIELDNAMES = [
     *PRICE_SOURCES.values(),
     "proxied",
     "scryfall_id",   # the exact printing, so the page can show the card image
+    "collector_number",
     # each card's cheapest printing at each store, for per-card bling (today only: this file is
     # rewritten every day, and the history keeps just the per-deck totals)
     "tcg_min", "ck_min", "cm_min",
@@ -570,6 +571,20 @@ def scryfall_collection(ids):
     return cards
 
 
+def add_collector_numbers(rows):
+    """Add Scryfall collector numbers to today's current deck printings."""
+    ids = sorted({r.get("scryfall_id") for r in rows if r.get("scryfall_id")})
+    if not ids:
+        return
+    try:
+        numbers = {card["id"]: card.get("collector_number", "") for card in scryfall_collection(ids)}
+    except Exception as error:
+        print(f"  collector numbers: skipped ({error})")
+        return
+    for row in rows:
+        row["collector_number"] = numbers.get(row.get("scryfall_id"), "")
+
+
 # Placeholder "tokens" that aren't real tokens, e.g. Scryfall's generic "Copy" card
 IGNORED_TOKENS = {"Copy"}
 
@@ -727,6 +742,7 @@ def main():
     if failed and len(failed) == len(deck_ids):
         sys.exit("Every deck failed to load; nothing written.")
 
+    add_collector_numbers(rows)
     write_latest(rows, failed)
     write_token_proxies(failed)
     write_totals(rows, today)
