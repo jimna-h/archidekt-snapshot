@@ -20,6 +20,7 @@ const ix = { search: "", colors: new Map(), types: new Map(), subtype: "", sets:
 // Game Changers, from the cards behind each deck's bracket on Archidekt
 const gameChangers = () => new Set([...deckMeta.values()].flatMap(m => (m.game_changers || "").split(" | ").filter(Boolean)));
 let ixSort = { k: "qty", dir: -1 };   // most copies first
+let currentIndexList = [];
 const STORE_KEYS = { tcg: "price_tcgplayer", ck: "price_cardkingdom", cm: "price_cardmarket" };
 const currentDeckIds = () => realDecks().filter(d => !isStale(d)).map(d => d.id);
 const checkedDecks = () => currentDeckIds().filter(id => !ix.skip.has(id));
@@ -251,6 +252,7 @@ function renderIndex() {
 
   gcSet = gameChangers(); syncSegs();
   const list = sortBy(indexCards().filter(ixMatches), ixSort);
+  currentIndexList = list;
   const copies = list.reduce((s, c) => s + c.qty, 0), mix = list.reduce((s, c) => s + c.mix, 0), mixMin = list.reduce((s, c) => s + c.mixMin, 0);
   const deckCount = new Set(list.flatMap(c => [...c.perDeck.keys()])).size;
   const storeTotal = s => list.reduce((t, c) => t + c.tot[s], 0);
@@ -323,6 +325,17 @@ function renderIndex() {
   $("ixFiltersBtn").innerHTML = `Filters${nOn ? ` <span class="count-badge">${nOn}</span>` : ""}`;
   syncUrl();
 }
+
+$("copyIndexCards").addEventListener("click", async () => {
+  const text = currentIndexList.map(c => {
+    const set = [...c.sets.keys()].sort((a, b) => a.localeCompare(b))[0] || "???";
+    return `${c.qty}x ${c.name} (${set.toLowerCase()})`;
+  }).join("\n");
+  const btn = $("copyIndexCards"), old = btn.textContent;
+  try { await navigator.clipboard.writeText(text); btn.textContent = "Copied!"; }
+  catch { btn.textContent = "Copy failed"; }
+  setTimeout(() => { btn.textContent = old; }, 1800);
+});
 
 // Deck overlap grid, shared by the Cards and Tokens tabs. sets: [{ id, name, items: Set }] for
 // each checked deck; each cell counts the items a pair of decks has in common.
