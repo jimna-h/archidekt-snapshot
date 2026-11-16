@@ -57,6 +57,7 @@ function indexCards() {
     // proxied tokens (from "Tokens & Extras") join the list only when showing proxies alone
     const rows = ix.proxies === "only" ? d.rows.concat(tokenProxies.get(d.id) || []) : d.rows;
     for (const r of rows) {
+      if (r.token) continue; // Tokens have their own tab.
       // the set and proxy filters limit which copies count
       const set = r.set_code.toUpperCase();
       if (setFilter.yes && !setFilter.yes.has(set)) continue;
