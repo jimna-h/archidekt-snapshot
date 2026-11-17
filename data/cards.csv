@@ -14,8 +14,11 @@ Aftermath Analyst,Creature — Elf Detective,2,G
 Agatha's Soul Cauldron,Legendary Artifact,2,
 "Agent Bishop, Man in Black",Legendary Creature — Human Soldier,3,W
 Aggravated Assault,Enchantment,3,R
+Airbender Ascension,Enchantment,2,W
 Ajani Resolute,Legendary Planeswalker — Ajani,2,W
+Ajani's Anguish,Enchantment,1,R
 "Ajani, Strength of the Pride",Legendary Planeswalker — Ajani,4,W
+"Akiri, Fearless Voyager",Legendary Creature — Warrior Kor,3,WR
 Alhammarret's Archive,Legendary Artifact,5,
 Altar of Dementia,Artifact,2,
 Ancient Den,Artifact Land,0,W
@@ -31,6 +34,7 @@ Arcane Signet,Artifact,2,
 Archaeomancer's Map,Artifact,3,W
 Archivist of Oghma,Creature — Cleric Halfling,2,W
 Arena,Land,0,
+Arena of Glory,Land,0,R
 "Argoth, Sanctum of Nature",Land,0,G
 Arid Archway,Land — Desert,0,
 Arid Mesa,Land,0,
@@ -89,10 +93,12 @@ Branch of Vitu-Ghazi,Land,0,
 Branchloft Pathway // Boulderloft Pathway,Land,0,WG
 Brash Taunter,Creature — Goblin,5,R
 Brass Infiniscope,Artifact,4,
+Brave the Sands,Enchantment,2,W
 Brazen Borrower // Petty Theft,Creature — Rogue Faerie,3,U
 Break Through the Line,Enchantment,2,R
 Breeding Pool,Land — Island Forest,0,UG
 Bridgeworks Battle // Tanglespan Bridgeworks,Sorcery,3,G
+Brightblade Stoat,Creature — Soldier Weasel,2,W
 "Brigid, Clachan's Heart // Brigid, Doun's Mind",Legendary Creature — Warrior Kithkin,3,WG
 Brotherhood Regalia,Artifact — Equipment,2,
 Brushland,Land,0,WG
@@ -131,6 +137,7 @@ Clifftop Retreat,Land,0,WR
 Clock of Omens,Artifact,4,
 Cloud Pirates,Creature — Human Pirate,1,U
 "Cloud, Midgar Mercenary",Legendary Creature — Human Soldier Mercenary,2,W
+Cloudshift,Instant,1,W
 Coastal Piracy,Enchantment,4,U
 Collective Resistance,Instant,2,G
 Colossal Grave-Reaver,Creature — Dragon,8,BG
@@ -139,6 +146,7 @@ Command Tower,Land,0,
 Commander Liara Portyr,Legendary Creature — Human Soldier,5,WR
 Commercial District,Land — Mountain Forest,0,RG
 Conjurer's Closet,Artifact,5,
+"Craig Boone, Novac Guard",Legendary Creature — Human Soldier,3,WR
 Crimson Caravaneer,Creature — Human Scout,3,R
 Crop Rotation,Instant,1,G
 Cryptolith Fragment // Aurora of Emrakul,Artifact,3,
@@ -183,11 +191,13 @@ Dual-Sun Technique,Instant,2,W
 Duelist's Heritage,Enchantment,3,W
 Dusk // Dawn,Sorcery,9,W
 Dusk Legion Duelist,Creature — Vampire Soldier,2,W
+"ED-E, Lonesome Eyebot",Legendary Artifact Creature — Robot,3,
 Echoing Deeps,Land — Cave,0,
 "Edric, Spymaster of Trest",Legendary Creature — Elf Rogue,3,UG
 Eiganjo Castle,Legendary Land,0,W
 "Eiganjo, Seat of the Empire",Legendary Land,0,W
 "Elas il-Kor, Sadistic Pilgrim",Legendary Creature — Cleric Kor Phyrexian,2,WB
+Elegant Parlor,Land — Plains Mountain,0,WR
 "Elena, Turk Recruit",Legendary Creature — Human Assassin,3,W
 Elenda's Hierophant,Creature — Vampire Cleric,3,W
 "Elrond, Moon-Reader",Legendary Creature — Elf Noble,3,U
@@ -203,6 +213,7 @@ Enduring Curiosity,Enchantment Creature — Cat Glimmer,4,U
 Enduring Innocence,Enchantment Creature — Sheep Glimmer,3,W
 Enigma Thief,Creature — Rogue Sphinx,7,U
 Enlightened Tutor,Instant,1,W
+Ephemerate,Instant,1,W
 Erode,Instant,1,W
 Esper Sentinel,Artifact Creature — Human Soldier,1,W
 Essence Channeler,Creature — Cleric Bat,2,W
@@ -229,10 +240,13 @@ Fellwar Stone,Artifact,2,
 Feral Ferocity,Instant,2,G
 Fetid Heath,Land,0,WB
 Field of the Dead,Land,0,
+Firebender Ascension,Enchantment,2,R
 Five Hundred Year Diary,Legendary Artifact — Clue Book,4,U
 Flagstones of Trokair,Legendary Land,0,W
 Flaming Fist,Legendary Enchantment — Background,3,W
 Flare of Denial,Instant,3,U
+Flickering Hound,Creature — Dog,4,W
+Flickerwisp,Creature — Elemental,3,W
 Flitterwing Nuisance,Creature — Rogue Faerie,1,U
 Flooded Grove,Land,0,UG
 Flooded Strand,Land,0,
@@ -243,6 +257,7 @@ Fumigate,Sorcery,5,W
 Fyndhorn Elves,Creature — Elf Druid,1,G
 "Galactus, Devourer of Worlds",Legendary Creature — Elder Alien,10,
 Galadriel's Dismissal,Instant,1,W
+Galepowder Mage,Creature — Wizard Kithkin,4,W
 Gandalf the White,Legendary Creature — Wizard Avatar,5,W
 "Gandalf, Shadow's Foe",Legendary Creature — Wizard Avatar,7,U
 Geist of Saint Thalia,Legendary Creature — Cleric Spirit,2,U
@@ -252,7 +267,9 @@ Generous Gift,Instant,3,W
 Generous Pup,Creature — Dog,2,W
 Genji Glove,Artifact — Equipment,5,
 Germination Practicum,Sorcery — Lesson,5,G
+Get Lost,Instant,2,W
 Ghost Quarter,Land,0,
+Ghost of Illyria,Creature — Elemental Spirit,4,W
 Ghostly Flicker,Instant,3,U
 Giant Growth,Instant,1,G
 Gift of the Viper,Instant,1,G
@@ -268,6 +285,7 @@ Gossip's Talent,Enchantment — Class,2,U
 Graduation Day,Enchantment,1,W
 Graham O'Brien,Legendary Creature — Human Pilot,2,G
 Grasslands,Land,0,
+Grateful Apparition,Creature — Spirit,2,W
 "Grazilaxx, Illithid Scholar",Legendary Creature — Horror,3,U
 Great Hall of the Citadel,Land,0,
 Grim Hireling,Creature — Rogue Tiefling,4,B
@@ -275,6 +293,7 @@ Groundswell,Instant,1,G
 Grow Extra Arms,Instant,2,G
 "Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun",Legendary Enchantment,3,G
 Guardian Scalelord,Creature — Dragon,5,W
+Guardian of Ghirapur,Creature — Angel,3,W
 Gudul Lurker,Creature — Salamander,1,U
 Guff Rewrites History,Instant,3,R
 Guide of Souls,Creature — Human Cleric,1,W
@@ -294,6 +313,7 @@ Heartwood Crafter // Soul Tether,Creature — Elf Artificer,1,RG
 Hedge Shredder,Artifact — Vehicle,4,G
 Hedron Archive,Artifact,4,
 "Heliod, Sun-Crowned",Legendary Enchantment Creature — God,3,W
+Helitrooper,Creature — Human Soldier,2,W
 Helpful Hunter,Creature — Cat,2,W
 Herd Heirloom,Artifact,2,G
 Hickory Woodlot,Land,0,G
@@ -334,6 +354,7 @@ Isolated Chapel,Land,0,WB
 "Jaheira, Friend of the Forest",Legendary Creature — Human Elf Druid,3,G
 "James, Wandering Dad // Follow Him",Legendary Creature — Human Scientist,3,U
 Jetmir's Garden,Land — Plains Mountain Forest,0,WRG
+"Jor Kadeen, First Goldwarden",Legendary Creature — Human Rebel,2,WR
 "Journey to Eternity // Atzal, Cave of Eternity",Legendary Enchantment — Aura,3,BG
 Jund Panorama,Land,0,
 "Justice, Vance Astrovik",Legendary Creature — Mutant Hero,3,U
@@ -347,26 +368,31 @@ Kappa Cannoneer,Artifact Creature — Warrior Turtle,6,U
 Kindly Customer,Creature — Human Citizen,2,W
 King Solomon's Frogs,Legendary Artifact,4,W
 "King T'Challa // Black Panther, Hope Enduring",Legendary Creature — Human Hero Noble,3,WU
+Kinscaer Sentry,Creature — Soldier Kithkin,2,W
 Knight of the White Orchid,Creature — Human Knight,2,W
 Knuckles the Echidna,Legendary Creature — Warrior Echidna,4,R
 Kodama of the West Tree,Legendary Creature — Spirit,3,G
 "Kurn, Son of Mogh",Legendary Creature — Warrior Officer Klingon,3,B
 "Kutzil, Malamet Exemplar",Legendary Creature — Warrior Cat,3,WG
+Kíli the Resourceful,Legendary Creature — Scout Dwarf,2,W
 Laboratory Maniac,Creature — Human Wizard,3,U
 "Laelia, the Blade Reforged",Legendary Creature — Warrior Spirit,3,R
 Lazotep Quarry,Land — Desert,0,
 Ledger Shredder,Creature — Bird Advisor,2,U
+Legion Leadership // Legion Stronghold,Instant,2,WR
 "Legion's Landing // Adanto, the First Fort",Legendary Enchantment,1,W
 "Leonardo, Cutting Edge",Legendary Creature — Mutant Ninja Turtle,2,W
 Leonin Elder,Creature — Cleric Cat,1,W
 Lifecreed Duo,Creature — Bird Bat,2,W
 Lightning Greaves,Artifact — Equipment,2,
+"Lightning, Army of One",Legendary Creature — Human Soldier,3,WR
 Liliana the Faultless,Legendary Creature — Human Cleric,1,W
 Liliana the Repentant,Legendary Creature — Human Warlock,2,B
 "Lita, Little Orphan Amphibian",Legendary Creature — Mutant Ninja Turtle,2,W
 Living Death,Sorcery,5,B
 Llanowar Elves,Creature — Elf Druid,1,G
 Llanowar Wastes,Land,0,BG
+Lone Rider // It That Rides as One,Creature — Human Knight,2,W
 "Lonis, Cryptozoologist",Legendary Creature — Elf Scout Snake,2,UG
 Looter il-Kor,Creature — Rogue Kor,2,U
 Loran of the Third Path,Legendary Creature — Human Artificer,3,W
@@ -376,6 +402,7 @@ Lotus Field,Land,0,
 Lotus Petal,Artifact,0,
 Lotus Vale,Land,0,
 Loyal Warhound,Creature — Dog,2,W
+Luminarch Ascension,Enchantment,2,W
 "Lumra, Bellow of the Woods",Legendary Creature — Elemental Bear,6,G
 Lunarch Veteran // Luminous Phantom,Creature — Human Cleric,1,W
 Lush Portico,Land — Plains Forest,0,WG
@@ -393,6 +420,7 @@ Maze of Ith,Land,0,
 Mentor of the Meek,Creature — Human Soldier,3,W
 Merchant of Venom,Creature — Cat Warlock,4,B
 Metamorphosis Fanatic,Creature — Human Cleric,6,B
+Metastatic Evangel,Creature — Human Cleric Phyrexian,2,W
 Might of Old Krosa,Instant,1,G
 Might of the Nephilim,Instant,2,G
 "Mikey & Leo, Chaos & Order",Legendary Creature — Mutant Ninja Turtle,2,WG
@@ -407,6 +435,7 @@ Mist-Cloaked Herald,Creature — Warrior Merfolk,1,U
 Misty Rainforest,Land,0,
 "Mjölnir, Hammer of Thor",Legendary Artifact — Equipment,4,R
 Mockingbird,Creature — Bird Bard,1,U
+"Moira Brown, Guide Author",Legendary Creature — Human Citizen,3,WR
 "Mole Man, Moloid Master",Legendary Creature — Human Villain,3,G
 "Mona Lisa, Ever Adaptable",Legendary Creature — Mutant Lizard,4,G
 "Mondrak, Glory Dominus",Legendary Creature — Horror Phyrexian,4,W
@@ -423,16 +452,19 @@ Myriad Landscape,Land,0,
 Mystifying Maze,Land,0,
 Nature's Lore,Sorcery,2,G
 Necron Deathmark,Artifact Creature — Necron,5,B
+Needleverge Pathway // Pillarverge Pathway,Land,0,WR
 Nether Traitor,Creature — Spirit,2,B
 Northampton Farm,Land,0,
 Notorious Throng,Kindred Sorcery — Rogue,4,U
 Noxious Gearhulk,Artifact Creature — Construct,6,B
 Nurturing Peatland,Land,0,BG
 "Oboro, Palace in the Clouds",Legendary Land,0,U
+Ocelot Pride,Creature — Cat,1,W
 Officious Interrogation,Instant,2,WU
 Ohran Frostfang,Snow Creature — Snake,5,G
 "Okina, Temple to the Grandfathers",Legendary Land,0,G
 "Oko, Thief of Crowns",Legendary Planeswalker — Oko,3,UG
+Oltec Matterweaver,Creature — Human Artificer,3,W
 Ominous Cemetery,Land,0,
 Orcish Bowmasters,Creature — Archer Orc,2,B
 Orochi Soul-Reaver,Creature — Rogue Snake Ninja,6,B
@@ -443,6 +475,7 @@ Ouroboroid,Creature — Plant Wurm,4,G
 Overgrown Farmland,Land,0,WG
 Overgrown Tomb,Land — Swamp Forest,0,BG
 Overprotect,Instant,2,G
+Overseer of Vault 76,Legendary Creature — Human Advisor,3,W
 "Ozolith, the Shattered Spire",Legendary Artifact,2,G
 Parting Gust,Instant,2,W
 Path of Ancestry,Land,0,
@@ -451,7 +484,9 @@ Patrolling Peacemaker,Artifact Creature — Soldier Robot,3,W
 Pearl Medallion,Artifact,2,
 Pendelhaven,Legendary Land,0,G
 Peregrin Took,Legendary Creature — Citizen Halfling,3,G
+Perimeter Enforcer,Creature — Human Detective,2,W
 Pest Infestation,Sorcery,1,G
+"Photon, Lady of Light",Legendary Creature — Human Hero,4,W
 Phyrexian Tower,Legendary Land,0,B
 Phytoburst,Sorcery,2,G
 "Pia, Aether Ascetic",Legendary Creature — Human Druid,3,G
@@ -469,7 +504,11 @@ Profane Memento,Artifact,1,
 Professional Face-Breaker,Creature — Human Warrior,3,R
 "Prosper, Tome-Bound",Legendary Creature — Warlock Tiefling,4,BR
 Prowling Geistcatcher,Creature — Human Rogue,4,B
+Puresteel Paladin,Creature — Human Knight,2,W
+Quest for Pure Flame,Enchantment,1,R
+Quest for the Holy Relic,Enchantment,1,W
 Radagast of Rhosgobel,Legendary Creature — Wizard Avatar,4,G
+Radiant Summit,Land — Plains Mountain,0,WR
 "Raff Capashen, Ship's Mage",Legendary Creature — Human Wizard,4,WU
 Ram Through,Instant,2,G
 Ranger's Guile,Instant,1,G
@@ -486,6 +525,7 @@ Rejuvenating Springs,Land,0,UG
 Relic of Legends,Artifact,3,
 Reliquary Tower,Land,0,
 Remote Farm,Land,0,W
+Restoration Angel,Creature — Angel,4,W
 Restoration Seminar,Sorcery — Lesson,7,W
 Return of the Wildspeaker,Instant,5,G
 Revive,Sorcery,2,G
@@ -502,11 +542,14 @@ Rogue's Passage,Land,0,
 Rootbound Crag,Land,0,RG
 Rosie Cotton of South Lane,Legendary Creature — Peasant Halfling,3,W
 Royal Treatment,Instant,1,G
+Rugged Prairie,Land,0,WR
+Ruin-Lurker Bat,Creature — Bat,1,W
 Rushwood Grove,Land,0,G
 Rustler Rampage,Instant,1,W
 Sacred Foundry,Land — Plains Mountain,0,WR
 Safe Haven,Land,0,
 Sakura-Tribe Elder,Creature — Shaman Snake,2,G
+Salvation Swan,Creature — Cleric Bird,4,W
 "Sam Kirk, Xenoanthropologist",Legendary Creature — Human Scientist,4,U
 Samwise Gamgee,Legendary Creature — Peasant Halfling,2,WG
 Sanctum of Eternity,Land,0,
@@ -518,6 +561,7 @@ Sarah Jane Smith,Legendary Creature — Human Detective,2,W
 Satyr Wayfinder,Creature — Satyr,2,G
 Savai Triome,Land — Plains Swamp Mountain,0,WBR
 Savannah,Land — Plains Forest,0,WG
+Scalding Tarn,Land,0,
 Scale Up,Sorcery,1,G
 Scavenger Grounds,Land — Desert,0,
 Scavenging Ooze,Creature — Ooze,2,G
@@ -532,10 +576,12 @@ Scrubland,Land — Plains Swamp,0,WB
 Sculpting Steel,Artifact,3,
 Seat of the Synod,Artifact Land,0,U
 Selfless Spirit,Creature — Cleric Spirit,2,W
+Semblance Anvil,Artifact,3,
 "Sephiroth, Fabled SOLDIER // Sephiroth, One-Winged Angel",Legendary Creature — Human Soldier Avatar,3,B
 Sequestered Stash,Land,0,
 Serah Farron // Crystallized Serah,Legendary Creature — Human Citizen,3,WG
 Sergeant John Benton,Legendary Creature — Human Soldier,3,WG
+Serra Ascendant,Creature — Human Monk,1,W
 Sevinne's Reclamation,Sorcery,3,W
 Shadowspear,Legendary Artifact — Equipment,1,
 "Shanid, Sleepers' Scourge",Legendary Creature — Human Knight,4,WBR
@@ -547,6 +593,7 @@ Shire Terrace,Land,0,
 "Shizo, Death's Storehouse",Legendary Land,0,B
 Shoreline Looter,Creature — Rat Rogue,2,U
 Shroofus Sproutsire,Legendary Creature — Saproling,3,G
+Sigarda's Aid,Enchantment,1,W
 Silent Hallcreeper,Enchantment Creature — Horror,2,U
 Silver Shroud Costume,Artifact — Equipment,2,
 "Silver Surfer, Cosmic Voyager",Legendary Creature — Hero Alien,6,U
@@ -558,6 +605,7 @@ Six,Legendary Creature — Treefolk,3,G
 Skateboard,Artifact — Equipment,1,
 Skullclamp,Artifact — Equipment,1,
 Skullwinder,Creature — Snake,3,G
+Sky Crier,Creature — Bird Citizen,2,W
 Skyfisher Spider,Creature — Spider,4,BG
 Skyserpent Seeker,Creature — Snake,2,UG
 Slippery Karst,Land,0,G
@@ -603,16 +651,21 @@ Studious First-Year // Rampant Growth,Creature — Wizard Bear,1,G
 Summer Bloom,Sorcery,2,G
 Sun Droplet,Artifact,2,
 Sun Titan,Creature — Giant,6,W
+Sunbaked Canyon,Land,0,WR
 Sunbillow Verge,Land,0,WR
 Sundering Eruption // Volcanic Fissure,Sorcery,3,R
 Sundown Pass,Land,0,WR
+Sungrace Pegasus,Creature — Pegasus,2,W
 Sungrass Prairie,Land,0,WG
 Sunken Citadel,Land — Cave,0,
 Sunken Ruins,Land,0,UB
 Sunpetal Grove,Land,0,WG
+Sunscorched Divide,Land,0,WR
+Sunspring Expedition,Enchantment,1,W
 Suspend Aggression,Instant,3,WR
 Suture Priest,Creature — Cleric Phyrexian,2,W
 Swamp,Basic Land — Swamp,0,B
+Swiftblade Vindicator,Creature — Human Soldier,2,WR
 Sword of Hearth and Home,Artifact — Equipment,3,
 Swords to Plowshares,Instant,1,W
 Sylvan Library,Enchantment,2,G
@@ -628,6 +681,7 @@ Tamiyo's Safekeeping,Instant,1,G
 Tanglepool Bridge,Artifact Land,0,UG
 Tataru Taru,Legendary Creature — Advisor Dwarf,2,W
 Tegwyll's Scouring,Sorcery,6,B
+Teleportation Circle,Enchantment,4,W
 Temple Garden,Land — Plains Forest,0,WG
 Temple of the False God,Land,0,
 Temporal Anomaly,Land,0,G
@@ -647,6 +701,7 @@ The Goose Mother,Legendary Creature — Bird Hydra,2,UG
 The Great Henge,Legendary Artifact,9,G
 The Grey Havens,Legendary Land,0,
 The Indomitable,Legendary Artifact — Vehicle,4,U
+The Lonely Mountain,Land — Mountain,0,R
 The Meathook Massacre,Legendary Enchantment,2,B
 The One Ring,Legendary Artifact,4,
 The Ooze,Legendary Artifact,2,
@@ -693,6 +748,7 @@ Tropical Island,Land — Island Forest,0,UG
 Trouble in Pairs,Enchantment,4,W
 Tundra,Land — Plains Island,0,WU
 Turbulent Fen,Land — Swamp Forest,0,BG
+Turbulent Steppe,Land — Plains Mountain,0,WR
 Twilight Mire,Land,0,BG
 Tymna the Weaver,Legendary Creature — Human Cleric,3,WB
 Tyvar's Stand,Instant,1,G
@@ -711,6 +767,8 @@ Ur-Golem's Eye,Artifact,4,
 Urza's Cave,Land — Urza's Cave,0,
 "Urza, Lord High Artificer",Legendary Creature — Human Artificer,4,U
 Utopia Sprawl,Enchantment — Aura,1,G
+Valakut Awakening // Valakut Stoneforge,Instant,3,R
+Vandalblast,Sorcery,1,R
 Vedalken Infiltrator,Creature — Rogue Vedalken,2,U
 Vein Ripper,Creature — Vampire Assassin,6,B
 "Venser, Shaper Savant",Legendary Creature — Human Wizard,4,U
@@ -739,6 +797,8 @@ Waterbender's Restoration,Instant — Lesson,2,U
 Watery Grave,Land — Island Swamp,0,UB
 Wayfarer's Bauble,Artifact,1,
 Welcoming Vampire,Creature — Vampire,3,W
+Wheel of Fortune,Sorcery,3,R
+Wheel of Misfortune,Sorcery,3,R
 Whitemane Lion,Creature — Cat,2,W
 Wight of the Reliquary,Creature — Knight Zombie,2,BG
 Wild Defiance,Enchantment,3,G
@@ -758,6 +818,7 @@ Wooded Foothills,Land,0,
 Woodland Cemetery,Land,0,BG
 Wu Light Cavalry,Creature — Human Soldier,2,U
 Wurmcoil Engine,Artifact Creature — Wurm Phyrexian,6,
+"Wyleth, Soul of Steel",Legendary Creature — Human Warrior,3,WR
 Y'shtola Rhul,Legendary Creature — Druid Cat,6,U
 Yavimaya Hollow,Legendary Land,0,G
 "Yavimaya, Cradle of Growth",Legendary Land,0,
