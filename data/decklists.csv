@@ -1085,6 +1085,8 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-11-17,5714358,Semblance Anvil,som,Normal,false,1
 2026-11-18,5714358,Semblance Anvil,som,Normal,false,0
 2026-11-18,5714358,The Reality Chip,neo,Normal,false,1
+2026-11-18,24974478,Ancient Tomb,zne,Normal,true,1
+2026-11-18,24974478,Island,j25,Normal,false,33
 2026-11-18,28192021,Airbender Ascension,tla,Normal,true,1
 2026-11-18,28192021,Ajani's Anguish,fra,Normal,true,1
 2026-11-18,28192021,"Akiri, Fearless Voyager",cmm,Normal,true,1
