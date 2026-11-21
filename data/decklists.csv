@@ -1190,3 +1190,5 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-11-19,24974478,Wonder,cma,Normal,true,0
 2026-11-19,26722467,Farseek,ltc,Normal,false,0
 2026-11-19,26722467,Hit It!,trk,Normal,true,1
+2026-11-21,4279849,The Queen of Dale,hob,Normal,false,1
+2026-11-21,4279849,The Queen of Dale,hob,Normal,true,0
