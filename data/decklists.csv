@@ -1192,3 +1192,5 @@ date,deck_id,card_name,set_code,finish,proxied,quantity
 2026-11-19,26722467,Hit It!,trk,Normal,true,1
 2026-11-21,4279849,The Queen of Dale,hob,Normal,false,1
 2026-11-21,4279849,The Queen of Dale,hob,Normal,true,0
+2026-11-22,17493352,The Queen of Dale,hob,Normal,false,0
+2026-11-22,17493352,The Queen of Dale,hob,Normal,true,1
