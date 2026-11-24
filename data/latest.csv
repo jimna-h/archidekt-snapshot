@@ -1,4 +1,104 @@
 date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdom,price_cardmarket,proxied,scryfall_id,collector_number,tcg_min,ck_min,cm_min
+2026-11-24,5714358,Arcane Signet,1,p30m,Etched,,,,false,7910ce6c-5cde-436e-8d28-62723f0fd592,1F★,0.36,0.79,0.09
+2026-11-24,5714358,Peregrin Took,1,ltr,Normal,0.93,0.99,0.15,false,f5baee8d-88e7-4468-94a9-66ca8e2caf15,181,0.35,0.99,0.15
+2026-11-24,5714358,"Lonis, Cryptozoologist",1,mh2,Normal,0.33,0.49,0.13,false,5dfd08da-6717-49ee-94ba-2562224f5baa,204,0.28,0.49,0.13
+2026-11-24,5714358,Samwise Gamgee,1,ltr,Foil,3.75,3.99,2.89,false,a1b6f13e-63d0-46bf-aa57-23c2dbdf62dd,222,1.16,2.29,1.52
+2026-11-24,5714358,Minas Tirith,1,ltr,Foil,6.67,10.99,7.5,false,b38b6760-616f-4b11-8ce7-ac1223c7fd53,256,5.03,9.99,6.63
+2026-11-24,5714358,Pendelhaven,1,ath,Normal,3.9,3.99,2.38,false,7ad62749-b2dc-4b2b-91cb-50175d983039,73,2.16,3.49,0.13
+2026-11-24,5714358,Razortide Bridge,1,brc,Normal,3.04,3.99,1.0,false,390d2c8e-d53f-4590-9a9c-9faad5824ea3,195,0.27,0.69,0.15
+2026-11-24,5714358,Trenzalore Clocktower,1,who,Normal,0.37,0.49,0.25,false,64444549-1198-4465-91d5-02a7903691dc,190,0.37,0.49,0.25
+2026-11-24,5714358,"Venser, Shaper Savant",1,tsr,Normal,1.35,1.49,0.23,false,c08dabd1-c043-4bcf-afa8-271225a099e1,96,0.39,1.49,0.23
+2026-11-24,5714358,"Raff Capashen, Ship's Mage",1,cmm,Normal,0.24,0.35,0.14,false,c681e33b-3d60-4aaa-8186-51866d8b79d1,351,0.2,0.35,0.02
+2026-11-24,5714358,The Shire,1,ltr,Normal,2.59,3.49,2.2,false,248ed7a6-982a-4ff4-ba9b-3c1f47e7605c,345,2.0,2.99,2.01
+2026-11-24,5714358,Rivendell,1,ltr,Normal,1.52,3.99,1.91,false,650fa2f4-2916-427c-a0f9-37e2dbe8e1fc,344,1.37,3.49,1.44
+2026-11-24,5714358,"Eiganjo, Seat of the Empire",1,neo,Foil,7.17,12.99,8.99,false,c375a022-5b57-496d-a802-e4ea8376e9e4,268,6.43,12.99,5.0
+2026-11-24,5714358,Trial of a Time Lord,1,who,Normal,0.33,0.79,0.13,false,52b68ed3-0d26-4334-8d0c-2d28ced8ee4c,29,0.33,0.79,0.13
+2026-11-24,5714358,"Jaheira, Friend of the Forest",1,clb,Normal,7.55,10.99,6.94,false,feb7ad1b-4466-48f7-b46d-cc83d4e22b51,237,6.04,10.99,6.94
+2026-11-24,5714358,Relic of Legends,1,dmu,Normal,1.31,1.99,1.81,false,64a2809e-c441-416c-90ff-6fb1e246dff3,236,0.63,1.79,0.95
+2026-11-24,5714358,Command Tower,1,who,Normal,0.35,0.59,0.24,false,811d6e5d-c8a3-41ae-910e-e0f194f42292,263,0.2,0.59,0.02
+2026-11-24,5714358,Thornglint Bridge,1,mh2,Normal,0.31,0.35,0.02,false,9d483643-6a11-47f7-a0aa-190e0179525f,258,0.23,0.35,0.02
+2026-11-24,5714358,Braided Net // Braided Quipu,1,lci,Normal,0.3,0.49,0.03,false,68a6ede0-6d57-4e29-9e3b-3569ab7f0bcd,47,0.05,0.49,0.03
+2026-11-24,5714358,Flagstones of Trokair,1,tsr,Normal,2.96,4.99,2.99,false,a0acea27-88de-4d27-8da2-8f82439526a1,278,2.96,4.99,2.99
+2026-11-24,5714358,"Okina, Temple to the Grandfathers",1,chk,Normal,4.81,9.49,3.5,false,ee8cf7aa-388c-47ec-be59-6ba98f3853cb,280,4.81,7.99,3.5
+2026-11-24,5714358,Tolaria,1,leg,Normal,7.75,9.49,11.99,false,d43c01b7-443d-4061-a934-6863d230c9b8,308,7.75,9.49,11.99
+2026-11-24,5714358,"Oko, Thief of Crowns",1,otp,Normal,5.82,9.99,6.22,false,659e8760-c7a8-445d-bfef-7cd445ea67c3,50,5.82,9.99,0.9
+2026-11-24,5714358,Island,1,who,Foil,0.36,0.49,0.49,false,ca98e0fb-5f07-40c8-9958-84379bcdc35c,198,0.08,0.35,0.01
+2026-11-24,5714358,Path of Ancestry,1,who,Normal,0.35,0.35,0.25,false,30c6f93e-e03f-4749-8b30-9375c79f10f4,293,0.22,0.35,0.02
+2026-11-24,5714358,Inventors' Fair,1,sld,Foil,21.23,23.99,15.0,false,39000966-42f7-45ef-b25b-eb4b442f9c8b,1735,14.42,23.99,0.08
+2026-11-24,5714358,"Otawara, Soaring City",1,neo,Normal,29.99,42.99,22.15,false,486d7edc-d983-41f0-8b78-c99aecd72996,271,29.99,42.99,20.95
+2026-11-24,5714358,Tanglepool Bridge,1,mh2,Normal,0.25,0.35,0.09,false,57d2b895-8921-4615-a674-fb85eed5ea3f,257,0.25,0.35,0.06
+2026-11-24,5714358,"Minamo, School at Water's Edge",1,ltc,Foil,49.49,74.99,52.02,false,798c0faf-0de2-4397-8f03-2120d2a35351,369,20.33,24.99,19.22
+2026-11-24,5714358,Haywire Mite,1,dsc,Normal,0.99,1.79,0.98,false,286f4d3a-6b38-404f-aaea-a1d3694f4fe6,247,0.5,1.49,0.59
+2026-11-24,5714358,Gandalf the White,1,ltr,Normal,7.25,9.99,7.77,false,e384c20b-d0c1-4781-9d11-e89e5a6bf3fc,19,7.25,9.99,7.77
+2026-11-24,5714358,"Urza, Lord High Artificer",1,dmr,Normal,17.26,22.99,16.6,false,18b26e53-1fc2-4d07-a56f-9000ed25580d,71,15.99,22.99,15.5
+2026-11-24,5714358,Fellwar Stone,1,onc,Normal,1.34,1.79,0.99,false,b1914459-b29f-45c3-8def-39d1790a31c3,130,0.79,1.49,0.09
+2026-11-24,5714358,Stridehangar Automaton,1,drc,Normal,6.39,6.99,4.99,false,4c398d11-a2fc-43e2-96e9-7f3383e1a43c,19,6.39,6.99,3.94
+2026-11-24,5714358,Officious Interrogation,1,mkm,Foil,0.22,0.49,0.69,false,a433ca4c-82d0-4e49-bc8e-98e18dd174e9,222,0.2,0.49,0.1
+2026-11-24,5714358,Ancient Den,1,sld,Foil,47.93,,14.95,false,bd07ecf4-c06f-493f-a31e-f4241bf128d2,2883,2.77,5.49,0.13
+2026-11-24,5714358,Seat of the Synod,1,sld,Foil,24.0,,,false,50f0c34d-2106-446e-96fe-a50d124fff5a,2884,0.99,1.99,0.25
+2026-11-24,5714358,Tree of Tales,1,sld,Foil,,,,false,562af1c7-cdcb-4856-99d1-a17387f30864,2887,1.47,3.49,0.77
+2026-11-24,5714358,Academy Ruins,1,2xm,Normal,8.73,8.49,8.09,false,a95b7645-154f-4904-bf71-db7eb24d4df2,309,1.87,3.99,2.97
+2026-11-24,5714358,Ignis Scientia,1,fin,Normal,0.2,0.35,0.05,false,ab4f9721-5b2c-4371-98a5-3f6714265e57,227,0.2,0.35,0.05
+2026-11-24,5714358,Serah Farron // Crystallized Serah,1,fin,Normal,5.45,5.99,2.94,false,7224bb1b-167c-47e5-8314-84aebca054b6,506,0.48,0.59,0.16
+2026-11-24,5714358,Eiganjo Castle,1,sld,Normal,9.84,12.99,10.82,false,b3bc5f0b-81d8-461b-9b0a-ee2e8acc6bf5,2230,9.84,12.99,9.34
+2026-11-24,5714358,"Oboro, Palace in the Clouds",1,ltc,Foil,17.53,32.99,17.49,false,22b7f560-ef32-496e-ac22-e1b725d08a08,371,8.74,32.99,17.49
+2026-11-24,5714358,Forest,1,who,Normal,0.22,0.49,0.2,false,c5c95d38-c135-4059-9379-051b2dd33f9c,204,0.09,0.35,0.02
+2026-11-24,5714358,Plains,1,who,Normal,0.26,0.49,0.17,false,2c4d8ef3-2b26-4376-a00e-ccd58e3ea2eb,196,0.08,0.35,0.02
+2026-11-24,5714358,Sonic Screwdriver,1,sld,Foil,49.53,54.99,45.59,false,7d3b2b9f-623f-4993-ad45-099ec3b570c6,803,3.25,2.49,1.9
+2026-11-24,5714358,Astrid Peth,1,who,Normal,4.42,5.99,2.64,false,4cda3aa2-5fac-4188-bdad-dc369a089d00,11,4.42,5.99,2.64
+2026-11-24,5714358,"James, Wandering Dad // Follow Him",1,pip,Foil,3.27,1.49,0.89,false,7450fcd7-e373-4122-aff5-73d9e8879c6f,903,0.6,0.49,0.16
+2026-11-24,5714358,Spectacular Spider-Man,1,spm,Normal,5.18,8.49,4.82,false,32bff506-efc0-42ef-8286-ed939bf853d7,14,5.18,8.49,4.82
+2026-11-24,5714358,The Blue Spirit,1,tle,Normal,0.91,2.29,1.97,false,d0d1f5b0-f842-40d5-ae51-015eefe68fa1,90,0.91,2.29,1.78
+2026-11-24,5714358,The Grey Havens,1,ltr,Normal,0.27,0.35,0.34,false,9714aa30-1db2-4670-9a0b-72acfc3f703c,443,0.27,0.35,0.2
+2026-11-24,5714358,Loran of the Third Path,1,blc,Normal,5.56,6.99,5.84,false,647e6b32-c755-4700-b151-6a174dbb2bd0,143,0.64,1.79,0.66
+2026-11-24,5714358,"Aang, Swift Savior // Aang and La, Ocean's Fury",1,tla,Foil,6.12,6.99,6.45,false,077a1ad2-6317-4271-b86c-cc999776251d,347,2.04,2.49,2.82
+2026-11-24,5714358,The Cabbage Merchant,1,tle,Foil,34.56,44.99,30.45,false,65ffb473-0a11-44c2-9311-f39d69eef713,203,30.08,37.99,27.0
+2026-11-24,5714358,"Reki, the History of Kamigawa",1,sld,Foil,16.73,16.99,15.85,false,f8fac46f-cf4e-47df-8f20-e1710744630b,263,10.07,12.99,5.0
+2026-11-24,5714358,Great Hall of the Citadel,1,ltr,Foil,0.38,0.99,0.5,false,219c7b57-b62b-42d1-85d9-4b57624a3f54,254,0.36,0.69,0.26
+2026-11-24,5714358,"Osgood, Operation Double",1,who,Normal,0.3,0.49,0.21,false,d180a882-84d9-4e38-8aed-1fc6ecd1df72,191,0.3,0.49,0.21
+2026-11-24,5714358,Graham O'Brien,1,who,Foil,0.91,0.79,0.65,false,2a0410cb-e202-4bad-a6a5-e3e58e574157,987,0.3,0.49,0.15
+2026-11-24,5714358,Dispatch,1,eoc,Normal,0.84,2.29,2.49,false,27554761-8d6e-4de4-8ce3-f31b2c03708c,64,0.35,1.29,2.0
+2026-11-24,5714358,Sol Ring,1,sld,Foil,17.29,20.99,20.77,false,7d698bdd-b485-409d-b03e-c7c7d3fe9a92,1696,1.19,2.79,0.1
+2026-11-24,5714358,Spara's Headquarters,1,psnc,Normal,14.08,20.99,12.0,false,2bc770c4-4dd8-4129-8428-b730acc7bc68,257p,13.17,17.99,11.75
+2026-11-24,5714358,Plaza of Heroes,1,dmu,Foil,10.02,13.99,7.08,false,ea9fc6ee-2205-4f77-8e14-313bfbe68c1e,421,3.93,4.49,3.7
+2026-11-24,5714358,"Mondrak, Glory Dominus",1,one,Normal,45.4,64.99,32.49,true,c633ffe8-2198-4d62-969c-9a44a7ca132d,299,43.2,54.99,32.49
+2026-11-24,5714358,Misty Rainforest,1,zne,Normal,52.05,69.99,36.98,true,6d14bd1a-068e-4338-8014-d5271cb2fe4d,10,35.25,42.99,25.0
+2026-11-24,5714358,Windswept Heath,1,zne,Normal,32.36,32.99,29.99,true,63c59228-c742-4abd-b4d7-9f7880190e95,5,11.81,16.99,0.25
+2026-11-24,5714358,Flooded Strand,1,zne,Normal,31.73,42.99,33.98,true,acc4115b-4bbb-4bb7-81c6-466130982a9c,1,15.85,22.99,8.87
+2026-11-24,5714358,Savannah,1,3ed,Normal,408.23,449.99,300.0,true,5ae71290-c133-406c-8b17-9ea22b437806,285,200.05,249.99,1.0
+2026-11-24,5714358,Tropical Island,1,3ed,Normal,609.86,749.99,350.0,true,a0f5c6bc-65dc-42a1-a62d-a0b101310a1f,288,250.0,249.99,0.26
+2026-11-24,5714358,Tundra,1,3ed,Normal,715.24,699.99,599.0,true,9c9d5f72-e199-4d5b-ae7e-cc5b9bdfae99,289,155.4,279.99,0.13
+2026-11-24,5714358,"David and Carol Marcus, Creators",1,trk,Normal,0.12,0.35,0.19,true,55d21155-647e-4892-b349-86b8d4e6d9b9,193,0.12,0.35,0.13
+2026-11-24,5714358,"Yavimaya, Cradle of Growth",1,ltc,Normal,51.45,59.99,48.99,true,f442758d-4fee-43fa-a2cb-d09c326da149,377,12.78,19.99,5.0
+2026-11-24,5714358,Azorius Signet,1,gk2,Normal,0.42,1.29,0.5,false,37063666-e5e1-4ef0-ac34-2ae47b323dde,24,0.24,0.59,0.2
+2026-11-24,5714358,Talisman of Progress,1,who,Normal,0.42,0.59,0.39,false,c1f67117-3d40-466d-9ea8-f75e1ad10b45,253,0.2,0.49,0.16
+2026-11-24,5714358,"Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun",1,lci,Normal,7.55,9.99,7.28,false,004524bf-b249-4dac-9c10-44d57143feb9,188,7.21,9.99,7.0
+2026-11-24,5714358,"Adrix and Nev, Twincasters",1,c21,Foil,7.2,9.49,6.0,false,d495e084-92ec-4675-b6aa-8ade2775b796,9,1.3,7.99,0.59
+2026-11-24,5714358,Academy Manufactor,1,sld,Foil,15.59,19.99,12.95,false,5f0d37b6-c092-439b-ba8e-e297ad35f155,2195,7.28,9.49,2.8
+2026-11-24,5714358,"Donatello, the Brains",1,tmc,Foil,0.51,0.99,0.59,false,774716f4-d211-497a-be91-69cd700edbf2,2,0.51,0.99,0.46
+2026-11-24,5714358,The Wondrous Wasp,1,msh,Normal,1.49,2.79,1.07,false,484e80a4-1d5f-4c27-98a8-ee2ef9d6cbdc,84,1.49,2.79,1.07
+2026-11-24,5714358,"King T'Challa // Black Panther, Hope Enduring",1,msh,Normal,17.7,18.99,18.89,true,eeedc3a9-e5c0-4234-8653-1a005df095e1,346,8.56,13.99,11.14
+2026-11-24,5714358,"Mister Fantastic, Reed Richards",1,msh,Normal,0.32,0.99,0.31,false,6fa1c908-68cb-4832-b972-f9efe7d55cdb,320,0.29,0.49,0.1
+2026-11-24,5714358,"Tippy-Toe, Terrific Partner",1,sld,Normal,12.34,15.99,16.67,true,d3154e82-3497-47ad-99e5-369cb40ac869,2625,2.56,4.99,3.95
+2026-11-24,5714358,"Justice, Vance Astrovik",1,msh,Normal,0.15,0.35,0.08,false,f1448731-d50e-4b9c-8eb2-3d85c21516c6,61,0.15,0.35,0.08
+2026-11-24,5714358,Oltec Matterweaver,1,big,Normal,5.56,9.49,4.0,true,9e068335-92f9-4ebd-bb00-f4ff741e3d7d,33,0.83,2.29,0.49
+2026-11-24,5714358,"Lita, Little Orphan Amphibian",1,tmt,Foil,0.29,0.49,0.08,false,9fbaabb5-e981-4cbf-888c-46449412711f,19,0.23,0.35,0.06
+2026-11-24,5714358,Sarah Jane Smith,1,who,Foil,1.75,1.49,0.61,false,5f1a86e0-413c-45a0-a4c0-d85fe74361c1,938,0.29,0.49,0.14
+2026-11-24,5714358,"The Theorist, Jace Beleren",1,fra,Normal,38.83,64.99,40.65,true,707f6fbb-94f6-459b-8a21-bec360b7b668,363,36.82,49.99,40.29
+2026-11-24,5714358,Esper Sentinel,1,mh2,Normal,54.37,74.99,41.75,true,676758ee-dac8-4c97-8a62-fff25bcbb6df,328,53.34,74.99,37.26
+2026-11-24,5714358,"Boseiju, Who Endures",1,neo,Normal,47.26,74.99,37.99,true,2135ac5a-187b-4dc9-8f82-34e8d1603416,266,47.26,69.99,34.0
+2026-11-24,5714358,The Reality Chip,1,neo,Normal,3.74,5.99,2.09,false,d859de3a-0be1-4e66-b438-1c3d4ee756cd,74,2.84,5.49,1.5
+2026-11-24,5714358,"Bilbo, Fellow Conspirator",1,hoc,Foil,6.14,9.99,7.96,true,84a95ac5-e2f6-4cf5-bc5e-ac4410168c06,4,5.97,8.99,7.96
+2026-11-24,5714358,The Fourth Doctor,1,who,Foil,1.32,1.49,1.0,false,d7ae754d-33a2-4a07-8b10-fe4dda9af745,1006,0.22,0.99,0.18
+2026-11-24,5714358,Radagast of Rhosgobel,1,hob,Normal,2.02,3.99,2.62,false,5741bbad-a6e4-45e0-b827-73f48c9975bf,136,2.02,3.99,2.62
+2026-11-24,5714358,"Spot, Felis catus",1,trc,Normal,1.9,3.49,2.5,true,ccdc8c1a-68ba-4498-a336-13676d8de107,29,1.9,3.49,2.5
+2026-11-24,5714358,Campsite Cuisine,1,fic,Normal,13.33,24.99,11.99,true,ec6d3402-eed6-44be-a572-9ec0678af403,464,11.37,16.99,11.78
+2026-11-24,5714358,"Appa, Steadfast Guardian",1,tla,Normal,5.57,8.49,5.5,true,829d91e9-4878-4e55-a262-ac0d55b65d4e,10,5.57,7.99,5.5
+2026-11-24,5714358,"Mona Lisa, Ever Adaptable",1,tmc,Normal,2.77,3.49,2.5,false,41f1503b-b056-4f7c-94a1-1e6d78eb209b,126,2.77,3.49,2.5
+2026-11-24,5714358,Inspiring Statuary,1,brr,Normal,0.8,1.99,0.98,true,ef86ff2d-4a31-4414-8f5f-68f0c562296a,85,0.26,0.69,0.08
+2026-11-24,5714358,Avatar's Wrath,1,tla,Normal,3.81,5.99,3.94,true,4811072d-fac0-40dd-a5cf-9694d51b12cf,12,3.81,5.99,3.94
+2026-11-24,5714358,"Dr. Leonard ""Bones"" McCoy",1,trk,Foil,5.78,5.99,2.63,false,cff4d056-1050-4c08-9b8d-9941e20e974e,329,0.24,0.49,0.51
+2026-11-24,5714358,The Queen of Dale,1,hob,Normal,17.55,24.99,19.33,true,7d635dfb-0a48-4965-82d1-d98f943bb28d,217,17.28,22.99,17.98
 2026-11-24,16293254,Great Hall of the Citadel,1,ltr,Normal,0.36,0.69,0.26,false,219c7b57-b62b-42d1-85d9-4b57624a3f54,254,0.36,0.69,0.26
 2026-11-24,16293254,Plaza of Heroes,1,dmu,Normal,4.58,6.49,5.91,true,a2cfcf67-f83c-43af-9e2d-5513fcdde835,252,3.93,4.49,3.7
 2026-11-24,16293254,Arid Archway,1,otj,Normal,1.94,1.49,0.61,false,3f8c8fa2-12ab-4f6a-9f7a-2bc69e9ba024,252,1.93,1.49,0.61
@@ -87,106 +187,6 @@ date,deck_id,card_name,quantity,set_code,finish,price_tcgplayer,price_cardkingdo
 2026-11-24,16293254,Temporal Anomaly,1,trk,Normal,0.18,0.35,0.16,true,d2000219-0a57-48e6-ab0f-d5ad0fb7bcf6,302,0.18,0.35,0.16
 2026-11-24,16293254,Ash Barrens,1,40k,Foil,0.49,,,false,9bf074bb-b1ec-4c26-8d3a-b60ea7fba510,265★,0.19,0.35,0.02
 2026-11-24,16293254,Field of the Dead,1,slc,Normal,26.84,32.99,25.0,false,1e1f470f-1194-4a87-ab6e-3574f5731642,6,26.84,32.99,24.99
-2026-11-24,5714358,Arcane Signet,1,p30m,Etched,,,,false,7910ce6c-5cde-436e-8d28-62723f0fd592,1F★,0.36,0.79,0.09
-2026-11-24,5714358,Peregrin Took,1,ltr,Normal,0.93,0.99,0.15,false,f5baee8d-88e7-4468-94a9-66ca8e2caf15,181,0.35,0.99,0.15
-2026-11-24,5714358,"Lonis, Cryptozoologist",1,mh2,Normal,0.33,0.49,0.13,false,5dfd08da-6717-49ee-94ba-2562224f5baa,204,0.28,0.49,0.13
-2026-11-24,5714358,Samwise Gamgee,1,ltr,Foil,3.75,3.99,2.89,false,a1b6f13e-63d0-46bf-aa57-23c2dbdf62dd,222,1.16,2.29,1.52
-2026-11-24,5714358,Minas Tirith,1,ltr,Foil,6.67,10.99,7.5,false,b38b6760-616f-4b11-8ce7-ac1223c7fd53,256,5.03,9.99,6.63
-2026-11-24,5714358,Pendelhaven,1,ath,Normal,3.9,3.99,2.38,false,7ad62749-b2dc-4b2b-91cb-50175d983039,73,2.16,3.49,0.13
-2026-11-24,5714358,Razortide Bridge,1,brc,Normal,3.04,3.99,1.0,false,390d2c8e-d53f-4590-9a9c-9faad5824ea3,195,0.27,0.69,0.15
-2026-11-24,5714358,Trenzalore Clocktower,1,who,Normal,0.37,0.49,0.25,false,64444549-1198-4465-91d5-02a7903691dc,190,0.37,0.49,0.25
-2026-11-24,5714358,"Venser, Shaper Savant",1,tsr,Normal,1.35,1.49,0.23,false,c08dabd1-c043-4bcf-afa8-271225a099e1,96,0.39,1.49,0.23
-2026-11-24,5714358,"Raff Capashen, Ship's Mage",1,cmm,Normal,0.24,0.35,0.14,false,c681e33b-3d60-4aaa-8186-51866d8b79d1,351,0.2,0.35,0.02
-2026-11-24,5714358,The Shire,1,ltr,Normal,2.59,3.49,2.2,false,248ed7a6-982a-4ff4-ba9b-3c1f47e7605c,345,2.0,2.99,2.01
-2026-11-24,5714358,Rivendell,1,ltr,Normal,1.52,3.99,1.91,false,650fa2f4-2916-427c-a0f9-37e2dbe8e1fc,344,1.37,3.49,1.44
-2026-11-24,5714358,"Eiganjo, Seat of the Empire",1,neo,Foil,7.17,12.99,8.99,false,c375a022-5b57-496d-a802-e4ea8376e9e4,268,6.43,12.99,5.0
-2026-11-24,5714358,Trial of a Time Lord,1,who,Normal,0.33,0.79,0.13,false,52b68ed3-0d26-4334-8d0c-2d28ced8ee4c,29,0.33,0.79,0.13
-2026-11-24,5714358,Talisman of Progress,1,who,Normal,0.42,0.59,0.39,false,c1f67117-3d40-466d-9ea8-f75e1ad10b45,253,0.2,0.49,0.16
-2026-11-24,5714358,"Jaheira, Friend of the Forest",1,clb,Normal,7.55,10.99,6.94,false,feb7ad1b-4466-48f7-b46d-cc83d4e22b51,237,6.04,10.99,6.94
-2026-11-24,5714358,Relic of Legends,1,dmu,Normal,1.31,1.99,1.81,false,64a2809e-c441-416c-90ff-6fb1e246dff3,236,0.63,1.79,0.95
-2026-11-24,5714358,Command Tower,1,who,Normal,0.35,0.59,0.24,false,811d6e5d-c8a3-41ae-910e-e0f194f42292,263,0.2,0.59,0.02
-2026-11-24,5714358,Thornglint Bridge,1,mh2,Normal,0.31,0.35,0.02,false,9d483643-6a11-47f7-a0aa-190e0179525f,258,0.23,0.35,0.02
-2026-11-24,5714358,Braided Net // Braided Quipu,1,lci,Normal,0.3,0.49,0.03,false,68a6ede0-6d57-4e29-9e3b-3569ab7f0bcd,47,0.05,0.49,0.03
-2026-11-24,5714358,Flagstones of Trokair,1,tsr,Normal,2.96,4.99,2.99,false,a0acea27-88de-4d27-8da2-8f82439526a1,278,2.96,4.99,2.99
-2026-11-24,5714358,"Okina, Temple to the Grandfathers",1,chk,Normal,4.81,9.49,3.5,false,ee8cf7aa-388c-47ec-be59-6ba98f3853cb,280,4.81,7.99,3.5
-2026-11-24,5714358,Tolaria,1,leg,Normal,7.75,9.49,11.99,false,d43c01b7-443d-4061-a934-6863d230c9b8,308,7.75,9.49,11.99
-2026-11-24,5714358,"Oko, Thief of Crowns",1,otp,Normal,5.82,9.99,6.22,false,659e8760-c7a8-445d-bfef-7cd445ea67c3,50,5.82,9.99,0.9
-2026-11-24,5714358,Island,1,who,Foil,0.36,0.49,0.49,false,ca98e0fb-5f07-40c8-9958-84379bcdc35c,198,0.08,0.35,0.01
-2026-11-24,5714358,Path of Ancestry,1,who,Normal,0.35,0.35,0.25,false,30c6f93e-e03f-4749-8b30-9375c79f10f4,293,0.22,0.35,0.02
-2026-11-24,5714358,Inventors' Fair,1,sld,Foil,21.23,23.99,15.0,false,39000966-42f7-45ef-b25b-eb4b442f9c8b,1735,14.42,23.99,0.08
-2026-11-24,5714358,"Otawara, Soaring City",1,neo,Normal,29.99,42.99,22.15,false,486d7edc-d983-41f0-8b78-c99aecd72996,271,29.99,42.99,20.95
-2026-11-24,5714358,Tanglepool Bridge,1,mh2,Normal,0.25,0.35,0.09,false,57d2b895-8921-4615-a674-fb85eed5ea3f,257,0.25,0.35,0.06
-2026-11-24,5714358,"Minamo, School at Water's Edge",1,ltc,Foil,49.49,74.99,52.02,false,798c0faf-0de2-4397-8f03-2120d2a35351,369,20.33,24.99,19.22
-2026-11-24,5714358,Haywire Mite,1,dsc,Normal,0.99,1.79,0.98,false,286f4d3a-6b38-404f-aaea-a1d3694f4fe6,247,0.5,1.49,0.59
-2026-11-24,5714358,Gandalf the White,1,ltr,Normal,7.25,9.99,7.77,false,e384c20b-d0c1-4781-9d11-e89e5a6bf3fc,19,7.25,9.99,7.77
-2026-11-24,5714358,"Urza, Lord High Artificer",1,dmr,Normal,17.26,22.99,16.6,false,18b26e53-1fc2-4d07-a56f-9000ed25580d,71,15.99,22.99,15.5
-2026-11-24,5714358,Azorius Signet,1,gk2,Normal,0.42,1.29,0.5,false,37063666-e5e1-4ef0-ac34-2ae47b323dde,24,0.24,0.59,0.2
-2026-11-24,5714358,Fellwar Stone,1,onc,Normal,1.34,1.79,0.99,false,b1914459-b29f-45c3-8def-39d1790a31c3,130,0.79,1.49,0.09
-2026-11-24,5714358,Stridehangar Automaton,1,drc,Normal,6.39,6.99,4.99,false,4c398d11-a2fc-43e2-96e9-7f3383e1a43c,19,6.39,6.99,3.94
-2026-11-24,5714358,Officious Interrogation,1,mkm,Foil,0.22,0.49,0.69,false,a433ca4c-82d0-4e49-bc8e-98e18dd174e9,222,0.2,0.49,0.1
-2026-11-24,5714358,Ancient Den,1,sld,Foil,47.93,,14.95,false,bd07ecf4-c06f-493f-a31e-f4241bf128d2,2883,2.77,5.49,0.13
-2026-11-24,5714358,Seat of the Synod,1,sld,Foil,24.0,,,false,50f0c34d-2106-446e-96fe-a50d124fff5a,2884,0.99,1.99,0.25
-2026-11-24,5714358,Tree of Tales,1,sld,Foil,,,,false,562af1c7-cdcb-4856-99d1-a17387f30864,2887,1.47,3.49,0.77
-2026-11-24,5714358,Academy Ruins,1,2xm,Normal,8.73,8.49,8.09,false,a95b7645-154f-4904-bf71-db7eb24d4df2,309,1.87,3.99,2.97
-2026-11-24,5714358,Ignis Scientia,1,fin,Normal,0.2,0.35,0.05,false,ab4f9721-5b2c-4371-98a5-3f6714265e57,227,0.2,0.35,0.05
-2026-11-24,5714358,Serah Farron // Crystallized Serah,1,fin,Normal,5.45,5.99,2.94,false,7224bb1b-167c-47e5-8314-84aebca054b6,506,0.48,0.59,0.16
-2026-11-24,5714358,Eiganjo Castle,1,sld,Normal,9.84,12.99,10.82,false,b3bc5f0b-81d8-461b-9b0a-ee2e8acc6bf5,2230,9.84,12.99,9.34
-2026-11-24,5714358,"Oboro, Palace in the Clouds",1,ltc,Foil,17.53,32.99,17.49,false,22b7f560-ef32-496e-ac22-e1b725d08a08,371,8.74,32.99,17.49
-2026-11-24,5714358,Forest,1,who,Normal,0.22,0.49,0.2,false,c5c95d38-c135-4059-9379-051b2dd33f9c,204,0.09,0.35,0.02
-2026-11-24,5714358,Plains,1,who,Normal,0.26,0.49,0.17,false,2c4d8ef3-2b26-4376-a00e-ccd58e3ea2eb,196,0.08,0.35,0.02
-2026-11-24,5714358,Sonic Screwdriver,1,sld,Foil,49.53,54.99,45.59,false,7d3b2b9f-623f-4993-ad45-099ec3b570c6,803,3.25,2.49,1.9
-2026-11-24,5714358,Astrid Peth,1,who,Normal,4.42,5.99,2.64,false,4cda3aa2-5fac-4188-bdad-dc369a089d00,11,4.42,5.99,2.64
-2026-11-24,5714358,"James, Wandering Dad // Follow Him",1,pip,Foil,3.27,1.49,0.89,false,7450fcd7-e373-4122-aff5-73d9e8879c6f,903,0.6,0.49,0.16
-2026-11-24,5714358,Spectacular Spider-Man,1,spm,Normal,5.18,8.49,4.82,false,32bff506-efc0-42ef-8286-ed939bf853d7,14,5.18,8.49,4.82
-2026-11-24,5714358,The Blue Spirit,1,tle,Normal,0.91,2.29,1.97,false,d0d1f5b0-f842-40d5-ae51-015eefe68fa1,90,0.91,2.29,1.78
-2026-11-24,5714358,The Grey Havens,1,ltr,Normal,0.27,0.35,0.34,false,9714aa30-1db2-4670-9a0b-72acfc3f703c,443,0.27,0.35,0.2
-2026-11-24,5714358,Loran of the Third Path,1,blc,Normal,5.56,6.99,5.84,false,647e6b32-c755-4700-b151-6a174dbb2bd0,143,0.64,1.79,0.66
-2026-11-24,5714358,"Aang, Swift Savior // Aang and La, Ocean's Fury",1,tla,Foil,6.12,6.99,6.45,false,077a1ad2-6317-4271-b86c-cc999776251d,347,2.04,2.49,2.82
-2026-11-24,5714358,The Cabbage Merchant,1,tle,Foil,34.56,44.99,30.45,false,65ffb473-0a11-44c2-9311-f39d69eef713,203,30.08,37.99,27.0
-2026-11-24,5714358,"Reki, the History of Kamigawa",1,sld,Foil,16.73,16.99,15.85,false,f8fac46f-cf4e-47df-8f20-e1710744630b,263,10.07,12.99,5.0
-2026-11-24,5714358,Great Hall of the Citadel,1,ltr,Foil,0.38,0.99,0.5,false,219c7b57-b62b-42d1-85d9-4b57624a3f54,254,0.36,0.69,0.26
-2026-11-24,5714358,"Osgood, Operation Double",1,who,Normal,0.3,0.49,0.21,false,d180a882-84d9-4e38-8aed-1fc6ecd1df72,191,0.3,0.49,0.21
-2026-11-24,5714358,Graham O'Brien,1,who,Foil,0.91,0.79,0.65,false,2a0410cb-e202-4bad-a6a5-e3e58e574157,987,0.3,0.49,0.15
-2026-11-24,5714358,Dispatch,1,eoc,Normal,0.84,2.29,2.49,false,27554761-8d6e-4de4-8ce3-f31b2c03708c,64,0.35,1.29,2.0
-2026-11-24,5714358,"Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun",1,lci,Normal,7.55,9.99,7.28,false,004524bf-b249-4dac-9c10-44d57143feb9,188,7.21,9.99,7.0
-2026-11-24,5714358,Sol Ring,1,sld,Foil,17.29,20.99,20.77,false,7d698bdd-b485-409d-b03e-c7c7d3fe9a92,1696,1.19,2.79,0.1
-2026-11-24,5714358,Spara's Headquarters,1,psnc,Normal,14.08,20.99,12.0,false,2bc770c4-4dd8-4129-8428-b730acc7bc68,257p,13.17,17.99,11.75
-2026-11-24,5714358,Plaza of Heroes,1,dmu,Foil,10.02,13.99,7.08,false,ea9fc6ee-2205-4f77-8e14-313bfbe68c1e,421,3.93,4.49,3.7
-2026-11-24,5714358,"Mondrak, Glory Dominus",1,one,Normal,45.4,64.99,32.49,true,c633ffe8-2198-4d62-969c-9a44a7ca132d,299,43.2,54.99,32.49
-2026-11-24,5714358,Misty Rainforest,1,zne,Normal,52.05,69.99,36.98,true,6d14bd1a-068e-4338-8014-d5271cb2fe4d,10,35.25,42.99,25.0
-2026-11-24,5714358,Windswept Heath,1,zne,Normal,32.36,32.99,29.99,true,63c59228-c742-4abd-b4d7-9f7880190e95,5,11.81,16.99,0.25
-2026-11-24,5714358,Flooded Strand,1,zne,Normal,31.73,42.99,33.98,true,acc4115b-4bbb-4bb7-81c6-466130982a9c,1,15.85,22.99,8.87
-2026-11-24,5714358,Savannah,1,3ed,Normal,408.23,449.99,300.0,true,5ae71290-c133-406c-8b17-9ea22b437806,285,200.05,249.99,1.0
-2026-11-24,5714358,Tropical Island,1,3ed,Normal,609.86,749.99,350.0,true,a0f5c6bc-65dc-42a1-a62d-a0b101310a1f,288,250.0,249.99,0.26
-2026-11-24,5714358,Tundra,1,3ed,Normal,715.24,699.99,599.0,true,9c9d5f72-e199-4d5b-ae7e-cc5b9bdfae99,289,155.4,279.99,0.13
-2026-11-24,5714358,"David and Carol Marcus, Creators",1,trk,Normal,0.12,0.35,0.19,true,55d21155-647e-4892-b349-86b8d4e6d9b9,193,0.12,0.35,0.13
-2026-11-24,5714358,"Yavimaya, Cradle of Growth",1,ltc,Normal,51.45,59.99,48.99,true,f442758d-4fee-43fa-a2cb-d09c326da149,377,12.78,19.99,5.0
-2026-11-24,5714358,"Adrix and Nev, Twincasters",1,c21,Foil,7.2,9.49,6.0,false,d495e084-92ec-4675-b6aa-8ade2775b796,9,1.3,7.99,0.59
-2026-11-24,5714358,Academy Manufactor,1,sld,Foil,15.59,19.99,12.95,false,5f0d37b6-c092-439b-ba8e-e297ad35f155,2195,7.28,9.49,2.8
-2026-11-24,5714358,"Donatello, the Brains",1,tmc,Foil,0.51,0.99,0.59,false,774716f4-d211-497a-be91-69cd700edbf2,2,0.51,0.99,0.46
-2026-11-24,5714358,The Wondrous Wasp,1,msh,Normal,1.49,2.79,1.07,false,484e80a4-1d5f-4c27-98a8-ee2ef9d6cbdc,84,1.49,2.79,1.07
-2026-11-24,5714358,"King T'Challa // Black Panther, Hope Enduring",1,msh,Normal,17.7,18.99,18.89,true,eeedc3a9-e5c0-4234-8653-1a005df095e1,346,8.56,13.99,11.14
-2026-11-24,5714358,"Mister Fantastic, Reed Richards",1,msh,Normal,0.32,0.99,0.31,false,6fa1c908-68cb-4832-b972-f9efe7d55cdb,320,0.29,0.49,0.1
-2026-11-24,5714358,"Tippy-Toe, Terrific Partner",1,sld,Normal,12.34,15.99,16.67,true,d3154e82-3497-47ad-99e5-369cb40ac869,2625,2.56,4.99,3.95
-2026-11-24,5714358,"Justice, Vance Astrovik",1,msh,Normal,0.15,0.35,0.08,false,f1448731-d50e-4b9c-8eb2-3d85c21516c6,61,0.15,0.35,0.08
-2026-11-24,5714358,Oltec Matterweaver,1,big,Normal,5.56,9.49,4.0,true,9e068335-92f9-4ebd-bb00-f4ff741e3d7d,33,0.83,2.29,0.49
-2026-11-24,5714358,"Lita, Little Orphan Amphibian",1,tmt,Foil,0.29,0.49,0.08,false,9fbaabb5-e981-4cbf-888c-46449412711f,19,0.23,0.35,0.06
-2026-11-24,5714358,Sarah Jane Smith,1,who,Foil,1.75,1.49,0.61,false,5f1a86e0-413c-45a0-a4c0-d85fe74361c1,938,0.29,0.49,0.14
-2026-11-24,5714358,"The Theorist, Jace Beleren",1,fra,Normal,38.83,64.99,40.65,true,707f6fbb-94f6-459b-8a21-bec360b7b668,363,36.82,49.99,40.29
-2026-11-24,5714358,Esper Sentinel,1,mh2,Normal,54.37,74.99,41.75,true,676758ee-dac8-4c97-8a62-fff25bcbb6df,328,53.34,74.99,37.26
-2026-11-24,5714358,"Boseiju, Who Endures",1,neo,Normal,47.26,74.99,37.99,true,2135ac5a-187b-4dc9-8f82-34e8d1603416,266,47.26,69.99,34.0
-2026-11-24,5714358,The Reality Chip,1,neo,Normal,3.74,5.99,2.09,false,d859de3a-0be1-4e66-b438-1c3d4ee756cd,74,2.84,5.49,1.5
-2026-11-24,5714358,The Fourth Doctor,1,who,Foil,1.32,1.49,1.0,false,d7ae754d-33a2-4a07-8b10-fe4dda9af745,1006,0.22,0.99,0.18
-2026-11-24,5714358,"Mutagen Man, Living Ooze",1,tmt,Foil,3.54,6.99,2.69,false,3630d2ad-9bfe-4e86-addb-c4b620b52b14,273,1.68,3.99,0.9
-2026-11-24,5714358,Radagast of Rhosgobel,1,hob,Normal,2.02,3.99,2.62,false,5741bbad-a6e4-45e0-b827-73f48c9975bf,136,2.02,3.99,2.62
-2026-11-24,5714358,"Spot, Felis catus",1,trc,Normal,1.9,3.49,2.5,true,ccdc8c1a-68ba-4498-a336-13676d8de107,29,1.9,3.49,2.5
-2026-11-24,5714358,Campsite Cuisine,1,fic,Normal,13.33,24.99,11.99,true,ec6d3402-eed6-44be-a572-9ec0678af403,464,11.37,16.99,11.78
-2026-11-24,5714358,"Appa, Steadfast Guardian",1,tla,Normal,5.57,8.49,5.5,true,829d91e9-4878-4e55-a262-ac0d55b65d4e,10,5.57,7.99,5.5
-2026-11-24,5714358,"Mona Lisa, Ever Adaptable",1,tmc,Normal,2.77,3.49,2.5,false,41f1503b-b056-4f7c-94a1-1e6d78eb209b,126,2.77,3.49,2.5
-2026-11-24,5714358,Inspiring Statuary,1,brr,Normal,0.8,1.99,0.98,true,ef86ff2d-4a31-4414-8f5f-68f0c562296a,85,0.26,0.69,0.08
-2026-11-24,5714358,Avatar's Wrath,1,tla,Normal,3.81,5.99,3.94,true,4811072d-fac0-40dd-a5cf-9694d51b12cf,12,3.81,5.99,3.94
-2026-11-24,5714358,"Dr. Leonard ""Bones"" McCoy",1,trk,Foil,5.78,5.99,2.63,false,cff4d056-1050-4c08-9b8d-9941e20e974e,329,0.24,0.49,0.51
-2026-11-24,5714358,The Queen of Dale,1,hob,Normal,17.55,24.99,19.33,true,7d635dfb-0a48-4965-82d1-d98f943bb28d,217,17.28,22.99,17.98
 2026-11-24,17493352,Battlefield Forge,1,c21,Normal,0.42,0.49,0.52,false,24bf3126-d962-40da-a2bb-84faf7cae05a,278,0.27,0.49,0.18
 2026-11-24,17493352,"Delney, Streetwise Lookout",1,mkm,Normal,35.01,44.99,33.49,false,be219928-3d0e-4d00-b124-152ce8a8c13b,12,33.62,44.99,29.5
 2026-11-24,17493352,Path of Ancestry,1,m3c,Normal,0.24,0.35,0.1,false,06869588-eb99-43b4-9521-948ca9f27c3e,363,0.22,0.35,0.02
