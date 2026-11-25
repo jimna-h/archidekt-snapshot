@@ -79,27 +79,38 @@ function drawChart(pts, changes = []) {
 // ---------- biggest movers ----------
 function renderMovers(d) {
   $("moverWindow").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.w === moverWindow));
+  $("moverMode").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === moverMode));
   const from = dayOnOrAfter(addDays(latestDate, -moverWindow));
   const box = $("movers");
   if (!from || from === latestDate) { box.innerHTML = `<div class="swaps-empty">Needs more than a day of history.</div>`; return; }
   const seen = new Set(), list = [];
   for (const r of d.rows) {
+    if (isProxy(r)) continue;
     const k = printKey(r); if (seen.has(k)) continue; seen.add(k);
-    const now = priceIn(r), then = priceOn(from, k);
+    const now = priceIn(r);
+    // A real copy that replaced a proxy starts its mover history when the real copy was added.
+    const realSince = d.log.filter(x => printKey(x) === k && !isProxy(x) && x.qty > 0).map(x => x.date).sort().at(-1);
+    const baseline = realSince || from;
+    const then = priceOn(baseline, k);
     if (now == null || then == null || Math.abs(now - then) < 0.005) continue;
-    list.push({ name: r.card_name, set: r.set_code, finish: r.finish, change: now - then, pct: (now - then) / then * 100 });
+    list.push({ name: r.card_name, set: r.set_code, finish: r.finish, change: now - then, pct: then ? (now - then) / then * 100 : 0 });
   }
-  const up = list.filter(c => c.change > 0).sort((a, b) => b.change - a.change).slice(0, 6);
-  const down = list.filter(c => c.change < 0).sort((a, b) => a.change - b.change).slice(0, 6);
+  const metric = c => moverMode === "percent" ? c.pct : c.change;
+  const up = list.filter(c => metric(c) > 0).sort((a, b) => metric(b) - metric(a)).slice(0, 6);
+  const down = list.filter(c => metric(c) < 0).sort((a, b) => metric(a) - metric(b)).slice(0, 6);
   const col = (title, l) => `<div><div class="mini-h">${title}</div>${l.length ? `<ol>${l.map(c => `
     <li><span class="nm"><span class="card-name">${esc(c.name)}</span><span class="printing">${esc(c.set.toUpperCase())}${c.finish !== "Normal" ? ", " + esc(c.finish.toLowerCase()) : ""}</span></span>
-      <span class="num ${tone(c.change)}">${signed(c.change)}</span><span class="pct ${tone(c.change)}">${c.pct > 0 ? "+" : ""}${c.pct.toFixed(0)}%</span></li>`).join("")}</ol>`
+      <span class="num ${tone(c.change)}">${moverMode === "percent" ? `${c.pct > 0 ? "+" : ""}${c.pct.toFixed(0)}%` : signed(c.change)}</span><span class="pct ${tone(c.change)}">${moverMode === "percent" ? signed(c.change) : `${c.pct > 0 ? "+" : ""}${c.pct.toFixed(0)}%`}</span></li>`).join("")}</ol>`
     : `<div class="muted">None</div>`}</div>`;
   box.innerHTML = col(`Up since ${shortDate(from)}, per copy`, up) + col(`Down since ${shortDate(from)}, per copy`, down);
 }
 $("moverWindow").addEventListener("click", e => {
   const b = e.target.closest("button[data-w]"); if (!b) return;
   moverWindow = +b.dataset.w; renderMovers(decks.get(selected)); syncUrl();
+});
+$("moverMode").addEventListener("click", e => {
+  const b = e.target.closest("button[data-mode]"); if (!b) return;
+  moverMode = b.dataset.mode; renderMovers(decks.get(selected)); syncUrl();
 });
 
 // ---------- swaps ----------

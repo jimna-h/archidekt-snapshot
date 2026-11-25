@@ -42,6 +42,7 @@ function buildUrl() {
     if (tagFilter) q.set("show", tagFilter === "Proxied" ? "proxied" : "paper");
     if ($("search").value.trim()) q.set("q", $("search").value.trim());
     if (moverWindow !== 30) q.set("movers", moverWindow);
+    if (moverMode !== "amount") q.set("moveBy", moverMode);
     if (sortStr(deckSort) !== "name") q.set("sort", sortStr(deckSort));
     if (sortStr(cardSort) !== "-total") q.set("cards", sortStr(cardSort));
   } else if (view === "tokensView") {
@@ -94,7 +95,7 @@ function readUrl() {
   source = SLUG_PRICE[q.get("price")] || "price_tcgplayer";
   $("source").value = source;
   // reset everything, then apply what the link specifies
-  selected = ALL; asOf = null; tagFilter = null; moverWindow = 30; $("search").value = "";
+  selected = ALL; asOf = null; tagFilter = null; moverWindow = 30; moverMode = "amount"; $("search").value = "";
   Object.assign(deckSort, { k: "name", dir: 1 }); Object.assign(cardSort, { k: "total", dir: -1 });
   Object.assign(ix, { search: "", subtype: "", sets: [], match: "any", commanders: "", gc: "", pmin: null, pmax: null, mvmin: null, mvmax: null, proxies: "", layout: "table", version: "" });
   ix.colors = new Map(); ix.types = new Map(); ix.skip = new Set(); ix.stores = new Set(["tcg", "ck"]); Object.assign(ixSort, { k: "qty", dir: -1 });
@@ -110,6 +111,7 @@ function readUrl() {
     tagFilter = q.get("show") === "proxied" ? "Proxied" : q.get("show") === "paper" ? "Paper" : null;
     $("search").value = q.get("q") || "";
     if (q.get("movers") === "7") moverWindow = 7;
+    if (q.get("moveBy") === "percent") moverMode = "percent";
     readSort(q.get("sort"), deckSort); readSort(q.get("cards"), cardSort);
   } else if (view === "tokensView") {
     tk.search = (q.get("q") || "").toLowerCase();

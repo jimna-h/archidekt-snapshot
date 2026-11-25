@@ -131,7 +131,7 @@ let tokenProxies = new Map();
 let cardInfo = new Map(), commandersOf = new Map(), commanderArt = new Map(), deckMeta = new Map();
 const priceDays = new Map();         // date -> Map(printKey -> row)   (loaded months only)
 const loadedMonths = new Set();
-let selected = ALL, tagFilter = null, asOf = null, moverWindow = 30, view = "pricesView";
+let selected = ALL, tagFilter = null, asOf = null, moverWindow = 30, moverMode = "amount", view = "pricesView";
 let deckSort = { k: "name", dir: 1 }, cardSort = { k: "total", dir: -1 };
 
 const realDecks = () => [...decks.values()].filter(d => !d.virtual);
